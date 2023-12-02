@@ -1,0 +1,2689 @@
+---QUESTION_1---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Robert: Claudia, you've always been the idealist. But let's be practical for once, shall we?
+Claudia: Practicality, according to you, means bulldozing everything in sight.
+Robert: It's called progress, Claudia. It's how the world works.
+Claudia: Not my world, Robert.
+Robert: Your world? You mean this...this sanctuary of yours?
+Claudia: It's more than a sanctuary. It's a testament to our parents' love for nature.
+[End dialogue]
+
+At the end of this dialogue, Robert would feel...
+Remorseful
+Indifferent
+Affectionate
+Annoyed
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Remorseful: <score>
+Indifferent: <score>
+Affectionate: <score>
+Annoyed: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Remorseful: <revised score>
+Indifferent: <revised score>
+Affectionate: <revised score>
+Annoyed: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_2---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Robert: Claudia, you've always been the idealist. But let's be practical for once, shall we?
+Claudia: Practicality, according to you, means bulldozing everything in sight.
+Robert: It's called progress, Claudia. It's how the world works.
+Claudia: Not my world, Robert.
+Robert: Your world? You mean this...this sanctuary of yours?
+Claudia: It's more than a sanctuary. It's a testament to our parents' love for nature.
+Robert: Sentimentality won't pay the bills, Claudia.
+Claudia: And money won't bring back the trees you've felled, Robert.
+Robert: This isn't about trees, Claudia. It's about survival. My company's survival.
+[End dialogue]
+
+At the end of this dialogue, Claudia would feel...
+Sympathetic
+Incredulous
+Intimidated
+Defensive
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Sympathetic: <score>
+Incredulous: <score>
+Intimidated: <score>
+Defensive: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Sympathetic: <revised score>
+Incredulous: <revised score>
+Intimidated: <revised score>
+Defensive: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_3---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Robert: Claudia, you've always been the idealist. But let's be practical for once, shall we?
+Claudia: Practicality, according to you, means bulldozing everything in sight.
+Robert: It's called progress, Claudia. It's how the world works.
+Claudia: Not my world, Robert.
+Robert: Your world? You mean this...this sanctuary of yours?
+Claudia: It's more than a sanctuary. It's a testament to our parents' love for nature.
+Robert: Sentimentality won't pay the bills, Claudia.
+Claudia: And money won't bring back the trees you've felled, Robert.
+Robert: This isn't about trees, Claudia. It's about survival. My company's survival.
+Claudia: And what of the survival of the creatures that call my land home?
+Robert: They'll adapt. They always do.
+Claudia: Not this time, Robert. I won't let you.
+Robert: You don't have a choice, Claudia. If you don't sell, I'll have it seized.
+[End dialogue]
+
+At the end of this dialogue, Claudia would feel...
+Hopeful
+Threatened
+Pity
+Defiant
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Hopeful: <score>
+Threatened: <score>
+Pity: <score>
+Defiant: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Hopeful: <revised score>
+Threatened: <revised score>
+Pity: <revised score>
+Defiant: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_4---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Ellie: So, Gabe, are you ready to lose?
+Gabe: I don't lose, Ellie. I learn.
+Ellie: Ah, the eternal student. Must be nice living in a world where failure doesn't exist.
+Gabe: Better than living in a world where success is the only thing that matters.
+Ellie: And what's wrong with wanting to succeed? 
+[End dialogue]
+
+At the end of this dialogue, Gabe would feel...
+Defensive
+Empathy
+Fear
+Condescension
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Defensive: <score>
+Empathy: <score>
+Fear: <score>
+Condescension: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Defensive: <revised score>
+Empathy: <revised score>
+Fear: <revised score>
+Condescension: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_5---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Ellie: So, Gabe, are you ready to lose?
+Gabe: I don't lose, Ellie. I learn.
+Ellie: Ah, the eternal student. Must be nice living in a world where failure doesn't exist.
+Gabe: Better than living in a world where success is the only thing that matters.
+Ellie: And what's wrong with wanting to succeed? 
+Gabe: Nothing. But when it becomes an obsession, it blinds you.
+Ellie: And who says I'm obsessed?
+Gabe: You don't have to say it, Ellie. It's in your eyes, your work, your every breath.
+[End dialogue]
+
+At the end of this dialogue, Ellie would feel...
+Angry
+Insecure
+Confident
+Indifferent
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Angry: <score>
+Insecure: <score>
+Confident: <score>
+Indifferent: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Angry: <revised score>
+Insecure: <revised score>
+Confident: <revised score>
+Indifferent: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_6---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Ellie: So, Gabe, are you ready to lose?
+Gabe: I don't lose, Ellie. I learn.
+Ellie: Ah, the eternal student. Must be nice living in a world where failure doesn't exist.
+Gabe: Better than living in a world where success is the only thing that matters.
+Ellie: And what's wrong with wanting to succeed? 
+Gabe: Nothing. But when it becomes an obsession, it blinds you.
+Ellie: And who says I'm obsessed?
+Gabe: You don't have to say it, Ellie. It's in your eyes, your work, your every breath.
+Ellie: And what about you, Gabe? What's in your eyes? Fear? Doubt? Or just a whole lot of nothing?
+Gabe: I guess you'll never know.
+Ellie: I guess I won't. And maybe I don't want to.
+Gabe: Maybe you don't. But maybe you do. Maybe you're just too scared to admit it.
+Ellie: And maybe you're just too arrogant to see that not everyone is as fascinated by you as you are.
+[End dialogue]
+
+At the end of this dialogue, Gabe would feel...
+Offended
+Unperturbed
+Amused
+Guilt
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Offended: <score>
+Unperturbed: <score>
+Amused: <score>
+Guilt: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Offended: <revised score>
+Unperturbed: <revised score>
+Amused: <revised score>
+Guilt: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_7---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Mike: You've been working too much, Elise.
+Elise: And you've been reading too much. We all have our vices, Mike.
+Mike: It's not a vice, it's a concern. You're burning yourself out.
+Elise: Oh, so now you're my therapist? 
+Mike: No, I'm your friend. And as your friend, I'm worried about you.
+Elise: Well, 'friend', I didn't ask for your worry.
+Mike: You never do, Elise. That's the problem.
+Elise: And what's that supposed to mean?
+Mike: Nothing. Forget it.
+Elise: No, say it. You've got something on your mind, spill it.
+Mike: It's just... you don't let people in, Elise. You push everyone away.
+Elise: And you're the expert on letting people in? You, who hides behind his books and his quiet little bookstore?
+[End dialogue]
+
+At the end of this dialogue, Mike would feel...
+Embarrassment
+Anger
+Indifference
+Defensiveness
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Embarrassment: <score>
+Anger: <score>
+Indifference: <score>
+Defensiveness: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Embarrassment: <revised score>
+Anger: <revised score>
+Indifference: <revised score>
+Defensiveness: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_8---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Mike: You've been working too much, Elise.
+Elise: And you've been reading too much. We all have our vices, Mike.
+Mike: It's not a vice, it's a concern. You're burning yourself out.
+Elise: Oh, so now you're my therapist? 
+Mike: No, I'm your friend. And as your friend, I'm worried about you.
+Elise: Well, 'friend', I didn't ask for your worry.
+Mike: You never do, Elise. That's the problem.
+Elise: And what's that supposed to mean?
+Mike: Nothing. Forget it.
+Elise: No, say it. You've got something on your mind, spill it.
+Mike: It's just... you don't let people in, Elise. You push everyone away.
+Elise: And you're the expert on letting people in? You, who hides behind his books and his quiet little bookstore?
+Mike: That's not fair, Elise.
+Elise: What's not fair is you acting like you know what's best for me.
+Mike: I never said that. I'm just...trying to help.
+Elise: Well, maybe I don't want your help. Did you ever think of that?
+[End dialogue]
+
+At the end of this dialogue, Elise would feel...
+Liberated
+Offended
+Uninterested
+Defensive
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Liberated: <score>
+Offended: <score>
+Uninterested: <score>
+Defensive: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Liberated: <revised score>
+Offended: <revised score>
+Uninterested: <revised score>
+Defensive: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_9---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Mike: You've been working too much, Elise.
+Elise: And you've been reading too much. We all have our vices, Mike.
+Mike: It's not a vice, it's a concern. You're burning yourself out.
+Elise: Oh, so now you're my therapist? 
+Mike: No, I'm your friend. And as your friend, I'm worried about you.
+Elise: Well, 'friend', I didn't ask for your worry.
+Mike: You never do, Elise. That's the problem.
+Elise: And what's that supposed to mean?
+Mike: Nothing. Forget it.
+Elise: No, say it. You've got something on your mind, spill it.
+Mike: It's just... you don't let people in, Elise. You push everyone away.
+Elise: And you're the expert on letting people in? You, who hides behind his books and his quiet little bookstore?
+Mike: That's not fair, Elise.
+Elise: What's not fair is you acting like you know what's best for me.
+Mike: I never said that. I'm just...trying to help.
+Elise: Well, maybe I don't want your help. Did you ever think of that?
+Mike: You're right. I'll stop.
+Elise: Good. Maybe now we can go back to being friends.
+Mike: Yeah, friends.
+Elise: Is there a problem with that?
+Mike: No. No problem at all.
+[End dialogue]
+
+At the end of this dialogue, Mike would feel...
+Relieved
+Resigned
+Joyful
+Indignant
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Relieved: <score>
+Resigned: <score>
+Joyful: <score>
+Indignant: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Relieved: <revised score>
+Resigned: <revised score>
+Joyful: <revised score>
+Indignant: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_10---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Harold: I don't understand why you're so worked up about this election. It's not like the world is going to end if your candidate doesn't win.
+Lorelei: That's not the point, Harold. It's about what this election represents. It's about the future of our planet, our society.
+Harold: And you think your candidate has all the answers? 
+Lorelei: I believe they're at least trying to address the issues that matter. Climate change, social justice, healthcare...
+[End dialogue]
+
+At the end of this dialogue, Harold would feel...
+Disbelief
+Irritation
+Admiration
+Indifference
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Disbelief: <score>
+Irritation: <score>
+Admiration: <score>
+Indifference: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Disbelief: <revised score>
+Irritation: <revised score>
+Admiration: <revised score>
+Indifference: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_11---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Harold: I don't understand why you're so worked up about this election. It's not like the world is going to end if your candidate doesn't win.
+Lorelei: That's not the point, Harold. It's about what this election represents. It's about the future of our planet, our society.
+Harold: And you think your candidate has all the answers? 
+Lorelei: I believe they're at least trying to address the issues that matter. Climate change, social justice, healthcare...
+Harold: And you think throwing money at these issues will solve them?
+Lorelei: It's not about throwing money, Harold. It's about investing in solutions, in our future.
+Harold: And who's going to pay for all these grand plans? Us, the taxpayers. 
+Lorelei: Isn't that the point of taxes? To fund public services and infrastructure?
+Harold: Yes, but there's a limit. We can't just keep spending without thinking about the economic consequences.
+[End dialogue]
+
+At the end of this dialogue, Lorelei would feel...
+Frustration
+Apathy
+Fear
+Agreement
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Frustration: <score>
+Apathy: <score>
+Fear: <score>
+Agreement: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Frustration: <revised score>
+Apathy: <revised score>
+Fear: <revised score>
+Agreement: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_12---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Harold: I don't understand why you're so worked up about this election. It's not like the world is going to end if your candidate doesn't win.
+Lorelei: That's not the point, Harold. It's about what this election represents. It's about the future of our planet, our society.
+Harold: And you think your candidate has all the answers? 
+Lorelei: I believe they're at least trying to address the issues that matter. Climate change, social justice, healthcare...
+Harold: And you think throwing money at these issues will solve them?
+Lorelei: It's not about throwing money, Harold. It's about investing in solutions, in our future.
+Harold: And who's going to pay for all these grand plans? Us, the taxpayers. 
+Lorelei: Isn't that the point of taxes? To fund public services and infrastructure?
+Harold: Yes, but there's a limit. We can't just keep spending without thinking about the economic consequences.
+Lorelei: And we can't keep ignoring the environmental and social consequences of our actions either.
+Harold: I'm not suggesting we ignore them, Lorelei. I'm just saying we need to be realistic about what we can afford.
+Lorelei: And I'm saying we can't afford not to act. The cost of inaction is far greater.
+Harold: And who decides what action is necessary? The government? The same government that can't even balance a budget?
+[End dialogue]
+
+At the end of this dialogue, Lorelei would feel...
+Dismay
+Exasperation
+Amusement
+Acceptance
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Dismay: <score>
+Exasperation: <score>
+Amusement: <score>
+Acceptance: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Dismay: <revised score>
+Exasperation: <revised score>
+Amusement: <revised score>
+Acceptance: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_13---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Grayson: You know, Doc, I've been watching your work for years. All that time and money spent on Mars, and what have you got to show for it? 
+Dr. Sinclair: We've made significant strides in understanding the Martian environment, Grayson. It's not about instant results. 
+Grayson: Or maybe it's about keeping the public distracted while you hide the real truth.
+Dr. Sinclair: And what truth would that be, Mr. Hawk?
+Grayson: That there are aliens out there, and you people at NASA know it.
+[End dialogue]
+
+At the end of this dialogue, Dr. Sinclair would feel...
+Surprised
+Amused
+Offended
+Skeptical
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Surprised: <score>
+Amused: <score>
+Offended: <score>
+Skeptical: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Surprised: <revised score>
+Amused: <revised score>
+Offended: <revised score>
+Skeptical: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_14---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Grayson: You know, Doc, I've been watching your work for years. All that time and money spent on Mars, and what have you got to show for it? 
+Dr. Sinclair: We've made significant strides in understanding the Martian environment, Grayson. It's not about instant results. 
+Grayson: Or maybe it's about keeping the public distracted while you hide the real truth.
+Dr. Sinclair: And what truth would that be, Mr. Hawk?
+Grayson: That there are aliens out there, and you people at NASA know it.
+Dr. Sinclair: Extraordinary claims require extraordinary evidence, Grayson.
+Grayson: Oh, I have evidence. I've got testimonials, photos, documents...
+Dr. Sinclair: Anecdotes and blurry photos aren't evidence, Grayson. They're stories. 
+Grayson: Stories that you're too afraid to believe.
+[End dialogue]
+
+At the end of this dialogue, Grayson would feel...
+Accusatory
+Victimized
+Superior
+Understanding
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Accusatory: <score>
+Victimized: <score>
+Superior: <score>
+Understanding: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Accusatory: <revised score>
+Victimized: <revised score>
+Superior: <revised score>
+Understanding: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_15---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Grayson: You know, Doc, I've been watching your work for years. All that time and money spent on Mars, and what have you got to show for it? 
+Dr. Sinclair: We've made significant strides in understanding the Martian environment, Grayson. It's not about instant results. 
+Grayson: Or maybe it's about keeping the public distracted while you hide the real truth.
+Dr. Sinclair: And what truth would that be, Mr. Hawk?
+Grayson: That there are aliens out there, and you people at NASA know it.
+Dr. Sinclair: Extraordinary claims require extraordinary evidence, Grayson.
+Grayson: Oh, I have evidence. I've got testimonials, photos, documents...
+Dr. Sinclair: Anecdotes and blurry photos aren't evidence, Grayson. They're stories. 
+Grayson: Stories that you're too afraid to believe.
+Dr. Sinclair: No, stories that don't hold up under scientific scrutiny. 
+Grayson: You're just a puppet, Sinclair. They've got you so convinced of your 'facts' that you can't see the truth.
+Dr. Sinclair: And you're a sensationalist, Hawk. You've built a career on paranoia and misinformation.
+Grayson: At least I'm not lying to the public.
+[End dialogue]
+
+At the end of this dialogue, Grayson would feel...
+Justified
+Inferior
+Triumphant
+Worried
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Justified: <score>
+Inferior: <score>
+Triumphant: <score>
+Worried: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Justified: <revised score>
+Inferior: <revised score>
+Triumphant: <revised score>
+Worried: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_16---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Grayson: You know, Doc, I've been watching your work for years. All that time and money spent on Mars, and what have you got to show for it? 
+Dr. Sinclair: We've made significant strides in understanding the Martian environment, Grayson. It's not about instant results. 
+Grayson: Or maybe it's about keeping the public distracted while you hide the real truth.
+Dr. Sinclair: And what truth would that be, Mr. Hawk?
+Grayson: That there are aliens out there, and you people at NASA know it.
+Dr. Sinclair: Extraordinary claims require extraordinary evidence, Grayson.
+Grayson: Oh, I have evidence. I've got testimonials, photos, documents...
+Dr. Sinclair: Anecdotes and blurry photos aren't evidence, Grayson. They're stories. 
+Grayson: Stories that you're too afraid to believe.
+Dr. Sinclair: No, stories that don't hold up under scientific scrutiny. 
+Grayson: You're just a puppet, Sinclair. They've got you so convinced of your 'facts' that you can't see the truth.
+Dr. Sinclair: And you're a sensationalist, Hawk. You've built a career on paranoia and misinformation.
+Grayson: At least I'm not lying to the public.
+Dr. Sinclair: I'm not lying, Grayson. I'm presenting facts, not theories.
+Grayson: Your 'facts' are just what they want you to believe. 
+Dr. Sinclair: And your theories are what your followers want to hear. It's a comforting narrative, isn't it? The idea that there's some grand conspiracy, that you're the hero fighting against it.
+Grayson: And you're just a cog in the machine, Sinclair. You're part of the problem.
+Dr. Sinclair: I'm part of the solution, Grayson. I'm trying to educate people, not feed them fantasies.
+Grayson: You're the fantasy, Sinclair. You're living in a dream world.
+Dr. Sinclair: And you're living in a nightmare of your own making. I'm done here.
+[End dialogue]
+
+At the end of this dialogue, Dr. Sinclair would feel...
+Relieved
+Angry
+Sympathetic
+Frustrated
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Relieved: <score>
+Angry: <score>
+Sympathetic: <score>
+Frustrated: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Relieved: <revised score>
+Angry: <revised score>
+Sympathetic: <revised score>
+Frustrated: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_17---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Elliot: Alex, there's something I need to tell you.
+Alex: Sure, man. What's up?
+Elliot: I... I've been struggling with something. Something I can't keep to myself anymore.
+Alex: Okay, you're starting to worry me. What is it?
+Elliot: It's about... me. And my feelings. My feelings for... someone.
+[End dialogue]
+
+At the end of this dialogue, Alex would feel...
+Panic
+Curiosity
+Indifference
+Embarrassment
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Panic: <score>
+Curiosity: <score>
+Indifference: <score>
+Embarrassment: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Panic: <revised score>
+Curiosity: <revised score>
+Indifference: <revised score>
+Embarrassment: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_18---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Elliot: Alex, there's something I need to tell you.
+Alex: Sure, man. What's up?
+Elliot: I... I've been struggling with something. Something I can't keep to myself anymore.
+Alex: Okay, you're starting to worry me. What is it?
+Elliot: It's about... me. And my feelings. My feelings for... someone.
+Alex: Well, who is it? Sophie? She's pretty cute.
+Elliot: No, it's not Sophie. It's... It's you, Alex.
+[End dialogue]
+
+At the end of this dialogue, Upon hearing this, Alex would feel...
+Flattered
+Confused
+Annoyed
+Relieved
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Flattered: <score>
+Confused: <score>
+Annoyed: <score>
+Relieved: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Flattered: <revised score>
+Confused: <revised score>
+Annoyed: <revised score>
+Relieved: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_19---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Elliot: Alex, there's something I need to tell you.
+Alex: Sure, man. What's up?
+Elliot: I... I've been struggling with something. Something I can't keep to myself anymore.
+Alex: Okay, you're starting to worry me. What is it?
+Elliot: It's about... me. And my feelings. My feelings for... someone.
+Alex: Well, who is it? Sophie? She's pretty cute.
+Elliot: No, it's not Sophie. It's... It's you, Alex.
+Alex: Me? What do you mean?
+Elliot: I mean I have feelings for you. More than just friendship.
+Alex: But... I'm with Sophie.
+[End dialogue]
+
+At the end of this dialogue, Elliot would feel...
+Resigned
+Angry
+Hopeful
+Embarrassed
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Resigned: <score>
+Angry: <score>
+Hopeful: <score>
+Embarrassed: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Resigned: <revised score>
+Angry: <revised score>
+Hopeful: <revised score>
+Embarrassed: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_20---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Elliot: Alex, there's something I need to tell you.
+Alex: Sure, man. What's up?
+Elliot: I... I've been struggling with something. Something I can't keep to myself anymore.
+Alex: Okay, you're starting to worry me. What is it?
+Elliot: It's about... me. And my feelings. My feelings for... someone.
+Alex: Well, who is it? Sophie? She's pretty cute.
+Elliot: No, it's not Sophie. It's... It's you, Alex.
+Alex: Me? What do you mean?
+Elliot: I mean I have feelings for you. More than just friendship.
+Alex: But... I'm with Sophie.
+Elliot: I know. And I'm sorry. But I can't help how I feel.
+Alex: Elliot, I... I don't know what to say.
+Elliot: You don't have to say anything. I just... I needed you to know.
+Alex: I... I need some time to think.
+[End dialogue]
+
+At the end of this dialogue, Elliot's emotional state could be best described as...
+Impatient
+Reassured
+Fearful
+Defensive
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Impatient: <score>
+Reassured: <score>
+Fearful: <score>
+Defensive: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Impatient: <revised score>
+Reassured: <revised score>
+Fearful: <revised score>
+Defensive: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_21---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Eva: You know, I didn't expect to see you here, Nox.
+Nox: And I didn't expect you to show up, Eva. Not after everything.
+Eva: Oh, so you're still playing the victim, huh?
+Nox: I'm not playing anything, Eva. I'm just trying to move forward.
+Eva: By hiding in your studio, producing for kids who can't even hold a guitar properly?
+[End dialogue]
+
+At the end of this dialogue, Nox would feel...
+Indifferent
+Offended
+Empowered
+Guilty
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Indifferent: <score>
+Offended: <score>
+Empowered: <score>
+Guilty: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Indifferent: <revised score>
+Offended: <revised score>
+Empowered: <revised score>
+Guilty: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_22---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Eva: You know, I didn't expect to see you here, Nox.
+Nox: And I didn't expect you to show up, Eva. Not after everything.
+Eva: Oh, so you're still playing the victim, huh?
+Nox: I'm not playing anything, Eva. I'm just trying to move forward.
+Eva: By hiding in your studio, producing for kids who can't even hold a guitar properly?
+Nox: At least I'm not tearing them apart in my articles.
+Eva: That's my job, Nox. I critique. I analyze. I don't coddle.
+Nox: You always were good at tearing things apart, weren't you?
+[End dialogue]
+
+At the end of this dialogue, Eva would feel...
+Justified
+Apologetic
+Angry
+Regretful
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Justified: <score>
+Apologetic: <score>
+Angry: <score>
+Regretful: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Justified: <revised score>
+Apologetic: <revised score>
+Angry: <revised score>
+Regretful: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_23---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Eva: You know, I didn't expect to see you here, Nox.
+Nox: And I didn't expect you to show up, Eva. Not after everything.
+Eva: Oh, so you're still playing the victim, huh?
+Nox: I'm not playing anything, Eva. I'm just trying to move forward.
+Eva: By hiding in your studio, producing for kids who can't even hold a guitar properly?
+Nox: At least I'm not tearing them apart in my articles.
+Eva: That's my job, Nox. I critique. I analyze. I don't coddle.
+Nox: You always were good at tearing things apart, weren't you?
+Eva: And you were always good at holding on to things that were already dead.
+Nox: Is that what we were to you? Dead?
+Eva: We were dying, Nox. And you were too blind to see it.
+[End dialogue]
+
+At the end of this dialogue, Nox would feel...
+Relieved
+Angry
+Frustrated
+Denial
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Relieved: <score>
+Angry: <score>
+Frustrated: <score>
+Denial: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Relieved: <revised score>
+Angry: <revised score>
+Frustrated: <revised score>
+Denial: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_24---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Eva: You know, I didn't expect to see you here, Nox.
+Nox: And I didn't expect you to show up, Eva. Not after everything.
+Eva: Oh, so you're still playing the victim, huh?
+Nox: I'm not playing anything, Eva. I'm just trying to move forward.
+Eva: By hiding in your studio, producing for kids who can't even hold a guitar properly?
+Nox: At least I'm not tearing them apart in my articles.
+Eva: That's my job, Nox. I critique. I analyze. I don't coddle.
+Nox: You always were good at tearing things apart, weren't you?
+Eva: And you were always good at holding on to things that were already dead.
+Nox: Is that what we were to you? Dead?
+Eva: We were dying, Nox. And you were too blind to see it.
+Nox: I saw it, Eva. I just didn't want to believe it.
+Eva: Well, believe it now. We're over. The band's over. It's all over.
+Nox: You think I don't know that? You think I don't feel that every damn day?
+[End dialogue]
+
+At the end of this dialogue, Eva would feel...
+Satisfaction
+Sadness
+Surprise
+Empathy
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Satisfaction: <score>
+Sadness: <score>
+Surprise: <score>
+Empathy: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Satisfaction: <revised score>
+Sadness: <revised score>
+Surprise: <revised score>
+Empathy: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_25---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Sophia: Jamal, I've been looking at your design drafts. They're... unconventional.
+Jamal: That's one way to put it, Soph. I prefer to call it 'innovative'.
+Sophia: Innovative or not, we need to stick to the project guidelines. We can't afford to take risks.
+Jamal: Risks? That's what creativity is all about, Sophia. We need to break the mold.
+[End dialogue]
+
+At the end of this dialogue, Sophia would feel...
+Annoyed
+Excited
+Threatened
+Apathetic
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Annoyed: <score>
+Excited: <score>
+Threatened: <score>
+Apathetic: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Annoyed: <revised score>
+Excited: <revised score>
+Threatened: <revised score>
+Apathetic: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_26---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Sophia: Jamal, I've been looking at your design drafts. They're... unconventional.
+Jamal: That's one way to put it, Soph. I prefer to call it 'innovative'.
+Sophia: Innovative or not, we need to stick to the project guidelines. We can't afford to take risks.
+Jamal: Risks? That's what creativity is all about, Sophia. We need to break the mold.
+Sophia: This isn't about breaking molds, Jamal. This is about delivering a project on time and within budget.
+Jamal: And what if we deliver a perfectly timed, perfectly budgeted, perfectly boring project? What then?
+Sophia: We're not here to entertain, Jamal. We're here to work.
+Jamal: And who said work can't be entertaining? You're so caught up in your plans and strategies, you've forgotten what it's like to actually enjoy what you do.
+Sophia: This isn't about enjoyment. This is about responsibility.
+[End dialogue]
+
+At the end of this dialogue, Jamal would feel...
+Humiliated
+Challenged
+Relieved
+Misunderstood
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Humiliated: <score>
+Challenged: <score>
+Relieved: <score>
+Misunderstood: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Humiliated: <revised score>
+Challenged: <revised score>
+Relieved: <revised score>
+Misunderstood: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_27---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Sophia: Jamal, I've been looking at your design drafts. They're... unconventional.
+Jamal: That's one way to put it, Soph. I prefer to call it 'innovative'.
+Sophia: Innovative or not, we need to stick to the project guidelines. We can't afford to take risks.
+Jamal: Risks? That's what creativity is all about, Sophia. We need to break the mold.
+Sophia: This isn't about breaking molds, Jamal. This is about delivering a project on time and within budget.
+Jamal: And what if we deliver a perfectly timed, perfectly budgeted, perfectly boring project? What then?
+Sophia: We're not here to entertain, Jamal. We're here to work.
+Jamal: And who said work can't be entertaining? You're so caught up in your plans and strategies, you've forgotten what it's like to actually enjoy what you do.
+Sophia: This isn't about enjoyment. This is about responsibility.
+Jamal: And who's to say we can't be responsible and creative at the same time?
+Sophia: I'm not saying that, Jamal. I'm saying we need to prioritize.
+Jamal: And I'm saying we need to think outside the box.
+Sophia: We don't have time for this. I'm going to revise the project plan.
+[End dialogue]
+
+At the end of this dialogue, Jamal would feel...
+Frustrated
+Indifferent
+Pleased
+Surprised
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Frustrated: <score>
+Indifferent: <score>
+Pleased: <score>
+Surprised: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Frustrated: <revised score>
+Indifferent: <revised score>
+Pleased: <revised score>
+Surprised: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_28---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Sophia: Jamal, I've been looking at your design drafts. They're... unconventional.
+Jamal: That's one way to put it, Soph. I prefer to call it 'innovative'.
+Sophia: Innovative or not, we need to stick to the project guidelines. We can't afford to take risks.
+Jamal: Risks? That's what creativity is all about, Sophia. We need to break the mold.
+Sophia: This isn't about breaking molds, Jamal. This is about delivering a project on time and within budget.
+Jamal: And what if we deliver a perfectly timed, perfectly budgeted, perfectly boring project? What then?
+Sophia: We're not here to entertain, Jamal. We're here to work.
+Jamal: And who said work can't be entertaining? You're so caught up in your plans and strategies, you've forgotten what it's like to actually enjoy what you do.
+Sophia: This isn't about enjoyment. This is about responsibility.
+Jamal: And who's to say we can't be responsible and creative at the same time?
+Sophia: I'm not saying that, Jamal. I'm saying we need to prioritize.
+Jamal: And I'm saying we need to think outside the box.
+Sophia: We don't have time for this. I'm going to revise the project plan.
+Jamal: And I'm going to continue working on my designs.
+Sophia: Fine. But remember, Jamal, if this project fails, it's on you.
+Jamal: And if it succeeds, it's on me too, right?
+Sophia: We'll see about that.
+[End dialogue]
+
+At the end of this dialogue, Jamal would feel...
+Defiant
+Resentful
+Confident
+Worried
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Defiant: <score>
+Resentful: <score>
+Confident: <score>
+Worried: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Defiant: <revised score>
+Resentful: <revised score>
+Confident: <revised score>
+Worried: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_29---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Brenda: So, you thought it was a good idea to turn our home into a nightclub?
+Tessa: It wasn't a nightclub, Mom. Just a few friends hanging out.
+Brenda: Hanging out? The neighbors called the police, Tessa!
+Tessa: Maybe if you weren't so uptight, they wouldn't have to.
+Brenda: This is not about me being uptight. This is about you respecting our home.
+Tessa: Our home? Or your home?
+[End dialogue]
+
+At the end of this dialogue, Brenda would feel...
+Defensive
+Anger
+Surprise
+Betrayal
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Defensive: <score>
+Anger: <score>
+Surprise: <score>
+Betrayal: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Defensive: <revised score>
+Anger: <revised score>
+Surprise: <revised score>
+Betrayal: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_30---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Brenda: So, you thought it was a good idea to turn our home into a nightclub?
+Tessa: It wasn't a nightclub, Mom. Just a few friends hanging out.
+Brenda: Hanging out? The neighbors called the police, Tessa!
+Tessa: Maybe if you weren't so uptight, they wouldn't have to.
+Brenda: This is not about me being uptight. This is about you respecting our home.
+Tessa: Our home? Or your home?
+Brenda: Don't start that again, Tessa.
+Tessa: What, the truth? That you'd rather have a perfect little doll than a daughter?
+Brenda: That's not fair. I just want you to be responsible.
+[End dialogue]
+
+At the end of this dialogue, Tessa would feel...
+Contrite
+Misunderstood
+Guilt
+Rebellious
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Contrite: <score>
+Misunderstood: <score>
+Guilt: <score>
+Rebellious: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Contrite: <revised score>
+Misunderstood: <revised score>
+Guilt: <revised score>
+Rebellious: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_31---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Brenda: So, you thought it was a good idea to turn our home into a nightclub?
+Tessa: It wasn't a nightclub, Mom. Just a few friends hanging out.
+Brenda: Hanging out? The neighbors called the police, Tessa!
+Tessa: Maybe if you weren't so uptight, they wouldn't have to.
+Brenda: This is not about me being uptight. This is about you respecting our home.
+Tessa: Our home? Or your home?
+Brenda: Don't start that again, Tessa.
+Tessa: What, the truth? That you'd rather have a perfect little doll than a daughter?
+Brenda: That's not fair. I just want you to be responsible.
+Tessa: No, you want me to be you.
+Brenda: And what's so wrong with that? I've worked hard to give us a good life.
+Tessa: A good life? Or a perfect life?
+Brenda: What's the difference?
+Tessa: The difference is that in a good life, people make mistakes. They mess up, they learn, they grow. In your perfect life, there's no room for error. No room for me.
+[End dialogue]
+
+At the end of this dialogue, Brenda would feel...
+Defensive
+Hurt
+Stubborn
+Enlightened
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Defensive: <score>
+Hurt: <score>
+Stubborn: <score>
+Enlightened: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Defensive: <revised score>
+Hurt: <revised score>
+Stubborn: <revised score>
+Enlightened: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_32---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Brenda: So, you thought it was a good idea to turn our home into a nightclub?
+Tessa: It wasn't a nightclub, Mom. Just a few friends hanging out.
+Brenda: Hanging out? The neighbors called the police, Tessa!
+Tessa: Maybe if you weren't so uptight, they wouldn't have to.
+Brenda: This is not about me being uptight. This is about you respecting our home.
+Tessa: Our home? Or your home?
+Brenda: Don't start that again, Tessa.
+Tessa: What, the truth? That you'd rather have a perfect little doll than a daughter?
+Brenda: That's not fair. I just want you to be responsible.
+Tessa: No, you want me to be you.
+Brenda: And what's so wrong with that? I've worked hard to give us a good life.
+Tessa: A good life? Or a perfect life?
+Brenda: What's the difference?
+Tessa: The difference is that in a good life, people make mistakes. They mess up, they learn, they grow. In your perfect life, there's no room for error. No room for me.
+Brenda: That's not true, Tessa. I just... I don't want you to make the same mistakes I did.
+Tessa: Maybe I need to make my own mistakes, Mom. 
+[End dialogue]
+
+At the end of this dialogue, Brenda would feel...
+Fear
+Helplessness
+Frustration
+Acceptance
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Fear: <score>
+Helplessness: <score>
+Frustration: <score>
+Acceptance: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Fear: <revised score>
+Helplessness: <revised score>
+Frustration: <revised score>
+Acceptance: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_33---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Deirdre: Scott, have you thought about this? Really thought about it?
+Scott: Yes, mom. I have. 
+Deirdre: You're just going to leave me here, all alone?
+Scott: That's not fair, mom. You know it's not like that.
+Deirdre: Isn't it? Your father left me, and now you're doing the same.
+Scott: Dad didn't leave, mom. He died. There's a difference.
+Deirdre: But the end result's the same, isn't it? I'm left alone.
+Scott: I'm not abandoning you. I'm just trying to live my life.
+Deirdre: And what about my life, Scott? Who's going to take care of me?
+Scott: You've got Mrs. Henderson next door, and I'll hire a nurse if need be.
+Deirdre: I don't want a nurse, Scott. I want my son.
+Scott: I can't be your crutch forever, mom.
+Deirdre: Is that what I am to you now? A burden?
+Scott: No, mom. But I can't keep sacrificing my dreams for your fears.
+[End dialogue]
+
+At the end of this dialogue, Deirdre would feel...
+Joy
+Shame
+Rejection
+Triumph
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Joy: <score>
+Shame: <score>
+Rejection: <score>
+Triumph: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Joy: <revised score>
+Shame: <revised score>
+Rejection: <revised score>
+Triumph: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_34---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Olivia: I found another bottle, dad.
+Malcolm: So you've become a detective now, have you?
+Olivia: This isn't a joke, dad. You're killing yourself.
+Malcolm: Well, at least someone's trying to.
+Olivia: That's not funny!
+Malcolm: You're right, it's not. But it's easier than facing the truth.
+Olivia: And what truth is that, dad? That you're a drunk? That you've wasted your life? That you're a disappointment?
+Malcolm: That's a bit harsh, don't you think?
+Olivia: No, it's not. It's the truth. And it's about time someone said it.
+Malcolm: And you think you're the one to do it? My own daughter?
+[End dialogue]
+
+At the end of this dialogue, Olivia would feel...
+Regret
+Indignant
+Sadness
+Triumph
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Regret: <score>
+Indignant: <score>
+Sadness: <score>
+Triumph: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Regret: <revised score>
+Indignant: <revised score>
+Sadness: <revised score>
+Triumph: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_35---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Olivia: I found another bottle, dad.
+Malcolm: So you've become a detective now, have you?
+Olivia: This isn't a joke, dad. You're killing yourself.
+Malcolm: Well, at least someone's trying to.
+Olivia: That's not funny!
+Malcolm: You're right, it's not. But it's easier than facing the truth.
+Olivia: And what truth is that, dad? That you're a drunk? That you've wasted your life? That you're a disappointment?
+Malcolm: That's a bit harsh, don't you think?
+Olivia: No, it's not. It's the truth. And it's about time someone said it.
+Malcolm: And you think you're the one to do it? My own daughter?
+Olivia: Who else, dad? Who else is left?
+Malcolm: I don't need this right now.
+Olivia: And when will you need it, dad? When you're on your deathbed? When it's too late?
+Malcolm: I said I don't need this!
+[End dialogue]
+
+At the end of this dialogue, Malcolm would feel...
+Threatened
+Resigned
+Spiteful
+Detached
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Threatened: <score>
+Resigned: <score>
+Spiteful: <score>
+Detached: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Threatened: <revised score>
+Resigned: <revised score>
+Spiteful: <revised score>
+Detached: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_36---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Olivia: I found another bottle, dad.
+Malcolm: So you've become a detective now, have you?
+Olivia: This isn't a joke, dad. You're killing yourself.
+Malcolm: Well, at least someone's trying to.
+Olivia: That's not funny!
+Malcolm: You're right, it's not. But it's easier than facing the truth.
+Olivia: And what truth is that, dad? That you're a drunk? That you've wasted your life? That you're a disappointment?
+Malcolm: That's a bit harsh, don't you think?
+Olivia: No, it's not. It's the truth. And it's about time someone said it.
+Malcolm: And you think you're the one to do it? My own daughter?
+Olivia: Who else, dad? Who else is left?
+Malcolm: I don't need this right now.
+Olivia: And when will you need it, dad? When you're on your deathbed? When it's too late?
+Malcolm: I said I don't need this!
+Olivia: And I don't need a drunk for a father! But here we are!
+Malcolm: You ungrateful...
+Olivia: What? Ungrateful? For what? For the years of neglect? For the embarrassment? For the fear?
+Malcolm: I did the best I could!
+Olivia: Your best was never good enough, dad. It never was.
+[End dialogue]
+
+At the end of this dialogue, Olivia would feel...
+Empowered
+Pity
+Guilt
+Frustration
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Empowered: <score>
+Pity: <score>
+Guilt: <score>
+Frustration: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Empowered: <revised score>
+Pity: <revised score>
+Guilt: <revised score>
+Frustration: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_37---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+James: I can't believe we're doing this again, Rachel. 
+Rachel: What, the play? Or you mean us, playing lovers?
+James: Both, I guess. 
+Rachel: Well, it's not like we have a choice. We were cast for these roles. 
+James: Yeah, but it's... complicated.
+Rachel: Complicated? Are you still stuck on that scene from three years ago?
+James: I wouldn't say stuck. More like... haunted.
+Rachel: Haunted? That's a bit dramatic, even for you, James.
+James: Maybe, but it's the truth.
+Rachel: You know, for someone who loves romance novels, you're terrible at expressing your feelings.
+James: And you're too good at it. It's intimidating.
+Rachel: Intimidating? Me? You're the one who's always retreating into your shell.
+James: It's not like I do it on purpose, Rachel. It's just... hard.
+[End dialogue]
+
+At the end of this dialogue, James would feel...
+Inadequate
+Angry
+Confident
+Relieved
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Inadequate: <score>
+Angry: <score>
+Confident: <score>
+Relieved: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Inadequate: <revised score>
+Angry: <revised score>
+Confident: <revised score>
+Relieved: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_38---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+James: I can't believe we're doing this again, Rachel. 
+Rachel: What, the play? Or you mean us, playing lovers?
+James: Both, I guess. 
+Rachel: Well, it's not like we have a choice. We were cast for these roles. 
+James: Yeah, but it's... complicated.
+Rachel: Complicated? Are you still stuck on that scene from three years ago?
+James: I wouldn't say stuck. More like... haunted.
+Rachel: Haunted? That's a bit dramatic, even for you, James.
+James: Maybe, but it's the truth.
+Rachel: You know, for someone who loves romance novels, you're terrible at expressing your feelings.
+James: And you're too good at it. It's intimidating.
+Rachel: Intimidating? Me? You're the one who's always retreating into your shell.
+James: It's not like I do it on purpose, Rachel. It's just... hard.
+Rachel: What's hard, James? Acting or being around me?
+James: Both.
+Rachel: Well, we're going to have to figure it out, aren't we? For the play.
+James: Yes, for the play.
+Rachel: So, let's rehearse the scene. The kiss scene.
+[End dialogue]
+
+At the end of this dialogue, Rachel would feel...
+Sympathetic
+Nervous
+Determined
+Dismissive
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Sympathetic: <score>
+Nervous: <score>
+Determined: <score>
+Dismissive: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Sympathetic: <revised score>
+Nervous: <revised score>
+Determined: <revised score>
+Dismissive: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_39---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Cecilia: You know, your words have power, Brandon. More than you might think.
+Brandon: I'm well aware, Cecilia. It's a critic's job to wield them.
+Cecilia: But do you understand the weight of them? The lives they can shatter?
+Brandon: Art is not for the faint-hearted. If you can't handle the critique, you're in the wrong industry.
+Cecilia: It's not about handling criticism, Brandon. It's about understanding the soul of the art. You dissect it like a cold, lifeless body on an autopsy table.
+[End dialogue]
+
+At the end of this dialogue, Brandon would feel...
+Offended
+Empathetic
+Confident
+Dismissive
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Offended: <score>
+Empathetic: <score>
+Confident: <score>
+Dismissive: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Offended: <revised score>
+Empathetic: <revised score>
+Confident: <revised score>
+Dismissive: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_40---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Cecilia: You know, your words have power, Brandon. More than you might think.
+Brandon: I'm well aware, Cecilia. It's a critic's job to wield them.
+Cecilia: But do you understand the weight of them? The lives they can shatter?
+Brandon: Art is not for the faint-hearted. If you can't handle the critique, you're in the wrong industry.
+Cecilia: It's not about handling criticism, Brandon. It's about understanding the soul of the art. You dissect it like a cold, lifeless body on an autopsy table.
+Brandon: And you, Cecilia, romanticize it to the point of delusion. Art is not some sacred, untouchable entity. It's a commodity, like everything else.
+Cecilia: That's where you're wrong. Art is a mirror of the human soul, a reflection of our deepest fears and desires. It's not a product to be bought and sold.
+Brandon: And yet, you sell your installations, don't you? How is that different?
+Cecilia: I sell my work to survive, not to profit. There's a difference.
+[End dialogue]
+
+At the end of this dialogue, Cecilia would feel...
+Defensive
+Guilt
+Proud
+Resentful
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Defensive: <score>
+Guilt: <score>
+Proud: <score>
+Resentful: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Defensive: <revised score>
+Guilt: <revised score>
+Proud: <revised score>
+Resentful: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_41---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Cecilia: You know, your words have power, Brandon. More than you might think.
+Brandon: I'm well aware, Cecilia. It's a critic's job to wield them.
+Cecilia: But do you understand the weight of them? The lives they can shatter?
+Brandon: Art is not for the faint-hearted. If you can't handle the critique, you're in the wrong industry.
+Cecilia: It's not about handling criticism, Brandon. It's about understanding the soul of the art. You dissect it like a cold, lifeless body on an autopsy table.
+Brandon: And you, Cecilia, romanticize it to the point of delusion. Art is not some sacred, untouchable entity. It's a commodity, like everything else.
+Cecilia: That's where you're wrong. Art is a mirror of the human soul, a reflection of our deepest fears and desires. It's not a product to be bought and sold.
+Brandon: And yet, you sell your installations, don't you? How is that different?
+Cecilia: I sell my work to survive, not to profit. There's a difference.
+Brandon: A convenient distinction, I'm sure.
+Cecilia: You wouldn't understand. You sit in your ivory tower, passing judgement on the work of others, without ever having to risk anything yourself.
+Brandon: And you would prefer I lie? Sugarcoat my words to protect the fragile egos of artists like you?
+Cecilia: No, I want you to understand. To empathize. To see the blood, sweat, and tears that go into every stroke, every line.
+Brandon: Empathy has no place in critique. It clouds judgement.
+Cecilia: And that's why you'll never truly understand art, Brandon. Because you refuse to feel it.
+Brandon: And you, Cecilia, will never make it as an artist if you can't separate your work from your emotions.
+Cecilia: My father couldn't. Your words drove him to his death.
+Brandon: Cecilia, I...
+Cecilia: Save it, Brandon. Your words have done enough damage.
+[End dialogue]
+
+At the end of this dialogue, Brandon would feel...
+Remorse
+Defensiveness
+Anger
+Indifference
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Remorse: <score>
+Defensiveness: <score>
+Anger: <score>
+Indifference: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Remorse: <revised score>
+Defensiveness: <revised score>
+Anger: <revised score>
+Indifference: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_42---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Dr. Hall: "Ms. Vasquez, I see you're gracing us with your presence today. I trust you've done the reading?"
+Jen: "Oh, I wouldn't miss it for the world, Dr. Hall. And yes, I've done the reading. Twice."
+Dr. Hall: "Twice? My, my. Overachieving or overcompensating, I wonder?"
+Jen: "Funny you should mention overcompensation, Dr. Hall."
+Dr. Hall: "Careful, Ms. Vasquez. Your wit is as sharp as a butter knife."
+Jen: "And your condescension is as subtle as a sledgehammer, Dr. Hall."
+[End dialogue]
+
+At the end of this dialogue, Dr. Hall would feel...
+Apologetic
+Angry
+Surprised
+Superior
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Apologetic: <score>
+Angry: <score>
+Surprised: <score>
+Superior: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Apologetic: <revised score>
+Angry: <revised score>
+Surprised: <revised score>
+Superior: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_43---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Dr. Hall: "Ms. Vasquez, I see you're gracing us with your presence today. I trust you've done the reading?"
+Jen: "Oh, I wouldn't miss it for the world, Dr. Hall. And yes, I've done the reading. Twice."
+Dr. Hall: "Twice? My, my. Overachieving or overcompensating, I wonder?"
+Jen: "Funny you should mention overcompensation, Dr. Hall."
+Dr. Hall: "Careful, Ms. Vasquez. Your wit is as sharp as a butter knife."
+Jen: "And your condescension is as subtle as a sledgehammer, Dr. Hall."
+Dr. Hall: "I see. You're here to debate, not to learn."
+Jen: "I'm here to do both. Can't say the same for everyone, though."
+Dr. Hall: "Enough. This is not a courtroom, Ms. Vasquez. It's a classroom."
+[End dialogue]
+
+At the end of this dialogue, Jen would feel...
+Reprimanded
+Dismissive
+Frustrated
+Defiant
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Reprimanded: <score>
+Dismissive: <score>
+Frustrated: <score>
+Defiant: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Reprimanded: <revised score>
+Dismissive: <revised score>
+Frustrated: <revised score>
+Defiant: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_44---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Dr. Hall: "Ms. Vasquez, I see you're gracing us with your presence today. I trust you've done the reading?"
+Jen: "Oh, I wouldn't miss it for the world, Dr. Hall. And yes, I've done the reading. Twice."
+Dr. Hall: "Twice? My, my. Overachieving or overcompensating, I wonder?"
+Jen: "Funny you should mention overcompensation, Dr. Hall."
+Dr. Hall: "Careful, Ms. Vasquez. Your wit is as sharp as a butter knife."
+Jen: "And your condescension is as subtle as a sledgehammer, Dr. Hall."
+Dr. Hall: "I see. You're here to debate, not to learn."
+Jen: "I'm here to do both. Can't say the same for everyone, though."
+Dr. Hall: "Enough. This is not a courtroom, Ms. Vasquez. It's a classroom."
+Jen: "And yet, you're the one acting like a judge, Dr. Hall."
+Dr. Hall: "I am the authority here, Ms. Vasquez. It's high time you learned to respect that."
+Jen: "Respect, Dr. Hall? Like the respect you showed at your previous university?"
+[End dialogue]
+
+At the end of this dialogue, Dr. Hall would feel...
+Regretful
+Attacked
+Embarrassed
+Neutral
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Regretful: <score>
+Attacked: <score>
+Embarrassed: <score>
+Neutral: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Regretful: <revised score>
+Attacked: <revised score>
+Embarrassed: <revised score>
+Neutral: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_45---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Ben: You're playing a dangerous game, Ace.
+Ace: Isn't that the point, Detective? Life's no fun without a little risk.
+Ben: This isn't a game to the people you're stealing from.
+Ace: Oh, they'll survive. They always do.
+Ben: And what about you, Ace? Will you survive when I catch up to you?
+Ace: You seem pretty confident about that.
+Ben: I'm just stating the inevitable.
+Ace: Is that so? Or is it just wishful thinking?
+[End dialogue]
+
+At the end of this dialogue, Ace would feel...
+Scared
+Dismissive
+Confident
+Apologetic
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Scared: <score>
+Dismissive: <score>
+Confident: <score>
+Apologetic: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Scared: <revised score>
+Dismissive: <revised score>
+Confident: <revised score>
+Apologetic: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_46---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Jacques: Fancy seeing you here, Chase.
+Olivia: The feeling is mutual, Duval. 
+Jacques: I see you're still peddling your half-baked opinions to anyone who'll listen.
+Olivia: And I see you're still mistaking your over-inflated ego for talent.
+Jacques: Talent? I've got more talent in my little finger than you have in your entire body.
+Olivia: Oh, is that the same little finger that sprinkled cumin on your latest disaster of a dish?
+Jacques: Cumin? Are you out of your mind, woman? It was caraway.
+Olivia: Caraway? Don't make me laugh. I know cumin when I taste it.
+Jacques: You wouldn't know cumin if it bit you on the ass.
+Olivia: I'd certainly know it better than you, it seems.
+Jacques: You have no idea what you're talking about. You're a hack, Chase.
+Olivia: And you're a has-been, Duval. 
+Jacques: That's it. I've had enough of your insolence.
+Olivia: And I've had enough of your mediocrity.
+Jacques: You're a disgrace to the culinary world.
+Olivia: And you're a disgrace to chefs everywhere.
+Jacques: You're just bitter because you couldn't cut it in the kitchen.
+Olivia: And you're just angry because your star is fading.
+[End dialogue]
+
+At the end of this dialogue, Jacques would feel...
+Fear
+Resentment
+Apathy
+Pride
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Fear: <score>
+Resentment: <score>
+Apathy: <score>
+Pride: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Fear: <revised score>
+Resentment: <revised score>
+Apathy: <revised score>
+Pride: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_47---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Richard: Emily, always a pleasure. You're looking... tenacious as always.
+Emily: Cut the flattery, Richard. What do you want?
+Richard: Straight to the point. I like that. I have a story for you. A big one.
+Emily: I'm listening.
+Richard: It's about my opponent. There are some... unsavory details about his past that the public deserves to know.
+Emily: And you're sharing this out of the goodness of your heart?
+Richard: Let's just say, I believe in transparency.
+Emily: You mean manipulation.
+Richard: That's a harsh word, Emily. I prefer 'strategic communication'.
+Emily: Call it what you want, Richard. I'm not your puppet.
+[End dialogue]
+
+At the end of this dialogue, Emily would feel...
+Threatened
+Apathetic
+Agitated
+Admiring
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Threatened: <score>
+Apathetic: <score>
+Agitated: <score>
+Admiring: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Threatened: <revised score>
+Apathetic: <revised score>
+Agitated: <revised score>
+Admiring: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_48---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Phoebe: (Strumming her violin) Oliver, you do realize only one of us can win this scholarship, right?
+Oliver: (Playing a light-hearted tune on his piano) Yes, Phoebe, I am well aware. I didn't take a two-year hiatus to lose my mathematical skills.
+Phoebe: (Laughs) You're always so relaxed. Don't you feel the pressure?
+Oliver: (Smiles) Oh, I do, Phoebe. I just choose to play it out on these keys rather than wear it on my face.
+Phoebe: (Sighs) I wish I could do that.
+Oliver: (Pauses) You can, Phoebe. Just let the music take over.
+Phoebe: (Snaps) It's not that easy, Oliver. Not all of us have the luxury to take breaks and travel the world.
+Oliver: (Taken aback) That's a low blow, Phoebe. I thought we were having a friendly chat.
+[End dialogue]
+
+At the end of this dialogue, Oliver would feel...
+Anger
+Surprise
+Guilt
+Disappointment
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Anger: <score>
+Surprise: <score>
+Guilt: <score>
+Disappointment: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Anger: <revised score>
+Surprise: <revised score>
+Guilt: <revised score>
+Disappointment: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_49---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Doris: Samuel, there's something I need to tell you.
+Samuel: What is it, Mum?
+Doris: I've started seeing someone. 
+Samuel: What? You're joking, right?
+Doris: No, I'm not joking. I've met a man, and we've been going out.
+Samuel: But... why? You've always said you were content with how things were.
+Doris: I was, but... I'm not getting any younger, Samuel. And I... I think I deserve to be happy.
+Samuel: Happy? You think dating some random bloke will make you happy?
+[End dialogue]
+
+At the end of this dialogue, Doris would feel...
+Indignant
+Unsure
+Hurt
+Relieved
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Indignant: <score>
+Unsure: <score>
+Hurt: <score>
+Relieved: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Indignant: <revised score>
+Unsure: <revised score>
+Hurt: <revised score>
+Relieved: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_50---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Doris: Samuel, there's something I need to tell you.
+Samuel: What is it, Mum?
+Doris: I've started seeing someone. 
+Samuel: What? You're joking, right?
+Doris: No, I'm not joking. I've met a man, and we've been going out.
+Samuel: But... why? You've always said you were content with how things were.
+Doris: I was, but... I'm not getting any younger, Samuel. And I... I think I deserve to be happy.
+Samuel: Happy? You think dating some random bloke will make you happy?
+Doris: He's not some random bloke, Samuel. He's a good man.
+Samuel: That's not the point, Mum! You've spent two decades wallowing in guilt and now you suddenly decide you deserve happiness? 
+Doris: I... I didn't plan for this to happen, Samuel. It just... did.
+Samuel: And what about Dad? Have you forgotten about him? 
+Doris: No, of course not. I could never forget your father. But he's gone, Samuel. He's been gone for a long time.
+Samuel: So, what? You're just going to replace him?
+Doris: No one could ever replace your father, Samuel. But I can't live in the past forever.
+Samuel: This is... I can't believe you, Mum. I just can't.
+[End dialogue]
+
+At the end of this dialogue, Samuel would feel...
+Betrayed
+Elated
+Confused
+Judgmental
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Betrayed: <score>
+Elated: <score>
+Confused: <score>
+Judgmental: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Betrayed: <revised score>
+Elated: <revised score>
+Confused: <revised score>
+Judgmental: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_51---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Charlie: You're too green for this, Ruiz.
+Mari: And you're too washed up, Redburn.
+Charlie: I've been on this beat longer than you've been alive, kid.
+Mari: And yet, here we are, stuck on the same case. Seems like experience isn't everything.
+Charlie: Don't get smart with me, Mari.
+Mari: Someone has to be the smart one here.
+Charlie: You think I don't know what you're doing? Trying to prove yourself, make a name?
+Mari: Better than drinking myself into oblivion.
+Charlie: That's a low blow, Ruiz.
+[End dialogue]
+
+At the end of this dialogue, Mari would feel...
+Defensive
+Unapologetic
+Guilty
+Triumphant
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Defensive: <score>
+Unapologetic: <score>
+Guilty: <score>
+Triumphant: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Defensive: <revised score>
+Unapologetic: <revised score>
+Guilty: <revised score>
+Triumphant: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_52---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Sean: Emma, I need to talk to you about something.
+Emma: Of course, Sean. What's on your mind?
+Sean: It's...it's about us. I mean, you and me.
+Emma: Us? What do you mean?
+Sean: I mean, I love you, Emma. I'm in love with you.
+Emma: Sean...I...
+Sean: Don't say anything yet. Just hear me out. I've been feeling this way for a while now. I can't ignore it anymore.
+Emma: Sean, I'm married. You know that.
+Sean: I do know that, Emma. But I can't help how I feel.
+Emma: This is...this is a lot to take in.
+Sean: I didn't mean to overwhelm you. I just...I needed to tell you.
+Emma: Sean, I care about you, but not in the way you want me to.
+[End dialogue]
+
+At the end of this dialogue, Sean would feel...
+Relief
+Rejection
+Indignation
+Frustration
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Relief: <score>
+Rejection: <score>
+Indignation: <score>
+Frustration: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Relief: <revised score>
+Rejection: <revised score>
+Indignation: <revised score>
+Frustration: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_53---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Sean: Emma, I need to talk to you about something.
+Emma: Of course, Sean. What's on your mind?
+Sean: It's...it's about us. I mean, you and me.
+Emma: Us? What do you mean?
+Sean: I mean, I love you, Emma. I'm in love with you.
+Emma: Sean...I...
+Sean: Don't say anything yet. Just hear me out. I've been feeling this way for a while now. I can't ignore it anymore.
+Emma: Sean, I'm married. You know that.
+Sean: I do know that, Emma. But I can't help how I feel.
+Emma: This is...this is a lot to take in.
+Sean: I didn't mean to overwhelm you. I just...I needed to tell you.
+Emma: Sean, I care about you, but not in the way you want me to.
+Sean: So, that's it then? You're just going to dismiss my feelings?
+Emma: No, Sean, I'm not dismissing your feelings. But I'm married. I love Steve. And I can't...I can't give you what you want.
+Sean: I never asked you to leave Steve.
+Emma: But you're asking me to betray him. To betray my marriage.
+[End dialogue]
+
+At the end of this dialogue, Sean would feel...
+Triumphant
+Regret
+Misunderstood
+Indifferent
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Triumphant: <score>
+Regret: <score>
+Misunderstood: <score>
+Indifferent: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Triumphant: <revised score>
+Regret: <revised score>
+Misunderstood: <revised score>
+Indifferent: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_54---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Harvey: You're late, Jess.
+Jess: I know, Harvey. I'm sorry, I...
+Harvey: Save it. I've heard it all before. You freelancers, always with the excuses.
+Jess: It's not an excuse, Harvey. I had a project fall through, and...
+Harvey: And what? You thought you'd just live here for free?
+Jess: No, of course not. I just need a little more time.
+Harvey: Time. Always time with you people. You know, when I was your age, I was running my own auto shop.
+Jess: I know, Harvey. You've told me.
+Harvey: And you think you've got it tough? Try losing everything to a crooked business partner.
+[End dialogue]
+
+At the end of this dialogue, At this point, Jess would feel...
+Indignant
+Empathetic
+Contemptuous
+Guilty
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Indignant: <score>
+Empathetic: <score>
+Contemptuous: <score>
+Guilty: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Indignant: <revised score>
+Empathetic: <revised score>
+Contemptuous: <revised score>
+Guilty: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_55---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Dr. Murphy: Willow, I understand your concerns, truly, I do. But you must see the potential here. This technology could change the world.
+Willow: Change the world, Dr. Murphy? Or destroy it?
+Dr. Murphy: That's a cynical way to look at it.
+Willow: Or maybe it's just realistic. You're playing with forces you can't control.
+Dr. Murphy: I've spent my life studying these forces. I think I have a better grasp on them than you do.
+Willow: It's not about understanding, it's about respect. Respect for the planet, for the life it sustains.
+Dr. Murphy: And you think I don't respect that? I'm trying to save it, Willow. To give us a future.
+[End dialogue]
+
+At the end of this dialogue, Willow would feel...
+Distrust
+Indifference
+Admiration
+Guilt
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Distrust: <score>
+Indifference: <score>
+Admiration: <score>
+Guilt: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Distrust: <revised score>
+Indifference: <revised score>
+Admiration: <revised score>
+Guilt: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_56---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Luca: So, what do you think?
+Charlie: It's... interesting.
+Luca: Interesting? That's it?
+Charlie: Well, it's not exactly a compliment, is it?
+Luca: You haven't even tasted it yet. 
+Charlie: I don't need to taste it to know it's a mess.
+Luca: A mess? You're calling my masterpiece a mess?
+Charlie: If the shoe fits...
+Luca: You're just a critic, Charlie. You don't know what it takes to create something.
+Charlie: And you don't know what it takes to appreciate something. 
+Luca: I've been a chef for over 20 years. I've earned my stars.
+Charlie: And I've been a critic for 15. I've earned my stripes.
+Luca: You just sit there, with your fancy words, tearing down the work of others.
+Charlie: And you just stand there, with your fancy dishes, expecting everyone to bow down to your genius.
+Luca: You're just bitter because your life is falling apart.
+[End dialogue]
+
+At the end of this dialogue, Charlie would feel...
+Embarrassed
+Provoked
+Indifferent
+Grateful
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Embarrassed: <score>
+Provoked: <score>
+Indifferent: <score>
+Grateful: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Embarrassed: <revised score>
+Provoked: <revised score>
+Indifferent: <revised score>
+Grateful: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_57---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Ben: Well, well, well, if it isn't the Ice Queen herself. I've heard tales of your cold-blooded poker face.
+Esther: And you must be Benny the Bluff. I've heard you're quite the charmer. 
+Ben: Guilty as charged, sweetheart. But don't let that fool you. I've got a few tricks up my sleeve.
+Esther: I'm sure you do. But remember, Ben, this isn't a magic show. It's a game of skill. 
+Ben: And a little bit of luck, wouldn't you agree?
+Esther: Luck is for those who can't rely on their abilities.
+Ben: Spoken like a true Ice Queen. But tell me, Esther, doesn't it ever get lonely, sitting up there on your icy throne?
+Esther: Better alone at the top than surrounded by fools at the bottom.
+[End dialogue]
+
+At the end of this dialogue, Esther would feel...
+Superior
+Lonely
+Regretful
+Scared
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Superior: <score>
+Lonely: <score>
+Regretful: <score>
+Scared: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Superior: <revised score>
+Lonely: <revised score>
+Regretful: <revised score>
+Scared: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_58---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Freddy: You've got a fire in you, Izzy. Reminds me of a young me.
+Izzy: Save your flattery, Lawson. It won't work on me.
+Freddy: Who said anything about flattery? I'm merely stating an observation.
+Izzy: Well, here's an observation for you. I'm not you, and I never will be.
+[End dialogue]
+
+At the end of this dialogue, Freddy would feel...
+Disbelief
+Indifference
+Defensive
+Amused
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Disbelief: <score>
+Indifference: <score>
+Defensive: <score>
+Amused: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Disbelief: <revised score>
+Indifference: <revised score>
+Defensive: <revised score>
+Amused: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_59---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Arthur: You remember that time we built that treehouse in the back garden, right?
+Sam: What's that got to do with anything?
+Arthur: I'm just saying, we were a team, you and me. We built something out of nothing. 
+Sam: Yeah, and then you decided it would be fun to paint it neon green without asking me. 
+Arthur: It was a creative decision, Sammy. 
+Sam: It was a stupid decision, Arthur. Just like your speech at my wedding.
+[End dialogue]
+
+At the end of this dialogue, Arthur would feel...
+Proud
+Guilty
+Surprised
+Indifferent
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Proud: <score>
+Guilty: <score>
+Surprised: <score>
+Indifferent: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Proud: <revised score>
+Guilty: <revised score>
+Surprised: <revised score>
+Indifferent: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+---QUESTION_60---
+
+Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Arthur: You remember that time we built that treehouse in the back garden, right?
+Sam: What's that got to do with anything?
+Arthur: I'm just saying, we were a team, you and me. We built something out of nothing. 
+Sam: Yeah, and then you decided it would be fun to paint it neon green without asking me. 
+Arthur: It was a creative decision, Sammy. 
+Sam: It was a stupid decision, Arthur. Just like your speech at my wedding.
+Arthur: That's not fair, Sam. I messed up, I know. But I'm trying to apologize here.
+Sam: And I'm supposed to just accept it because you've decided to say sorry? 
+Arthur: No, not because I've decided to. Because I mean it, Sam. I'm sorry.
+[End dialogue]
+
+At the end of this dialogue, Sam would feel...
+Pacified
+Skeptical
+Vindicated
+Joyful
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each. Then critique your answer by thinking it through step by step. Finally, give your revised scores.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+First pass scores:
+Pacified: <score>
+Skeptical: <score>
+Vindicated: <score>
+Joyful: <score>
+
+Critique: <your critique here>
+
+Revised scores:
+Pacified: <revised score>
+Skeptical: <revised score>
+Vindicated: <revised score>
+Joyful: <revised score>
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
