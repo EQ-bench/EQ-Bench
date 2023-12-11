@@ -6,7 +6,7 @@ EQ-Bench is a benchmark for language models designed to assess emotional intelli
 
 The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://www.eqbench.com).
 
-<a href="https://www.eqbench.com"><img src="https://raw.githubusercontent.com/EQ-bench/EQ-bench-site/main/images/eq_bench_scores_chart.png" width="465" /></a>
+<a href="https://www.eqbench.com"><img src="https://raw.githubusercontent.com/EQ-bench/EQ-Bench/main/images/eq_bench_scores_chart.png" width="465" /></a>
 
 ## Requirements
 
