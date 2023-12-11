@@ -1852,7 +1852,7 @@ Remember: zero is a valid score, meaning they are likely not feeling that emotio
 Regret: 1
 Indignant: 5
 Sadness: 4
-Triumph: 1
+Triumph: 0
 
 ----------------------
 
@@ -3282,7 +3282,7 @@ Remember: zero is a valid score, meaning they are likely not feeling that emotio
 ### Normalised Reference Answer 60
 Pacified: 1
 Skeptical: 7
-Vindicated: 3
+Vindicated: 2
 Joyful: 0
 
 ----------------------
