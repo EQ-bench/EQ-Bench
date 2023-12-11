@@ -4,9 +4,9 @@ import json
 import datetime
 import shutil
 from tqdm import tqdm
-from lib.load_model import load_model, load_model_01ai
+from lib.load_model import load_model
 from lib.scoring import calculate_score, parse_answers, calculate_benchmark_score
-from lib.run_query import OPENAI_CHAT_MODELS, OPENAI_COMPLETION_MODELS, MODELS_01AI, run_query
+from lib.run_query import OPENAI_CHAT_MODELS, OPENAI_COMPLETION_MODELS, run_query
 from lib.util import upload_results_google_sheets
 
 # Constants
@@ -70,10 +70,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, n_it
 				if model_path not in OPENAI_CHAT_MODELS and model_path not in OPENAI_COMPLETION_MODELS:
 					# If this benchmark has already completed, skip loading the model
 					if not model and len(results[run_index][run_iter]['individual_scores']) < 60:
-						if model_path in MODELS_01AI:
-							model, tokenizer = load_model_01ai(model_path, lora_path, quantization)
-						else:
-							model, tokenizer = load_model(model_path, lora_path, quantization)
+						model, tokenizer = load_model(model_path, lora_path, quantization)
 				
 				# Iterate over the 60 test questions
 				for question_id, q in tqdm(questions.items()):

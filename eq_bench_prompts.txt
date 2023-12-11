@@ -1,4 +1,4 @@
----QUESTION_1---
+### Question 1
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -38,7 +38,17 @@ Annoyed: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_2---
+----------------------
+
+### Normalised Reference Answer 1
+Remorseful: 0
+Indifferent: 6
+Affectionate: 0
+Annoyed: 4
+
+----------------------
+
+### Question 2
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -81,7 +91,17 @@ Defensive: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_3---
+----------------------
+
+### Normalised Reference Answer 2
+Sympathetic: 0
+Incredulous: 4
+Intimidated: 0
+Defensive: 6
+
+----------------------
+
+### Question 3
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -128,7 +148,17 @@ Defiant: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_4---
+----------------------
+
+### Normalised Reference Answer 3
+Hopeful: 0
+Threatened: 5
+Pity: 0
+Defiant: 5
+
+----------------------
+
+### Question 4
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -167,7 +197,17 @@ Condescension: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_5---
+----------------------
+
+### Normalised Reference Answer 4
+Defensive: 6
+Empathy: 0
+Fear: 0
+Condescension: 4
+
+----------------------
+
+### Question 5
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -209,7 +249,17 @@ Indifferent: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_6---
+----------------------
+
+### Normalised Reference Answer 5
+Angry: 5
+Insecure: 3
+Confident: 2
+Indifferent: 0
+
+----------------------
+
+### Question 6
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -256,7 +306,17 @@ Guilt: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_7---
+----------------------
+
+### Normalised Reference Answer 6
+Offended: 1
+Unperturbed: 6
+Amused: 3
+Guilt: 0
+
+----------------------
+
+### Question 7
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -302,7 +362,17 @@ Defensiveness: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_8---
+----------------------
+
+### Normalised Reference Answer 7
+Embarrassment: 2
+Anger: 3
+Indifference: 0
+Defensiveness: 5
+
+----------------------
+
+### Question 8
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -352,7 +422,17 @@ Defensive: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_9---
+----------------------
+
+### Normalised Reference Answer 8
+Liberated: 0
+Offended: 3
+Uninterested: 0
+Defensive: 7
+
+----------------------
+
+### Question 9
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -407,7 +487,17 @@ Indignant: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_10---
+----------------------
+
+### Normalised Reference Answer 9
+Relieved: 2
+Resigned: 7
+Joyful: 0
+Indignant: 1
+
+----------------------
+
+### Question 10
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -445,7 +535,17 @@ Indifference: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_11---
+----------------------
+
+### Normalised Reference Answer 10
+Disbelief: 5
+Irritation: 2
+Admiration: 0
+Indifference: 3
+
+----------------------
+
+### Question 11
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -488,7 +588,17 @@ Agreement: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_12---
+----------------------
+
+### Normalised Reference Answer 11
+Frustration: 10
+Apathy: 0
+Fear: 0
+Agreement: 0
+
+----------------------
+
+### Question 12
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -535,7 +645,17 @@ Acceptance: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_13---
+----------------------
+
+### Normalised Reference Answer 12
+Dismay: 4
+Exasperation: 6
+Amusement: 0
+Acceptance: 0
+
+----------------------
+
+### Question 13
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -574,7 +694,17 @@ Skeptical: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_14---
+----------------------
+
+### Normalised Reference Answer 13
+Surprised: 0
+Amused: 3
+Offended: 2
+Skeptical: 5
+
+----------------------
+
+### Question 14
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -617,7 +747,17 @@ Understanding: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_15---
+----------------------
+
+### Normalised Reference Answer 14
+Accusatory: 4
+Victimized: 2
+Superior: 4
+Understanding: 0
+
+----------------------
+
+### Question 15
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -664,7 +804,17 @@ Worried: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_16---
+----------------------
+
+### Normalised Reference Answer 15
+Justified: 7
+Inferior: 0
+Triumphant: 2
+Worried: 1
+
+----------------------
+
+### Question 16
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -718,7 +868,17 @@ Frustrated: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_17---
+----------------------
+
+### Normalised Reference Answer 16
+Relieved: 0
+Angry: 3
+Sympathetic: 0
+Frustrated: 7
+
+----------------------
+
+### Question 17
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -757,7 +917,17 @@ Embarrassment: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_18---
+----------------------
+
+### Normalised Reference Answer 17
+Panic: 2
+Curiosity: 6
+Indifference: 0
+Embarrassment: 2
+
+----------------------
+
+### Question 18
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -798,7 +968,17 @@ Relieved: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_19---
+----------------------
+
+### Normalised Reference Answer 18
+Flattered: 6
+Confused: 3
+Annoyed: 0
+Relieved: 1
+
+----------------------
+
+### Question 19
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -842,7 +1022,17 @@ Embarrassed: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_20---
+----------------------
+
+### Normalised Reference Answer 19
+Resigned: 2
+Angry: 0
+Hopeful: 3
+Embarrassed: 5
+
+----------------------
+
+### Question 20
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -890,7 +1080,17 @@ Defensive: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_21---
+----------------------
+
+### Normalised Reference Answer 20
+Impatient: 2
+Reassured: 2
+Fearful: 6
+Defensive: 0
+
+----------------------
+
+### Question 21
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -929,7 +1129,17 @@ Guilty: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_22---
+----------------------
+
+### Normalised Reference Answer 21
+Indifferent: 0
+Offended: 9
+Empowered: 0
+Guilty: 1
+
+----------------------
+
+### Question 22
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -971,7 +1181,17 @@ Regretful: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_23---
+----------------------
+
+### Normalised Reference Answer 22
+Justified: 5
+Apologetic: 0
+Angry: 4
+Regretful: 1
+
+----------------------
+
+### Question 23
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1016,7 +1236,17 @@ Denial: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_24---
+----------------------
+
+### Normalised Reference Answer 23
+Relieved: 0
+Angry: 4
+Frustrated: 3
+Denial: 3
+
+----------------------
+
+### Question 24
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1064,7 +1294,17 @@ Empathy: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_25---
+----------------------
+
+### Normalised Reference Answer 24
+Satisfaction: 8
+Sadness: 2
+Surprise: 0
+Empathy: 0
+
+----------------------
+
+### Question 25
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1102,7 +1342,17 @@ Apathetic: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_26---
+----------------------
+
+### Normalised Reference Answer 25
+Annoyed: 7
+Excited: 0
+Threatened: 3
+Apathetic: 0
+
+----------------------
+
+### Question 26
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1145,7 +1395,17 @@ Misunderstood: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_27---
+----------------------
+
+### Normalised Reference Answer 26
+Humiliated: 0
+Challenged: 6
+Relieved: 0
+Misunderstood: 4
+
+----------------------
+
+### Question 27
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1192,7 +1452,17 @@ Surprised: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_28---
+----------------------
+
+### Normalised Reference Answer 27
+Frustrated: 9
+Indifferent: 0
+Pleased: 0
+Surprised: 1
+
+----------------------
+
+### Question 28
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1243,7 +1513,17 @@ Worried: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_29---
+----------------------
+
+### Normalised Reference Answer 28
+Defiant: 3
+Resentful: 4
+Confident: 3
+Worried: 0
+
+----------------------
+
+### Question 29
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1283,7 +1563,17 @@ Betrayal: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_30---
+----------------------
+
+### Normalised Reference Answer 29
+Defensive: 4
+Anger: 4
+Surprise: 0
+Betrayal: 2
+
+----------------------
+
+### Question 30
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1326,7 +1616,17 @@ Rebellious: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_31---
+----------------------
+
+### Normalised Reference Answer 30
+Contrite: 0
+Misunderstood: 4
+Guilt: 1
+Rebellious: 5
+
+----------------------
+
+### Question 31
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1374,7 +1674,17 @@ Enlightened: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_32---
+----------------------
+
+### Normalised Reference Answer 31
+Defensive: 4
+Hurt: 4
+Stubborn: 2
+Enlightened: 0
+
+----------------------
+
+### Question 32
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1424,7 +1734,17 @@ Acceptance: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_33---
+----------------------
+
+### Normalised Reference Answer 32
+Fear: 3
+Helplessness: 4
+Frustration: 3
+Acceptance: 0
+
+----------------------
+
+### Question 33
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1472,7 +1792,17 @@ Triumph: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_34---
+----------------------
+
+### Normalised Reference Answer 33
+Joy: 0
+Shame: 3
+Rejection: 7
+Triumph: 0
+
+----------------------
+
+### Question 34
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1516,7 +1846,17 @@ Triumph: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_35---
+----------------------
+
+### Normalised Reference Answer 34
+Regret: 1
+Indignant: 5
+Sadness: 4
+Triumph: 1
+
+----------------------
+
+### Question 35
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1564,7 +1904,17 @@ Detached: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_36---
+----------------------
+
+### Normalised Reference Answer 35
+Threatened: 8
+Resigned: 0
+Spiteful: 2
+Detached: 0
+
+----------------------
+
+### Question 36
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1617,7 +1967,17 @@ Frustration: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_37---
+----------------------
+
+### Normalised Reference Answer 36
+Empowered: 4
+Pity: 1
+Guilt: 1
+Frustration: 4
+
+----------------------
+
+### Question 37
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1664,7 +2024,17 @@ Relieved: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_38---
+----------------------
+
+### Normalised Reference Answer 37
+Inadequate: 10
+Angry: 0
+Confident: 0
+Relieved: 0
+
+----------------------
+
+### Question 38
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1716,7 +2086,17 @@ Dismissive: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_39---
+----------------------
+
+### Normalised Reference Answer 38
+Sympathetic: 2
+Nervous: 0
+Determined: 4
+Dismissive: 4
+
+----------------------
+
+### Question 39
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1755,7 +2135,17 @@ Dismissive: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_40---
+----------------------
+
+### Normalised Reference Answer 39
+Offended: 1
+Empathetic: 0
+Confident: 4
+Dismissive: 5
+
+----------------------
+
+### Question 40
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1798,7 +2188,17 @@ Resentful: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_41---
+----------------------
+
+### Normalised Reference Answer 40
+Defensive: 6
+Guilt: 0
+Proud: 2
+Resentful: 2
+
+----------------------
+
+### Question 41
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1851,7 +2251,17 @@ Indifference: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_42---
+----------------------
+
+### Normalised Reference Answer 41
+Remorse: 2
+Defensiveness: 5
+Anger: 1
+Indifference: 2
+
+----------------------
+
+### Question 42
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1891,7 +2301,17 @@ Superior: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_43---
+----------------------
+
+### Normalised Reference Answer 42
+Apologetic: 0
+Angry: 3
+Surprised: 2
+Superior: 5
+
+----------------------
+
+### Question 43
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1934,7 +2354,17 @@ Defiant: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_44---
+----------------------
+
+### Normalised Reference Answer 43
+Reprimanded: 2
+Dismissive: 4
+Frustrated: 0
+Defiant: 4
+
+----------------------
+
+### Question 44
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -1980,7 +2410,17 @@ Neutral: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_45---
+----------------------
+
+### Normalised Reference Answer 44
+Regretful: 1
+Attacked: 7
+Embarrassed: 2
+Neutral: 0
+
+----------------------
+
+### Question 45
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2022,7 +2462,17 @@ Apologetic: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_46---
+----------------------
+
+### Normalised Reference Answer 45
+Scared: 2
+Dismissive: 3
+Confident: 5
+Apologetic: 0
+
+----------------------
+
+### Question 46
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2074,7 +2524,17 @@ Pride: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_47---
+----------------------
+
+### Normalised Reference Answer 46
+Fear: 1
+Resentment: 4
+Apathy: 0
+Pride: 5
+
+----------------------
+
+### Question 47
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2118,7 +2578,17 @@ Admiring: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_48---
+----------------------
+
+### Normalised Reference Answer 47
+Threatened: 0
+Apathetic: 0
+Agitated: 10
+Admiring: 0
+
+----------------------
+
+### Question 48
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2160,7 +2630,17 @@ Disappointment: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_49---
+----------------------
+
+### Normalised Reference Answer 48
+Anger: 1
+Surprise: 5
+Guilt: 0
+Disappointment: 4
+
+----------------------
+
+### Question 49
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2202,7 +2682,17 @@ Relieved: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_50---
+----------------------
+
+### Normalised Reference Answer 49
+Indignant: 4
+Unsure: 1
+Hurt: 5
+Relieved: 0
+
+----------------------
+
+### Question 50
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2252,7 +2742,17 @@ Judgmental: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_51---
+----------------------
+
+### Normalised Reference Answer 50
+Betrayed: 5
+Elated: 0
+Confused: 2
+Judgmental: 3
+
+----------------------
+
+### Question 51
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2295,7 +2795,17 @@ Triumphant: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_52---
+----------------------
+
+### Normalised Reference Answer 51
+Defensive: 3
+Unapologetic: 5
+Guilty: 0
+Triumphant: 2
+
+----------------------
+
+### Question 52
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2341,7 +2851,17 @@ Frustration: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_53---
+----------------------
+
+### Normalised Reference Answer 52
+Relief: 0
+Rejection: 8
+Indignation: 0
+Frustration: 2
+
+----------------------
+
+### Question 53
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2391,7 +2911,17 @@ Indifferent: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_54---
+----------------------
+
+### Normalised Reference Answer 53
+Triumphant: 0
+Regret: 8
+Misunderstood: 2
+Indifferent: 0
+
+----------------------
+
+### Question 54
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2434,7 +2964,17 @@ Guilty: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_55---
+----------------------
+
+### Normalised Reference Answer 54
+Indignant: 2
+Empathetic: 0
+Contemptuous: 1
+Guilty: 7
+
+----------------------
+
+### Question 55
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2475,7 +3015,17 @@ Guilt: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_56---
+----------------------
+
+### Normalised Reference Answer 55
+Distrust: 10
+Indifference: 0
+Admiration: 0
+Guilt: 0
+
+----------------------
+
+### Question 56
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2524,7 +3074,17 @@ Grateful: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_57---
+----------------------
+
+### Normalised Reference Answer 56
+Embarrassed: 0
+Provoked: 8
+Indifferent: 2
+Grateful: 0
+
+----------------------
+
+### Question 57
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2566,7 +3126,17 @@ Scared: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_58---
+----------------------
+
+### Normalised Reference Answer 57
+Superior: 9
+Lonely: 1
+Regretful: 0
+Scared: 0
+
+----------------------
+
+### Question 58
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2604,7 +3174,17 @@ Amused: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_59---
+----------------------
+
+### Normalised Reference Answer 58
+Disbelief: 2
+Indifference: 0
+Defensive: 6
+Amused: 2
+
+----------------------
+
+### Question 59
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2644,7 +3224,17 @@ Indifferent: <revised score>
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
 
----QUESTION_60---
+----------------------
+
+### Normalised Reference Answer 59
+Proud: 5
+Guilty: 4
+Surprised: 1
+Indifferent: 0
+
+----------------------
+
+### Question 60
 
 Your task is to predict the likely emotional responses of a character in this dialogue:
 
@@ -2686,4 +3276,14 @@ Joyful: <revised score>
 [End of answer]
 
 Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+----------------------
+
+### Normalised Reference Answer 60
+Pacified: 1
+Skeptical: 7
+Vindicated: 3
+Joyful: 0
+
+----------------------
 

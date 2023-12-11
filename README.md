@@ -26,6 +26,10 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://www.eqben
    - `python eq-bench.py`
 - Results are saved to `benchmark_results.csv`
 
+## Important!
+
+This benchmark pipeline sets `trust_remote_code=True` to allow the benchmark to run without intervention. If you don't want this behviour, set it to False in load_model.py.
+
 ## Script Options
 
 - `-h`: Displays help.
@@ -79,7 +83,7 @@ USER: {prompt}
 ASSISTANT:
 ```
 
--vicuna_1.1
+- vicuna_1.1
 
 ```none
 USER:

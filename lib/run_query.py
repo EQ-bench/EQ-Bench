@@ -34,11 +34,6 @@ OPENAI_COMPLETION_MODELS = [
 	'davinci-002'
 ]
 
-MODELS_01AI = [
-	'01-ai/Yi-6B',
-	'01-ai/Yi-34B'
-]
-
 def run_query(model_path, prompt_type, prompt, completion_tokens, model, tokenizer, temp):
 	if model_path in OPENAI_CHAT_MODELS:
 		result = run_openai_chat_query(prompt, completion_tokens, temp, model_path)		
