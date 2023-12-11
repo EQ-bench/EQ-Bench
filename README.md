@@ -2,7 +2,7 @@
 
 # EQ-Bench
 
-EQ-Bench is a benchmark for language models designed to assess emotional intelligence. You can read more about it in our paper ([INSERT URL](#)).
+EQ-Bench is a benchmark for language models designed to assess emotional intelligence. You can read more about it in our paper ([Coming soon](#)).
 
 The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://www.eqbench.com).
 
