@@ -2,7 +2,7 @@
 
 # EQ-Bench
 
-EQ-Bench is a benchmark for language models designed to assess emotional intelligence. You can read more about it in our paper ([Coming soon](#)).
+EQ-Bench is a benchmark for language models designed to assess emotional intelligence. You can read more about it in our [paper](https://arxiv.org/abs/2312.06281).
 
 The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://www.eqbench.com).
 
@@ -155,3 +155,16 @@ You are an expert in psychology and emotional intelligence.
    - Click `Done`
 8. Click on the service account, then navigate to Keys -> Add key -> Create new key -> JSON.
 9. Save the file to `google_creds.json` in the eq-bench directory.
+
+## Cite
+
+```
+@misc{paech2023eqbench,
+      title={EQ-Bench: An Emotional Intelligence Benchmark for Large Language Models}, 
+      author={Samuel J. Paech},
+      year={2023},
+      eprint={2312.06281},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
