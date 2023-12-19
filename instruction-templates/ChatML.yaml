@@ -1,0 +1,6 @@
+user: user
+bot: assistant
+turn_template: <|im_start|><|user|>\n<|user-message|><|im_end|>\n<|im_start|><|bot|>\n<|bot-message|><|im_end|>\n
+context: |
+  <|im_start|>system
+  <|system-message|><|im_end|>

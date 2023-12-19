@@ -2,10 +2,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 from peft import PeftModel
 
-TRUST_REMOTE_CODE=True
-
-def load_model(base_model_path, lora_path, quantization):
-	tokenizer = AutoTokenizer.from_pretrained(base_model_path, trust_remote_code=TRUST_REMOTE_CODE)
+def load_model(base_model_path, lora_path, quantization, trust_remote_code = False):
+	tokenizer = AutoTokenizer.from_pretrained(base_model_path, trust_remote_code=trust_remote_code)
 
 	# This is for llama2 models, but doesn't seem to have
 	# adverse effects on benchmarks for other models.
@@ -35,13 +33,13 @@ def load_model(base_model_path, lora_path, quantization):
 			base_model_path,
 			quantization_config=quant_config,
 			device_map={"": 0},
-			trust_remote_code=TRUST_REMOTE_CODE
+			trust_remote_code=trust_remote_code
 		)
 	else:
 		base_model = AutoModelForCausalLM.from_pretrained(
 			base_model_path,
 			device_map={"": 0},
-			trust_remote_code=TRUST_REMOTE_CODE
+			trust_remote_code=trust_remote_code
 		)
 
 	if lora_path:

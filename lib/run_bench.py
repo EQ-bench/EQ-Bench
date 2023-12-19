@@ -14,7 +14,11 @@ COMPLETION_TOKENS = 1000
 RAW_RESULTS_PATH = './raw_results.json'
 BENCH_RESULTS_PATH = './benchmark_results.csv'
 
-def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, n_iterations, resume=True, delete_cache=False, max_bench_retries=5, n_question_attempts=5, verbose=False, google_spreadsheet_url=''):
+def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, 
+                  n_iterations, resume=True, delete_cache=False, 
+                  max_bench_retries=5, n_question_attempts=5, verbose=False, 
+                  google_spreadsheet_url='', trust_remote_code=False, 
+                  inference_engine='transformers', ooba_instance=None):
 	"""
 	Run a benchmark with the specified parameters.
 	:param run_id: The ID string of the benchmark to be run.
@@ -69,8 +73,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, n_it
 			try:
 				if model_path not in OPENAI_CHAT_MODELS and model_path not in OPENAI_COMPLETION_MODELS:
 					# If this benchmark has already completed, skip loading the model
-					if not model and len(results[run_index][run_iter]['individual_scores']) < 60:
-						model, tokenizer = load_model(model_path, lora_path, quantization)
+					if not model and inference_engine == 'transformers' and len(results[run_index][run_iter]['individual_scores']) < 60:
+						model, tokenizer = load_model(model_path, lora_path, quantization, trust_remote_code = trust_remote_code)
 				
 				# Iterate over the 60 test questions
 				for question_id, q in tqdm(questions.items()):
@@ -78,7 +82,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, n_it
 						if verbose:
 							print('Question',question_id,'already complete')
 					else:
-						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts)
+						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts, inference_engine, ooba_instance)
 					
 
 				bench_success = True
@@ -164,7 +168,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, n_it
 			print('! Cache not found:', dir_to_delete)
 
 
-def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts):
+def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts, inference_engine, ooba_instance):
 	"""
 	Process a single question and update the results.
 	:param question_id: ID of the question.
@@ -190,7 +194,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	prev_result = None # Stores the result of a previous partial success
 	prev_result_inference = None
 	while tries < n_question_attempts and not success:
-		inference = run_query(model_path, prompt_type, prompt, COMPLETION_TOKENS, model, tokenizer, temp)
+		inference = run_query(model_path, prompt_type, prompt, COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance)
 
 		try:
 			if verbose:
@@ -220,6 +224,8 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 				print('first pass:', round(first_pass_score, 1))
 				print('revised:', round(revised_score, 1))
 			success = True
+		except KeyboardInterrupt:
+			raise  # Re-raising the KeyboardInterrupt exception
 		except Exception as e:
 			print(e)				
 			tries += 1
