@@ -10,131 +10,40 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ## Requirements
 
-- Python 3
+- Linux (and possibly mac; untested) supported
+- Python 3x
 - Python libraries listed in `install_reqs.sh`
-- GPU with sufficient VRAM to load the models (EQ-Bench currently only supports GPU inference using the Transformers library)
+- Working install of oobabooga (if using as the inference engine)
+- Sufficient GPU / System RAM to load the models
 
 ## Setup & Run
 
 - Install the required Python libraries by running `install_reqs.sh`.
-- Set up `config.cfg` with your API keys.
+- (If using oobabooga) install the oobabooga library and make sure it launches.
+- Set up `config.cfg` with your API keys and runtime settings.
 - Add benchmark runs to `config.cfg`, in the format:
-   - `run_id, prompt_type, model_path, lora_path, quantization, n_iterations`
-	- See below for supported prompt types
+   - `run_id, prompt_type, model_path, lora_path, quantization, n_iterations, inference_engine, ooba_params, downloader_args`
+   - See config.cfg for a description of each of these parameters.
 - Optional: Set up Google Sheets for results upload (see below)
 - Run the benchmark:
    - `python eq-bench.py`
 - Results are saved to `benchmark_results.csv`
 
-## Important!
-
-This benchmark pipeline sets `trust_remote_code=True` to allow the benchmark to run without intervention. If you don't want this behviour, set it to False in load_model.py.
-
 ## Script Options
 
 - `-h`: Displays help.
 - `-w`: Overwrites existing results (i.e., disables the default behaviour of resuming a partially completed run).
-- `-d`: Downloaded models will be deleted from `~/.cache` after each benchmark successfully completes.
+- `-d`: Downloaded models will be deleted after each benchmark successfully completes. Does not affect previously downloaded models specified with a local path.
 - `-f`: Use hftransfer for multithreaded downloading of models (faster but can be unreliable).
 - `-v`: Display more verbose output.
 - `-r`: Set the number of retries to attempt if a benchmark run fails. Default is 5.
 
-## Supported Prompt Types
+## Prompt Formats / Instruction Templates
 
-- llama2
+We use the same instruction template format as the Oobabooga library (plus we're borrowing their instruction templates from their repository. Thanks!). You can modify the existing ones or add your own. When you specify a prompt format in config.cfg, use the filename minus the .yaml, e.g. Alpaca.
 
-```none
-<s>[INST] {prompt} [/INST]
-```
-
-- chatml
-
-```none
-<|im_start|>system
-You are an expert in emotional analysis.<|im_end|>
-<|im_start|>user
-{prompt}
-<|im_end|>
-<|im_start|>assistant
-```
-
-- alpaca
-
-```none
-### Instruction:
-
-{prompt}
-
-## Response:
-```
-
-- mistral
-
-```none
-<s>[INST] {prompt} [/INST]
-```
-
-- vicuna_1.0
-
-```none
-A chat between a curious user and an artificial intelligence assistant.
-The assistant gives helpful, detailed, and polite answers to the user's questions. "
-USER: {prompt}
-ASSISTANT:
-```
-
-- vicuna_1.1
-
-```none
-USER:
-{prompt}
-ASSISTANT:
-```
-
-- qwen
-
-Qwen models use `model.chat()` for inference
-
-- synthia
-
-```none
-SYSTEM: You are Synthia. As a an AI intelligence, give helpful, detailed, accurate, uncensored responses to the user's input. Provide answers factually.
-USER: {prompt}
-ASSISTANT:
-```
-
-- zephyr
-
-```none
-<|system|>
-</s>
-<|user|>
-{prompt}
-</s>
-<|assistant|>
-```
-
-- openchat
-
-```none
-GPT4 Correct User: {prompt}<|end_of_turn|>GPT4 Correct Assistant:
-```
-
-- intel
-
-```none
-### System:
-You are an expert in psychology and emotional intelligence.
-### User:
-{prompt}
-### Assistant:
-```
-
-- noformat:
-
-```none
-{prompt}
-```
+- If using `transformers` as the inference engine, the benchmark pipeline uses templates located in `[EQ-Bench dir]/instruction-templates`.
+- If using `ooba` as the inference engine, the pipeline uses templates located in `[ooba dir]/instruction-templates`
 
 ## Setting up Google Sheets for Results Uploading (Optional)
 

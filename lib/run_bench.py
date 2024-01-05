@@ -2,12 +2,12 @@ import os
 import time
 import json
 import datetime
-import shutil
 from tqdm import tqdm
 from lib.load_model import load_model
 from lib.scoring import calculate_score, parse_answers, calculate_benchmark_score
 from lib.run_query import OPENAI_CHAT_MODELS, OPENAI_COMPLETION_MODELS, run_query
-from lib.util import upload_results_google_sheets
+from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
+import lib.ooba
 
 # Constants
 COMPLETION_TOKENS = 1000
@@ -18,7 +18,13 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
                   n_iterations, resume=True, delete_cache=False, 
                   max_bench_retries=5, n_question_attempts=5, verbose=False, 
                   google_spreadsheet_url='', trust_remote_code=False, 
-                  inference_engine='transformers', ooba_instance=None):
+                  inference_engine='transformers', ooba_instance=None,
+						launch_ooba=True, cache_dir=None,
+						models_to_delete={}, models_remaining=[],
+						ooba_launch_script='', ooba_params='',
+						include_patterns=[], exclude_patterns=[],
+						ooba_params_global='', fast_download=False,
+						hf_access_token=None):
 	"""
 	Run a benchmark with the specified parameters.
 	:param run_id: The ID string of the benchmark to be run.
@@ -58,6 +64,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	with open('data/eq_bench_questions_final.json', 'r') as f:
 		questions = json.load(f)
 
+	# Initialise vars
 	bench_success = False
 	bench_tries = 0	
 	model = None
@@ -71,10 +78,18 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 			print('Iteration', run_iter,'of', n_iterations)
 			run_iter = str(run_iter) # Ensure this is always a string because json dump/load will save numeric keys as string
 			try:
-				if model_path not in OPENAI_CHAT_MODELS and model_path not in OPENAI_COMPLETION_MODELS:
-					# If this benchmark has already completed, skip loading the model
-					if not model and inference_engine == 'transformers' and len(results[run_index][run_iter]['individual_scores']) < 60:
-						model, tokenizer = load_model(model_path, lora_path, quantization, trust_remote_code = trust_remote_code)
+				# Only load the model if this benchmark hasn't already completed
+				if not model and inference_engine == 'transformers' and len(results[run_index][run_iter]['individual_scores']) < 60:
+					model, tokenizer = load_model(model_path, lora_path, quantization, trust_remote_code = trust_remote_code)
+				if inference_engine == 'ooba' and launch_ooba and len(results[run_index][run_iter]['individual_scores']) < 60:						
+					print('Launching oobabooga...')
+					ooba_instance = lib.ooba.Ooba(ooba_launch_script, model_path, cache_dir, verbose, trust_remote_code=trust_remote_code, 
+													ooba_args_global=ooba_params_global, ooba_args=ooba_params, fast_download=fast_download, 
+													include_patterns=include_patterns, exclude_patterns=exclude_patterns, hf_access_token=hf_access_token)
+					ooba_started_ok = ooba_instance.start()
+					if not ooba_started_ok:
+						print('Ooba failed to launch.')
+						continue
 				
 				# Iterate over the 60 test questions
 				for question_id, q in tqdm(questions.items()):
@@ -82,7 +97,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 						if verbose:
 							print('Question',question_id,'already complete')
 					else:
-						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts, inference_engine, ooba_instance)
+						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, launch_ooba)
 					
 
 				bench_success = True
@@ -99,7 +114,9 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		with open(BENCH_RESULTS_PATH, 'a') as f:
 			f.write('Run ID, Benchmark Completed, Prompt Format, Model Path, Lora Path, Quantization, Benchmark Score, Num Questions Parseable, Num Iterations, Error\n')
 	
-	# Calculate final score
+	delete_model_files = False
+
+	# Calculate final score	
 	if bench_success:
 		print('----Benchmark Complete----')
 		print(formatted_datetime)
@@ -108,6 +125,10 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		print('Model:', model_path)
 		if lora_path:
 			print('Lora:', lora_path)
+
+		# Delete model files if -d is specified and the benchmark fully completed (even if we didn't get 50 parseable answers)
+		if delete_cache:
+			delete_model_files = True
 
 		benchmark_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH)
 
@@ -159,16 +180,30 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	# Cleanup
 	del model
 	del tokenizer
-	if delete_cache:
-		dir_to_delete = os.path.expanduser('~/.cache/huggingface/hub/models--'+model_path.replace('/', '--').replace('\\', '--'))
-		if os.path.exists(dir_to_delete):
-			shutil.rmtree(dir_to_delete)
-			print('Cache deleted:', dir_to_delete)
-		else:
-			print('! Cache not found:', dir_to_delete)
+	if inference_engine == 'ooba' and launch_ooba:
+		try:
+			ooba_instance.stop()
+		except Exception as e:
+			pass
+
+	if delete_model_files:
+		if model_path and model_path in models_to_delete and model_path not in models_remaining[1:]:
+			if inference_engine == 'transformers':
+				dir_to_delete = os.path.expanduser('~/.cache/huggingface/hub/models--'+model_path.replace('/', '--').replace('\\', '--'))
+				if os.path.exists(dir_to_delete):
+					delete_symlinks_and_dir(dir_to_delete, verbose)
+				else:
+					print('! Cache not found:', dir_to_delete)
+			elif inference_engine == 'ooba':
+				if ooba_instance and ooba_instance.model_downloaded_fullpath:
+					dir_to_delete = ooba_instance.model_downloaded_fullpath
+					if os.path.exists(dir_to_delete):
+						delete_symlinks_and_dir(dir_to_delete, verbose)
+					else:
+						print('! Cache not found:', dir_to_delete)
 
 
-def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts, inference_engine, ooba_instance):
+def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, launch_ooba):
 	"""
 	Process a single question and update the results.
 	:param question_id: ID of the question.
@@ -194,7 +229,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	prev_result = None # Stores the result of a previous partial success
 	prev_result_inference = None
 	while tries < n_question_attempts and not success:
-		inference = run_query(model_path, prompt_type, prompt, COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance)
+		inference = run_query(model_path, prompt_type, prompt, COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba)
 
 		try:
 			if verbose:

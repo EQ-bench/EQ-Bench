@@ -32,9 +32,14 @@ OPENSOURCE_MODELS_INFERENCE_METHODS = {
 	'Qwen/Qwen-14B-Chat': run_chat_query
 }
 
-def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance):
-	if not ooba_instance or not ooba_instance.url:
+def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba):
+	if launch_ooba and (not ooba_instance or not ooba_instance.url):
 		raise Exception("Error: Ooba api not initialised")
+	if launch_ooba:
+		ooba_url = ooba_instance.url
+	else:
+		ooba_url = "http://127.0.0.1:5000"
+
 	try:
 
 		data = {
@@ -49,7 +54,7 @@ def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance
 			"Content-Type": "application/json"
 		}		
 
-		response = requests.post(ooba_instance.url + '/v1/chat/completions', headers=headers, json=data, verify=False).json()
+		response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False).json()
 		print(response)
 		content = response['choices'][0]['message']['content']
 		if content:
@@ -164,12 +169,12 @@ def generate_prompt_from_template(prompt, prompt_type):
 	formatted_prompt = formatted_prompt.split("<|bot-message|>")[0]
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
-def run_query(model_path, prompt_format, prompt, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance):
+def run_query(model_path, prompt_format, prompt, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba):
 	if inference_engine == 'openai':
 	#if model_path in OPENAI_CHAT_MODELS or model_path in OPENAI_COMPLETION_MODELS:
 		return run_openai_query(prompt, completion_tokens, temp, model_path)			
-	elif inference_engine == 'oobabooga':
-		return run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance)
+	elif inference_engine == 'ooba':
+		return run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba)
 	else: # transformers
 		# figure out the correct inference method to use
 		if model_path in OPENSOURCE_MODELS_INFERENCE_METHODS:

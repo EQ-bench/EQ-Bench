@@ -7,50 +7,36 @@ import time
 import os
 import pexpect
 from huggingface_hub import snapshot_download
+from lib.download import download_model
 import sys
 import pty
 import shlex
-
-def get_process_pwd(pid):
-	try:
-		process = psutil.Process(pid)
-		return process.cwd()
-	except (psutil.NoSuchProcess, psutil.AccessDenied):
-		print(f"Cannot access process with PID {pid}")
-		return None
-	
-def read_output(master_fd, output_lines):
-	buffer = ''
-	try:
-		while True:
-			output = os.read(master_fd, 1024)
-			if not output:
-					break
-			buffer += output.decode()
-			while '\n' in buffer:
-					line, buffer = buffer.split('\n', 1)
-					output_lines.append(line)
-					print(line)
-	except KeyboardInterrupt:
-		print("Process interrupted")
-	except Exception as e:
-		# process is probably dead
-		return
+from lib.util import read_output
 
 class Ooba:
-	def __init__(self, script_path, model_path, models_dir, trust_remote_code=False, ooba_args_global="", ooba_args="", fast_download=False):
+	def __init__(self, script_path, model_path, cache_dir, verbose, trust_remote_code=False, ooba_args_global="", 
+				  ooba_args="", fast_download=False, include_patterns=None, exclude_patterns=None, hf_access_token=None):
 		self.script_path = script_path
+		if script_path.endswith('sh'):
+			self.script_command = 'bash'
+		elif script_path.endswith('server.py'):
+			self.script_command = sys.executable
 		self.ooba_dir = os.path.dirname(os.path.abspath(self.script_path))
-		self.model_path = model_path		
-		if models_dir:
-			expanded_path = os.path.expanduser(models_dir)
-			self.models_dir = os.path.abspath(expanded_path)		
+		self.model_path = model_path
+		if cache_dir:
+			expanded_path = os.path.expanduser(cache_dir)
+			self.cache_dir = os.path.abspath(expanded_path)		
 		else:
-			self.models_dir = None
+			self.cache_dir = None
+		self.verbose = verbose
 		self.trust_remote_code = trust_remote_code
 		self.ooba_args = ooba_args
 		self.ooba_args_global = ooba_args_global
 		self.fast_download = fast_download
+		self.include_patterns = include_patterns
+		self.exclude_patterns = exclude_patterns
+		self.hf_access_token = hf_access_token
+
 		self.process = None
 		self.url_found_event = threading.Event()
 		self.url = None
@@ -94,6 +80,10 @@ class Ooba:
 			self.command_args += shlex.split(self.ooba_args)
 		elif self.ooba_args_global:
 			self.command_args += shlex.split(self.ooba_args_global)
+
+		if self.verbose:
+			print('Launching ooba with command:')
+			print(' '.join(self.command_args))
 		
 		self.process = pexpect.spawn(self.command_args[0], self.command_args[1:], encoding='utf-8', timeout=None, cwd = self.ooba_dir)
 		threading.Thread(target=self.monitor_output, daemon=True).start()
@@ -111,9 +101,26 @@ class Ooba:
 	def download_model(self):
 		# figure out if this is an existing local path
 		if os.path.exists(self.model_path):			
-			self.command_args = ['bash', self.script_path, '--model', self.model_path] + self.ooba_args.split()	
-		else:
-			# it's not an existing local path, so try using ooba's downloader to fetch the model
+			self.command_args = [self.script_command, self.script_path, '--model', self.model_path] + self.ooba_args.split()	
+		else:			
+			# it's not an existing local path, so try using hf_hub downloader to fetch the model
+			download_path = download_model(self.model_path, self.cache_dir, self.ooba_dir, self.include_patterns, self.exclude_patterns, self.hf_access_token)
+
+			# Check if the download path was found
+			if download_path is None:
+				raise Exception("Download path not found in the output.")
+			else:
+				print(f"Model downloaded to: {download_path}")
+
+			self.model_downloaded_fullpath = download_path
+
+			model_dir, model = os.path.split(download_path)
+
+			self.command_args = [self.script_command, self.script_path, '--model', model, '--model-dir', model_dir] + self.ooba_args.split()
+		
+			return
+
+
 			print('Downloading model', self.model_path)
 			dl_script = self.ooba_dir + '/download-model.py'
 			if not os.path.exists(dl_script):
@@ -154,7 +161,6 @@ class Ooba:
 				raise Exception("Download path not found in the output.")
 			else:
 				print(f"Model downloaded to: {download_path}")
-				# Do something with download_path if needed			
 
 			model_dir, model = os.path.split(download_path)
 			if self.models_dir:
@@ -163,7 +169,7 @@ class Ooba:
 				model_dir = self.ooba_dir + '/models'
 
 			self.model_downloaded_fullpath = model_dir + '/' + model
-			self.command_args = ['bash', self.script_path, '--model', model, '--model-dir', model_dir] + self.ooba_args.split()
+			self.command_args = [self.script_command, self.script_path, '--model', model, '--model-dir', model_dir] + self.ooba_args.split()
 		
 	def read_output_for_duration(self, duration):
 		end_time = time.time() + duration
