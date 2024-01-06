@@ -6,16 +6,14 @@ import signal
 import time
 import os
 import pexpect
-from huggingface_hub import snapshot_download
 from lib.download import download_model
 import sys
-import pty
 import shlex
-from lib.util import read_output
 
 class Ooba:
 	def __init__(self, script_path, model_path, cache_dir, verbose, trust_remote_code=False, ooba_args_global="", 
-				  ooba_args="", fast_download=False, include_patterns=None, exclude_patterns=None, hf_access_token=None):
+				  ooba_args="", fast_download=False, include_patterns=None, exclude_patterns=None, hf_access_token=None,
+				  load_model=True):
 		self.script_path = script_path
 		if script_path.endswith('sh'):
 			self.script_command = 'bash'
@@ -36,6 +34,7 @@ class Ooba:
 		self.include_patterns = include_patterns
 		self.exclude_patterns = exclude_patterns
 		self.hf_access_token = hf_access_token
+		self.load_model = load_model
 
 		self.process = None
 		self.url_found_event = threading.Event()
@@ -69,7 +68,11 @@ class Ooba:
 			print('Ooobabooga server appears to already be running! Please close it before running the benchmark.')
 			exit()			
 
-		self.download_model()
+		if self.load_model:
+			self.download_model()
+		else:
+			# this path is used by quickstart.py when first launching ooba
+			self.command_args = [self.script_command, self.script_path]
 
 		if self.trust_remote_code:
 			self.command_args += ['--trust-remote-code']		
@@ -120,57 +123,6 @@ class Ooba:
 		
 			return
 
-
-			print('Downloading model', self.model_path)
-			dl_script = self.ooba_dir + '/download-model.py'
-			if not os.path.exists(dl_script):
-				raise Exception("Error: ooba download script not found at " + dl_script)
-
-			# Start the subprocess in a pseudo-terminal so we can capture progress bars in output
-			output_lines = []
-			master_fd, slave_fd = pty.openpty()
-			if self.models_dir:
-				dl_args = [sys.executable, dl_script, self.model_path, '--output', self.models_dir]
-			else:
-				dl_args = [sys.executable, dl_script, self.model_path]
-
-			if self.fast_download:
-				dl_args += ['--threads', '8']
-
-			process = subprocess.Popen(dl_args, stdout=slave_fd, stderr=slave_fd, text=True, cwd=self.ooba_dir)
-			os.close(slave_fd)
-
-			# Monitor the output
-			read_output(master_fd, output_lines)
-
-			# Wait for the process to finish
-			process.wait()
-
-			# Close the file descriptor
-			os.close(master_fd)
-
-			# Search for the download path in the output
-			download_path = None
-			for line in output_lines:
-				if line.startswith("Downloading the model to "):
-						download_path = line.split("Downloading the model to ")[1].strip()
-						break
-
-			# Check if the download path was found
-			if download_path is None:
-				raise Exception("Download path not found in the output.")
-			else:
-				print(f"Model downloaded to: {download_path}")
-
-			model_dir, model = os.path.split(download_path)
-			if self.models_dir:
-				model_dir = self.models_dir				
-			else:
-				model_dir = self.ooba_dir + '/models'
-
-			self.model_downloaded_fullpath = model_dir + '/' + model
-			self.command_args = [self.script_command, self.script_path, '--model', model, '--model-dir', model_dir] + self.ooba_args.split()
-		
 	def read_output_for_duration(self, duration):
 		end_time = time.time() + duration
 		outstr = ''
