@@ -10,9 +10,39 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 - Linux (and possibly mac; untested) supported
 - Python 3x
-- Python libraries listed in `install_reqs.sh`
 - Working install of Oobabooga (optional)
 - Sufficient GPU / System RAM to load the models
+- Python libraries listed in `install_reqs.sh`
+<details>
+<summary>Show python libraries</summary>
+### EQ-bench requirements
+- `tqdm`
+- `sentencepiece`
+- `hf_transfer`
+- `openai`
+- `scipy`
+- `torch`
+- `peft`
+- `bitsandbytes`
+- `transformers` (preferably the latest version installed directly from GitHub: `huggingface/transformers`)
+- `trl`
+- `accelerate`
+- `tensorboardX`
+- `huggingface_hub`
+
+### Requirements for QWEN models
+- `einops`
+- `transformers_stream_generator` (version 0.0.4)
+- `deepspeed`
+- `tiktoken`
+- `flash-attention` (the latest version installed directly from GitHub: `Dao-AILab/flash-attention`)
+- `auto-gptq`
+- `optimum`
+
+### Requirements for uploading results to Google Sheets
+- `gspread`
+- `oauth2client`
+</details>
 
 ## Installation
 
