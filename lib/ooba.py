@@ -182,7 +182,7 @@ class Ooba:
 
 				if char == '\n' or char == '\r' or output_buffer.endswith('it/s]'):
 						# Print the accumulated output
-						print(output_buffer, end='\r' if (char == '\r' or output_buffer.endswith('it/s]')) else '\n')						
+						print(output_buffer.strip(), end='\r' if (char == '\r' or output_buffer.endswith('it/s]')) else '\n')						
 
 						if not output_buffer.endswith('it/s]'):
 							# Check for patterns in the output buffer						
@@ -195,6 +195,7 @@ class Ooba:
 							if error_pathnotfound_pattern.search(output_buffer):
 								print("\nError: the path to the model does not exist.")
 								self.stop(force_exit=True)
+								self.shutdown_message_shown.set()
 								return
 							
 							if exception_pattern.search(output_buffer):
@@ -203,6 +204,7 @@ class Ooba:
 								print(exception_str)							
 								print("\nError: Oobabooga failed to load the model.")
 								self.stop(force_exit=True)
+								self.shutdown_message_shown.set()
 								return
 
 							if shutdown_pattern.search(output_buffer):
@@ -221,13 +223,38 @@ class Ooba:
 				continue
 			time.sleep(0.001)
 
-	def stop(self, force_exit=False):
+	def stop(self, force_exit=False, timeout=5):
 		if self.process is not None:
-			# Send SIGINT to the process group
-			try:
-				os.killpg(os.getpgid(self.process.pid), signal.SIGINT)
-			except Exception as e:
-				return
+			# Check if the process is still alive
+			if self.process.isalive():
+				try:
+					# Use a separate thread to avoid hanging
+					def get_pid():
+						try:
+								return os.getpgid(self.process.pid)
+						except Exception as e:
+								print(f"Error getting PGID: {e}")
+								return None
+
+					get_pid_thread = threading.Thread(target=get_pid)
+					get_pid_thread.start()
+					get_pid_thread.join(timeout)
+
+					if get_pid_thread.is_alive():
+						print("Timeout reached while getting PGID.")
+						# Optionally, force kill the process
+						if force_exit:
+								self.process.kill()
+						return
+					else:
+						pid = get_pid_thread.join()  # Retrieve PGID from thread
+						if pid:
+								os.killpg(pid, signal.SIGINT)
+				except Exception as e:
+					print(f"Error during stopping process: {e}")
+					if force_exit:
+						self.process.kill()
+
 
 			if not force_exit:
 				self.shutdown_message_shown.wait(timeout=5)

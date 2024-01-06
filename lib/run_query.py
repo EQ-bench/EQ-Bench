@@ -54,7 +54,7 @@ def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance
 			"Content-Type": "application/json"
 		}		
 
-		response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False).json()
+		response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False, timeout=300).json()
 		print(response)
 		content = response['choices'][0]['message']['content']
 		if content:
