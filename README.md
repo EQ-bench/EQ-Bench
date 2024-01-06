@@ -34,15 +34,15 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 - Add benchmark runs to `config.cfg`, in the format:
    - `run_id, prompt_type, model_path, lora_path, quantization, n_iterations, inference_engine, ooba_params, downloader_args`
 
-      - run_id: A name to identify the benchmark run
-      - prompt_type: The prompt format (e.g., openai_api, chatml, etc.)
-      - model_path: Huggingface model ID, local path, or OpenAI model name
-      - lora_path (optional): Path to local lora adapter
-      - quantization: Using bitsandbytes package (8bit, 4bit, None)
-      - n_iterations: Number of benchmark iterations (final score will be an average)
-      - inference_engine: Set this to transformers, openai or ooba.
-      - ooba_params (optional): Any additional ooba params for loading this model (overrides the global setting above)
-      - downloader_filters (optional): Specify --include or --exclude patterns (using same syntax as huggingface-cli download)
+      - `run_id`: A name to identify the benchmark run
+      - `prompt_type`: The prompt format (e.g., openai_api, chatml, etc.)
+      - `model_path`: Huggingface model ID, local path, or OpenAI model name
+      - `lora_path` (optional): Path to local lora adapter
+      - `quantization`: Using bitsandbytes package (8bit, 4bit, None)
+      - `n_iterations`: Number of benchmark iterations (final score will be an average)
+      - `inference_engine`: Set this to transformers, openai or ooba.
+      - `ooba_params` (optional): Any additional ooba params for loading this model (overrides the global setting above)
+      - `downloader_filters` (optional): Specify --include or --exclude patterns (using same syntax as huggingface-cli download)
 
 ## Running the benchmark
 
