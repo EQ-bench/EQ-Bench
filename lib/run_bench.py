@@ -396,7 +396,7 @@ def run_test_prompts(model, ooba_instance,
 					history.append({"role": "assistant", "content": inference.strip()})
 
 			with open('test_prompts_results.txt', 'a') as f:
-				out_str = '### ' + run_index + '\n\n'
+				out_str = '\n\n### ' + run_index + '\n\n'
 				out_str += 'NAME=' + sequence_name + '\n'
 				out_str += 'TEMP=' + str(temp) + '\n'
 				out_str += 'COMPLETION_TOKENS=' + str(completion_tokens) + '\n\n'
