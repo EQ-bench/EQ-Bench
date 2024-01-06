@@ -13,8 +13,10 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 - Working install of Oobabooga (optional)
 - Sufficient GPU / System RAM to load the models
 - Python libraries listed in `install_reqs.sh`
+
 <details>
 <summary>Show python libraries</summary>
+
 ### EQ-bench requirements
 - `tqdm`
 - `sentencepiece`
@@ -42,6 +44,7 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 ### Requirements for uploading results to Google Sheets
 - `gspread`
 - `oauth2client`
+
 </details>
 
 ## Installation
@@ -114,6 +117,7 @@ EQ-Bench uses the same instruction template format as the Oobabooga library. You
 
 <details>
   <summary>Show instructions</summary>
+  
 1. Create a new Google Sheet.
 2. Set the share settings so that anyone with the link can edit.
 3. Set google_spreadsheet_url in `config.cfg` to the URL of the sheet you just created.
@@ -131,6 +135,7 @@ EQ-Bench uses the same instruction template format as the Oobabooga library. You
    - Click `Done`
 8. Click on the service account, then navigate to Keys -> Add key -> Create new key -> JSON.
 9. Save the file to `google_creds.json` in the eq-bench directory.
+
 </details>
 
 ## Cite
