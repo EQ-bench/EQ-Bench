@@ -32,7 +32,7 @@ OPENSOURCE_MODELS_INFERENCE_METHODS = {
 	'Qwen/Qwen-14B-Chat': run_chat_query
 }
 
-def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout):
+def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout):
 	if launch_ooba and (not ooba_instance or not ooba_instance.url):
 		raise Exception("Error: Ooba api not initialised")
 	if launch_ooba:
@@ -41,10 +41,10 @@ def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance
 		ooba_url = "http://127.0.0.1:5000"
 
 	try:
-
+		messages = history + [{"role": "user", "content": prompt}]
 		data = {
         	"mode": "instruct",        
-        	"messages": [{"role": "user", "content": prompt}],
+        	"messages": messages,
 		  	"instruction_template": prompt_format,
 		  	"max_tokens": completion_tokens,
     		"temperature": temp,
@@ -55,7 +55,8 @@ def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance
 		}		
 
 		try:
-			response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False, timeout=ooba_request_timeout).json()
+			response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False, timeout=ooba_request_timeout)			
+			response = response.json()
 		except Exception as e:
 			print(e)
 			# Sometimes the ooba api stops responding. If this happens we will get a timeout exception.
@@ -77,14 +78,15 @@ def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance
 		print(e)
 	return None
 
-def run_openai_query(prompt, completion_tokens, temp, model):
+def run_openai_query(prompt, history, completion_tokens, temp, model):
 	try:
+		messages = history + [{"role": "user", "content": prompt}]
 		if model in OPENAI_CHAT_MODELS:
 			result = openai.ChatCompletion.create(
 					model=model,
 					temperature=temp,
 					max_tokens=completion_tokens,
-					messages=[{"role": "user", "content": prompt}],
+					messages=messages,
 			)
 			content = result.choices[0].message.content
 		elif model in OPENAI_COMPLETION_MODELS:
@@ -177,12 +179,12 @@ def generate_prompt_from_template(prompt, prompt_type):
 	formatted_prompt = formatted_prompt.split("<|bot-message|>")[0]
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
-def run_query(model_path, prompt_format, prompt, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba):
+def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout):
 	if inference_engine == 'openai':
 	#if model_path in OPENAI_CHAT_MODELS or model_path in OPENAI_COMPLETION_MODELS:
-		return run_openai_query(prompt, completion_tokens, temp, model_path)			
+		return run_openai_query(prompt, history, completion_tokens, temp, model_path)			
 	elif inference_engine == 'ooba':
-		return run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba)
+		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
 	else: # transformers
 		# figure out the correct inference method to use
 		if model_path in OPENSOURCE_MODELS_INFERENCE_METHODS:
