@@ -1,4 +1,3 @@
-import subprocess
 import threading
 import re
 import psutil
@@ -9,6 +8,24 @@ import pexpect
 from lib.download import download_model
 import sys
 import shlex
+
+def send_user_input_to_process(child_process):
+	while True:
+		try:
+			# Read a character from user input (non-blocking)
+			char = sys.stdin.read(1)
+			if char:
+					# Send the character to the child process
+					child_process.send(char)
+			else:
+					# Sleep for a short duration to prevent high CPU usage
+					time.sleep(0.1)
+		except EOFError:
+			# End of file (user pressed Ctrl-D)
+			break
+		except KeyboardInterrupt:
+			# Interrupted by Ctrl-C
+			break
 
 class Ooba:
 	def __init__(self, script_path, model_path, cache_dir, verbose, trust_remote_code=False, ooba_args_global="", 
@@ -91,6 +108,11 @@ class Ooba:
 		self.process = pexpect.spawn(self.command_args[0], self.command_args[1:], encoding='utf-8', timeout=None, cwd = self.ooba_dir)
 		threading.Thread(target=self.monitor_output, daemon=True).start()
 
+		# Create a thread to handle user input
+		input_thread = threading.Thread(target=send_user_input_to_process, args=(self.process,))
+		input_thread.daemon = True
+		input_thread.start()
+
 		# Wait for either URL found or process end
 		while not (self.url_found_event.is_set() or self.process_end_event.is_set()):
 			time.sleep(0.5)
@@ -144,7 +166,8 @@ class Ooba:
 
 	def monitor_output(self):
 		#url_pattern = re.compile(r"Uvicorn running on\s*(?:\x1b\[\d+m)*(http://\S+)(?:\x1b\[\d+m)* \(Press CTRL\+C to quit\)")
-		url_pattern = re.compile(r"Uvicorn running on\s*(?:\x1b\[\d+m)?(http:\/\/[^\s\x1b]+)(?:\x1b\[\d+m)?\s\(Press CTRL\+C to quit\)")
+		#url_pattern = re.compile(r"Uvicorn running on\s*(?:\x1b\[\d+m)?(http:\/\/[^\s\x1b]+)(?:\x1b\[\d+m)?\s\(Press CTRL\+C to quit\)")
+		url_pattern = re.compile(r"Running on local URL:\s*(?:\x1b\[\d+m)?(http:\/\/[^\s\x1b]+)(?:\x1b\[\d+m)?\s")
 		error_pathnotfound_pattern = re.compile(r"The path to the model does not exist\. Exiting\.")
 		shutdown_pattern = re.compile(r"Shutting down Text generation web UI gracefully\.")
 		exception_pattern = re.compile(r"Traceback \(most recent call last\)")
@@ -164,8 +187,8 @@ class Ooba:
 						if not output_buffer.endswith('it/s]'):
 							# Check for patterns in the output buffer						
 							if url_pattern.search(output_buffer):
-								self.url = url_pattern.search(output_buffer).group(1).strip()
-								print(f"\nURL found: {self.url}")
+								webui_url = url_pattern.search(output_buffer).group(1).strip()
+								self.url = 'http://127.0.0.1:5000' # Api url should always be this.
 								self.url_found_event.set()
 								return
 

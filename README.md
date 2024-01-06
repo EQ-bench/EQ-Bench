@@ -13,20 +13,43 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 - Linux (and possibly mac; untested) supported
 - Python 3x
 - Python libraries listed in `install_reqs.sh`
-- Working install of oobabooga (if using as the inference engine)
+- Working install of Oobabooga (optional)
 - Sufficient GPU / System RAM to load the models
 
-## Setup & Run
+## Installation
 
-- Install the required Python libraries by running `install_reqs.sh`.
-- (If using oobabooga) install the oobabooga library and make sure it launches.
+### Quick start:
+
+If you are installing EQ-Bench into a fresh linux install (like a runpod or similar), you can run `ooba_quick_install.sh`. This will install oobabooga into the current user's home directory, install all EQ-Bench dependencies, then run the benchmark pipeline.
+
+### Install (not using quick start)
+
+Note: Ooobabooga is optional. If you prefer to use transformers as the inference engine, or if you are only benchmarking through the OpenAI API, you can skip installing it.
+
+- Install the required Python dependencies by running `install_reqs.sh`.
+- Optional: install the [Oobabooga library](https://github.com/oobabooga/text-generation-webui/tree/main) and make sure it launches.
+- Optional: Set up Google Sheets for results upload (see below)
+
+### Configure
+
 - Set up `config.cfg` with your API keys and runtime settings.
 - Add benchmark runs to `config.cfg`, in the format:
    - `run_id, prompt_type, model_path, lora_path, quantization, n_iterations, inference_engine, ooba_params, downloader_args`
-   - See config.cfg for a description of each of these parameters.
-- Optional: Set up Google Sheets for results upload (see below)
+
+      - run_id: A name to identify the benchmark run
+      - prompt_type: The prompt format (e.g., openai_api, chatml, etc.)
+      - model_path: Huggingface model ID, local path, or OpenAI model name
+      - lora_path (optional): Path to local lora adapter
+      - quantization: Using bitsandbytes package (8bit, 4bit, None)
+      - n_iterations: Number of benchmark iterations (final score will be an average)
+      - inference_engine: Set this to transformers, openai or ooba.
+      - ooba_params (optional): Any additional ooba params for loading this model (overrides the global setting above)
+      - downloader_filters (optional): Specify --include or --exclude patterns (using same syntax as huggingface-cli download)
+
+## Running the benchmark
+
 - Run the benchmark:
-   - `python eq-bench.py`
+   - `python3 eq-bench.py`
 - Results are saved to `benchmark_results.csv`
 
 ## Script Options
@@ -40,7 +63,7 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ## Prompt Formats / Instruction Templates
 
-We use the same instruction template format as the Oobabooga library (plus we're borrowing their instruction templates from their repository. Thanks!). You can modify the existing ones or add your own. When you specify a prompt format in config.cfg, use the filename minus the .yaml, e.g. Alpaca.
+EQ-Bench uses the same instruction template format as the Oobabooga library. You can modify the existing ones or add your own. When you specify a prompt format in config.cfg, use the filename minus the .yaml, e.g. Alpaca.
 
 - If using `transformers` as the inference engine, the benchmark pipeline uses templates located in `[EQ-Bench dir]/instruction-templates`.
 - If using `ooba` as the inference engine, the pipeline uses templates located in `[ooba dir]/instruction-templates`

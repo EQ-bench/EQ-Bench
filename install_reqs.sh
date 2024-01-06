@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # EQ-bench requirements:
 pip install -q tqdm sentencepiece hf_transfer openai scipy torch peft bitsandbytes git+https://github.com/huggingface/transformers.git trl accelerate tensorboardX huggingface_hub
 # These are for qwen models:

@@ -27,7 +27,10 @@ ooba_instance = lib.ooba.Ooba(os.path.expanduser("~/text-generation-webui") + '/
 ooba_started_ok = ooba_instance.start()
 if not ooba_started_ok:
 	print('Ooba failed to launch.')
+else:
+	print('Ooba installed & launched successfully.')
 try:
+	print('Closing ooba...')
 	ooba_instance.stop()
 except Exception as e:
 	print(e)
