@@ -126,7 +126,7 @@ class Ooba:
 	def download_model(self):
 		# figure out if this is an existing local path
 		if os.path.exists(self.model_path):			
-			self.command_args = [self.script_command, self.script_path, '--model', self.model_path] + self.ooba_args.split()	
+			self.command_args = [self.script_command, self.script_path, '--model', self.model_path]
 		else:			
 			# it's not an existing local path, so try using hf_hub downloader to fetch the model
 			download_path = download_model(self.model_path, self.cache_dir, self.ooba_dir, self.include_patterns, self.exclude_patterns, self.hf_access_token)
@@ -141,7 +141,7 @@ class Ooba:
 
 			model_dir, model = os.path.split(download_path)
 
-			self.command_args = [self.script_command, self.script_path, '--model', model, '--model-dir', model_dir] + self.ooba_args.split()
+			self.command_args = [self.script_command, self.script_path, '--model', model, '--model-dir', model_dir]
 		
 			return
 
