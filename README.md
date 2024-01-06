@@ -48,11 +48,11 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 
 `# run_id, instruction_template, model_path, lora_path, quantization, n_iterations, inference_engine, ooba_params, downloader_args`
 
-`myrun2, openai_api, gpt-4-0613, , , 1, openai, ,`
+`myrun1, openai_api, gpt-4-0613, , , 1, openai, ,`
 
-`myrun1, Qwen, Qwen/Qwen-14B-Chat, /path/to/local/lora/adapter, 8bit, 3, transformers, , ,`
+`myrun2, Llama-v2, meta-llama/Llama-2-7b-chat-hf, /path/to/local/lora/adapter, 8bit, 3, transformers, , ,`
 
-`myrun3, Alpaca, microsoft/phi-1, , None, 1, ooba, --loader transformers --n_ctx 1024 --n-gpu-layers -1, `
+`myrun3, Alpaca, ~/my_local_model, , None, 1, ooba, --loader transformers --n_ctx 1024 --n-gpu-layers -1, `
 
 `myrun4, Mistral, TheBloke/Mistral-7B-Instruct-v0.2-GGUF, , None, 1, ooba, --loader llama.cpp --n-gpu-layers -1 --tensor_split 1,3,5,7, --include ["*Q3_K_M.gguf", "*.json"]`
 

@@ -89,7 +89,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 					ooba_started_ok = ooba_instance.start()
 					if not ooba_started_ok:
 						print('Ooba failed to launch.')
-						continue
+						raise Exception("Ooba failed to launch.")
 				
 				# Iterate over the 60 test questions
 				for question_id, q in tqdm(questions.items()):
