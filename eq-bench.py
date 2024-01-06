@@ -2,7 +2,7 @@ import argparse
 import configparser
 import os
 import time
-from lib.util import parse_batch
+from lib.util import parse_batch, is_int
 import signal
 import sys
 
@@ -118,7 +118,14 @@ def main():
 		else:
 			raise Exception('Invalid trust_remote_code value in config.cfg')
 		
-	
+	ooba_request_timeout = config['Oobabooga config'].get('ooba_request_timeout')
+	if not ooba_request_timeout:
+		ooba_request_timeout = 300
+	else:
+		if not is_int(ooba_request_timeout):
+			raise Exception('Invalid ooba_request_timeout value in config.cfg')
+		ooba_request_timeout = int(ooba_request_timeout)
+
 
 	# Run benchmarks based on the config
 	n_benchmarks = 0
@@ -161,7 +168,7 @@ def main():
 								ooba_launch_script=ooba_launch_script, ooba_params=ooba_params,
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
-								hf_access_token=hf_access_token)
+								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
 				try:

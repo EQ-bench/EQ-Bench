@@ -266,3 +266,13 @@ class Ooba:
 				self.process.kill(signal.SIGKILL)
 
 		self.process_end_event.set()
+
+	def restart(self):
+		self.stop()
+		self.process_end_event.clear()
+		self.shutdown_message_shown.clear()
+		self.url_found_event.clear()
+		self.output_lock = threading.Lock()
+		self.process = None
+		start_result = self.start()
+		return start_result

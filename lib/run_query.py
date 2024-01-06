@@ -32,7 +32,7 @@ OPENSOURCE_MODELS_INFERENCE_METHODS = {
 	'Qwen/Qwen-14B-Chat': run_chat_query
 }
 
-def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba):
+def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout):
 	if launch_ooba and (not ooba_instance or not ooba_instance.url):
 		raise Exception("Error: Ooba api not initialised")
 	if launch_ooba:
@@ -54,8 +54,16 @@ def run_ooba_query(prompt, prompt_format, completion_tokens, temp, ooba_instance
 			"Content-Type": "application/json"
 		}		
 
-		response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False, timeout=300).json()
-		print(response)
+		try:
+			response = requests.post(ooba_url + '/v1/chat/completions', headers=headers, json=data, verify=False, timeout=ooba_request_timeout).json()
+		except Exception as e:
+			print(e)
+			# Sometimes the ooba api stops responding. If this happens we will get a timeout exception.
+			# In this case we will try to restart ooba & reload the model.
+			if launch_ooba:
+				print('! Request failed to Oobabooga api. Attempting to reload Ooba & model...')
+				ooba_instance.restart()				
+		
 		content = response['choices'][0]['message']['content']
 		if content:
 			return content.strip()
