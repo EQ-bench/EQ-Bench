@@ -4,6 +4,10 @@ from huggingface_hub import snapshot_download
 def download_model(model_path, cache_dir, ooba_dir, include, exclude, hf_access_token):
 	print('Downloading model', model_path)
 
+	# if no include filters were specified, include all by default
+	if not include:
+		include = ["*"]
+
 	if cache_dir:
 		cache_dir = os.path.abspath(os.path.expanduser(cache_dir))
 		models_dir = cache_dir

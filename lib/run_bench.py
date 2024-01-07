@@ -124,7 +124,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	formatted_datetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	if not os.path.exists(BENCH_RESULTS_PATH):
 		with open(BENCH_RESULTS_PATH, 'a') as f:
-			f.write('Run ID, Benchmark Completed, Prompt Format, Model Path, Lora Path, Quantization, Benchmark Score, Num Questions Parseable, Num Iterations, Error\n')
+			f.write('Run ID, Benchmark Completed, Prompt Format, Model Path, Lora Path, Quantization, Benchmark Score, Num Questions Parseable, Num Iterations, Inference Engine, Ooba Params, Download Filters, Error\n')
 	
 	delete_model_files = False
 
