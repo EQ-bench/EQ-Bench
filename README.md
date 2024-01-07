@@ -8,7 +8,7 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ## Requirements
 
-- Linux (and possibly mac; untested) supported
+- Linux
 - Python 3x
 - Working install of Oobabooga (optional)
 - Sufficient GPU / System RAM to load the models

@@ -158,6 +158,9 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				round(benchmark_score, 2),
 				parseable,
 				n_iterations,
+				inference_engine,
+				ooba_params,
+				format_include_exclude_string(include_patterns, exclude_patterns),
 				''
 			]
 			with open(BENCH_RESULTS_PATH, 'a') as f:
@@ -182,6 +185,9 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				'FAILED',
 				'FAILED',
 				n_iterations,
+				inference_engine,
+				ooba_params,
+				format_include_exclude_string(include_patterns, exclude_patterns),
 				last_error
 			]
 		with open(BENCH_RESULTS_PATH, 'a') as f:
@@ -199,7 +205,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 			pass
 
 	if delete_model_files:
-		if model_path and model_path in models_to_delete and model_path not in models_remaining[1:]:
+		this_model_key = model_path+'_'+','.join(include_patterns)+'_'+','.join(exclude_patterns)
+		if model_path and this_model_key in models_to_delete and this_model_key not in models_remaining[1:]:
 			if inference_engine == 'transformers':
 				dir_to_delete = os.path.expanduser('~/.cache/huggingface/hub/models--'+model_path.replace('/', '--').replace('\\', '--'))
 				if os.path.exists(dir_to_delete):
@@ -214,6 +221,17 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 					else:
 						print('! Cache not found:', dir_to_delete)
 
+def format_include_exclude_string(include_patterns, exclude_patterns):
+	outstr = ''
+	if include_patterns:
+		outstr += '--include ["'
+		outstr += '", "'.join(include_patterns)
+		outstr += '"] '		
+	if exclude_patterns:
+		outstr += '--exclude ["'
+		outstr += '", "'.join(exclude_patterns)
+		outstr += '"]'
+	return outstr.strip()
 
 def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, 
 							run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, 

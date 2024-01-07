@@ -139,9 +139,13 @@ def main():
 	for run_id, prompt_type, model_path, lora_path, quantization, n_iterations, \
 	inference_engine, ooba_params, include_patterns, exclude_patterns in parsed_batch:
 		if model_path and not os.path.exists(model_path):
+			# We only want to delete model files if they won't be used in a later benchmark.
+			# We also need to make sure we clear out the model dir if we are benchmarking the same model
+			# again but with e.g. different .gguf files.
+			this_model_key = model_path+'_'+','.join(include_patterns)+'_'+','.join(exclude_patterns)
 			if args.d:
-				models_to_delete[model_path] = True
-			models_remaining.append(model_path)
+				models_to_delete[this_model_key] = True
+			models_remaining.append(this_model_key)
 
 	for run_id, prompt_type, model_path, lora_path, quantization, n_iterations, \
 		inference_engine, ooba_params, include_patterns, exclude_patterns in parsed_batch:
