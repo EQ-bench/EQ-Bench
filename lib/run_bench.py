@@ -312,12 +312,8 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	if not REVISE:
 		# cut out the part of the prompt asking for a revised answer
 		prompt = prompt.replace(' Then critique your answer by thinking it through step by step. Finally, give your revised scores.', '')
-		#prompt = prompt.replace(' Finally, give your revised scores.', '')
 		prompt = prompt.replace('First pass scores:\n', '')
 		prompt = prompt[:prompt.find('Critique: <your critique here>')] + '\n' + prompt[prompt.find('[End of answer]'):]
-		
-		#prompt += "\nYour answer follows:" # adding this to help models not trained for instruction
-		#prompt += "Give your answers now." # adding this to help models not trained for instruction
 		prompt += '\nYour answer:\n'
 
 	tries = 0
