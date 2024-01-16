@@ -156,6 +156,7 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 - `-f`: Use hftransfer for multithreaded downloading of models (faster but can be unreliable).
 - `-v`: Display more verbose output.
 - `-r`: Set the number of retries to attempt if a benchmark run fails. Default is 5.
+- `--v1`: Runs v1 of the benchmark (legacy). If not set, the benchmark defaults to v2.
 
 ## Prompt Formats / Instruction Templates
 
