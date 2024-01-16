@@ -12,7 +12,7 @@ from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
 import lib.ooba
 
 # Constants
-COMPLETION_TOKENS = 500
+COMPLETION_TOKENS = 1000
 RAW_RESULTS_PATH = './raw_results.json'
 BENCH_RESULTS_PATH = './benchmark_results.csv'
 REVISE=True
@@ -145,7 +145,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 							print('Question',question_id,'already complete')
 					else:
 						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, 
-							  n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+							  n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version)
 					
 
 				bench_success = True
@@ -285,7 +285,7 @@ def format_include_exclude_string(include_patterns, exclude_patterns):
 
 def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, 
 							run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, 
-							launch_ooba, ooba_request_timeout, openai_client):
+							launch_ooba, ooba_request_timeout, openai_client, eqbench_version):
 	"""
 	Process a single question and update the results.
 	:param question_id: ID of the question.
@@ -384,13 +384,15 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 			results[run_index]['iterations'][run_iter]['individual_scores_fullscale'][question_id] = this_result_fullscale
 			results[run_index]['iterations'][run_iter]['raw_inference'][question_id] = inference
 			if verbose:
-				print('first pass:', round(first_pass_score, 1))
-				if REVISE:
-					print('revised:', round(revised_score, 1))
-				if ref_fullscale:
-					print('fullscale first pass:', round(first_pass_score_fullscale, 1))
+				if eqbench_version == 'v1':
+					print('first pass:', round(first_pass_score, 1))
 					if REVISE:
-						print('fullscale revised:', round(revised_score_fullscale, 1))
+						print('revised:', round(revised_score, 1))
+				elif eqbench_version == 'v2':
+					if ref_fullscale:
+						print('first pass:', round(first_pass_score_fullscale, 1))
+						if REVISE:
+							print('revised:', round(revised_score_fullscale, 1))
 
 			success = True
 		except KeyboardInterrupt:
