@@ -37,10 +37,10 @@ except Exception as e:
 
 # Step 3: Go to EQ-Bench, make install_reqs.sh executable and run it
 print("Running install_reqs.sh in EQ-Bench")
-run_command("chmod +x install_reqs.sh", cwd=os.path.expanduser("~/EQ-Bench"))
-run_command("./install_reqs.sh", cwd=os.path.expanduser("~/EQ-Bench"))
+run_command("chmod +x install_reqs.sh", cwd=os.path.abspath("../"))
+run_command("./install_reqs.sh", cwd=os.path.abspath("../"))
 
 # Step 4: Continue with remaining commands
 if ooba_started_ok:
 	print("Running eq-bench.py")
-	run_command("python eq-bench.py -v -f", cwd=os.path.expanduser("~/EQ-Bench"))
+	run_command("python eq-bench.py -v -f", cwd=os.path.abspath("../"))

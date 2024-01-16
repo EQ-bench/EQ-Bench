@@ -1,6 +1,5 @@
 from transformers import pipeline
 import time
-import openai
 import yaml
 import requests
 
@@ -24,7 +23,7 @@ def run_generate_query(prompt, completion_tokens, model, tokenizer, temp):
 	trimmed_output = output[len(prompt):].strip()
 	return trimmed_output
 
-# IF your are using transformers as your inferencing engine
+# IF you are using transformers as your inferencing engine
 # AND your model requires an inferencing method other than the default of transformers pipeline
 # THEN specify your model & inferencing function here:
 OPENSOURCE_MODELS_INFERENCE_METHODS = {
@@ -78,11 +77,11 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 		print(e)
 	return None
 
-def run_openai_query(prompt, history, completion_tokens, temp, model):
+def run_openai_query(prompt, history, completion_tokens, temp, model, openai_client):
 	try:
 		messages = history + [{"role": "user", "content": prompt}]
 		if model in OPENAI_CHAT_MODELS:
-			result = openai.ChatCompletion.create(
+			result = openai_client.chat.completions.create(
 					model=model,
 					temperature=temp,
 					max_tokens=completion_tokens,
@@ -90,7 +89,7 @@ def run_openai_query(prompt, history, completion_tokens, temp, model):
 			)
 			content = result.choices[0].message.content
 		elif model in OPENAI_COMPLETION_MODELS:
-			result = openai.Completion.create(
+			result = openai_client.completions.create(
 					model=model,
 					temperature=temp,
 					max_tokens=completion_tokens,
@@ -179,10 +178,9 @@ def generate_prompt_from_template(prompt, prompt_type):
 	formatted_prompt = formatted_prompt.split("<|bot-message|>")[0]
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
-def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout):
+def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
 	if inference_engine == 'openai':
-	#if model_path in OPENAI_CHAT_MODELS or model_path in OPENAI_COMPLETION_MODELS:
-		return run_openai_query(prompt, history, completion_tokens, temp, model_path)			
+		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
 	elif inference_engine == 'ooba':
 		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
 	else: # transformers

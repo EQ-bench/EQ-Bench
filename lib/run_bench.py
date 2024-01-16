@@ -5,15 +5,17 @@ import json
 import datetime
 from tqdm import tqdm
 from lib.load_model import load_model
-from lib.scoring import calculate_score, parse_answers, calculate_benchmark_score
-from lib.run_query import OPENAI_CHAT_MODELS, OPENAI_COMPLETION_MODELS, run_query
+from lib.db import save_result_to_db
+from lib.scoring import calculate_score, calculate_score_fullscale, parse_answers, calculate_benchmark_score
+from lib.run_query import run_query
 from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
 import lib.ooba
 
 # Constants
-COMPLETION_TOKENS = 1000
+COMPLETION_TOKENS = 500
 RAW_RESULTS_PATH = './raw_results.json'
 BENCH_RESULTS_PATH = './benchmark_results.csv'
+REVISE=True
 
 def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, 
                   n_iterations, resume=True, delete_cache=False, 
@@ -25,7 +27,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 						ooba_launch_script='', ooba_params='',
 						include_patterns=[], exclude_patterns=[],
 						ooba_params_global='', fast_download=False,
-						hf_access_token=None, ooba_request_timeout=300):
+						hf_access_token=None, ooba_request_timeout=300,
+						questions_fn=None, openai_client=None):
 	"""
 	Run a benchmark with the specified parameters.
 	:param run_id: The ID string of the benchmark to be run.
@@ -40,30 +43,61 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	:param n_question_attempts: Number of attempts per question.
 	:param verbose: Verbose output if True.
 	:param google_spreadsheet_url: URL for Google spreadsheet for results uploading.
-	"""
-	
-	# This string is used to index this benchmark run's in the raw results dict.
-	run_index = str(run_id)+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization)
+	"""	
+
+	with open(questions_fn, 'r') as f:
+		questions = json.load(f)
 
 	results = {}
 	if resume and os.path.exists(RAW_RESULTS_PATH):
 		with open(RAW_RESULTS_PATH, 'r') as f:
 			results = json.load(f)
 		results = fix_results(results)
+
+	if len(questions) == 60:
+		eqbench_version = "v1"
+	elif len(questions) == 171:
+		eqbench_version = "v2"
+
+	# This string is used to index this benchmark run's in the raw results dict.
+	run_index = str(run_id)+'--'+eqbench_version+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization) + '--' + inference_engine+'--'+ooba_params+'--'+format_include_exclude_string(include_patterns, exclude_patterns)
 	
 	# Initialise results dict
 	if run_index not in results:
-			results[run_index] = {}
+		results[run_index] = {}
+		# Add metadata		
+		run_metadata = {
+			"run_id": run_id,
+			"eq_bench_version": eqbench_version,
+			"instruction_template": prompt_type,
+			"model_path": model_path,
+			"lora_path": lora_path,
+			"bitsandbytes_quant": quantization,
+			"total_iterations": n_iterations,
+			"inference_engine": inference_engine,
+			"ooba_params": ooba_params,
+			"include_patterns": include_patterns,
+			"exclude_patterns": exclude_patterns
+		}
+		results[run_index]['run_metadata'] = run_metadata
+	
+	if 'iterations' not in results[run_index]:
+		results[run_index]['iterations'] = {}
 	for run_iter in range(1, n_iterations+1):
 		run_iter = str(run_iter) # ensure this is always a string because json dump/load will save numeric keys as string
-		if run_iter not in results[run_index] or not resume:
-			results[run_index][run_iter] = {
+		if run_iter not in results[run_index]['iterations'] or not resume:
+			results[run_index]['iterations'][run_iter] = {
+				'respondent_answers': {},
 				'individual_scores': {},
+				'individual_scores_fullscale': {},
 				'raw_inference': {}
 			}
 
-	with open('data/eq_bench_questions_final.json', 'r') as f:
-		questions = json.load(f)
+	# Results are only saved after all iterations are complete,
+	# so we can just check the first iter to see if the run has completed.
+	if resume and '1' in results[run_index]['iterations'] and 'benchmark_results' in results[run_index]['iterations']['1']:
+		print('Benchmark run', run_id, 'already completed.')
+		return
 
 	# Initialise vars
 	bench_success = False
@@ -80,9 +114,9 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 			run_iter = str(run_iter) # Ensure this is always a string because json dump/load will save numeric keys as string
 			try:
 				# Only load the model if this benchmark hasn't already completed
-				if not model and inference_engine == 'transformers' and len(results[run_index][run_iter]['individual_scores']) < 60:
+				if not model and inference_engine == 'transformers' and len(results[run_index]['iterations'][run_iter]['individual_scores']) < len(questions):
 					model, tokenizer = load_model(model_path, lora_path, quantization, trust_remote_code = trust_remote_code)
-				if inference_engine == 'ooba' and launch_ooba and len(results[run_index][run_iter]['individual_scores']) < 60:						
+				if inference_engine == 'ooba' and launch_ooba and len(results[run_index]['iterations'][run_iter]['individual_scores']) < len(questions):						
 					print('Launching oobabooga...')
 					ooba_instance = lib.ooba.Ooba(ooba_launch_script, model_path, cache_dir, verbose, trust_remote_code=trust_remote_code, 
 													ooba_args_global=ooba_params_global, ooba_args=ooba_params, fast_download=fast_download, 
@@ -93,23 +127,25 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 						raise Exception("Ooba failed to launch.")
 					
 				if model or ooba_instance:
+					# This is an undocumented feature. It will run a series of test prompts for
+					# each model and log the output.
 					run_test_prompts(model, ooba_instance, 
 							inference_engine, results, 
-							 model_path, prompt_type, 
-							 tokenizer, launch_ooba, 
-							 ooba_request_timeout,
-							 run_index, run_iter,
-							 verbose)
+							model_path, prompt_type, 
+							tokenizer, launch_ooba, 
+							ooba_request_timeout,
+							run_index, run_iter,
+							verbose)
 
 				
-				# Iterate over the 60 test questions
+				# Iterate over the test questions
 				for question_id, q in tqdm(questions.items()):
-					if question_id in results[run_index][run_iter]['individual_scores']:
+					if question_id in results[run_index]['iterations'][run_iter]['individual_scores']:
 						if verbose:
 							print('Question',question_id,'already complete')
 					else:
 						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, 
-							  n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout)
+							  n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 					
 
 				bench_success = True
@@ -124,9 +160,11 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	formatted_datetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	if not os.path.exists(BENCH_RESULTS_PATH):
 		with open(BENCH_RESULTS_PATH, 'a') as f:
-			f.write('Run ID, Benchmark Completed, Prompt Format, Model Path, Lora Path, Quantization, Benchmark Score, Num Questions Parseable, Num Iterations, Inference Engine, Ooba Params, Download Filters, Error\n')
+			f.write('Run ID, Benchmark Completed, Prompt Format, Model Path, Lora Path, Quantization, Benchmark Score, EQ-Bench Version, Num Questions Parseable, Num Iterations, Inference Engine, Ooba Params, Download Filters, Error\n')
 	
 	delete_model_files = False
+
+	this_score = None
 
 	# Calculate final score	
 	if bench_success:
@@ -138,15 +176,21 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		if lora_path:
 			print('Lora:', lora_path)
 
-		# Delete model files if -d is specified and the benchmark fully completed (even if we didn't get 50 parseable answers)
+		# Delete model files if -d is specified and the benchmark fully completed (even if we didn't get the minimum 83% parseable answers)
 		if delete_cache:
 			delete_model_files = True
+		
+		if eqbench_version == 'v1':
+			this_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH, fullscale=False)
+			print('Score (v1):', this_score)
+		else:
+			this_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH, fullscale=True)
+			print('Score (v2):', this_score)
+		print('Parseable:', parseable)
 
-		benchmark_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH)
-
-		if parseable < 50:
+		if parseable / len(questions) < 0.8333:
 			bench_success = False
-			last_error = str(parseable) + ' questions were parseable (min is 50)'
+			last_error = str(parseable) + ' questions were parseable (min is 83%)'
 		else:
 			this_result = [
 				run_id,
@@ -155,7 +199,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				model_path,
 				lora_path,
 				quantization,
-				round(benchmark_score, 2),
+				round(this_score, 2),
+				eqbench_version,
 				parseable,
 				n_iterations,
 				inference_engine,
@@ -184,6 +229,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				quantization,
 				'FAILED',
 				'FAILED',
+				'FAILED',
 				n_iterations,
 				inference_engine,
 				ooba_params,
@@ -194,6 +240,10 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 			f.write(','.join(map(str, this_result)) + '\n')
 		if google_spreadsheet_url and os.path.exists('./google_creds.json'):
 			upload_results_google_sheets(google_spreadsheet_url, this_result)
+
+	save_result_to_db(results[run_index], round(this_score, 2),
+				parseable, last_error,
+				run_index, bench_success)
 
 	# Cleanup
 	del model
@@ -235,7 +285,7 @@ def format_include_exclude_string(include_patterns, exclude_patterns):
 
 def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, 
 							run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, 
-							launch_ooba, ooba_request_timeout):
+							launch_ooba, ooba_request_timeout, openai_client):
 	"""
 	Process a single question and update the results.
 	:param question_id: ID of the question.
@@ -254,14 +304,31 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 
 	prompt = q['prompt']
 	ref = q['reference_answer']
+	if 'reference_answer_fullscale' in q:
+		ref_fullscale = q['reference_answer_fullscale']
+	else:
+		ref_fullscale = None
+
+	if not REVISE:
+		# cut out the part of the prompt asking for a revised answer
+		prompt = prompt.replace(' Then critique your answer by thinking it through step by step. Finally, give your revised scores.', '')
+		#prompt = prompt.replace(' Finally, give your revised scores.', '')
+		prompt = prompt.replace('First pass scores:\n', '')
+		prompt = prompt[:prompt.find('Critique: <your critique here>')] + '\n' + prompt[prompt.find('[End of answer]'):]
+		
+		#prompt += "\nYour answer follows:" # adding this to help models not trained for instruction
+		#prompt += "Give your answers now." # adding this to help models not trained for instruction
+		prompt += '\nYour answer:\n'
 
 	tries = 0
 	success = False
 	temp = 0.01 # Low temp is important for consistency of results
 	prev_result = None # Stores the result of a previous partial success
+	prev_result_fullscale = None
 	prev_result_inference = None
+	prev_result_parsed_answers = None
 	while tries < n_question_attempts and not success:
-		inference = run_query(model_path, prompt_type, prompt, [], COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout)
+		inference = run_query(model_path, prompt_type, prompt, [], COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 		try:
 			if verbose:
@@ -269,27 +336,62 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 				print('________________')
 
 			# Parse and calculate scores for this question
-			first_pass_answers, revised_answers = parse_answers(inference)
+			first_pass_answers, revised_answers = parse_answers(inference, REVISE)
+			parsed_answers = {
+							'first_pass': first_pass_answers,
+							'revised': revised_answers
+						}
+
 			first_pass_score = calculate_score(ref, first_pass_answers)
-			revised_score = calculate_score(ref, revised_answers)
+			if REVISE:
+				revised_score = calculate_score(ref, revised_answers)
+			else:
+				revised_score = None
 			this_result = {
 				'first_pass_score': first_pass_score,
 				'revised_score': revised_score
 			}
+			
+			if ref_fullscale:
+				first_pass_score_fullscale = calculate_score_fullscale(ref_fullscale, first_pass_answers)
+				if REVISE:
+					revised_score_fullscale = calculate_score_fullscale(ref_fullscale, revised_answers)
+				else:
+					revised_score_fullscale = None
+				this_result_fullscale = {
+					'first_pass_score': first_pass_score_fullscale,
+					'revised_score': revised_score_fullscale
+				}
+			else:
+				this_result_fullscale = {
+					'first_pass_score': None,
+					'revised_score': None
+				}
 
 			# Check if scores were parsed & calculated
-			if first_pass_score == None or revised_score == None:
-				if not prev_result and (first_pass_score != None or revised_score != None):
-					prev_result = dict(this_result)
-					prev_result_inference = inference
+			if first_pass_score == None or (REVISE and revised_score == None):
+				if REVISE:
+					if not prev_result and (first_pass_score != None or revised_score != None):
+						prev_result = dict(this_result)
+						prev_result_fullscale = dict(this_result_fullscale)
+						prev_result_inference = inference
+						prev_result_parsed_answers = dict(parsed_answers)
 				raise Exception("Failed to parse scores")
 			
 			# Store in results dict
-			results[run_index][run_iter]['individual_scores'][question_id] = this_result
-			results[run_index][run_iter]['raw_inference'][question_id] = inference
+			results[run_index]['iterations'][run_iter]['respondent_answers'][question_id] = parsed_answers
+			results[run_index]['iterations'][run_iter]['individual_scores'][question_id] = this_result
+			results[run_index]['iterations'][run_iter]['individual_scores_fullscale'][question_id] = this_result_fullscale
+			results[run_index]['iterations'][run_iter]['raw_inference'][question_id] = inference
 			if verbose:
 				print('first pass:', round(first_pass_score, 1))
-				print('revised:', round(revised_score, 1))
+				if REVISE:
+					print('revised:', round(revised_score, 1))
+				if ref_fullscale:
+					print('fullscale first pass:', round(first_pass_score_fullscale, 1))
+					if REVISE:
+						print('fullscale revised:', round(revised_score_fullscale, 1))
+
 			success = True
 		except KeyboardInterrupt:
 			raise  # Re-raising the KeyboardInterrupt exception
@@ -304,8 +406,10 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 				print('Retrying...')
 			elif prev_result:
 				# We are out of retries and we have a partial result, so store it in the results dict
-				results[run_index][run_iter]['individual_scores'][question_id] = prev_result
-				results[run_index][run_iter]['raw_inference'][question_id] = prev_result_inference
+				results[run_index]['iterations'][run_iter]['respondent_answers'][question_id] = prev_result_parsed_answers
+				results[run_index]['iterations'][run_iter]['individual_scores'][question_id] = prev_result
+				results[run_index]['iterations'][run_iter]['individual_scores_fullscale'][question_id] = prev_result_fullscale
+				results[run_index]['iterations'][run_iter]['raw_inference'][question_id] = prev_result_inference
 
 	with open(RAW_RESULTS_PATH, 'w') as f:
 		json.dump(results, f)
@@ -347,15 +451,10 @@ def validate_and_extract_vars(input_str):
 	else:
 		raise ValueError("Required variables not found or in incorrect format")
 
-# Example usage
-input_string = "NAME=Prompt sequence 2: Coding questions\nTEMP=0.5\nCOMPLETION_TOKENS=1000"
-try:
-	name, temp, tokens = validate_and_extract_vars(input_string)
-	print(f"NAME: {name}, TEMP: {temp}, COMPLETION_TOKENS: {tokens}")
-except ValueError as e:
-	print(e)
 
 
+# This is an undocumented feature. It will run a series of test prompts for
+# each model and log the output.
 def run_test_prompts(model, ooba_instance, 
 							inference_engine, results, 
 							 model_path, prompt_type, 
@@ -366,12 +465,12 @@ def run_test_prompts(model, ooba_instance,
 	if inference_engine == 'transformers':
 		print('! Custom test prompts only support ooba or openai as the inference engine.')
 		return
-	if 'test_prompts_results' in results[run_index][run_iter]:
+	if 'test_prompts_results' in results[run_index]['iterations'][run_iter]:
 		return
-	if not os.path.exists('./test_prompts.txt'):
+	if not os.path.exists(os.path.abspath('./test_prompts.txt')):
 		return
 	
-	results[run_index][run_iter]['test_prompts_results'] = {}
+	results[run_index]['iterations'][run_iter]['test_prompts_results'] = {}
 	try:
 		with open('./test_prompts.txt', 'r') as f:
 			prompts_str = f.read()
@@ -384,7 +483,7 @@ def run_test_prompts(model, ooba_instance,
 			prompts = ps.split('---')
 			sequence_name, temp, completion_tokens = validate_and_extract_vars(prompts[0])
 			print('Prompt sequence:', sequence_name)
-			results[run_index][run_iter]['test_prompts_results'][sequence_name] = []
+			results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name] = []
 			history = []
 			for p in prompts[1:]:
 				if not p.strip():
@@ -408,9 +507,9 @@ def run_test_prompts(model, ooba_instance,
 						tries += 1
 
 				if success:
-					results[run_index][run_iter]['test_prompts_results'][sequence_name].append(p.strip())
+					results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name].append(p.strip())
 					history.append({"role": "user", "content": p.strip()})
-					results[run_index][run_iter]['test_prompts_results'][sequence_name].append(inference.strip())
+					results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name].append(inference.strip())
 					history.append({"role": "assistant", "content": inference.strip()})
 
 			with open('test_prompts_results.txt', 'a') as f:
@@ -419,7 +518,7 @@ def run_test_prompts(model, ooba_instance,
 				out_str += 'TEMP=' + str(temp) + '\n'
 				out_str += 'COMPLETION_TOKENS=' + str(completion_tokens) + '\n\n'
 				out_str += '---\n'
-				out_str += '\n\n---\n\n'.join(results[run_index][run_iter]['test_prompts_results'][sequence_name])
+				out_str += '\n\n---\n\n'.join(results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name])
 				f.write(out_str)
 
 	except Exception as e:

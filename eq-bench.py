@@ -3,6 +3,7 @@ import configparser
 import os
 import time
 from lib.util import parse_batch, is_int
+import lib.db
 import signal
 import sys
 
@@ -32,7 +33,8 @@ def main():
 	global ooba_instance
 
 	# Argument parser setup
-	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")
+	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")	
+	parser.add_argument('--v1', help="Run v1 of EQ-Bench (legacy). V1 has been superseded and results are not directly comparable to v2 results.")
 	parser.add_argument('-w', action='store_true',
 							help="Overwrites existing results (i.e. disables the default behaviour of resuming a partially completed run).")
 	parser.add_argument('-d', action='store_true',
@@ -53,7 +55,7 @@ def main():
 
 	# This has to be imported AFTER hf_transfer env var is set.
 	from lib.run_bench import run_benchmark
-	from lib.run_query import openai
+	import openai
 
 	# Load the configuration
 	# These options allow case sensitive keys, which we need to preserve the case of model paths
@@ -61,15 +63,19 @@ def main():
 	config.optionxform = str
 	config.read('config.cfg')
 
-	# Check for OpenAI fields
-	organization_id = config['OpenAI'].get('organization_id', '')
+	questions_fn = './data/eq_bench_v2_questions_171.json'
+	if args.v1:
+		questions_fn = './data/eq_bench_v1_questions_60.json'
+
+	# Check for OpenAI fields	
 	api_key = config['OpenAI'].get('api_key', '')
 
 	# If OpenAI credentials are provided, set them
+	openai_client = None
 	if api_key:
-		openai.api_key = api_key
-	if organization_id:
-		openai.organization = organization_id
+		openai_client = openai.OpenAI(
+			api_key=api_key
+		)
 
 	# Check for huggingface access token
 	hf_access_token = config['Huggingface'].get('access_token', '')
@@ -83,6 +89,11 @@ def main():
 
 	# Check for google sheets share url
 	google_spreadsheet_url  = config['Results upload'].get('google_spreadsheet_url', '')
+
+	# Check for firebase creds
+	if os.path.exists('./firebase_creds.json'):
+		os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.abspath('./firebase_creds.json')
+		lib.db.init_db()
 	
 	cache_dir = config['Huggingface'].get('cache_dir', '')
 	if not cache_dir:
@@ -172,7 +183,8 @@ def main():
 								ooba_launch_script=ooba_launch_script, ooba_params=ooba_params,
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
-								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout)
+								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
+								questions_fn=questions_fn, openai_client=openai_client)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
 				try:
