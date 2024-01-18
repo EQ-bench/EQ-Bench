@@ -14,7 +14,7 @@ V2 of EQ-Bench contains 171 questions (compared to 60 in v1) and a new system fo
 
 We encourage you to move to v2, and to note which version you are using (EQ-Bench v1 or EQ-Bench v2) when publishing results to avoid confusion.
 
-NOTE: V1 scores are not directly comparable to v2 scores. The leaderboard will be updated shortly to include v2 scores.
+NOTE: V1 scores are not directly comparable to v2 scores.
 
 <details>
 <summary>More v2 details</summary>
