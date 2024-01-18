@@ -109,14 +109,14 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 
 - Install the required Python dependencies by running `install_reqs.sh`.
 - Optional: install the [Oobabooga library](https://github.com/oobabooga/text-generation-webui/tree/main) and make sure it launches.
-- Optional: Set up firebase / firestore fore results upload (see instructions below).
+- Optional: Set up firebase / firestore for results upload (see instructions below).
 - Optional: Set up Google Sheets for results upload (see instructions below).
 
 ### Configure
 
 - Set up `config.cfg` with your API keys and runtime settings.
 - Add benchmark runs to `config.cfg`, in the format:
-   - `run_id, instruction_template, model_path, lora_path, quantization, n_iterations, inference_engine, ooba_params, downloader_args`
+   - `run_id, instruction_template, model_path, lora_path, quantization, n_iterations, inference_engine, ooba_params, downloader_filters`
 
       - `run_id`: A name to identify the benchmark run
       - `instruction_template`: The filename of the instruction template defining the prompt format, minus the .yaml (e.g. Alpaca)
