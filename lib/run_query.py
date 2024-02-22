@@ -80,7 +80,7 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 def run_openai_query(prompt, history, completion_tokens, temp, model, openai_client):
 	try:
 		messages = history + [{"role": "user", "content": prompt}]
-		if model in OPENAI_CHAT_MODELS:
+		if (model in OPENAI_CHAT_MODELS) or (openai_client.base_url != 'https://api.openai.com/v1/'):
 			result = openai_client.chat.completions.create(
 					model=model,
 					temperature=temp,
