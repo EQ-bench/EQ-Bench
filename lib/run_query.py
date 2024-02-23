@@ -2,6 +2,7 @@ from transformers import pipeline
 import time
 import yaml
 import requests
+from lib.gemma import run_gemma_query
 
 def run_chat_query(prompt, completion_tokens, model, tokenizer, temp):
 	response, history = model.chat(tokenizer, prompt, history=None, max_length=completion_tokens, do_sample=True)
@@ -77,20 +78,10 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 		print(e)
 	return None
 
-
 def run_openai_query(prompt, history, completion_tokens, temp, model, openai_client):
 	try:
 		messages = history + [{"role": "user", "content": prompt}]
-		
-		if model in OPENAI_COMPLETION_MODELS and openai_client.base_url == 'https://api.openai.com/v1/':
-			result = openai_client.completions.create(
-					model=model,
-					temperature=temp,
-					max_tokens=completion_tokens,
-					prompt=prompt,
-			)
-			content = result.choices[0].text
-		else: # assume it's a chat model
+		if (model in OPENAI_CHAT_MODELS) or (openai_client.base_url != 'https://api.openai.com/v1/'):
 			result = openai_client.chat.completions.create(
 					model=model,
 					temperature=temp,
@@ -98,6 +89,16 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 					messages=messages,
 			)
 			content = result.choices[0].message.content
+		elif model in OPENAI_COMPLETION_MODELS:
+			result = openai_client.completions.create(
+					model=model,
+					temperature=temp,
+					max_tokens=completion_tokens,
+					prompt=prompt,
+			)
+			content = result.choices[0].text
+		else:
+			raise ValueError("Unknown OpenAI model")
 
 		if content:
 			return content.strip()
@@ -112,6 +113,19 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 
 	return None
 
+
+OPENAI_CHAT_MODELS = [
+	'gpt-4-0613',
+	'gpt-4-0314',
+	'gpt-4',
+	'gpt-3.5-turbo-16k-0613',
+	'gpt-3.5-turbo-16k',
+	'gpt-3.5-turbo-0613',
+	'gpt-3.5-turbo-0301',
+	'gpt-3.5-turbo',
+	'gpt-4-1106-preview',
+	'gpt-3.5-turbo-1106'
+]
 
 OPENAI_COMPLETION_MODELS = [
 	'text-davinci-003',
@@ -165,9 +179,11 @@ def generate_prompt_from_template(prompt, prompt_type):
 	formatted_prompt = formatted_prompt.split("<|bot-message|>")[0]
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
-def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
+def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, gemma_tokenizer, compressed_weights, lazy):
 	if inference_engine == 'openai':
 		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
+	elif inference_engine == 'gemma':
+		return run_gemma_query(prompt, model_path, gemma_tokenizer, compressed_weights)
 	elif inference_engine == 'ooba':
 		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
 	else: # transformers
