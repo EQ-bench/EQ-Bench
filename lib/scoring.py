@@ -9,13 +9,13 @@ def parse_answers(text, REVISE):
 
 	# Extracting first pass answers
 	if REVISE:
-		first_pass_match = re.search(r'First pass scores(.*?)Revised scores', text, re.DOTALL)
+		first_pass_match = re.search(r'First pass scores:(.*?)Revised scores', text, re.DOTALL)
 		if first_pass_match:
 			first_pass_text = first_pass_match.group(1)
 			first_pass_answers = dict(re.findall(r'(\w+):\s+(\d+)', first_pass_text))
 
 		# Extracting revised answers
-		revised_match = re.search(r'Revised scores(.*?)$', text, re.DOTALL)
+		revised_match = re.search(r'Revised scores:(.*?)$', text, re.DOTALL)
 		if revised_match:
 			revised_text = revised_match.group(1)
 			revised_answers = dict(re.findall(r'(\w+):\s+(\d+)', revised_text))
