@@ -9,13 +9,13 @@ def parse_answers(text, REVISE):
 
 	# Extracting first pass answers
 	if REVISE:
-		first_pass_match = re.search(r'First pass scores:(.*?)Revised scores:', text, re.DOTALL)
+		first_pass_match = re.search(r'First pass scores(.*?)Revised scores', text, re.DOTALL)
 		if first_pass_match:
 			first_pass_text = first_pass_match.group(1)
 			first_pass_answers = dict(re.findall(r'(\w+):\s+(\d+)', first_pass_text))
 
 		# Extracting revised answers
-		revised_match = re.search(r'Revised scores:(.*?)$', text, re.DOTALL)
+		revised_match = re.search(r'Revised scores(.*?)$', text, re.DOTALL)
 		if revised_match:
 			revised_text = revised_match.group(1)
 			revised_answers = dict(re.findall(r'(\w+):\s+(\d+)', revised_text))
@@ -24,8 +24,45 @@ def parse_answers(text, REVISE):
 		revised_answers = {}
 
 	return first_pass_answers, revised_answers
+	
 
+def parse_answers_lazy(text, REVISE):
+# Adjusting the function to trim whitespace and newline characters from emotion names
+    first_pass_answers = {}
+    revised_answers = {}
 
+    # Removing all asterisks from the text to simplify matching
+    text_no_asterisks = text.replace('*', '')
+
+    # Regex pattern to capture emotion names and scores, now including a step to trim whitespace
+    score_pattern = r'([\w\s]+?):\s*(\d+)/\d+'
+
+    # Adjusted regex patterns for headings
+    first_pass_heading_pattern = r'first pass scores:(.*?)(?=critique|revised scores|$)'
+    revised_heading_pattern = r'revised scores:(.*)'
+
+    # Extracting first pass answers
+    if REVISE:
+        first_pass_match = re.search(first_pass_heading_pattern, text_no_asterisks, re.IGNORECASE | re.DOTALL)
+        if first_pass_match:
+            first_pass_text = first_pass_match.group(1).strip()
+            # Applying strip to each key to remove leading/trailing whitespaces and newlines
+            first_pass_answers = {k.strip(): v for k, v in re.findall(score_pattern, first_pass_text, re.IGNORECASE)}
+
+        # Extraction of revised answers
+        revised_match = re.search(revised_heading_pattern, text_no_asterisks, re.IGNORECASE | re.DOTALL)
+        if revised_match:
+            revised_text = revised_match.group(1).strip()
+            # Applying strip to each key to remove leading/trailing whitespaces and newlines
+            revised_answers = {k.strip(): v for k, v in re.findall(score_pattern, revised_text, re.IGNORECASE)}
+    else:
+        # Default case handling for non-REVISE scenarios, including strip
+        answers = {k.strip(): v for k, v in re.findall(score_pattern, text_no_asterisks, re.IGNORECASE)}
+        first_pass_answers, revised_answers = answers, {}
+
+    return first_pass_answers, revised_answers
+
+    
 # Calculate the score for an individual question using v2 scoring system
 def calculate_score_fullscale(reference, user):
 	# First check that the emotions specified in the answer match those in the reference
