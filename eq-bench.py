@@ -35,6 +35,7 @@ def main():
 	# Argument parser setup
 	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")	
 	parser.add_argument('--v1', help="Run v1 of EQ-Bench (legacy). V1 has been superseded and results are not directly comparable to v2 results.")
+	parser.add_argument('-l', action='store_true', help="Lazy parsing of output: case-insensitive, asterisks omitted, etc.")
 	parser.add_argument('-w', action='store_true',
 							help="Overwrites existing results (i.e. disables the default behaviour of resuming a partially completed run).")
 	parser.add_argument('-d', action='store_true',
@@ -72,7 +73,7 @@ def main():
 	
 	base_url = 'https://api.openai.com/v1/'
 	
-	alt_url = config['OpenAI'].get('openai_compatible_url', '')
+	alt_url = config['OpenAI'].get('base_url', '')
 	
 	if alt_url:
 		base_url = alt_url
@@ -82,9 +83,15 @@ def main():
 	if api_key:
 		openai_client = openai.OpenAI(
 			api_key=api_key,
-			base_url=base_url
+            base_url=base_url
 		)
 
+    # Check for Gemma fields	
+	gemma_tokenizer = config['Gemma'].get('gemma_tokenizer', '')
+	compressed_weights = config['Gemma'].get('compressed_weights', '')
+	#print("Gemma tokenizer:", gemma_tokenizer)
+	#print("Gemma weights:", compressed_weights)
+	
 	# Check for huggingface access token
 	hf_access_token = config['Huggingface'].get('access_token', '')
 	if hf_access_token:
@@ -180,7 +187,7 @@ def main():
 		ooba_instance = None
 
 		try:
-			run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, 
+			run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 								n_iterations, resume=resume, delete_cache=args.d, 
 								max_bench_retries=args.r, n_question_attempts=3, 
 								verbose=args.v, google_spreadsheet_url=google_spreadsheet_url, 
@@ -192,7 +199,7 @@ def main():
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
-								questions_fn=questions_fn, openai_client=openai_client)
+								questions_fn=questions_fn, openai_client=openai_client, gemma_tokenizer=gemma_tokenizer, compressed_weights=compressed_weights, lazy=args.l)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
 				try:
