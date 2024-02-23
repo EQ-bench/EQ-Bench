@@ -157,6 +157,10 @@ def main():
 	
 	for run_id, prompt_type, model_path, lora_path, quantization, n_iterations, \
 	inference_engine, ooba_params, include_patterns, exclude_patterns in parsed_batch:
+		if "#" in model_path:
+			model_path = model_path.replace("#", ":") # we cannot specify model tags like gemma:2b-instruct-q4_K_M as e.g. ollama expects them	
+								  # because of how configparser treats colons. workaround: using # in configfile and changig it back to :
+			
 		if model_path and not os.path.exists(model_path):
 			# We only want to delete model files if they won't be used in a later benchmark.
 			# We also need to make sure we clear out the model dir if we are benchmarking the same model
@@ -168,7 +172,11 @@ def main():
 
 	for run_id, prompt_type, model_path, lora_path, quantization, n_iterations, \
 		inference_engine, ooba_params, include_patterns, exclude_patterns in parsed_batch:
+		if "#" in model_path:
+			model_path = model_path.replace("#", ":")
+				
 		# Call the run_benchmark function
+
 		print('--------------')
 		print('Running benchmark', n_benchmarks + 1, 'of', len(parsed_batch))
 		print('')
