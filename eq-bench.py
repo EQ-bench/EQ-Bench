@@ -69,12 +69,20 @@ def main():
 
 	# Check for OpenAI fields	
 	api_key = config['OpenAI'].get('api_key', '')
+	
+	base_url = 'https://api.openai.com/v1/'
+	
+	alt_url = config['OpenAI'].get('base_url', '')
+	
+	if alt_url:
+		base_url = alt_url
 
 	# If OpenAI credentials are provided, set them
 	openai_client = None
 	if api_key:
 		openai_client = openai.OpenAI(
-			api_key=api_key
+			api_key=api_key,
+            base_url=base_url
 		)
 
 	# Check for huggingface access token
