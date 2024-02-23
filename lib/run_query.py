@@ -77,18 +77,12 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 		print(e)
 	return None
 
+
 def run_openai_query(prompt, history, completion_tokens, temp, model, openai_client):
 	try:
 		messages = history + [{"role": "user", "content": prompt}]
-		if (model in OPENAI_CHAT_MODELS) or (openai_client.base_url != 'https://api.openai.com/v1/'):
-			result = openai_client.chat.completions.create(
-					model=model,
-					temperature=temp,
-					max_tokens=completion_tokens,
-					messages=messages,
-			)
-			content = result.choices[0].message.content
-		elif model in OPENAI_COMPLETION_MODELS:
+		
+		if model in OPENAI_COMPLETION_MODELS and openai_client.base_url == 'https://api.openai.com/v1/':
 			result = openai_client.completions.create(
 					model=model,
 					temperature=temp,
@@ -96,8 +90,14 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 					prompt=prompt,
 			)
 			content = result.choices[0].text
-		else:
-			raise ValueError("Unknown OpenAI model")
+		else: # assume it's a chat model
+			result = openai_client.chat.completions.create(
+					model=model,
+					temperature=temp,
+					max_tokens=completion_tokens,
+					messages=messages,
+			)
+			content = result.choices[0].message.content
 
 		if content:
 			return content.strip()
@@ -112,19 +112,6 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 
 	return None
 
-
-OPENAI_CHAT_MODELS = [
-	'gpt-4-0613',
-	'gpt-4-0314',
-	'gpt-4',
-	'gpt-3.5-turbo-16k-0613',
-	'gpt-3.5-turbo-16k',
-	'gpt-3.5-turbo-0613',
-	'gpt-3.5-turbo-0301',
-	'gpt-3.5-turbo',
-	'gpt-4-1106-preview',
-	'gpt-3.5-turbo-1106'
-]
 
 OPENAI_COMPLETION_MODELS = [
 	'text-davinci-003',

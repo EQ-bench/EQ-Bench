@@ -72,7 +72,7 @@ def main():
 	
 	base_url = 'https://api.openai.com/v1/'
 	
-	alt_url = config['OpenAI'].get('base_url', '')
+	alt_url = config['OpenAI'].get('openai_compatible_url', '')
 	
 	if alt_url:
 		base_url = alt_url
@@ -82,7 +82,7 @@ def main():
 	if api_key:
 		openai_client = openai.OpenAI(
 			api_key=api_key,
-            base_url=base_url
+			base_url=base_url
 		)
 
 	# Check for huggingface access token
