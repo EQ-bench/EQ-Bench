@@ -73,7 +73,7 @@ def main():
 	
 	base_url = 'https://api.openai.com/v1/'
 	
-	alt_url = config['OpenAI'].get('base_url', '')
+	alt_url = config['OpenAI'].get('openai_compatible_url', '')
 	
 	if alt_url:
 		base_url = alt_url
