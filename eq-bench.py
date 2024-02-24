@@ -2,10 +2,12 @@ import argparse
 import configparser
 import os
 import time
-from lib.util import parse_batch, is_int
+from lib.util import parse_batch, is_int, preprocess_config_string, revert_placeholders_in_config
 import lib.db
 import signal
 import sys
+import re
+import io
 
 ooba_instance = None
 
@@ -31,6 +33,10 @@ def str2bool(v):
 
 def main():
 	global ooba_instance
+
+	# Preprocess the configuration content
+	config_content = preprocess_config_string('config.cfg')
+	config_file_iostream = io.StringIO(config_content)
 
 	# Argument parser setup
 	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")	
@@ -61,7 +67,10 @@ def main():
 	# These options allow case sensitive keys, which we need to preserve the case of model paths
 	config = configparser.RawConfigParser(allow_no_value=True)
 	config.optionxform = str
-	config.read('config.cfg')
+	config.read_file(config_file_iostream)
+
+	# Revert the placeholders to colons in the parsed configuration
+	preprocessed_benchmark_runs = revert_placeholders_in_config(config['Benchmarks to run'])
 
 	questions_fn = './data/eq_bench_v2_questions_171.json'
 	if args.v1:
@@ -149,7 +158,7 @@ def main():
 	# Run benchmarks based on the config
 	n_benchmarks = 0
 	start_time = time.time()
-	parsed_batch = parse_batch(config['Benchmarks to run'], ooba_launch_script, launch_ooba)
+	parsed_batch = parse_batch(preprocessed_benchmark_runs, ooba_launch_script, launch_ooba)
 
 	# Make dict of models that need to be deleted
 	models_to_delete = {}

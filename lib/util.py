@@ -211,3 +211,40 @@ def delete_symlinks_and_dir(dir_to_delete, verbose):
 	shutil.rmtree(dir_to_delete)
 	if verbose:
 		print(f"Deleted directory: {dir_to_delete}")
+
+def preprocess_config_string(file_path):
+	# This preprocessing step is so we can support colons in the model id, as
+	# required by ollama. The colons mess up the config parsing so we switch
+	# them out for a placeholder.
+	with open(file_path, 'r') as file:
+		content = file.read()
+
+	# Split content into lines for processing
+	lines = content.splitlines()
+
+	in_benchmarks_section = False
+	processed_lines = []
+	for line in lines:
+		if line.strip().lower() == '[benchmarks to run]':
+			in_benchmarks_section = True
+		elif in_benchmarks_section and line.startswith('['):
+			# Reached the end of the section
+			in_benchmarks_section = False
+		if in_benchmarks_section and not line.startswith('#'):
+			# Replace colons with placeholder in non-comment lines within the section
+			line = line.replace(':', '<_COLON_>')
+		processed_lines.append(line)
+
+	# Join the processed lines back into a single string
+	processed_content = '\n'.join(processed_lines)
+	return processed_content
+
+def revert_placeholders_in_config(benchmark_runs):
+	processed_lines = []
+	for line in benchmark_runs:
+		line = line.strip()
+		if not line or line.startswith('#'):
+			continue
+		line = line.replace('<_COLON_>', ':')
+		processed_lines.append(line)
+	return processed_lines
