@@ -51,7 +51,7 @@ def translate_emotions_and_construct_prompts(input_json, output_file_path):
         json.dump(translated_json, file, ensure_ascii=False, indent=4)
 
 input_file_path = 'eq_bench_v2_questions_171_en.json'  # Update with your input file path
-output_file_path = 'eq_bench_v2_questions_171_de_w,t.json'  # Update with your output file path
+output_file_path = 'eq_bench_v2_questions_171_de_wmt.json'  # Update with your output file path
 
 # Load input JSON
 with open(input_file_path, 'r', encoding='utf-8') as file:
