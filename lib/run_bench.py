@@ -6,7 +6,7 @@ import datetime
 from tqdm import tqdm
 from lib.load_model import load_model
 from lib.db import save_result_to_db
-from lib.scoring import calculate_score, calculate_score_fullscale, parse_answers, calculate_benchmark_score
+from lib.scoring import calculate_score, calculate_score_fullscale, parse_answers, parse_answers_de, calculate_benchmark_score
 from lib.run_query import run_query
 from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
 import lib.ooba
@@ -28,7 +28,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 						include_patterns=[], exclude_patterns=[],
 						ooba_params_global='', fast_download=False,
 						hf_access_token=None, ooba_request_timeout=300,
-						questions_fn=None, openai_client=None):
+						questions_fn=None, openai_client=None, language='en'):
 	"""
 	Run a benchmark with the specified parameters.
 	:param run_id: The ID string of the benchmark to be run.
@@ -43,6 +43,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	:param n_question_attempts: Number of attempts per question.
 	:param verbose: Verbose output if True.
 	:param google_spreadsheet_url: URL for Google spreadsheet for results uploading.
+ 	:param language: language of the test questions ("en" default, "de" also supported)
 	"""	
 
 	with open(questions_fn, 'r') as f:
@@ -145,7 +146,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 							print('Question',question_id,'already complete')
 					else:
 						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, 
-							  n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version)
+							  n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version, language)
 					
 
 				bench_success = True
@@ -299,6 +300,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	:param run_iter: Current iteration.
 	:param verbose: Verbose output flag.
 	:param n_question_attempts: Number of attempts per question.
+ 	:param language: language of the test questions ("en" default, "de" also supported)
 	:return: Updated results.
 	"""
 
@@ -332,7 +334,12 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 				print('________________')
 
 			# Parse and calculate scores for this question
-			first_pass_answers, revised_answers = parse_answers(inference, REVISE)
+
+			if language == "de":
+					first_pass_answers, revised_answers = parse_answers_de(inference, REVISE)
+				else:
+					first_pass_answers, revised_answers = parse_answers(inference, REVISE)
+					
 			parsed_answers = {
 							'first_pass': first_pass_answers,
 							'revised': revised_answers
