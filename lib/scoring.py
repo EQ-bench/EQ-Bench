@@ -25,6 +25,33 @@ def parse_answers(text, REVISE):
 
 	return first_pass_answers, revised_answers
 
+# we parse answers in German language ("de")
+def parse_answers_de(text, REVISE):
+    print("Using german parsing.")
+    first_pass_answers = {}
+    revised_answers = {}
+
+    first_pass_heading_pattern = r'(Erste.*?):\s*(.*?)(?=Überarbeitete|$)'
+    revised_heading_pattern = r'(Überarbeitete.*?):\s*(.*)'
+    
+    if REVISE:
+        first_pass_match = re.search(first_pass_heading_pattern, text, re.IGNORECASE | re.DOTALL)
+        if first_pass_match:
+            first_pass_text = first_pass_match.group(2)
+            pairs = re.findall(r'([a-zA-ZäöüßÄÖÜ\s]+):\s*\**(\d+(?:,\d+)?)\**', first_pass_text)
+            first_pass_answers = {label.strip(): score.replace('*', '') for label, score in pairs}
+
+        revised_match = re.search(revised_heading_pattern, text, re.IGNORECASE | re.DOTALL)
+        if revised_match:
+            revised_text = revised_match.group(2)
+            pairs = re.findall(r'([a-zA-ZäöüßÄÖÜ\s]+):\s*\**(\d+(?:,\d+)?)\**', revised_text)
+            revised_answers = {label.strip(): score.replace('*', '') for label, score in pairs}
+    else:
+        pairs = re.findall(r'([a-zA-ZäöüßÄÖÜ\s]+):\s*\**(\d+(?:,\d+)?)\**', text)
+        first_pass_answers = {label.strip(): score.replace('*', '') for label, score in pairs}
+        revised_answers = {}
+
+    return first_pass_answers, revised_answers
 
 # Calculate the score for an individual question using v2 scoring system
 def calculate_score_fullscale(reference, user):
