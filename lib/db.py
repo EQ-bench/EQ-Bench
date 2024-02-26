@@ -46,6 +46,7 @@ def save_result_to_db(results, score, parseable, last_error, run_index, bench_su
 			'run_completed': int(time.time()),
 			'benchmark_success': bench_success,
 			'eqbench_version': meta['eq_bench_version'],
+			'language': meta['language'],
 			'n_questions_parseable': parseable,
 			'n_questions_total': n_questions_total,
 			'benchmark_score': score,

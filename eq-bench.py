@@ -49,6 +49,8 @@ def main():
 							help="Use hftransfer for multithreaded downloading of models (faster but can be unreliable).")	
 	parser.add_argument('-v', action='store_true',
 							help="Display more verbose output.")
+	parser.add_argument('-l', default='en',
+							help="Set the language of the question dataset. Currently supported: en, de")
 	parser.add_argument('-r', type=int, default=5,
 							help="Set the number of retries to attempt if a benchmark run fails. Default 5.")
 	args = parser.parse_args()
@@ -72,9 +74,24 @@ def main():
 	# Revert the placeholders to colons in the parsed configuration
 	preprocessed_benchmark_runs = revert_placeholders_in_config(config['Benchmarks to run'])
 
+	language = "en"
+	if args.l:  # If language is provided via command line argument
+		language = args.l.strip()
+	
+	if language not in ['en', 'de']:
+		raise Exception('Invalid language value specified.')
+	
 	questions_fn = './data/eq_bench_v2_questions_171.json'
 	if args.v1:
+		if language != "en":
+			raise Exception('Error: Only English language is supported for EQ-Bench v1.')
 		questions_fn = './data/eq_bench_v1_questions_60.json'
+
+	if language != 'en':
+		# Extracting the filename and extension
+		base_filename, extension = questions_fn.rsplit('.', 1)
+		# Appending language denotifier
+		questions_fn = f"{base_filename}_{language}.{extension}"
 
 	# Check for OpenAI fields	
 	api_key = config['OpenAI'].get('api_key', '')
@@ -201,7 +218,7 @@ def main():
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
-								questions_fn=questions_fn, openai_client=openai_client)
+								questions_fn=questions_fn, openai_client=openai_client, language=language)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
 				try:
