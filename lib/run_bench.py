@@ -179,6 +179,10 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 
 	this_score = None
 
+	lang_suffix = ''
+	if language != 'en':
+		lang_suffix = '_'+language
+
 	# Calculate final score	
 	if bench_success:
 		print('----Benchmark Complete----')
@@ -191,11 +195,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 
 		# Delete model files if -d is specified and the benchmark fully completed (even if we didn't get the minimum 83% parseable answers)
 		if delete_cache:
-			delete_model_files = True
+			delete_model_files = True		
 		
-		lang_suffix = ''
-		if language != 'en':
-			lang_suffix = '_'+language
 		if eqbench_version == 'v1':
 			this_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH, fullscale=False)
 			print('Score (v1'+lang_suffix+'):', this_score)
