@@ -19,9 +19,9 @@ Changes:
 <details>
 <summary>v2.1 details</summary>
 
-After collecting a lot of data from v2, it's clear that the revision component has a mostly negative effect. Only 8% of the time does it improve the score, and on average the revised score is 2.95% lower than the first pass score.
+After collecting a lot of data from v2, it's clear that the revision component has a mostly negative effect. Only 8% of the time does it improve the score, and on average the revised score is 2.95% lower than the first pass score. Since we choose the highest of the first pass vs revised aggregate scores, the revision component is rarely affecting the overall score.
 
-Since the revision component of the questions requires significantly more inference, we opt to set it off by default. You can still enable it with the `--revise` argument. The upshot is that the benchmark is now much cheaper/faster to run, and the prompts are a little less complex. This change should have very little effect on scores.
+Since revising requires significantly more inference, we opt to set it off by default. You can still enable it with the `--revise` argument. The upshot of disabling revision is that the benchmark is now much cheaper/faster to run, and the prompts are a little less complex. This change should have a negligible effect on scores.
 
 </details>
 
@@ -180,6 +180,7 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 - `-v`: Display more verbose output.
 - `-r`: Set the number of retries to attempt if a benchmark run fails. Default is 5.
 - `--v1`: Runs v1 of the benchmark (legacy). If not set, the benchmark defaults to v2.
+- `--revise`: Enables the revision component of the test questions (this is off by default since v2.1).
 
 ## Prompt Formats / Instruction Templates
 
