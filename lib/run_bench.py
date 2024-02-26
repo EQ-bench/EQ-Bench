@@ -50,11 +50,6 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 
 	global COMPLETION_TOKENS
 
-	if REVISE:
-		COMPLETION_TOKENS = 1000
-	else:
-		COMPLETION_TOKENS = 60
-
 	with open(questions_fn, 'r') as f:
 		questions = json.load(f)
 
@@ -68,6 +63,12 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		eqbench_version = "v1"
 	elif len(questions) == 171:
 		eqbench_version = "v2"
+
+	if REVISE or eqbench_version == 'v1':
+		# v1 must include revision
+		COMPLETION_TOKENS = 1000
+	else:
+		COMPLETION_TOKENS = 60
 
 	# This string is used to index this benchmark run's in the raw results dict.
 	run_index = str(run_id)+'--'+eqbench_version+'--'+language+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization) + '--' + inference_engine+'--'+ooba_params+'--'+format_include_exclude_string(include_patterns, exclude_patterns)

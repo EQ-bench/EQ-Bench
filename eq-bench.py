@@ -40,8 +40,8 @@ def main():
 
 	# Argument parser setup
 	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")	
-	parser.add_argument('--v1', help="Run v1 of EQ-Bench (legacy). V1 has been superseded and results are not directly comparable to v2 results.")
-	parser.add_argument('--revise', help="Include the revision component of the test (off by default since v2.1).")
+	parser.add_argument('-v1', action='store_true', help="Run v1 of EQ-Bench (legacy). V1 has been superseded and results are not directly comparable to v2 results.")
+	parser.add_argument('-revise', action='store_true', help="Include the revision component of the test (off by default since v2.1).")
 	parser.add_argument('-w', action='store_true',
 							help="Overwrites existing results (i.e. disables the default behaviour of resuming a partially completed run).")
 	parser.add_argument('-d', action='store_true',
