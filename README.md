@@ -27,7 +27,7 @@ German language support was kindly added by [C-4-5-3](https://github.com/C-4-5-3
 
 After collecting a lot of data from v2, it's clear that the revision component has a mostly negative effect. Only 8% of the time does it improve the score, and on average the revised score is 2.95% lower than the first pass score. Since we choose the highest of the first pass vs revised aggregate scores, the revision component is rarely affecting the overall score.
 
-Since revising requires significantly more inference, we opt to set it off by default. You can still enable it with the `--revise` argument. The upshot of disabling revision is that the benchmark is now much cheaper/faster to run, and the prompts are a little less complex. This change should have a negligible effect on scores.
+Since revising requires significantly more inference, we opt to set it off by default. You can still enable it with the `-revise` argument. The upshot of disabling revision is that the benchmark is now much cheaper/faster to run, and the prompts are a little less complex. This change should have a negligible effect on scores.
 
 </details>
 
