@@ -8,7 +8,9 @@ def run_chat_query(prompt, completion_tokens, model, tokenizer, temp):
 	return response
 
 def run_pipeline_query(prompt, completion_tokens, model, tokenizer, temp):
-	text_gen = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=completion_tokens, do_sample=True, temperature=temp)
+	toks = tokenizer(prompt)
+	n_toks = len(toks['input_ids'])
+	text_gen = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=n_toks+completion_tokens, do_sample=True, temperature=temp, max_new_tokens=completion_tokens)
 	output = text_gen(prompt)
 	out_str = output[0]['generated_text']
 	# Trim off the prompt
