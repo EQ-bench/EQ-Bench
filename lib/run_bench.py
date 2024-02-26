@@ -13,10 +13,9 @@ from lib.run_bench_helper_functions import format_include_exclude_string, fix_re
 import lib.ooba
 
 # Constants
-COMPLETION_TOKENS = 1000
+COMPLETION_TOKENS = 60
 RAW_RESULTS_PATH = './raw_results.json'
 BENCH_RESULTS_PATH = './benchmark_results.csv'
-REVISE=False
 
 def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, 
                   n_iterations, resume=True, delete_cache=False, 
@@ -29,7 +28,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 						include_patterns=[], exclude_patterns=[],
 						ooba_params_global='', fast_download=False,
 						hf_access_token=None, ooba_request_timeout=300,
-						questions_fn=None, openai_client=None, language='en'):
+						questions_fn=None, openai_client=None, language='en',
+						REVISE=False):
 	"""
 	Run a benchmark with the specified parameters.
 	:param run_id: The ID string of the benchmark to be run.
@@ -44,8 +44,16 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	:param n_question_attempts: Number of attempts per question.
 	:param verbose: Verbose output if True.
 	:param google_spreadsheet_url: URL for Google spreadsheet for results uploading.
- 	:param language: language of the test questions ("en" default, "de" also supported)
+ 	:param language: language of the test questions ("en" default, "de" also supported).
+	:param REVISE: specifies whether the revision component of the prompt is included (off by default).
 	"""	
+
+	global COMPLETION_TOKENS
+
+	if REVISE:
+		COMPLETION_TOKENS = 1000
+	else:
+		COMPLETION_TOKENS = 60
 
 	with open(questions_fn, 'r') as f:
 		questions = json.load(f)

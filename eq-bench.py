@@ -41,6 +41,7 @@ def main():
 	# Argument parser setup
 	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")	
 	parser.add_argument('--v1', help="Run v1 of EQ-Bench (legacy). V1 has been superseded and results are not directly comparable to v2 results.")
+	parser.add_argument('--revise', help="Include the revision component of the test (off by default since v2.1).")
 	parser.add_argument('-w', action='store_true',
 							help="Overwrites existing results (i.e. disables the default behaviour of resuming a partially completed run).")
 	parser.add_argument('-d', action='store_true',
@@ -59,7 +60,12 @@ def main():
 	if args.f:
 		os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = '1'
 	else:
-		os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = '0'	
+		os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = '0'
+
+	if args.revise:
+		REVISE=True
+	else:
+		REVISE=False
 
 	# This has to be imported AFTER hf_transfer env var is set.
 	from lib.run_bench import run_benchmark
@@ -218,7 +224,8 @@ def main():
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
-								questions_fn=questions_fn, openai_client=openai_client, language=language)
+								questions_fn=questions_fn, openai_client=openai_client, language=language,
+								REVISE=REVISE)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
 				try:

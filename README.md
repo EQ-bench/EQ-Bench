@@ -8,7 +8,25 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ## News
 
-### Version 2 Released
+### Version 2.1 Released
+
+Changes:
+
+- Add support for additional languages (just en and de in this release)
+- Add support for custom OpenAI-compatible api endpoints, such as ollama
+- By default the revision component of the questions is not included
+
+<details>
+<summary>v2.1 details</summary>
+
+After collecting a lot of data from v2, it's clear that the revision component has a mostly negative effect. Only 8% of the time does it improve the score, and on average the revised score is 2.95% lower than the first pass score.
+
+Since the revision component of the questions requires significantly more inference, we opt to set it off by default. You can still enable it with the `--revise` argument. The upshot is that the benchmark is now much cheaper/faster to run, and the prompts are a little less complex. This change should have very little effect on scores.
+
+</details>
+
+<details>
+<summary>### Version 2 Released</summary>
 
 V2 of EQ-Bench contains 171 questions (compared to 60 in v1) and a new system for scoring. It is better able to discriminate performance differences between models. V2 is less subject to variance caused by perturbations (e.g. temp, sampler, quantisation, prompt format, system message). Also added is the ability to upload results to firebase.
 
@@ -51,9 +69,14 @@ The result of these changes is better discriminative ability of the benchmark, a
 
 </details>
 
-### Version 1.1 Released
+</details>
+
+<details>
+<summary>### Version 1.1 Released</summary>
 
 This version adds support for Oobabooga. The benchmark pipeline can automatically download each model, launch the model with ooba using the specified parameters, and close the ooba server after the run completes, optionally deleting the model files.
+
+</details>
 
 ## Requirements
 
