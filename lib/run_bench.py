@@ -182,6 +182,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	lang_suffix = ''
 	if language != 'en':
 		lang_suffix = '_'+language
+	
+	parseable = None
 
 	# Calculate final score	
 	if bench_success:
