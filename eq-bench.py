@@ -74,13 +74,7 @@ def main():
 	# Revert the placeholders to colons in the parsed configuration
 	preprocessed_benchmark_runs = revert_placeholders_in_config(config['Benchmarks to run'])
 
-	default_language = config['Options'].get('language')
-	
-	if not default_language:
-		language = "en"
-	else:
-		language = default_language.lower().strip()
-	
+	language = "en"
 	if args.l:  # If language is provided via command line argument
 		language = args.l.strip()
 	
@@ -89,6 +83,8 @@ def main():
 	
 	questions_fn = './data/eq_bench_v2_questions_171.json'
 	if args.v1:
+		if language != "en":
+			raise Exception('Error: Only English language is supported for EQ-Bench v1.')
 		questions_fn = './data/eq_bench_v1_questions_60.json'
 
 	if language != 'en':

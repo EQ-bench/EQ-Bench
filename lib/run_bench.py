@@ -9,13 +9,14 @@ from lib.db import save_result_to_db
 from lib.scoring import calculate_score, calculate_score_fullscale, parse_answers, parse_answers_de, calculate_benchmark_score
 from lib.run_query import run_query
 from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
+from lib.run_bench_helper_functions import format_include_exclude_string, fix_results, validate_and_extract_vars, run_test_prompts, remove_revision_instructions
 import lib.ooba
 
 # Constants
 COMPLETION_TOKENS = 1000
 RAW_RESULTS_PATH = './raw_results.json'
 BENCH_RESULTS_PATH = './benchmark_results.csv'
-REVISE=True
+REVISE=False
 
 def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, 
                   n_iterations, resume=True, delete_cache=False, 
@@ -61,7 +62,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		eqbench_version = "v2"
 
 	# This string is used to index this benchmark run's in the raw results dict.
-	run_index = str(run_id)+'--'+eqbench_version+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization) + '--' + inference_engine+'--'+ooba_params+'--'+format_include_exclude_string(include_patterns, exclude_patterns)
+	run_index = str(run_id)+'--'+eqbench_version+'--'+language+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization) + '--' + inference_engine+'--'+ooba_params+'--'+format_include_exclude_string(include_patterns, exclude_patterns)
 	
 	# Initialise results dict
 	if run_index not in results:
@@ -70,6 +71,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		run_metadata = {
 			"run_id": run_id,
 			"eq_bench_version": eqbench_version,
+			"language": language,
 			"instruction_template": prompt_type,
 			"model_path": model_path,
 			"lora_path": lora_path,
@@ -181,12 +183,15 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		if delete_cache:
 			delete_model_files = True
 		
+		lang_suffix = ''
+		if language != 'en':
+			lang_suffix = '_'+language
 		if eqbench_version == 'v1':
 			this_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH, fullscale=False)
-			print('Score (v1):', this_score)
+			print('Score (v1'+lang_suffix+'):', this_score)
 		else:
 			this_score, parseable = calculate_benchmark_score(run_index, results, RAW_RESULTS_PATH, fullscale=True)
-			print('Score (v2):', this_score)
+			print('Score (v2'+lang_suffix+'):', this_score)
 		print('Parseable:', parseable)
 
 		if parseable / len(questions) < 0.8333:
@@ -201,7 +206,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				lora_path,
 				quantization,
 				round(this_score, 2),
-				eqbench_version,
+				eqbench_version+lang_suffix,
 				parseable,
 				n_iterations,
 				inference_engine,
@@ -229,7 +234,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				lora_path,
 				quantization,
 				'FAILED',
-				'FAILED',
+				eqbench_version+lang_suffix,
 				'FAILED',
 				n_iterations,
 				inference_engine,
@@ -272,21 +277,9 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 					else:
 						print('! Cache not found:', dir_to_delete)
 
-def format_include_exclude_string(include_patterns, exclude_patterns):
-	outstr = ''
-	if include_patterns:
-		outstr += '--include ["'
-		outstr += '", "'.join(include_patterns)
-		outstr += '"] '		
-	if exclude_patterns:
-		outstr += '--exclude ["'
-		outstr += '", "'.join(exclude_patterns)
-		outstr += '"]'
-	return outstr.strip()
-
 def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, 
 							run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, 
-							launch_ooba, ooba_request_timeout, openai_client, eqbench_version):
+							launch_ooba, ooba_request_timeout, openai_client, eqbench_version, language):
 	"""
 	Process a single question and update the results.
 	:param question_id: ID of the question.
@@ -312,11 +305,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 		ref_fullscale = None
 
 	if not REVISE:
-		# cut out the part of the prompt asking for a revised answer
-		prompt = prompt.replace(' Then critique your answer by thinking it through step by step. Finally, give your revised scores.', '')
-		prompt = prompt.replace('First pass scores:\n', '')
-		prompt = prompt[:prompt.find('Critique: <your critique here>')] + '\n' + prompt[prompt.find('[End of answer]'):]
-		prompt += '\nYour answer:\n'
+		prompt = remove_revision_instructions(prompt, language)
 
 	tries = 0
 	success = False
@@ -336,10 +325,10 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 			# Parse and calculate scores for this question
 
 			if language == "de":
-					first_pass_answers, revised_answers = parse_answers_de(inference, REVISE)
-				else:
-					first_pass_answers, revised_answers = parse_answers(inference, REVISE)
-					
+				first_pass_answers, revised_answers = parse_answers_de(inference, REVISE)
+			else:
+				first_pass_answers, revised_answers = parse_answers(inference, REVISE)
+				
 			parsed_answers = {
 							'first_pass': first_pass_answers,
 							'revised': revised_answers
@@ -418,115 +407,3 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 
 	with open(RAW_RESULTS_PATH, 'w') as f:
 		json.dump(results, f)
-
-def fix_results(results):
-	"""
-	Fix the results dict, as scores are sometimes erroneously parsed as lists when loading from json.
-	:param results: The results dictionary to fix.
-	:return: The fixed results.
-	"""	
-	for i, run in results.items():
-		if 'individual_scores' in run:
-			for question_id, scores in run['individual_scores'].items():
-				if 'first_pass_score' in scores:
-					if isinstance(scores['first_pass_score'], list) and len(scores['first_pass_score']) == 1:
-						scores['first_pass_score'] = scores['first_pass_score'][0]
-					if isinstance(scores['revised_score'], list) and len(scores['revised_score']) == 1:
-						scores['revised_score'] = scores['revised_score'][0]
-	return results
-
-def validate_and_extract_vars(input_str):
-	# Define the regex patterns for NAME, TEMP, and COMPLETION_TOKENS
-	name_pattern = r"NAME=([a-zA-Z0-9\s:]+)\n"
-	temp_pattern = r"TEMP=([0-9]*\.?[0-9]+)\n"
-	tokens_pattern = r"COMPLETION_TOKENS=(\d+)\n"
-
-	# Search for matches in the input string
-	name_match = re.search(name_pattern, input_str)
-	temp_match = re.search(temp_pattern, input_str)
-	tokens_match = re.search(tokens_pattern, input_str)
-
-	# Check if all matches are found
-	if name_match and temp_match and tokens_match:
-		# Extract values
-		name = name_match.group(1)
-		temp = float(temp_match.group(1))
-		tokens = int(tokens_match.group(1))
-		return name, temp, tokens
-	else:
-		raise ValueError("Required variables not found or in incorrect format")
-
-
-
-# This is an undocumented feature. It will run a series of test prompts for
-# each model and log the output.
-def run_test_prompts(model, ooba_instance, 
-							inference_engine, results, 
-							 model_path, prompt_type, 
-							 tokenizer, launch_ooba, 
-							 ooba_request_timeout,
-							 run_index, run_iter,
-							 verbose):
-	if inference_engine == 'transformers':
-		print('! Custom test prompts only support ooba or openai as the inference engine.')
-		return
-	if 'test_prompts_results' in results[run_index]['iterations'][run_iter]:
-		return
-	if not os.path.exists(os.path.abspath('./test_prompts.txt')):
-		return
-	
-	results[run_index]['iterations'][run_iter]['test_prompts_results'] = {}
-	try:
-		with open('./test_prompts.txt', 'r') as f:
-			prompts_str = f.read()
-
-		print('Running test prompts...')
-		prompt_sequences = prompts_str.split('###')
-		for ps in prompt_sequences:
-			if not ps.split():
-				continue
-			prompts = ps.split('---')
-			sequence_name, temp, completion_tokens = validate_and_extract_vars(prompts[0])
-			print('Prompt sequence:', sequence_name)
-			results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name] = []
-			history = []
-			for p in prompts[1:]:
-				if not p.strip():
-					continue
-				tries=0
-				success=0
-				while tries < 5 and not success:
-					try:
-						if verbose:
-							print('#####')
-							print(p.strip())
-							print('#####')
-						inference = run_query(model_path, prompt_type, p.strip(), history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout)
-
-						if inference:
-							success=True
-							if verbose:
-								print(inference)
-					except Exception as e:
-						print(e)
-						tries += 1
-
-				if success:
-					results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name].append(p.strip())
-					history.append({"role": "user", "content": p.strip()})
-					results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name].append(inference.strip())
-					history.append({"role": "assistant", "content": inference.strip()})
-
-			with open('test_prompts_results.txt', 'a') as f:
-				out_str = '\n\n### ' + run_index + '\n\n'
-				out_str += 'NAME=' + sequence_name + '\n'
-				out_str += 'TEMP=' + str(temp) + '\n'
-				out_str += 'COMPLETION_TOKENS=' + str(completion_tokens) + '\n\n'
-				out_str += '---\n'
-				out_str += '\n\n---\n\n'.join(results[run_index]['iterations'][run_iter]['test_prompts_results'][sequence_name])
-				f.write(out_str)
-
-	except Exception as e:
-		print(e)
-		print('! Failed to run test prompts.')
-		
