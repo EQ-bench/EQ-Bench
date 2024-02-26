@@ -21,7 +21,7 @@ Changes:
 
 ### DE Support
 
-German language support was kindly added by [C-4-5-3](https://github.com/C-4-5-3). The prompts were translated by GPT-4. You can expect the scores using the German version to be slightly lower than the English version, assuming the model's language competency for each is equal.
+German language support was kindly added by [CrispStrobe](https://github.com/CrispStrobe). The prompts were translated by GPT-4. You can expect the scores using the German version to be slightly lower than the English version, assuming the model's language competency for each is equal.
 
 ### Revision Component
 
