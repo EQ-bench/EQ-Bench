@@ -18,6 +18,9 @@ def save_result_to_db(results, score, parseable, last_error, run_index, bench_su
 	if not db:
 		return
 	
+	if score:
+		score = round(score, 2)
+	
 	try:
 		meta = results['run_metadata']
 		if meta['eq_bench_version'] == 'v1':

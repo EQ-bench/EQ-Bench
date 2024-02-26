@@ -258,7 +258,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		if google_spreadsheet_url and os.path.exists('./google_creds.json'):
 			upload_results_google_sheets(google_spreadsheet_url, this_result)
 
-	save_result_to_db(results[run_index], round(this_score, 2),
+	save_result_to_db(results[run_index], this_score,
 				parseable, last_error,
 				run_index, bench_success)
 
