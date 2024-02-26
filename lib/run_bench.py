@@ -314,7 +314,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	else:
 		ref_fullscale = None
 
-	if not REVISE:
+	if eqbench_version == 'v2' and not REVISE:
 		prompt = remove_revision_instructions(prompt, language)
 
 	tries = 0
