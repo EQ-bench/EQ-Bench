@@ -27,7 +27,7 @@ def parse_answers(text, REVISE):
 
 # we parse answers in German language ("de")
 def parse_answers_de(text, REVISE):
-    print("Using german parsing.")
+    #print("Using german parsing.")
     first_pass_answers = {}
     revised_answers = {}
 
