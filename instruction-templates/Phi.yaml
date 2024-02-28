@@ -1,0 +1,5 @@
+user: "Human:"
+bot: "AI:"
+turn_template: "<|user|> <|user-message|>\n<|bot|><|bot-message|>\n"
+context: ""
+system_message: ""
