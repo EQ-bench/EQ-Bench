@@ -6,3 +6,5 @@ pip install -q tqdm pexpect optimum sentencepiece hf_transfer openai scipy torch
 pip install einops transformers_stream_generator==0.0.4 deepspeed tiktoken git+https://github.com/Dao-AILab/flash-attention.git auto-gptq optimum
 # These are for uploading results
 pip install gspread oauth2client firebase_admin
+# These are for using poe.com
+pip install fastapi_poe
