@@ -30,3 +30,6 @@ pip3.10 install gspread oauth2client firebase_admin
 
 REM These are for GPTQ support:
 pip3.10 install auto-gptq --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
+
+REM These are for using poe.com
+pip3.10 install fastapi_poe
