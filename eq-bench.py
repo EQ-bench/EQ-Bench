@@ -112,11 +112,15 @@ def main():
 	# If OpenAI credentials are provided, set them
 	openai_client = None
 	if api_key:
+		
 		openai_client = openai.OpenAI(
 			api_key=api_key,
 			base_url=base_url
 		)
 
+	# Check for Poe.com fields	
+	api_key_poe = config['Poe'].get('poe_api_key', '')
+	
 	# Check for huggingface access token
 	hf_access_token = config['Huggingface'].get('access_token', '')
 	if hf_access_token:
@@ -224,7 +228,7 @@ def main():
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
-								questions_fn=questions_fn, openai_client=openai_client, language=language,
+								questions_fn=questions_fn, openai_client=openai_client, language=language, api_key_poe=api_key_poe,
 								REVISE=REVISE)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
