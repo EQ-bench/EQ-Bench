@@ -120,9 +120,10 @@ def parse_batch(batch, ooba_launch_script, launch_ooba):
 					raise Exception('Error: prompt template not found: ' + template_path)
 			elif inference_engine == 'ooba':
 				ooba_dir = os.path.dirname(ooba_launch_script)
-				template_path = ooba_dir + '/instruction-templates/' + prompt_format + '.yaml'
-				if (not prompt_format) or not os.path.exists(template_path):
-					raise Exception('Error: prompt template not found: ' + template_path)
+				if prompt_format:
+					template_path = ooba_dir + '/instruction-templates/' + prompt_format + '.yaml'
+					if (not prompt_format) or not os.path.exists(template_path):
+						raise Exception('Error: prompt template not found: ' + template_path)
 
 			parsed.append((
 					run_id, prompt_format, model_path, lora_path, quantization, int(n_iterations), inference_engine, ooba_params_str, include_patterns, exclude_patterns

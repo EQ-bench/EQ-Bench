@@ -196,6 +196,8 @@ EQ-Bench uses the same instruction template format as the Oobabooga library. You
 - If using `transformers` as the inference engine, the benchmark pipeline uses templates located in `[EQ-Bench dir]/instruction-templates`.
 - If using `ooba` as the inference engine, the pipeline uses templates located in `[ooba dir]/instruction-templates`
 
+When using ooba, you have the option to leave the prompt format blank in config.cfg and ooba will make its best guess as to what the prompt format should be.
+
 ## Setting up Firebase / Firestore for Results Uploading (Optional)
 
 <details>
