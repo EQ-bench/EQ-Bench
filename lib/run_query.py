@@ -44,10 +44,9 @@ def run_llama_query(prompt, prompt_format, completion_tokens, temp):
 	
 	# Your prompt and any other parameters you wish to set
 	data = {
-		# 'model': 'gpt-3.5-turbo',	
 		'prompt': formatted_prompt,
 		'n_predict': completion_tokens,
-		# 'temperature': temp
+		'temperature': temp
 	}
 	
 	# Convert your data to JSON
@@ -56,7 +55,6 @@ def run_llama_query(prompt, prompt_format, completion_tokens, temp):
 	# Set the headers, if required by the server
 	headers = {
 		'Content-Type': 'application/json',
-  		# 'Authorization': 'Bearer no-key'
 	}
 	
 	# Sending the POST request to the server
