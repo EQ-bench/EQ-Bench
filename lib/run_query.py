@@ -113,49 +113,41 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 	return None
 
 def run_poe_query(prompt, model, api_key_poe):
-    try:
+	try:
 
-        import asyncio
-        import fastapi_poe as fp
-        import logging
+		import asyncio
+		import fastapi_poe as fp
 
-        logging.basicConfig(level=logging.INFO, filename='poe.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+		async def get_poe_response(message, model, api_key_poe):
+			messages = [fp.ProtocolMessage(role="user", content=message)]
+			response = ""
+			async for partial in fp.get_bot_response(messages=messages, bot_name=model, api_key=api_key_poe):
+				response += partial.text
+			return response
 
-        # Define the asynchronous function to fetch responses
-        async def get_responses(api_key_poe, messages):
-            complete_response = ''
-            async for partial in fp.get_bot_response(messages=messages, bot_name=model, api_key=api_key_poe):
-                complete_response += partial.text  # Append each partial response
-                #print (partial.text)
-                logging.debug(f"Received partial response: {partial.text}")
-                await asyncio.sleep(0.2)  # Minimal delay to stabilize timing
-            await asyncio.sleep(4)
-            return complete_response  # Return the complete response at the end
+		def get_poe_response_sync(message, model, api_key_poe):
+			try:
+				return asyncio.run(get_poe_response(message, model, api_key_poe))
+			except Exception as e:
+				print(f"An error occurred: {e}")
+				return "Error: Unable to retrieve response from the API."
 
-        # Prepare the message
-        message = fp.ProtocolMessage(role="user", content=prompt.strip())
+		# Execute the synchronous wrapper function
+		response = get_poe_response_sync(prompt, model, api_key_poe)
 
-        # wrap the asynchronous call for synchronous use
-        def sync_run():
-            result = asyncio.run(get_responses(api_key_poe, [message]))
-            return result
+		if response:
+			print("Poe response:", response.strip())
+			return response.strip()
+		else:
+			print('Error: message is empty')
+			time.sleep(5)
 
-        # Execute the synchronous wrapper function
-        response = sync_run()
+	except Exception as e:
+		print("Poe request failed.")
+		print(e)
+		time.sleep(5)
 
-        if response:
-            print("Poe response:", response.strip())
-            return response.strip()
-        else:
-            print('Error: message is empty')
-            time.sleep(5)
-
-    except Exception as e:
-        print("Poe request failed.")
-        print(e)
-        time.sleep(5)
-
-    return None
+	return None
 
 
 OPENAI_COMPLETION_MODELS = [
