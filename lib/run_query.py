@@ -2,6 +2,7 @@ from transformers import pipeline
 import time
 import yaml
 import requests
+import json
 
 def run_chat_query(prompt, completion_tokens, model, tokenizer, temp):
 	response, history = model.chat(tokenizer, prompt, history=None, max_length=completion_tokens, do_sample=True)
@@ -32,6 +33,50 @@ OPENSOURCE_MODELS_INFERENCE_METHODS = {
 	'mistralai/Mistral-7B-Instruct-v0.1': run_generate_query,
 	'Qwen/Qwen-14B-Chat': run_chat_query
 }
+
+
+def run_llama_query(prompt, prompt_format, completion_tokens, temp):
+	# Generate the prompt from the template
+	formatted_prompt = generate_prompt_from_template(prompt, prompt_format)		
+
+	# Endpoint URL for the llama.cpp server, default is localhost and port 8080
+	url = "http://localhost:8080/completion"
+	
+	# Your prompt and any other parameters you wish to set
+	data = {
+		# 'model': 'gpt-3.5-turbo',	
+		'prompt': formatted_prompt,
+		'n_predict': completion_tokens,
+		# 'temperature': temp
+	}
+	
+	# Convert your data to JSON
+	json_data = json.dumps(data)
+	
+	# Set the headers, if required by the server
+	headers = {
+		'Content-Type': 'application/json',
+  		# 'Authorization': 'Bearer no-key'
+	}
+	
+	# Sending the POST request to the server
+	response = requests.post(url, headers=headers, data=json_data)
+
+	# Checking if the request was successful
+	if response.status_code == 200:
+		# Parsing the response JSON
+		completion = response.json()
+		content = completion['content']
+		if content:
+			return content.strip()
+		else:
+			print('Error: message is empty')
+	else:
+		print(f"Error: {response.status_code}")
+
+
+	return None
+
 
 def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout):
 	if launch_ooba and (not ooba_instance or not ooba_instance.url):
@@ -168,7 +213,9 @@ def generate_prompt_from_template(prompt, prompt_type):
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
 def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
-	if inference_engine == 'openai':
+	if inference_engine == 'llama':
+		return run_llama_query(prompt, prompt_format, completion_tokens, temp)
+	elif inference_engine == 'openai':
 		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
 	elif inference_engine == 'ooba':
 		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
