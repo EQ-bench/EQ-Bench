@@ -8,6 +8,15 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ## News
 
+### Version 2.2 Released
+
+Changes:
+
+- Added llama.cpp support (set inferencing engine to llama.cpp in config)
+- Compatibility & bug fixes
+
+* If using llama.cpp as the inferencing engine, you will need to launch the llama.cpp server yourself and then run the benchmark. The benchmark will look for the api at the default address of `http://localhost:8080`. Multiple benchmark runs are not supported when using llama.cpp.
+
 ### Version 2.1 Released
 
 Changes:
@@ -153,7 +162,7 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
       - `lora_path` (optional): Path to local lora adapter
       - `quantization`: Using bitsandbytes package (8bit, 4bit, None)
       - `n_iterations`: Number of benchmark iterations (final score will be an average)
-      - `inference_engine`: Set this to transformers, openai or ooba.
+      - `inference_engine`: Set this to transformers, openai, ooba or llama.cpp.
       - `ooba_params` (optional): Any additional ooba params for loading this model (overrides the global setting above)
       - `downloader_filters` (optional): Specify --include or --exclude patterns (using same syntax as huggingface-cli download)
 
@@ -170,6 +179,8 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 `myrun4, Mistral, TheBloke/Mistral-7B-Instruct-v0.2-GGUF, , None, 1, ooba, --loader llama.cpp --n-gpu-layers -1 --tensor_split 1,3,5,7, --include ["*Q3_K_M.gguf", "*.json"]`
 
 `myrun5, Mistral, mistralai/Mistral-7B-Instruct-v0.2, , None, 1, ooba, --loader transformers --gpu-memory 12, --exclude "*.bin"`
+
+`myrun6, Mistral, , , None, 1, llama.cpp, ,`
 
 ## Running the benchmark
 
