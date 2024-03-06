@@ -35,34 +35,28 @@ OPENSOURCE_MODELS_INFERENCE_METHODS = {
 }
 
 
-def run_llama_query(prompt, prompt_format, completion_tokens, temp):
+def run_llamacpp_query(prompt, prompt_format, completion_tokens, temp):
 	# Generate the prompt from the template
 	formatted_prompt = generate_prompt_from_template(prompt, prompt_format)		
 
 	# Endpoint URL for the llama.cpp server, default is localhost and port 8080
 	url = "http://localhost:8080/completion"
 	
-	# Your prompt and any other parameters you wish to set
 	data = {
 		'prompt': formatted_prompt,
 		'n_predict': completion_tokens,
 		'temperature': temp
 	}
 	
-	# Convert your data to JSON
 	json_data = json.dumps(data)
 	
-	# Set the headers, if required by the server
 	headers = {
 		'Content-Type': 'application/json',
 	}
 	
-	# Sending the POST request to the server
 	response = requests.post(url, headers=headers, data=json_data)
 
-	# Checking if the request was successful
 	if response.status_code == 200:
-		# Parsing the response JSON
 		completion = response.json()
 		content = completion['content']
 		if content:
@@ -71,7 +65,6 @@ def run_llama_query(prompt, prompt_format, completion_tokens, temp):
 			print('Error: message is empty')
 	else:
 		print(f"Error: {response.status_code}")
-
 
 	return None
 
@@ -211,8 +204,8 @@ def generate_prompt_from_template(prompt, prompt_type):
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
 def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
-	if inference_engine == 'llama':
-		return run_llama_query(prompt, prompt_format, completion_tokens, temp)
+	if inference_engine == 'llama.cpp':
+		return run_llamacpp_query(prompt, prompt_format, completion_tokens, temp)
 	elif inference_engine == 'openai':
 		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
 	elif inference_engine == 'ooba':
