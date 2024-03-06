@@ -12,10 +12,12 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 Changes:
 
-- Added llama.cpp support (set inferencing engine to llama.cpp in config)
+- Added [llama.cpp](https://github.com/ggerganov/llama.cpp) support
 - Compatibility & bug fixes
 
-* If using llama.cpp as the inferencing engine, you will need to launch the llama.cpp server yourself and then run the benchmark. The benchmark will look for the api at the default address of `http://localhost:8080`. Multiple benchmark runs are not supported when using llama.cpp.
+* If using llama.cpp as the inferencing engine, you will need to launch the llama.cpp server first and then run the benchmark. The benchmark will look for the api at the default address of `http://127.0.0.1:8080`. Multiple benchmark runs are not supported when using llama.cpp.
+
+Other news: EQ-Bench has been added to eleuther-eval-harness! Go [check it out](https://github.com/EleutherAI/lm-evaluation-harness).
 
 ### Version 2.1 Released
 
@@ -180,7 +182,7 @@ Note: Ooobabooga is optional. If you prefer to use transformers as the inference
 
 `myrun5, Mistral, mistralai/Mistral-7B-Instruct-v0.2, , None, 1, ooba, --loader transformers --gpu-memory 12, --exclude "*.bin"`
 
-`myrun6, Mistral, , , None, 1, llama.cpp, ,`
+`myrun6, ChatML, model_name, , None, 1, llama.cpp, None,`
 
 ## Running the benchmark
 
