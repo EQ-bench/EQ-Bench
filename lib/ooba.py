@@ -17,6 +17,8 @@ class Ooba:
 			self.script_command = 'bash'
 		elif script_path.endswith('server.py'):
 			self.script_command = sys.executable
+		elif script_path.endswith('bat'):
+			self.script_command = 'powershell'
 		self.ooba_dir = os.path.dirname(os.path.abspath(self.script_path))
 		self.model_path = model_path
 		self.cache_dir = os.path.abspath(os.path.expanduser(cache_dir)) if cache_dir else None
