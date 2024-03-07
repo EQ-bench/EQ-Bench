@@ -8,9 +8,7 @@ def run_chat_query(prompt, completion_tokens, model, tokenizer, temp):
 	return response
 
 def run_pipeline_query(prompt, completion_tokens, model, tokenizer, temp):
-	toks = tokenizer(prompt)
-	n_toks = len(toks['input_ids'])
-	text_gen = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=n_toks+completion_tokens, do_sample=True, temperature=temp, max_new_tokens=completion_tokens)
+	text_gen = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=completion_tokens, do_sample=True, temperature=temp)
 	output = text_gen(prompt)
 	out_str = output[0]['generated_text']
 	# Trim off the prompt
@@ -114,6 +112,43 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 
 	return None
 
+def run_poe_query(prompt, model, api_key_poe):
+	try:
+
+		import asyncio
+		import fastapi_poe as fp
+
+		async def get_poe_response(message, model, api_key_poe):
+			messages = [fp.ProtocolMessage(role="user", content=message)]
+			response = ""
+			async for partial in fp.get_bot_response(messages=messages, bot_name=model, api_key=api_key_poe):
+				response += partial.text
+			return response
+
+		def get_poe_response_sync(message, model, api_key_poe):
+			try:
+				return asyncio.run(get_poe_response(message, model, api_key_poe))
+			except Exception as e:
+				print(f"An error occurred: {e}")
+				return "Error: Unable to retrieve response from the API."
+
+		# Execute the synchronous wrapper function
+		response = get_poe_response_sync(prompt, model, api_key_poe)
+
+		if response:
+			print("Poe response:", response.strip())
+			return response.strip()
+		else:
+			print('Error: message is empty')
+			time.sleep(5)
+
+	except Exception as e:
+		print("Poe request failed.")
+		print(e)
+		time.sleep(5)
+
+	return None
+
 
 OPENAI_COMPLETION_MODELS = [
 	'text-davinci-003',
@@ -167,9 +202,11 @@ def generate_prompt_from_template(prompt, prompt_type):
 	formatted_prompt = formatted_prompt.split("<|bot-message|>")[0]
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
-def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
+def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, api_key_poe):
 	if inference_engine == 'openai':
 		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
+	elif inference_engine == 'poe':
+		return run_poe_query(prompt, model_path, api_key_poe)
 	elif inference_engine == 'ooba':
 		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
 	else: # transformers

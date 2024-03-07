@@ -28,7 +28,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 						include_patterns=[], exclude_patterns=[],
 						ooba_params_global='', fast_download=False,
 						hf_access_token=None, ooba_request_timeout=300,
-						questions_fn=None, openai_client=None, language='en',
+						questions_fn=None, openai_client=None, language='en', api_key_poe='',
 						REVISE=False):
 	"""
 	Run a benchmark with the specified parameters.
@@ -45,6 +45,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 	:param verbose: Verbose output if True.
 	:param google_spreadsheet_url: URL for Google spreadsheet for results uploading.
  	:param language: language of the test questions ("en" default, "de" also supported).
+ 	:param api_key_poe: api key for Poe.com
 	:param REVISE: specifies whether the revision component of the prompt is included (off by default).
 	"""	
 
@@ -158,7 +159,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 					else:
 						process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose, 
 							n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version,
-							language, REVISE)
+							language, api_key_poe, REVISE)
 					
 
 				bench_success = True
@@ -292,7 +293,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 
 def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, 
 							run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, 
-							launch_ooba, ooba_request_timeout, openai_client, eqbench_version, language,
+							launch_ooba, ooba_request_timeout, openai_client, eqbench_version, language, api_key_poe,
 							REVISE):
 	"""
 	Process a single question and update the results.
@@ -329,7 +330,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	prev_result_inference = None
 	prev_result_parsed_answers = None
 	while tries < n_question_attempts and not success:
-		inference = run_query(model_path, prompt_type, prompt, [], COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+		inference = run_query(model_path, prompt_type, prompt, [], COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, api_key_poe)
 
 		try:
 			if verbose:
