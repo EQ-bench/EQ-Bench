@@ -11,7 +11,7 @@ import platform
 from lib.download import download_model
 
 class Ooba:
-	def __init__(self, script_path, model_path, cache_dir=None, verbose=False, trust_remote_code=False, ooba_args_global="", ooba_args="", fast_download=False, include_patterns=None, exclude_patterns=None, hf_access_token=None, load_model=True):
+	def __init__(self, script_path, model_path, cache_dir=None, verbose=False, trust_remote_code=False, ooba_args_global="", server_params="", fast_download=False, include_patterns=None, exclude_patterns=None, hf_access_token=None, load_model=True):
 		self.script_path = script_path
 		if script_path.endswith('sh'):
 			self.script_command = 'bash'
@@ -25,7 +25,7 @@ class Ooba:
 		self.verbose = verbose
 		self.trust_remote_code = trust_remote_code
 		self.ooba_args_global = ooba_args_global
-		self.ooba_args = ooba_args
+		self.ooba_args = server_params
 		self.fast_download = fast_download
 		self.include_patterns = include_patterns
 		self.exclude_patterns = exclude_patterns
