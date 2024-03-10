@@ -2,6 +2,7 @@ import subprocess
 import requests
 import time
 import shlex
+import os
 
 class LlamaServer:
     def __init__(self, llama_server_path, port = 8080, model = None):
@@ -19,7 +20,7 @@ class LlamaServer:
     def start(self, model=None, server_params=None):
         if model is not None:
             self.model = model
-        command = self.command + [model]
+        command = [os.path.join(self.llama_server_path, 'server'), '-m'] + [model]
         command += shlex.split(server_params)
         self.process = subprocess.Popen(command, cwd=self.llama_server_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         return self.is_running()
