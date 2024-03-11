@@ -13,7 +13,8 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 Changes:
 
 - Added [llama.cpp](https://github.com/ggerganov/llama.cpp) support
-- Compatibility & bug fixes
+- Fixed bug with ooba regularly crashing
+- Misc compatibility & bug fixes
 
 * If using llama.cpp as the inferencing engine, you will need to launch the llama.cpp server first and then run the benchmark. The benchmark will look for the api at the default address of `http://127.0.0.1:8080`. Multiple benchmark runs are not supported when using llama.cpp.
 
