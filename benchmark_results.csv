@@ -1,3 +1,5 @@
 4,2024-03-13 12:04:45,,google/gemma-7b-it,,,67.5,creative-writing,N/A,1,openai,,,
 gpt4-judge-1,2024-03-13 12:47:00,,google/gemma-7b-it,,,61.48,creative-writing,N/A,1,openai,,,
 gpt4-judge-1,2024-03-13 13:08:53,,gpt-3.5-turbo,,,62.84,creative-writing,N/A,1,openai,,,
+opus-judge-1,2024-03-13 13:31:20,,gpt-3.5-turbo,,,66.09,creative-writing,N/A,1,openai,,,
+gpt4-judge-1,2024-03-13 13:31:41,,gpt-4-0125-preview,,,72.26,creative-writing,N/A,1,openai,,,
