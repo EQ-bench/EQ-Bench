@@ -12,7 +12,7 @@ COMBINE_CRITERIA = True
 def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, model, tokenizer, results, run_index, 
 								run_iter, verbose, n_prompt_attempts, inference_engine, ooba_instance, 
 								launch_ooba, ooba_request_timeout, openai_client, judge_params):
-	global openai_client_judge
+	global openai_client_judge, SKIP_ANALYSIS, COMBINE_CRITERIA, N_THREADS
 
 	if judge_params['judge_model_api'] == 'openai' and not openai_client_judge:
 		openai_client_judge = openai.OpenAI(
@@ -45,6 +45,18 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 		prefix_text = criteria_set['prefix_text']
 		criteria = criteria_set['criteria']
 		criteria_str = '\n'.join(criteria)
+
+		analysis_section_1 = """
+- You are to write a comprehensive analysis for each of the metrics, then give your scores.
+"""
+		analysis_section_2 = """
+[Analysis]
+
+Write your detailed analysis.
+"""
+		if SKIP_ANALYSIS:
+			analysis_section_1 = ""
+			analysis_section_2 = ""
 		
 		# Construct judging prompt
 		judging_prompt = f"""
@@ -93,15 +105,9 @@ Scoring notes:
 - Do not be biased in favour of overly long output.
 
 - You are a critic, so be objective, critical and discriminative. No need to be charitable; say what you genuinely think.
-
-- You are to write a comprehensive analysis for each of the metrics, then give your scores.
-
+{analysis_section_1}
 - Output format is:
-
-[Analysis]
-
-Write your detailed analysis.
-
+{analysis_section_2}
 [Scores]
 
 Metric 1 name: Score [0-10]
@@ -114,6 +120,8 @@ Metric 2 name: ...
 
 {criteria_str}
 		"""
+
+		#print(judging_prompt)
 
 		# Run judging process using judge model
 		success = False
@@ -139,12 +147,25 @@ Metric 2 name: ...
 	scores = {}
 	judge_model_responses = []
 	
-	with concurrent.futures.ThreadPoolExecutor(max_workers=N_THREADS) as executor:
-		future_to_criteria = {executor.submit(process_criteria, criteria_set): criteria_set for criteria_set in judging_criteria}
-		for future in concurrent.futures.as_completed(future_to_criteria):
-			judge_model_response = future.result()
-			scores.update(parse_scores(judge_model_response))			
-			judge_model_responses.append(judge_model_response)
+	if COMBINE_CRITERIA:
+		combined = []
+		for criteria_set in judging_criteria:
+			combined += criteria_set['criteria']
+		combined = list(reversed(combined))
+		#print(combined)
+		judge_model_response = process_criteria({
+			'criteria': combined,
+			'prefix_text': 'Now, rate the supplied model output on the following criteria:'
+		})
+		scores.update(parse_scores(judge_model_response))			
+		judge_model_responses.append(judge_model_response)
+	else:
+		with concurrent.futures.ThreadPoolExecutor(max_workers=N_THREADS) as executor:
+			future_to_criteria = {executor.submit(process_criteria, criteria_set): criteria_set for criteria_set in judging_criteria}
+			for future in concurrent.futures.as_completed(future_to_criteria):
+				judge_model_response = future.result()
+				scores.update(parse_scores(judge_model_response))			
+				judge_model_responses.append(judge_model_response)
 
 	
 	# Store scores and responses in results dict
