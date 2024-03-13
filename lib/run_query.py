@@ -125,7 +125,7 @@ def run_mistral_query(prompt, history, completion_tokens, temp, model, api_key):
 		}		
 
 		try:
-			response = requests.post(url, headers=headers, json=data, verify=False, timeout=60)			
+			response = requests.post(url, headers=headers, json=data, verify=False, timeout=200)			
 			response = response.json()
 			#print(response)
 			content = response['choices'][0]['message']['content']
@@ -211,7 +211,7 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 			response = openai_client.chat.completions.create(
 					model=model,
 					temperature=temp,
-					max_tokens=completion_tokens,
+					max_tokens=1048,
 					messages=messages,
 			)
 			content = response.choices[0].message.content

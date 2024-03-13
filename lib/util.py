@@ -108,7 +108,7 @@ def parse_batch(batch, ooba_launch_script, launch_ooba):
 			
 			# Read inference engine option from config
 			inference_engine = inference_engine.strip().lower()
-			if inference_engine not in ['transformers', 'ooba', 'openai', 'llama.cpp', 'anthropic']:
+			if inference_engine not in ['transformers', 'ooba', 'openai', 'llama.cpp', 'anthropic', 'mistralai']:
 				raise Exception("inference_engine in config.cfg must be transformers, openai, oobabooga or llama.cpp.")
 			if inference_engine == 'ooba' and not ooba_launch_script:
 				raise Exception('ooba_launch_script not set in config.cfg')
