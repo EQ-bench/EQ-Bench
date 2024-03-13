@@ -407,7 +407,8 @@ def run_creative_writing_bench(run_id, model_path, lora_path, prompt_type, quant
 			delete_model_files = True        
 		
 		this_score = calculate_creative_writing_score(run_index, results, RAW_RESULTS_PATH)
-		print('Score:', this_score)
+		print('Creative Writing Score:', this_score)
+		print('Judge:', judge_params['judge_model'])
 
 		with open(RAW_RESULTS_PATH, 'w') as f:
 			json.dump(results, f)

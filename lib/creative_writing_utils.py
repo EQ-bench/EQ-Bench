@@ -167,6 +167,21 @@ Metric 2 name: ...
 				scores.update(parse_scores(judge_model_response))			
 				judge_model_responses.append(judge_model_response)
 
+	if verbose:
+		scoresum = 0
+		neg_criteria = [
+				"trite",
+				"overwrought",
+				"amateurish",
+				"contrived",
+				"uninspiring"
+			]
+		for criteria, score in scores.items():
+			if criteria.lower().strip() in neg_criteria:
+				scoresum += 10-score
+			else:
+				scoresum += score		
+		print('This question score:', round(10*scoresum / len(scores)))
 	
 	# Store scores and responses in results dict
 	results[run_index]['iterations'][run_iter]['individual_scores'][prompt_id] = scores
