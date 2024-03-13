@@ -86,7 +86,7 @@ def parse_batch(batch, ooba_launch_script, launch_ooba):
 			model_path = model_path.strip()			
 			if not model_path and launch_ooba:
 				raise Exception('Missing model path.')
-			if model_path:
+			if model_path and inference_engine in ['ooba', 'transformers']:
 				# Note: if a hf model id starts with '~', that will cause issues here.
 				if model_path.startswith('~'):
 					model_path = os.path.expanduser(model_path)
@@ -108,7 +108,7 @@ def parse_batch(batch, ooba_launch_script, launch_ooba):
 			
 			# Read inference engine option from config
 			inference_engine = inference_engine.strip().lower()
-			if inference_engine not in ['transformers', 'ooba', 'openai', 'llama.cpp']:
+			if inference_engine not in ['transformers', 'ooba', 'openai', 'llama.cpp', 'anthropic']:
 				raise Exception("inference_engine in config.cfg must be transformers, openai, oobabooga or llama.cpp.")
 			if inference_engine == 'ooba' and not ooba_launch_script:
 				raise Exception('ooba_launch_script not set in config.cfg')

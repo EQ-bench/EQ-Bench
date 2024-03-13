@@ -3,15 +3,17 @@ import time
 import yaml
 import requests
 import json
+import anthropic
+anthropic_client = None
 
 def run_chat_query(prompt, completion_tokens, model, tokenizer, temp):
-	response, history = model.chat(tokenizer, prompt, history=None, max_length=completion_tokens, do_sample=True)
+	response, history = model.chat(tokenizer, prompt, history=None, max_new_tokens=completion_tokens, do_sample=True)
 	return response
 
 def run_pipeline_query(prompt, completion_tokens, model, tokenizer, temp):
 	toks = tokenizer(prompt)
 	n_toks = len(toks['input_ids'])
-	text_gen = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=n_toks+completion_tokens, do_sample=True, temperature=temp, max_new_tokens=completion_tokens)
+	text_gen = pipeline(task="text-generation", model=model, tokenizer=tokenizer, do_sample=True, temperature=temp, max_new_tokens=completion_tokens)
 	output = text_gen(prompt)
 	out_str = output[0]['generated_text']
 	# Trim off the prompt
@@ -69,6 +71,81 @@ def run_llamacpp_query(prompt, prompt_format, completion_tokens, temp):
 	return None
 
 
+def run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key):
+	global anthropic_client
+	if not anthropic_client:
+		anthropic_client = anthropic.Anthropic(
+			# defaults to os.environ.get("ANTHROPIC_API_KEY")
+			api_key=api_key,
+		)
+	try:		
+		messages = history + [{"role": "user", "content": prompt}]
+
+		message = anthropic_client.messages.create(
+			model=model,
+			max_tokens=completion_tokens,
+			temperature=temp,
+			system="You are an expert in emotional intelligence.",
+			messages=messages,
+			stream=False
+		)
+
+		content = message.content[0].text
+
+		if content:
+			return content.strip()
+		else:
+			print('Error: message is empty')
+			time.sleep(5)
+
+	except Exception as e:
+		print("Request failed.")
+		print(e)
+		time.sleep(5)
+
+	return None
+
+def run_mistral_query(prompt, history, completion_tokens, temp, model, api_key):
+	response = None
+	try:
+		url = 'https://api.mistral.ai/v1/chat/completions'
+		messages = history + [{"role": "user", "content": prompt}]
+		data = {
+			"model": model,
+        	"messages": messages,
+		  	"temperature": temp,
+			"max_tokens": completion_tokens,
+			"stream": False,
+		}
+
+		headers = {
+			"Content-Type": "application/json",
+			"Authorization": "Bearer " + api_key
+		}		
+
+		try:
+			response = requests.post(url, headers=headers, json=data, verify=False, timeout=60)			
+			response = response.json()
+			#print(response)
+			content = response['choices'][0]['message']['content']
+			if content:
+				return content.strip()
+			else:
+				print('Error: message is empty')
+				time.sleep(5)
+			
+		except Exception as e:
+			print(response)
+			print(e)
+			time.sleep(5)
+			return None
+
+	except Exception as e:
+		print(response)
+		print(e)
+		print("Request failed.")
+	return None
+
 def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout):
 	if launch_ooba and (not ooba_instance or not ooba_instance.url):
 		raise Exception("Error: Ooba api not initialised")
@@ -117,33 +194,36 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 
 
 def run_openai_query(prompt, history, completion_tokens, temp, model, openai_client):
+	response = None
 	try:
 		messages = history + [{"role": "user", "content": prompt}]
 		
 		if model in OPENAI_COMPLETION_MODELS and openai_client.base_url == 'https://api.openai.com/v1/':
-			result = openai_client.completions.create(
+			response = openai_client.completions.create(
 					model=model,
 					temperature=temp,
 					max_tokens=completion_tokens,
 					prompt=prompt,
 			)
-			content = result.choices[0].text
+			content = response.choices[0].text
 		else: # assume it's a chat model
-			result = openai_client.chat.completions.create(
+			response = openai_client.chat.completions.create(
 					model=model,
 					temperature=temp,
 					max_tokens=completion_tokens,
 					messages=messages,
 			)
-			content = result.choices[0].message.content
+			content = response.choices[0].message.content
 
 		if content:
 			return content.strip()
 		else:
+			print(response)
 			print('Error: message is empty')
 			time.sleep(5)
 
 	except Exception as e:
+		print(response)
 		print("Request failed.")
 		print(e)
 		time.sleep(5)
@@ -203,11 +283,15 @@ def generate_prompt_from_template(prompt, prompt_type):
 	formatted_prompt = formatted_prompt.split("<|bot-message|>")[0]
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
-def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
+def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, api_key = None):
 	if inference_engine == 'llama.cpp':
 		return run_llamacpp_query(prompt, prompt_format, completion_tokens, temp)
 	elif inference_engine == 'openai':
 		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
+	elif inference_engine == 'anthropic':		
+		return run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key)
+	elif inference_engine == 'mistralai':		
+		return run_mistral_query(prompt, history, completion_tokens, temp, model, api_key)
 	elif inference_engine == 'ooba':
 		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
 	else: # transformers

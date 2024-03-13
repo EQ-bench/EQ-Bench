@@ -42,6 +42,8 @@ def main():
 	parser = argparse.ArgumentParser(description="Run benchmark pipeline based on specified configuration.")	
 	parser.add_argument('-v1', action='store_true', help="Run v1 of EQ-Bench (legacy). V1 has been superseded and results are not directly comparable to v2 results.")
 	parser.add_argument('-revise', action='store_true', help="Include the revision component of the test (off by default since v2.1).")
+	parser.add_argument('--benchmarks', nargs='+', default=['eq-bench'],
+                        help="Specify the benchmark types to run (eq-bench, creative-writing, or both)")
 	parser.add_argument('-w', action='store_true',
 							help="Overwrites existing results (i.e. disables the default behaviour of resuming a partially completed run).")
 	parser.add_argument('-d', action='store_true',
@@ -99,11 +101,16 @@ def main():
 		# Appending language denotifier
 		questions_fn = f"{base_filename}_{language}.{extension}"
 
+	# Creative writing Judge params
+	judge_params = {
+		'judge_model_api': config['Creative Writing Benchmark'].get('judge_model_api', None),
+		'judge_model': config['Creative Writing Benchmark'].get('judge_model', None),
+		'judge_model_api_key': config['Creative Writing Benchmark'].get('judge_model_api_key', None)
+	}
+
 	# Check for OpenAI fields	
-	api_key = config['OpenAI'].get('api_key', '')
-	
-	base_url = 'https://api.openai.com/v1/'
-	
+	api_key = config['OpenAI'].get('api_key', '')	
+	base_url = 'https://api.openai.com/v1/'	
 	alt_url = config['OpenAI'].get('openai_compatible_url', '')
 	
 	if alt_url:
@@ -225,7 +232,7 @@ def main():
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
 								questions_fn=questions_fn, openai_client=openai_client, language=language,
-								REVISE=REVISE)
+								REVISE=REVISE, benchmark_types=args.benchmarks, judge_params = judge_params)
 		except KeyboardInterrupt:
 			if inference_engine == 'ooba' and launch_ooba:
 				try:

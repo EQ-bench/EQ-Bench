@@ -140,7 +140,7 @@ def calculate_score(reference, user):
 	return final_score
 
 # Calculate overall benchmark score
-def calculate_benchmark_score(run_index, results, results_path, fullscale=False):
+def calculate_eq_bench_score(run_index, results, results_path, fullscale=False):
 	# We calculate an overall score for first pass answers and revised answers separately.
 	# The final score is the best of these two numbers.
 
@@ -218,3 +218,18 @@ def calculate_benchmark_score(run_index, results, results_path, fullscale=False)
 		json.dump(results, f)
 
 	return (averaged_score, round(parseable_tally / n_iterations, 2))
+
+def calculate_creative_writing_score(run_index, results, results_path):
+	creative_writing_score_tally = 0
+	creative_writing_n_prompts = len(results[run_index]['iterations']['1']['individual_scores'])
+	n_iterations = len(results[run_index]['iterations'])
+	
+	n_scores = 0
+	for run_iter in results[run_index]['iterations']:
+		for prompt_id, scores in results[run_index]['iterations'][run_iter]['individual_scores'].items():
+			creative_writing_score_tally += sum(scores.values())
+			n_scores += len(scores)	
+	
+	creative_writing_averaged_score = 10 * creative_writing_score_tally / n_scores
+	
+	return round(creative_writing_averaged_score, 2)
