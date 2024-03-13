@@ -71,7 +71,7 @@ def run_llamacpp_query(prompt, prompt_format, completion_tokens, temp):
 	return None
 
 
-def run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key):
+def run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key):	
 	global anthropic_client
 	if not anthropic_client:
 		anthropic_client = anthropic.Anthropic(
@@ -79,6 +79,7 @@ def run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key
 			api_key=api_key,
 		)
 	try:		
+		
 		messages = history + [{"role": "user", "content": prompt}]
 
 		message = anthropic_client.messages.create(
@@ -288,10 +289,10 @@ def run_query(model_path, prompt_format, prompt, history, completion_tokens, mod
 		return run_llamacpp_query(prompt, prompt_format, completion_tokens, temp)
 	elif inference_engine == 'openai':
 		return run_openai_query(prompt, history, completion_tokens, temp, model_path, openai_client)
-	elif inference_engine == 'anthropic':		
-		return run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key)
+	elif inference_engine == 'anthropic':
+		return run_anthropic_query(prompt, history, completion_tokens, temp, model_path, api_key)
 	elif inference_engine == 'mistralai':		
-		return run_mistral_query(prompt, history, completion_tokens, temp, model, api_key)
+		return run_mistral_query(prompt, history, completion_tokens, temp, model_path, api_key)
 	elif inference_engine == 'ooba':
 		return run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout)
 	else: # transformers

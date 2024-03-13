@@ -227,7 +227,20 @@ def calculate_creative_writing_score(run_index, results, results_path):
 	n_scores = 0
 	for run_iter in results[run_index]['iterations']:
 		for prompt_id, scores in results[run_index]['iterations'][run_iter]['individual_scores'].items():
-			creative_writing_score_tally += sum(scores.values())
+			scoresum = 0
+			neg_criteria = [
+					"trite",
+					"overwrought",
+					"amateurish",
+					"contrived",
+					"uninspiring"
+				]
+			for criteria, score in scores.items():
+				if criteria.lower().strip() in neg_criteria:
+					scoresum += 10-score
+				else:
+					scoresum += score
+			creative_writing_score_tally += scoresum
 			n_scores += len(scores)	
 	
 	creative_writing_averaged_score = 10 * creative_writing_score_tally / n_scores

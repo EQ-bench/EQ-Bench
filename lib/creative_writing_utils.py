@@ -6,6 +6,8 @@ import time
 
 N_THREADS = 4  # Set this between 1 and 4
 openai_client_judge = None
+SKIP_ANALYSIS = True
+COMBINE_CRITERIA = True
 
 def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, model, tokenizer, results, run_index, 
 								run_iter, verbose, n_prompt_attempts, inference_engine, ooba_instance, 
@@ -21,7 +23,7 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	judging_criteria = prompt_data['judging_criteria']
 	reference_output = prompt_data['reference_output']
 	
-	# Generate response from test model	
+	# Generate response from test model		
 	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 0.7, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 	if not test_model_response and inference_engine == 'anthropic':
@@ -74,11 +76,11 @@ Scoring notes:
 
 - You are not scoring the quality of the prompt or the reference response, only the test model response.
 
-- The reference model response is to be considered high quality output as a reference point.
+- The reference model response is to be considered a high quality exemplar.
 
 - Scores of 0 or 10 should not be considered highly unlikely just because they are the max/min. Use the full scoring range as appropriate.
 
-- Higher scores do not always indicate better writing; e.g. for metrics like "Trite".
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring
 
 - If no character bios were specified, the Adherence to Character Bios metric should be 5.
 
