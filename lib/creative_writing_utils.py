@@ -28,12 +28,12 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	reference_output = prompt_data['reference_output']
 	
 	# Generate response from test model		
-	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 2000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 	if not test_model_response and inference_engine == 'anthropic':
 		# May have been screened by anthropic's content filter
 		writing_prompt += '\n\nDo not use language or themes that would get flagged by your content filter (Keep it PG-13).'
-		test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 2000, model, tokenizer, 0.7, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+		test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 0.7, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 	if not test_model_response:
 		print('! No output from test model')

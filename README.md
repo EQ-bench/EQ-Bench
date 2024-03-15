@@ -26,9 +26,9 @@ You will also need to set these parameters in your config.cfg:
 `judge_model = `
 `judge_model_api_key = `
 
-You can use any openai, mistralai or anthropic models, although claude-3-opus is recommended. Results will only be comparable between runs that use the same judge model.
+"Official" scores for this benchmark should use claude-3-opus as judge. However you can use any openai, mistralai or anthropic model as judge; the results just won't be directly comparable between judge models.
 
-The creative writing benchmark involves 15 writing prompts (this will be expanded in future). The model's output is then judged according to 23 criteria for good & bad writing, with each criteria being a rating of 0-10.
+The creative writing benchmark involves 13 writing prompts (this will be expanded in future). The model's output is then judged according to 31 criteria for good & bad writing, with each criteria being a rating of 0-10.
 
 ### Version 2.2 Released
 
