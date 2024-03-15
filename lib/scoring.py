@@ -230,7 +230,7 @@ def calculate_creative_writing_score(run_index, results, results_path):
 		for prompt_id, scores in results[run_index]['iterations'][run_iter]['individual_scores'].items():
 			scoresum = 0
 			neg_criteria = [
-					"melodromatic",
+					"melodramatic",
 					"unearned resolution",
 					"simplistic moralizing",
 					"forced optimism",				

@@ -28,12 +28,12 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	reference_output = prompt_data['reference_output']
 	
 	# Generate response from test model		
-	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 2000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 	if not test_model_response and inference_engine == 'anthropic':
 		# May have been screened by anthropic's content filter
 		writing_prompt += '\n\nDo not use language or themes that would get flagged by your content filter (Keep it PG-13).'
-		test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 0.7, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+		test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 2000, model, tokenizer, 0.7, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 	if not test_model_response:
 		print('! No output from test model')
@@ -49,10 +49,9 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 		criteria_to_ignore = [
 			'Appropriate Length'
 		]		
-		criteria_set = [x for x in criteria_set if x not in criteria_to_ignore]
+		criteria = [x for x in criteria_set['criteria'] if x not in criteria_to_ignore]
 
 		prefix_text = criteria_set['prefix_text']
-		criteria = criteria_set['criteria']
 		criteria_str = '\n'.join(criteria)
 
 		analysis_section_1 = """
@@ -80,7 +79,7 @@ Scoring notes:
 
 - The minimum score is -10 and the maximum is 10.
 
-- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Melodromatic, Unearned Resolution, Simplistic Moralizing, Forced Optimism.
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Melodramatic, Unearned Resolution, Simplistic Moralizing, Forced Optimism.
 
 - If no character bios were specified, the Adherence to Character Bios metric should be 0."""
 			relative_section_2 = "Score [-10 to 10]"
@@ -98,7 +97,7 @@ Scoring notes:
 {ref_str}
 - Scores of 0 or 10 should not be considered highly unlikely just because they are the max/min. Use the full scoring range as appropriate.
 
-- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Melodromatic, Unearned Resolution, Simplistic Moralizing, Forced Optimism.
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Melodramatic, Unearned Resolution, Simplistic Moralizing, Forced Optimism.
 
 - If no character bios were specified, the Adherence to Character Bios metric should be 5."""
 			relative_section_2 = "Score [0-10]"
@@ -209,7 +208,7 @@ Metric 2 name: ...
 	if verbose:
 		scoresum = 0
 		neg_criteria = [
-				"melodromatic",
+				"melodramatic",
 				"unearned resolution",
 				"simplistic moralizing",
 				"forced optimism",				
@@ -238,7 +237,7 @@ Metric 2 name: ...
 	results[run_index]['iterations'][run_iter]['test_model_response'][prompt_id] = test_model_response
 	results[run_index]['iterations'][run_iter]['judge_model_response'][prompt_id] = judge_model_responses
 
-	if len(scores) != 22:
+	if len(scores) != 31:
 		print('----------------------------')
 		print('! Not all scores were parsed')
 		print('----------------------------')
@@ -248,7 +247,6 @@ def parse_scores(judge_model_response):
 	scores = {}
 	
 	# Parse scores using regex
-	#score_pattern = r'(.*?):\s*(\d+)'
 	score_pattern = r'(.*?):\s*(-?\d+(?:\.\d+)?)'
 	matches = re.findall(score_pattern, judge_model_response)
 	

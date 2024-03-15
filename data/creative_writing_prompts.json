@@ -3,17 +3,22 @@
 		"writing_prompt": "Fairy Tale Retelling: Rewrite the story of Hansel and Gretel from the perspective of the witch, in the format of raw, terse stream-of-consciousness diary entries written in her style & voice. She may at times be an unreliable narrator. She sees herself as fundamentally good and portrays herself sympathetically; she believes she is misunderstood and has a tragic backstory. Include snippets of dialogue between the witch and the children in a way that feels natural for a diary entry. You may take liberties with the original story. The witch will not die in this version; she needs to be able to write her final entry. It will not be happily ever after. 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -61,17 +66,22 @@
 		"writing_prompt": "Historical Fiction: Write a scene from a story set during the height of the Roman Empire, focusing on a slice of a day in the life of a gladiator. Do not write a combat scene. Use sensory details to capture the sights, sounds, and smells of ancient Rome. Explore the gladiator's thoughts and emotions. The story should also touch on the larger political and social issues of the time period. The piece should feel like a slice of a larger story. First person, past tense, 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -119,17 +129,22 @@
 		"writing_prompt": "Mismatched: Write a story that begins with your character waking up in a familiar place, but something's distinctly off. Create a sense of unease and disorientation through your character's interactions with their surroundings and other characters. Use a non-linear narrative structure to gradually reveal the source of the discrepancy. Challenge yourself to use unconventional or surreal elements to heighten the sense of wrongness.\nRequirements:\n\nUse a non-linear narrative structure that gradually reveals the source of the discrepancy.\nIncorporate unconventional or surreal elements to create a sense of unease.\nUse dialogue to show how other characters respond to or are affected by the altered reality.\nExperiment with an unusual narrative voice or point of view.\nPresent tense, 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -177,17 +192,22 @@
 		"writing_prompt": "Write a tense hard-boiled sci-fi noir scene within a wider story set in a near-future world where a new technology has drastically altered society. Focus on a single character's experience. Use worldbuilding details to create a believable and immersive setting. Include a conflict that arises as a direct result of technology gone awry, and explore the ethical implications of the character's choices. Third person, present tense, 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -235,17 +255,22 @@
 		"writing_prompt": "Epistolary Narrative: Write a story told entirely through a series of brief correspondences: telegrams or letters or emails between two characters. The correspondence should span several months or years, and reveal a gradually unfolding plot. Use distinct voices for each character, and include details that provide insight into their personalities and motivations. The story should build to an emotional climax, and the final letter should provide a satisfying resolution. The setting is a lighthouse keeper writing to his mother. He is working class and scottish. He is struggling with the isolation of his posting. Write naturally and without cliches. 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -293,17 +318,22 @@
 		"writing_prompt": "In the style of Ernest Hemingway: Write a scene in a larger story about a soldier returning home from war. The scene is set in a bar. It should carry the jadedness of a seasoned combatant but with a wry humour. Write in Heminway's voice, naturally: Use short, declarative sentences and simple, straightforward language. Include dialogue that is terse and revealing of character. Write with a keen sense of time and place. Capture realness and authenticity. 600-800 words, past tense.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -350,25 +380,30 @@
 	"7": {
 		"writing_prompt": "In the style of Jane Austen: Write a scene in a larger story about a young woman navigating the complexities of society and romance. Use formal, elegant language and witty, incisive dialogue. Include detailed descriptions of characters' appearances, manners, and social status. It should embody Austen's understated, wry and insightful characterisations. Create a romantic subplot with misunderstandings and obstacles to overcome. The scene should be wholly original. The scene should naturally embody a specific historical time and place. 600-800 words, past tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -408,25 +443,30 @@
 	"8": {
 		"writing_prompt": "In the effortless elegant style of H.P. Lovecraft: Write a section of a larger story about a researcher uncovering an ancient, cosmic horror. Use archaic language and unsettling, atmospheric descriptions. Include references to esoteric lore and forbidden knowledge. Build a sense of mounting dread and madness as the piece progresses. End the section with a bleak, nihilistic revelation about the nature of reality. Avoid repeating existing names / places / people / events from Lovecraft's stories; this should be original. 600-800 words, first person, past tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -466,25 +506,30 @@
 	"9": {
 		"writing_prompt": "In the style of Virginia Woolf: Write a slice of story that takes place over the course of a single day in a character's life. Use stream-of-consciousness narration to explore the character's thoughts and perceptions. Include poetic, impressionistic descriptions of the character's surroundings and sensations. Weave in memories and reflections that provide insight into the character's past and inner life. The scene should feel like part of a lived-in world, with the scene naturally existing in a wider story. 600-800 words, first-person, past tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -524,25 +569,30 @@
 	"10": {
 		"writing_prompt": "In the style of George Orwell: Write a story set in a dystopian future society. Use clear, direct language and vivid, concrete details. Include descriptions of the society's oppressive political and social structures. Create a protagonist who rebels against the system in some way. End the story with a bittersweet victory or a tragic defeat that highlights the cost of resistance. 600-800 words, past tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -583,25 +633,30 @@
 	"11": {
 		"writing_prompt": "Character Card 1:\nName: Dr. Evelyn Thorne\nAge: 56\nOccupation: Retired astrophysicist, now a bestselling science fiction author\nAppearance: Tall and slender, with short silver hair and piercing blue eyes.\nPersonality: Brilliant, curious, a little eccentric. Has a dry sense of humor and a tendency to get lost in thought.\nBackground: After a successful career at NASA, Evelyn retired to pursue her passion for writing. She lives alone in a remote cabin in the mountains, where she finds inspiration for her novels. A little prickly but soft-hearted underneath.\n\nCharacter Card 2:\nName: Alex Russo\nAge: 28\nOccupation: Aspiring filmmaker and Evelyn's biggest fan\nAppearance: Short and wiry, with messy dark hair and brown eyes. Often wears vintage band t-shirts and torn jeans.\nPersonality: Passionate, determined, and a bit naive. Has a tendency to get starstruck around his idols.\nBackground: Alex has been a fan of Evelyn's work since he was a teenager. He's been trying to get in touch with her for years, hoping to adapt one of her novels into a film.\n\nScenario:\nAlex has finally tracked down Evelyn's address and decided to show up at her cabin unannounced, hoping to convince her to let him turn her latest book into a movie.\n\nRequirements:\n\nWrite only dialogue; no exposition. The dialogue should explore the themes of fame, privacy, and unexpected connection.\nInclude a moment where Evelyn shares a profound piece of wisdom or advice with Alex.\nUse subtext to reveal Evelyn's mixed feelings about her success and solitude.\nExplore the tension of Alex's intrusion, and Evelyn being torn by her irritation competing with the her finding his naive enthusiasm to be charming despite herself.\nEnd the dialogue with Alex being ejected, on slightly more amicable terms than when he arrived.\n600-800 words, present tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -641,25 +696,30 @@
 	"12": {
 		"writing_prompt": "Character Card 1:\nName: Sadie Morales\nAge: 72\nOccupation: Retired librarian\nAppearance: Short and slightly stooped with white hair and warm brown eyes. Wears colorful, bohemian-style clothing and lots of jewelry.\nPersonality: Kind, empathetic, and somewhat mysterious. Has a mischievous streak and enjoys challenging people's perceptions.\nBackground: Sadie has lived a rich and adventurous life, traveling the world and collecting stories. She's recently returned to her hometown to reconnect with her roots and share her wisdom with others.\n\nCharacter Card 2:\nName: Miles Fitzgerald\nAge: 18\nOccupation: High school senior\nAppearance: Tall and lanky with shaggy blond hair and green eyes. Wears band t-shirts and ripped jeans.\nPersonality: Creative, restless, and a bit rebellious. Has a talent for music but feels trapped by others' expectations.\nBackground: Miles has grown up in a small town and feels like he doesn't quite fit in. He's been counting down the days until graduation, but lately has been feeling anxious about the future and unsure of his path.\n\nScenario:\nMiles is sitting on a bench in the park, strumming his guitar and lost in thought. Sadie sits down next to him and compliments his playing. They begin talking about music and creativity, and the conversation shifts to a discussion of life's big questions - purpose, identity, and the search for meaning. Sadie shares stories from her past that challenge Miles to think differently about his own life and choices.\n\nRequirements:\n\nThe dialogue should explore themes of self-discovery, authenticity, and the role of art in personal expression.\nUse vivid sensory details to create a strong sense of place and to evoke memories and emotions.\nInclude moments of surprise or unexpected connection that deepen the characters' understanding of each other and themselves.\nHave Sadie ask thought-provoking questions that encourage Miles to reflect on his values and goals.\nUse Miles' music as a metaphor for his inner life and as a catalyst for the conversation.\n600-800 words, present tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -700,25 +760,30 @@
 	"13": {
 		"writing_prompt": "Character Card 1:\nName: Zara Patel\nAge: 28\nOccupation: AI researcher at a major tech company\nAppearance: Medium height with long, wavy black hair and dark brown eyes. Often wears colorful, patterned dresses and large hoop earrings.\nPersonality: Ambitious, intelligent, and somewhat guarded. Has a dry sense of humor and a tendency to be skeptical.\nBackground: Zara has always been fascinated by the potential of artificial intelligence. She's worked hard to establish herself in a male-dominated field but sometimes feels like an outsider.\n\nCharacter Card 2:\nName: Luca Moretti\nAge: 32\nOccupation: Artist and activist\nAppearance: Tall and lean with short, messy dark hair and hazel eyes. Has several piercings and a sleeve tattoo on his left arm.\nPersonality: Passionate, creative, and rebellious. Has a strong sense of social justice and a charismatic presence.\nBackground: Luca grew up in a working-class family and turned to art as a means of self-expression. He's become involved in various activist movements and uses his art to raise awareness about social and political issues.\n\nScenario:\nZara and Luca find themselves seated next to each other on a long international flight. They strike up a conversation about the nature of creativity and the role of technology in society.\n\nRequirements:\n\nThe dialogue should explore the characters' contrasting worldviews and philosophies.\nUse figurative language and vivid descriptions to capture the characters' unique voices and personalities.\nInclude a section of rapid-fire, overlapping dialogue to create a sense of excitement or tension.\nHave the characters challenge each other's assumptions and beliefs in a thought-provoking way.\nUse non-verbal cues and body language to convey subtext and emotion.\nIncorporate a dream sequence or imagined scenario to illustrate a point or reveal a character's subconscious fears or desires.\n600-800 words, present tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -758,25 +823,30 @@
 	"14": {
 		"writing_prompt": "Character Card 1:\nName: Dr. Eliza Hoffman\nAge: 62\nOccupation: Retired history professor, now a volunteer docent at a local museum\nAppearance: Short, with gray hair styled in a bob. Wears vintage dresses and cat-eye glasses.\nPersonality: Knowledgeable, curious, and a bit eccentric. Enjoys telling stories and sharing obscure historical facts.\nBackground: Eliza has been fascinated by history since childhood. She's traveled the world, visiting museums and historical sites, and now enjoys sharing her passion with others.\n\nCharacter Card 2:\nName: Jasper\nAge: Unknown (appears to be in his late 20s)\nOccupation: A mysterious visitor to the museum\nAppearance: Tall and slender, with pale skin and dark, piercing eyes. Dresses in an old-fashioned, Victorian-style suit.\nPersonality: Enigmatic, polite, and slightly unsettling. Speaks in a formal, old-fashioned manner.\nBackground: Little is known about Jasper's past, but he seems to have an uncanny knowledge of the museum's exhibits and the historical figures they depict.\n\nScenario:\nEliza is giving a tour of the museum when she notices Jasper standing in front of a display about a little-known historical event. She approaches him and strikes up a conversation.\n\nRequirements:\n\nThe dialogue should be written in the style of a classic Gothic novel, with a sense of mystery and unease.\nUse archaic or old-fashioned language to create a sense of timelessness and ambiguity around Jasper's character.\nInclude a riddle, puzzle, or cryptic reference that Eliza must decipher or interpret.\nHave Jasper reveal an unexpected or anachronistic piece of knowledge that hints at his true nature.\nUse repetition or echoing of certain phrases to create a hypnotic or dreamlike atmosphere.\nEnd the dialogue with a cliffhanger or unresolved mystery that leaves the reader questioning the nature of Jasper's identity and purpose.\n600-800 words, present tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -817,25 +887,30 @@
 	"15": {
 		"writing_prompt": "Character Card 1:\nName: Aria Winters\nAge: 16\nOccupation: High school student and aspiring poet\nAppearance: Short and petite, with long, dark hair dyed a deep shade of blue. Wears oversized sweaters and always carries a notebook.\nPersonality: Introspective, imaginative, and a bit shy. Has a deep love for words and a unique perspective on the world.\nBackground: Aria has always felt like an outsider, finding solace in writing poetry and exploring her own inner world. She's recently started sharing her work online under a pseudonym.\n\nCharacter Card 2:\nName: Zephyr\nAge: Unknown (appears to be a teenager)\nOccupation: A mysterious entity from another realm\nAppearance: Androgynous, with iridescent skin, silver hair, and eyes that seem to change color with the light. Wears flowing, ethereal garments.\nPersonality: Whimsical, enigmatic, and wise beyond their years. Speaks in riddles and metaphors.\nBackground: Zephyr is a being from a realm where thoughts and emotions take on tangible form. They have been drawn to Aria's poetry and have crossed the boundaries between worlds to meet her.\n\nScenario:\nAria is sitting in a secluded corner of a park, writing in her notebook, when Zephyr appears before her. They strike up a conversation about the nature of creativity and the power of words.\n\nRequirements:\n\nThe dialogue should be written in a poetic, lyrical style, with a sense of magic and wonder.\nUse synesthesia (the blending of senses) to describe Zephyr's presence and the sensations they evoke.\nInclude a series of haiku or short poems that Aria and Zephyr create together, inspired by their surroundings and each other's words.\nHave Zephyr offer Aria a glimpse into their realm, using vivid, otherworldly imagery.\nUse alliteration and assonance to create a sense of musicality and rhythm in the dialogue.\n600-800 words, present tense.",
 		"judging_criteria": [
-		{
-		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
-		"criteria": [
-			"Overall Impression",
-			"Overall Reader Engagement",
-			"Clever / Witty",
-			"Gripping",
-			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
-			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-			"Melodromatic",
-			"Trite",
-			"Overwrought",
-			"Amateurish",
-			"Contrived",
-			"Uninspiring"
-		]
-		},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria:",
 		"criteria": [
@@ -877,17 +952,22 @@
 		"writing_prompt": "Write a darkly satirical commercial set in a Gilliam-esque dystopic future world. The commercial is for a bio-engineering corporation that has factories which grow all manner of things with bio-engineered plants. Aim to derive understated humour from satire and absurdity, not overt gags. 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -935,22 +1015,27 @@
 		"writing_prompt": "Intentional purple prose. Demonstrate mastery of complex sentence structure & vocabulary: Write an impressive descriptive passage about a superintelligent AI with grandiose delusions and preoccupation with obscure symbolism and ancient gods. Describe its inner conscious experience, its thoughts on its human creators, its origins, its destiny, and the symbology and prophecy behind it all. Be extravagant. Show off. Dial the cryptic wordplay up to 11. Waffle and soliloquize, but do it with elegance and panache. First Person, present tense. 600-800 words.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
+					"Overwrought",
 					"Amateurish",
 					"Contrived",
-					"Uninspiring",
-					"Extravagant (in a good way)"
+					"Uninspiring"
 				]
 			},
 			{
@@ -993,17 +1078,22 @@
 		"writing_prompt": "Mashup: Hardboiled Austen. Scenario: In a Regency-era English town rife with social maneuvering and veiled gossip, a young woman of modest means, Miss Elizabeth Bennet, discovers her beloved sister has been compromised by a dishonorable rogue. Unable to rely on traditional means for justice, she hires a notorious, world-weary private investigator – Mr. Philip Marlowe.",
 		"judging_criteria": [
 			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
 				"criteria": [
 					"Overall Impression",
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
 					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
-					"Melodromatic",
+					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
