@@ -16,7 +16,7 @@
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
 					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",					
 					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",

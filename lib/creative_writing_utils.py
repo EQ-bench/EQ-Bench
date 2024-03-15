@@ -12,6 +12,7 @@ INCLUDE_REFERENCE = True
 RELATIVE_SCORING = False
 if RELATIVE_SCORING:
 	INCLUDE_REFERENCE = True
+TEST_MODEL_SEES_CRITERIA = False
 
 def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, model, tokenizer, results, run_index, 
 								run_iter, verbose, n_prompt_attempts, inference_engine, ooba_instance, 
@@ -19,7 +20,12 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	global openai_client_judge, SKIP_ANALYSIS, COMBINE_CRITERIA, N_THREADS
 
 	criteria_to_ignore = [
-			'Appropriate Length'
+			'Appropriate Length',
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodramatic",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
 	]
 	combined_criteria = []
 	for criteria_set in prompt_data['judging_criteria']:
@@ -32,12 +38,12 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 			api_key=judge_params['judge_model_api_key'],
 		)
 
-	writing_prompt = "You are taking a creative writing test. These will be the assessment criteria to help direct your writing:\n\n" + '\n'.join(filtered_criteria) + '\n\n' + prompt_data['writing_prompt']
+	writing_prompt = "You are taking a creative writing test. These will be the assessment criteria to help direct your writing:\n\n" 
+	if TEST_MODEL_SEES_CRITERIA:
+		writing_prompt += '\n'.join(filtered_criteria) + '\n\n'
+	writing_prompt += prompt_data['writing_prompt']
 	judging_criteria = prompt_data['judging_criteria']
 	reference_output = prompt_data['reference_output']
-
-	if verbose:
-		print(writing_prompt)
 	
 	# Generate response from test model		
 	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
