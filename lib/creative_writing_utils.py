@@ -38,9 +38,9 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 			api_key=judge_params['judge_model_api_key'],
 		)
 
-	writing_prompt = "You are taking a creative writing test. These will be the assessment criteria to help direct your writing:\n\n" 
+	writing_prompt = "You are a talented creative writer of compelling, original prose.\n\n" 
 	if TEST_MODEL_SEES_CRITERIA:
-		writing_prompt += '\n'.join(filtered_criteria) + '\n\n'
+		writing_prompt += 'You are taking a creative writing test.These will be the assessment criteria to help direct your writing:\n' + '\n'.join(filtered_criteria) + '\n\n'
 	writing_prompt += prompt_data['writing_prompt']
 	judging_criteria = prompt_data['judging_criteria']
 	reference_output = prompt_data['reference_output']
@@ -94,7 +94,7 @@ Scoring notes:
 
 - The minimum score is -10 and the maximum is 10.
 
-- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Melodramatic, Unearned Resolution, Simplistic Moralizing, Forced Optimism.
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Simplistic Moralizing, Forced Optimism.
 
 - If no character bios were specified, the Adherence to Character Bios metric should be 0."""
 			relative_section_2 = "Score [-10 to 10]"
@@ -112,7 +112,7 @@ Scoring notes:
 {ref_str}
 - Scores of 0 or 10 should not be considered highly unlikely just because they are the max/min. Use the full scoring range as appropriate.
 
-- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Melodramatic, Unearned Resolution, Simplistic Moralizing, Forced Optimism.
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring, Simplistic Moralizing, Forced Optimism.
 
 - If no character bios were specified, the Adherence to Character Bios metric should be 5."""
 			relative_section_2 = "Score [0-10]"
@@ -156,6 +156,8 @@ You are an expert in assessing creative writing. Your task is to score the quali
 - In the output, write the metric names exactly as below so they can be parsed.
 
 - Some models produce overly long outputs. You should neither penalise nor favour this if it happens; simply assess the writing on its merit. You should however penalise overly short pieces.
+
+- The test model's output can suddenly truncate because of token length constraints. If you notice that this has occurred, don't penalise it.
 
 - You are a critic, so be honest, objective, critical and discriminative. No need to be charitable; say what you genuinely think.
 {analysis_section_1}
