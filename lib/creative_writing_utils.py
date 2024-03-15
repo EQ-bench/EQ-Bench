@@ -6,8 +6,12 @@ import time
 
 N_THREADS = 4  # Set this between 1 and 4
 openai_client_judge = None
-SKIP_ANALYSIS = True
+SKIP_ANALYSIS = False
 COMBINE_CRITERIA = True
+INCLUDE_REFERENCE = True
+RELATIVE_SCORING = False
+if RELATIVE_SCORING:
+	INCLUDE_REFERENCE = True
 
 def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, model, tokenizer, results, run_index, 
 								run_iter, verbose, n_prompt_attempts, inference_engine, ooba_instance, 
@@ -24,7 +28,7 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	reference_output = prompt_data['reference_output']
 	
 	# Generate response from test model		
-	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 0.7, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 	if not test_model_response and inference_engine == 'anthropic':
 		# May have been screened by anthropic's content filter
@@ -57,7 +61,55 @@ Write your detailed analysis.
 		if SKIP_ANALYSIS:
 			analysis_section_1 = ""
 			analysis_section_2 = ""
+
+		if RELATIVE_SCORING:
+			relative_section_1 = """You are an expert in assessing creative writing. Your task is to score the quality of the test model's response above in comparison to the reference, by several metrics, on a -10 to 10 scale.			
+
+Scoring notes:
+
+- You are not scoring the quality of the prompt or the reference response, only the test model response.
+
+- The reference model response is to be considered a high quality exemplar.
+
+- Scores are relative to the quality of the reference output. A score of zero means equal to reference. Below 0 means worse than the reference. Above 0 means better than the reference.
+
+- The minimum score is -10 and the maximum is 10.
+
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring
+
+- If no character bios were specified, the Adherence to Character Bios metric should be 0."""
+			relative_section_2 = "Score [-10 to 10]"
+		else:
+			ref_str = ""
+			if INCLUDE_REFERENCE:
+				ref_str = """
+- You are not scoring the quality of the prompt or the reference response, only the test model response.
+
+- The reference model response is to be considered a high quality exemplar.
+"""
+			relative_section_1 = f"""You are an expert in assessing creative writing. Your task is to score the quality of the test model's response above, by several metrics, on a 0-10 scale.
+
+Scoring notes:
+{ref_str}
+- Scores of 0 or 10 should not be considered highly unlikely just because they are the max/min. Use the full scoring range as appropriate.
+
+- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring
+
+- If no character bios were specified, the Adherence to Character Bios metric should be 5."""
+			relative_section_2 = "Score [0-10]"
 		
+		reference_section_1 = ""
+		if INCLUDE_REFERENCE:
+			reference_section_1 = f"""
+[REFERENCE RESPONSE (DO NOT JUDGE)]
+
+{reference_output}
+
+[REFERENCE RESPONSE END]
+"""
+
+
+
 		# Construct judging prompt
 		judging_prompt = f"""
 You are an expert in assessing creative writing. Your task is to score the quality of the test model's response below, by several metrics, on a 0-10 scale.
@@ -67,13 +119,7 @@ You are an expert in assessing creative writing. Your task is to score the quali
 {writing_prompt}
 
 [PROMPT END]
-
-[REFERENCE RESPONSE (DO NOT JUDGE)]
-
-{reference_output}
-
-[REFERENCE RESPONSE END]
-
+{reference_section_1}
 [TEST MODEL RESPONSE]
 
 {test_model_response}
@@ -82,19 +128,7 @@ You are an expert in assessing creative writing. Your task is to score the quali
 
 [Task]
 
-You are an expert in assessing creative writing. Your task is to score the quality of the test model's response above, by several metrics, on a 0-10 scale.
-
-Scoring notes:
-
-- You are not scoring the quality of the prompt or the reference response, only the test model response.
-
-- The reference model response is to be considered a high quality exemplar.
-
-- Scores of 0 or 10 should not be considered highly unlikely just because they are the max/min. Use the full scoring range as appropriate.
-
-- For these criteria, lower is better: Trite, Overwrought, Amateurish, Contrived, Uninspiring
-
-- If no character bios were specified, the Adherence to Character Bios metric should be 5.
+{relative_section_1}
 
 - Do not add any commentary or explanation to the scores section.
 
@@ -110,7 +144,7 @@ Scoring notes:
 {analysis_section_2}
 [Scores]
 
-Metric 1 name: Score [0-10]
+Metric 1 name: {relative_section_2}
 
 Metric 2 name: ...
 
@@ -177,10 +211,17 @@ Metric 2 name: ...
 				"uninspiring"
 			]
 		for criteria, score in scores.items():
-			if criteria.lower().strip() in neg_criteria:
-				scoresum += 10-score
+			if RELATIVE_SCORING:
+				#scoresum += (score + 100) / 13 # normalise score to 0-10
+				if criteria.lower().strip() in neg_criteria:
+					scoresum += ((-1*score)+10)/2
+				else:
+					scoresum += (score+10)/2
 			else:
-				scoresum += score		
+				if criteria.lower().strip() in neg_criteria:
+					scoresum += 10-score
+				else:
+					scoresum += score		
 		print('This question score:', round(10*scoresum / len(scores)))
 	
 	# Store scores and responses in results dict
@@ -198,7 +239,8 @@ def parse_scores(judge_model_response):
 	scores = {}
 	
 	# Parse scores using regex
-	score_pattern = r'(.*?):\s*(\d+)'
+	#score_pattern = r'(.*?):\s*(\d+)'
+	score_pattern = r'(.*?):\s*(-?\d+(?:\.\d+)?)'
 	matches = re.findall(score_pattern, judge_model_response)
 	
 	for match in matches:

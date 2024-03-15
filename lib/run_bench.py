@@ -318,6 +318,8 @@ def run_creative_writing_bench(run_id, model_path, lora_path, prompt_type, quant
 			"run_id": run_id,
 			"model_path": model_path,
 			"lora_path": lora_path,
+			"eq_bench_version": 'creative-writing',
+			'judge_model': judge_params['judge_model'],
 			"bitsandbytes_quant": quantization,
 			"total_iterations": n_iterations,
 			"inference_engine": inference_engine,
@@ -367,6 +369,12 @@ def run_creative_writing_bench(run_id, model_path, lora_path, prompt_type, quant
 							raise Exception("Ooba failed to launch.")
 					
 					for prompt_id, prompt_data in tqdm(writing_prompts.items()):
+						to_ignore = [
+							3,4,16,17,18
+						]
+						if int(prompt_id) in to_ignore:
+							continue
+
 						if prompt_id in results[run_index]['iterations'][run_iter]['individual_scores']:
 							if verbose:
 									print('Prompt', prompt_id, 'already complete')

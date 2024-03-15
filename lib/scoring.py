@@ -220,6 +220,7 @@ def calculate_eq_bench_score(run_index, results, results_path, fullscale=False):
 	return (averaged_score, round(parseable_tally / n_iterations, 2))
 
 def calculate_creative_writing_score(run_index, results, results_path):
+	RELATIVE_SCORING = False
 	creative_writing_score_tally = 0
 	creative_writing_n_prompts = len(results[run_index]['iterations']['1']['individual_scores'])
 	n_iterations = len(results[run_index]['iterations'])
@@ -236,10 +237,17 @@ def calculate_creative_writing_score(run_index, results, results_path):
 					"uninspiring"
 				]
 			for criteria, score in scores.items():
-				if criteria.lower().strip() in neg_criteria:
-					scoresum += 10-score
+				if RELATIVE_SCORING:
+					#scoresum += (score + 100) / 13 # normalise score to 0-10
+					if criteria.lower().strip() in neg_criteria:
+						scoresum += ((-1*score)+10)/2
+					else:
+						scoresum += (score+10)/2
 				else:
-					scoresum += score
+					if criteria.lower().strip() in neg_criteria:
+						scoresum += 10-score
+					else:
+						scoresum += score
 			creative_writing_score_tally += scoresum
 			n_scores += len(scores)	
 	
