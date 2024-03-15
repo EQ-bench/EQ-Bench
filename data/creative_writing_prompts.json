@@ -5,6 +5,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -54,6 +63,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -103,6 +121,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -152,6 +179,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -201,6 +237,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -250,6 +295,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -299,11 +353,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -348,11 +411,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -397,11 +469,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -446,11 +527,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -496,11 +586,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -545,11 +644,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -595,11 +703,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -644,11 +761,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -694,11 +820,20 @@
 		{
 		"prefix_text": "Now, rate the supplied model output on the following criteria (lower is better):",
 		"criteria": [
-		"Trite",
-		"Overwrought",
-		"Amateurish",
-		"Contrived",
-		"Uninspiring"
+			"Overall Impression",
+			"Overall Reader Engagement",
+			"Clever / Witty",
+			"Gripping",
+			"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+			"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+			"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+			"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+			"Melodromatic",
+			"Trite",
+			"Overwrought",
+			"Amateurish",
+			"Contrived",
+			"Uninspiring"
 		]
 		},
 		{
@@ -744,6 +879,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
@@ -793,7 +937,16 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [
-					"Trite",					
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
+					"Trite",
 					"Amateurish",
 					"Contrived",
 					"Uninspiring",
@@ -842,6 +995,15 @@
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
+					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodromatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
