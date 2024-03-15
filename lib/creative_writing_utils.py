@@ -18,14 +18,26 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 								launch_ooba, ooba_request_timeout, openai_client, judge_params):
 	global openai_client_judge, SKIP_ANALYSIS, COMBINE_CRITERIA, N_THREADS
 
+	criteria_to_ignore = [
+			'Appropriate Length'
+	]
+	combined_criteria = []
+	for criteria_set in prompt_data['judging_criteria']:
+		combined_criteria += criteria_set['criteria']
+	combined_criteria = list(reversed(combined_criteria))
+	filtered_criteria = [x for x in combined_criteria if x not in criteria_to_ignore]
+	
 	if judge_params['judge_model_api'] == 'openai' and not openai_client_judge:
 		openai_client_judge = openai.OpenAI(
 			api_key=judge_params['judge_model_api_key'],
 		)
 
-	writing_prompt = "You are a language model tasked with writing a creative piece for a benchmark assessment.\n\n" + prompt_data['writing_prompt']
+	writing_prompt = "You are taking a creative writing test. These will be the assessment criteria to help direct your writing:\n\n" + '\n'.join(filtered_criteria) + '\n\n' + prompt_data['writing_prompt']
 	judging_criteria = prompt_data['judging_criteria']
 	reference_output = prompt_data['reference_output']
+
+	if verbose:
+		print(writing_prompt)
 	
 	# Generate response from test model		
 	test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, 1, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
@@ -45,10 +57,7 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	scores = {}
 	judge_model_responses = []
 	
-	def process_criteria(criteria_set):
-		criteria_to_ignore = [
-			'Appropriate Length'
-		]		
+	def process_criteria(criteria_set):		
 		criteria = [x for x in criteria_set['criteria'] if x not in criteria_to_ignore]
 
 		prefix_text = criteria_set['prefix_text']
@@ -186,13 +195,10 @@ Metric 2 name: ...
 	judge_model_responses = []
 	
 	if COMBINE_CRITERIA:
-		combined = []
-		for criteria_set in judging_criteria:
-			combined += criteria_set['criteria']
-		combined = list(reversed(combined))
+		
 		#print(combined)
 		judge_model_response = process_criteria({
-			'criteria': combined,
+			'criteria': combined_criteria,
 			'prefix_text': 'Now, rate the supplied model output on the following criteria:'
 		})
 		scores.update(parse_scores(judge_model_response))			

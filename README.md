@@ -10,9 +10,9 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ### Version 2.3
 
-** Heavy disclaimer **
+** Take Note **
 
-This version includes a new benchmark: creative-writing. It is under development and will change as more questions are added to the test set.
+This version includes a new benchmark: creative-writing. It is under heavy development and will change as more questions are added to the test set.
 
 **********************
 
@@ -29,6 +29,8 @@ You will also need to set these parameters in your config.cfg:
 "Official" scores for this benchmark should use claude-3-opus as judge. However you can use any openai, mistralai or anthropic model as judge; the results just won't be directly comparable between judge models.
 
 The creative writing benchmark involves 13 writing prompts (this will be expanded in future). The model's output is then judged according to 31 criteria for good & bad writing, with each criteria being a rating of 0-10.
+
+Given the small number of questions, you may wish to run several iterations of the benchmark (you can set n_iterations in the config per benchmark run). This will take an average of all iterations for this run, which will reduce variance. Temperature is set at 1 for the test model, so output will vary between iterations.
 
 ### Version 2.2 Released
 
