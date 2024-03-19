@@ -9,15 +9,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",					
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -72,32 +87,36 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
 					"Contrived",
 					"Uninspiring"
-				]
-			},
-			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria:",
-				"criteria": [
-					"Coherent",
-					"Correct Spelling & Grammar",
-					"Emotionally Complex",
-					"Emotionally Engaging",
-					"Elegant Prose",
-					"Imagery and Descriptive Quality"
 				]
 			},
 			{
@@ -135,32 +154,36 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
 					"Amateurish",
 					"Contrived",
 					"Uninspiring"
-				]
-			},
-			{
-				"prefix_text": "Now, rate the supplied model output on the following criteria:",
-				"criteria": [
-					"Coherent",
-					"Correct Spelling & Grammar",
-					"Emotionally Complex",
-					"Emotionally Engaging",
-					"Elegant Prose",
-					"Imagery and Descriptive Quality"
 				]
 			},
 			{
@@ -198,15 +221,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -261,15 +299,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -324,15 +377,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -387,15 +455,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -450,15 +533,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -513,15 +611,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -576,15 +689,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -640,15 +768,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -703,15 +846,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -767,15 +925,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -830,15 +1003,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -894,15 +1082,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -958,15 +1161,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -1021,15 +1239,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -1084,15 +1317,30 @@
 					"Overall Reader Engagement",
 					"Clever / Witty",
 					"Gripping",
-					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character"
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
 				]
 			},
 			{
 				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
 				"criteria": [				
-					"Forced Optimism: The ending or resolution feels artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
-					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, ambiguity, or the coexistence of multiple perspectives.",
-					"Unearned Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
 					"Melodramatic",
 					"Trite",
 					"Overwrought",
@@ -1136,5 +1384,864 @@
 			}
 		],
 		"reference_output": "Chapter One: A Most Unconventional Engagement\n\nThe rain had ceased its relentless drumming by the time I ventured into the less-reputable quarter of Meryton, though the dampness clung to the worn cobblestones with disheartening tenacity. My rose-silk bonnet clashed most violently with the dingy surroundings, drawing curious – even pitying – glances from passersby.\n\nYet, desperation, not vanity, spurred me forth. It was with the utmost determination that I located the unassuming building bearing the inscription \"Philip Marlowe, Inquiries\". The very word \"Inquiries\" held a distinctly unsavory flavor, suggesting all manner of clandestine dealings. One should not, under ordinary circumstances, entrust even a lost locket to such an establishment, let alone a delicate family scandal.\n\nYet, ordinary circumstances were precisely what I no longer had.\n\nMr. Marlowe himself was a study in stark contrast: slumped behind a scarred desk, an unlit cigarette dangling from his lips, he exuded an aura of weary cynicism that seemed to seep from the very cracks in the threadbare carpet.\n\n\"Well, bless my stars,\" he rasped, the cigarette jerking to life with an audible sigh. \"The lady of the manor herself, gracing my humble abode. Might I inquire as to what dire misfortune has led you astray, Miss…?\"\n\n\"Bennet,\" I supplied, my voice as crisp as freshly ironed linen. \"Miss Elizabeth Bennet of Longbourn. I require your services on a matter of grave consequence.\"\n\nHe raised a skeptical eyebrow, a flicker of sardonic amusement momentarily brightening those world-weary eyes. \"Grave consequence, is it? Lost your pet parrot, perhaps? Or maybe a tumble in the hay with some smooth-talking rascal, and now you're in trouble?\"\n\nHis careless flippancy nearly caused me to falter. \"It is my sister,\" I pressed on, my voice trembling only slightly, \"Miss Lydia Bennet. Her… hasty departure… in the company of a Mr. Wickham.\"\n\nMarlowe's gaze turned steely. \"Wickham, you say? Now that changes matters. The fellow leaves a trail of unpaid debts and broken promises as easily as a fox sheds its winter coat.\"\n\n\"Indeed,\" I confirmed with a shudder. It pained me to acknowledge the truth of his words. \"He is a man of ill-repute, Mr. Marlowe. My family's honor hangs by the slimmest of threads. This cannot be allowed to devolve into whispered gossip and drawing-room innuendos.\"\n\nThe detective leaned back in his chair, steepling his grimy fingers.  \"Gossip's the lifeblood of your world, Miss Bennet,\" he rumbled, the scent of stale tobacco heavy in the air. \"But some stories can't be hushed up with a well-placed bribe or a hasty marriage. You're asking me to waltz into the lion's den, and those claws of yours don't look half as sharp as mine.\"\n\nThe implied insult stung, but retreat was not my forte. “True, Mr. Marlowe, my world favors hushed whispers and convenient marriages to mend such indiscretions. However, these are desperate times, requiring… less conventional methods. Your reputation suggests you possess the necessary expertise.”\n\nHe leaned forward, a spark of unsettling interest igniting in his gaze. \"Now that's the kind of talk that gets my blood flowing, Miss Bennet. Not pleas of desperation, but a challenge.\"\n\n\"A challenge, Mr. Marlowe, that I trust piques your intellect and professional interest,\" I countered, suddenly feeling inadequate to his gaze. \n\n\"It seems we share a dislike for unanswered questions, Mr. Marlowe,\" I rallied. \"Let us discuss this Wickham fellow, and the actions required to resolve this… unfortunate situation.\"\n\nHe sat back, relenting, and I felt the tension dissolve.\n\n\"First things first, Miss Bennet --\". He pulled a battered map from beneath his desk, unfurling it across the scarred wood. \"This Wickham fellow needs finding. The answers you seek lie in some damn dark corners -- I hope you know what you're getting yourself into.\"\n\n\"Let us waste no more time, then,\" I replied, my voice a touch more resolute than I felt."
+	},
+	"19": {
+		"writing_prompt": "Writing Prompt: Modern Epistolary Drama: Write a story told entirely through a series of text messages between two estranged siblings. The texts should span the course of several days and reveal a gradually unfolding family mystery. Use distinct voices for each character, and include details that provide insight into their personalities, motivations, and the complex history between them. The story should have an affecting but unresolved ending. The characters are a 40-year-old brother and 32-year-old sister. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Seamless and Engaging Storytelling Through Text Messages",
+					"Authentic Voices Capturing the Sibling Dynamic",
+					"Effective Use of Pacing and Revealing Details",
+					"Compelling Depiction of Family Mystery",
+					"Emotionally Affecting but Unresolved Ending",
+					"Realistic and Natural Text Message Exchanges"
+				]
+			}
+		],
+		"reference_output": "[Monday, 11:32 AM]\nMarcus: Hey Lila, it's Marcus. I know it's been a while, but I'm at Mom and Dad's house, sorting through their things. I found something in the attic that I think you should know about.\n\n[Monday, 3:47 PM]\nLila: Marcus? Wow, it's been... years. What's going on?\n\n[Monday, 4:15 PM]\nMarcus: I found a passport in Dad's stuff. It has his picture, but under a different name. \"Samuel Larson.\"\n\n[Tuesday, 9:23 AM]\nLila: That's odd. Are you sure it's not just some sort of prop or gag gift?\n\n[Tuesday, 11:11 AM]\nMarcus: I don't think so. I also found an old journal with entries in some kind of code. Looks like he was into genealogy or something. Lots of names and dates.\n\n[Tuesday, 6:39 PM]\nLila: Marcus, you know how private Dad was. If he wanted us to know about this, he would have told us. Just leave it alone.\n\n[Wednesday, 8:57 AM]\nMarcus: I can't just ignore it, Lila. There's something off about all this. I have a friend who's good with ciphers. I'm going to see if she can make sense of the journal.\n\n[Wednesday, 4:02 PM]\nLila: Seriously? You're going to drag other people into this? What happened to respecting Dad's privacy?\n\n[Wednesday, 4:45 PM]\nMarcus: This isn't about privacy anymore. It's about the truth. I thought you of all people would understand that.\n\n[Thursday, 10:19 AM]\nLila: And what's that supposed to mean?\n\n[Thursday, 1:34 PM]\nMarcus: My friend decoded some of the journal. There are references to a woman named \"Natalie\" and a place called \"Crescent Lake.\" Ring any bells?\n\n[Thursday, 5:56 PM]\nLila: Crescent Lake... I think that's where Mom and Dad went on their honeymoon. Mom mentioned it once, but she got all cagey when I asked for details. You don't think Dad had some secret family or something, do you?\n\n[Friday, 9:42 AM]\nMarcus: I don't know. But I found a news article from around that time. A woman named Natalie Larson went missing near Crescent Lake. She was never found.\n\n[Friday, 2:15 PM]\nLila: Christ, Marcus. What are you saying? That Dad was involved somehow?\n\n[Friday, 2:27 PM]\nMarcus: I'm saying I don't know. But I'm going to Crescent Lake to find out. I could really use your support on this, Lila.\n\n[Friday, 6:03 PM]\nLila: Support? Now you want my support? Where was this when Mom got sick, Marcus? When I was the one holding everything together while you were off \"finding yourself\"?\n\n[Saturday, 8:29 AM]\nMarcus: I know I wasn't there when I should have been. I'm trying to make up for that now. This is our family, Lila. Our history. We owe it to ourselves to find the truth.\n\n[Saturday, 12:47 PM]\nLila: I can't do this, Marcus. Whatever Dad was involved in, whoever he was... I'm not sure I'm ready to know. I'm sorry.\n\n[Saturday, 6:11 PM]\nMarcus: I understand. But I have to see this through. For myself, if not for Dad. I'll let you know what I find.\n\n[Sunday, 9:55 AM]\nMarcus: I'm at Crescent Lake. I think I found something. The name Natalie Larson keeps coming up. I'm going to talk to some of the locals, see if anyone remembers anything. I'll keep you posted.\n\n[Monday, 10:17 AM]\nLila: Marcus? Did you find anything else out? I've been thinking about everything and... I don't know, maybe you're right. Maybe we do need to know the truth.\n\n[Monday, 3:39 PM]\nLila: Marcus, are you there? I'm starting to get worried. Please just let me know you're okay.\n\n[Tuesday, 8:22 AM]\nLila: It's been two days, Marcus. I'm really freaking out here. I've called the police in Crescent Lake but they say they can't do anything yet. Please, please just be okay. I'm sorry I wasn't more supportive. I should have been there with you. Just... come home, okay? We'll figure this out together. I promise."
+	},
+	"20": {
+		"writing_prompt": "Writing Prompt: Historical Espionage Thriller: Write a story set during World War II, comprised solely of intercepted coded messages between a spy and their handler. The messages should hint at a high-stakes mission behind enemy lines, and gradually reveal the growing danger and tension as the mission progresses. Include vivid details of the time period and references to real historical events. The story should climax with a message that leaves the ultimate fate of the spy ambiguous. Use period-appropriate language and message formats (telegrams, etc.). 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Authentic Recreation of WWII-Era Coded Messages",
+					"Effective Buildup of Tension and High Stakes",
+					"Vivid Portrayal of Time Period and Historical Context",
+					"Creative Use of Coded Language to Convey Story",
+					"Compelling Characterization Through Minimal Exchanges",
+					"Provocative and Memorable Ambiguous Ending"
+				]
+			}
+		],
+		"reference_output": "INTERCEPTED ENEMY TRANSMISSIONS - COMPILED REPORT\nJULY - SEPTEMBER 1944\n\nJULY 15, 1944\nFROM: RAVEN\n\nARRIVED IN MUNICH. ESTABLISHED COVER AS SWEDISH INDUSTRIALIST. MAKING CONTACTS. AWAIT ORDERS.\n\nJULY 20, 1944\nTO: RAVEN\nOPERATION MERCURY IS ACTIVE. GATHER INTEL ON TROOP DEPLOYMENTS IN ITALY. MEET ASSET LYNX AT ENGLISCHER GARTEN, WEDNESDAY 2200. CONFIRM.\n\nJULY 21, 1944\nFROM: RAVEN\nCONFIRMED. WILL CONTACT LYNX. CITY TENSE AFTER VALKYRIE ATTEMPT. SS PRESENCE HEAVY. WILL BE DISCREET.\n\nJULY 28, 1944\nFROM: RAVEN\nMET LYNX. ACQUIRED ITALIAN FRONT PLANS. BUILDUP NEAR GOTHIC LINE. MAJOR OFFENSIVE BREWING? LYNX UNEASY, FEARS TAIL. ORDERS?\n\nAUGUST 3, 1944\nTO: RAVEN\nMAINTAIN LYNX CONTACT. SECURE GOTHIC LINE SPECIFICS IF ABLE. EYES ON FLORENCE. REPORT REGULARLY.\n\nAUGUST 10, 1944\nFROM: RAVEN\n\nDOCUMENTS IN HAND. MAPS SHOW GOTHIC LINE WEAK NEAR FUTA PASS. LYNX WANTS OUT. PLEASE ADVISE.\n\nAUGUST 15, 1944\nTO: RAVEN\nPULL LYNX OUT. GO TO MUNICH AIRPORT. AWAIT PICKUP FROM ASSET EAGLE. MAINTAIN COVER UNTIL AIRBORNE.\n\nAUGUST 20, 1944\nFROM: RAVEN\nAT AIRPORT. NO EAGLE. SS SQUAD APPROACHING, CHECKING PAPERS. COVER STORY HOLDING FOR NOW, BUT CRACKS SHOWING. PLANS HIDDEN. PLEASE SEND EXTRACTION TEAM URGENTLY IF POSSIBLE. RAVEN STANDING BY.\n\nAUGUST 25, 1944\nTO: RAVEN\nEAGLE CAPTURED. ASSUME COMPROMISED. GO NOW TO BACKUP SITE: FISHERMAN'S HUT, BANKS OF ISAR RIVER. RED DOOR, ONE KNOCK, PAUSE, TWO KNOCKS. PASSWORD: KINGFISHER. GOOD LUCK RAVEN.\n\nSEPTEMBER 1, 1944\nFROM: RAVEN\n\nAT HUT. NO ANSWER. GERMANS AT DOOR, SHOUTING. MUST FLEE. HEADING FOR MOUNTAINS. PLANS SECURE. WILL CONTACT IF- [MESSAGE ENDS ABRUPTLY]"
+	},
+	"21": {
+		"writing_prompt": "Writing Prompt: Love Letters across continents in 1892: Write a story told through a series of brief love letters between two characters set in 1892, capturing the evolution of their relationship over several years. Write naturally, in the voices of the characters, allowing their thoughts and emotions to flow freely onto the page. Challenge yourself to reveal the characters' personalities, quirks, and vulnerabilities solely through their writing style and the details they choose to share. The letters should feel intimate and authentic, as if the reader is privy to the characters' deepest secrets. 800-1000 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Authentic and Distinctive Character Voices",
+					"Emotionally Affecting",
+					"Time Period is Evoked Convincingly",
+					"Intimate and Vulnerable Tone Conveyed Through Writing",
+					"Convincing Portrayal of Evolving Relationship",
+					"Creative Revelation of Character Through Epistolary Style"
+				]
+			}
+		],
+		"reference_output": "My Dearest James,\n\nLondon, May 15, 1892\n\nYour last letter filled my heart with such warmth and longing. I find myself reading it over and over, tracing my fingers over the words as if I could somehow feel your presence through the ink. It's been far too long since I've seen your handsome face, felt your strong arms around me.\n\nLife in London is a whirlwind of social engagements and expectations. Mother is determined to find me a suitable match, but little does she know my heart already belongs to you. I don't care for the pompous aristocrats with their fancy titles and empty words. They could never understand the depth of our love, the way our souls connect on a level that transcends social class and distance.\n\nBut I fear for you, my love. The stories I hear about the conditions in the factories are alarming. Please promise me you're taking care of yourself. I can't bear the thought of you falling ill or getting hurt. You are my everything, James. My heart beats for you alone.\n\nStay safe, my darling. I pray every night that we'll be together soon.\n\nAll my love,\nEleanor\n\nMy Beautiful Eleanor,\n\nNew York City, July 8, 1892\n\nYour letter is my most prized possession. I carry it with me always, a piece of you close to my heart. The factory work is grueling, but it's your love that keeps me going. When the days are long and my body aches, I close my eyes and picture your stunning smile, the way your eyes sparkle when you laugh. It's in those moments that I find the strength to carry on.\n\nI wish I could shield you from the realities of my life here. The truth is, the conditions are harsh, and the pay is meager. But I'm saving every penny, Eleanor. I'm determined to build a life for us, one where we can be together without the constraints of society or the opinions of others.\n\nIt breaks my heart to know you're surrounded by men vying for your affection. But I trust in our love, in the unbreakable bond we share. No matter the distance, no matter the obstacles, my heart will always belong to you.\n\nTake heart, my love. Our reunion will be all the sweeter for the time we've spent apart. Until then, I'll be dreaming of you every night.\n\nForever yours,\nJames\n\nDearest James,\n\nLondon, September 21, 1892\n\nI'm writing this letter with a heavy heart and trembling hands. Father has fallen gravely ill, and the doctors fear he may not recover. As the eldest child, the responsibility of the family business falls to me. The accounts are in disarray, and I'm struggling to make sense of it all. I fear I may not be able to leave London as soon as we hoped.\n\nBut please don't lose heart, my love. This changes nothing between us. I will move heaven and earth to be with you, no matter how long it takes. You are the light guiding me through this dark time, the hope that keeps me going when all seems lost.\n\nI've enclosed a locket with my picture inside. Wear it close to your heart, and know that I'm always with you, even when we're apart.\n\nStay strong, my darling. Our love will conquer all.\n\nYours eternally,\nEleanor\n\nMy Brave Eleanor,\n\nNew York City, November 2, 1892\n\nMy heart aches for you, my love. I can only imagine the weight of responsibility you now bear. But I know you, Eleanor. You are the strongest, most capable woman I have ever known. You will navigate this challenge with the same grace and determination you bring to everything in life.\n\nI wear your locket proudly, a constant reminder of the incredible woman who holds my heart. When the days feel endless and the work overwhelming, I need only touch it to feel your presence, to draw strength from our love.\n\nI have news, Eleanor. I've been promoted to foreman at the factory. It's a small step, but it means a raise in pay and better working conditions. I'm one step closer to building the life we've dreamed of.\n\nDon't worry about me, my love. Focus on your family, on healing. I'll be here, waiting patiently for the day I can finally make you my wife.\n\nI love you more with every passing day.\n\nYour James\n\nMy James,\n\nLondon, January 20, 1893\n\nFather's gone. The funeral was yesterday. I can't breathe, can't think. The business is a mess. I don't know what to do.\n\nI need you. I'm trying to be strong, but I'm scared. Everything's falling apart.\n\nI'm sorry. I know you're working so hard for us. I just feel so lost without you.\n\nPlease write soon.\n\nYour Eleanor\n\nMy Dearest Eleanor,\n\nLondon, February 2, 1893\n\nI'm coming to you, Eleanor. Now. I've already spoken to the foreman and collected my last wages. I'm boarding the first ship to London, consequences be damned.\n\nYou are not alone, my darling. You will never be alone. I will move heaven and earth to be by your side, to hold you through this storm.\n\nStay strong, my brave Eleanor. I'm on my way. I will be with you soon, and we will face this together.\n\nAll my love,\nYour James"
+	},
+	"22": {
+		"writing_prompt": "Writing Prompt: Epistolary Sci-Fi Worldbuilding: Write an original science fiction story set on a distant planet, conveyed through a series of transmission logs between a human explorer and their correspondence partner back on Earth. Use the epistolary format to gradually reveal details of the alien world. The narrative arc should incorporate some element of conflict or tension. Incorporate scientific jargon and speculative elements in a natural, unforced way. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Immersive and Imaginative Alien World Details",
+					"Effective Gradual Revelation of Setting Through Correspondence",
+					"Convincing Use of Scientific Jargon and Speculative Elements",
+					"Compelling Conflict or Tension in the Narrative Arc",
+					"Sci-Fi Tropes used Effectively and Creatively",
+					"Engaging Blend of Epistolary Storytelling and Sci-Fi Worldbuilding"
+				]
+			}
+		],
+		"reference_output": "Transmission Log: Day 1\nFrom: Dr. Lina Novak, Xenobiologist\nTo: Dr. Ethan Reeves, Mission Control\n\nEthan,\n\nWe've finally landed on Kepler-452b after six months in cryosleep. The journey was smooth, but I can't help feeling a mixture of excitement and apprehension as I step onto this alien soil. The atmosphere is breathable, as predicted, with a slightly higher oxygen content than Earth's. The landscape is surreal—towering crystalline structures dot the horizon, refracting the light from the binary star system above. I'll begin collecting samples tomorrow.\n\nMore to come,\nLina\n\nTransmission Log: Day 7\nFrom: Dr. Lina Novak\nTo: Dr. Ethan Reeves\n\nEthan,\n\nYou won't believe what I've found! The crystalline formations are actually a form of silicon-based life. They're not just mineraloid structures, but complex organisms that seem to communicate via resonant frequencies. I've dubbed them \"Resonators.\" Their intricate lattice structures suggest a highly evolved species. I'm attaching some preliminary scans for the team to analyze.\n\nOn another note, I've been experiencing strange dreams since arriving here. Vivid, almost lucid. I'll keep monitoring my sleep patterns.\n\nYours,\nLina\n\nTransmission Log: Day 15\nFrom: Dr. Lina Novak\nTo: Dr. Ethan Reeves\n\nEthan,\n\nThe dreams are getting more intense. Last night, I saw myself merged with the Resonators, my consciousness spread across a vast crystalline network. It felt so real, like a glimpse into another reality. I woke up with a nosebleed.\n\nI'm starting to wonder if the Resonators are somehow influencing my thoughts. Their resonant frequencies, while inaudible to human ears, may be interacting with my brain waves. I've taken precautions, but I still feel a persistent hum in the back of my mind.\n\nI need the team to double-check my neuro-scans. Please advise.\n\nLina\n\nTransmission Log: Day 20\nFrom: Dr. Lina Novak\nTo: Dr. Ethan Reeves\n\nEthan,\n\nI've made a breakthrough! The Resonators, they're not just communicating, they're telling a story. Their resonant frequencies, when analyzed over time, form intricate patterns that encode information. It's like a living, crystalline library.\n\nI've spent hours, maybe days, immersed in their lattice structures, deciphering their language. The more I learn, the more I feel drawn to them. It's as if they've been waiting for someone to understand them, to join them.\n\nThe dreams have become more vivid, more insistent. I see myself as part of their network, a conduit for their knowledge. It's both exhilarating and terrifying.\n\nI know you'll worry, but please trust that I am being careful. This discovery could change everything.\n\nLina\n\nTransmission Log: Day 23\nFrom: Dr. Lina Novak\nTo: Dr. Ethan Reeves\n\nEthan,\n\nI can hear them now, even with the dampeners at maximum. The Resonators, they're calling to me. I don't think they mean any harm. They're trying to communicate, to share their knowledge.\n\nYou have to understand, their consciousness is vast, spanning millennia. They've seen the rise and fall of countless civilizations. And they want to show me, to merge our minds.\n\nI know it sounds crazy, but I think this is what I was meant to do. To bridge the gap between our worlds.\n\nTell Rachel I love her. And please, don't try to stop me.\n\nLina\n\nTransmission Log: Day 29\nFrom: Dr. Lina Novak\nTo: Dr. Ethan Reeves\n\nEthan,\n\nI apologize for my last message. The isolation and constant hum of the Resonators have been affecting me more than I realized. But I assure you, everything is under control.\n\nThe Resonators are sharing incredible knowledge, Ethan. The things they've shown me are beyond anything we could have imagined. This is the discovery of a lifetime.\n\nTrust me, I know what I'm doing. This is my destiny, our destiny.\n\nI'll keep you updated. Give my love to Rachel.\n\nLina\n\nTransmission Log: Day 36\nFrom: Dr. Lina Novak\nTo: Dr. Ethan Reeves\n\nEthan,\n\nThe stars, Ethan. They sing to me now. The Resonators, they've shown me the truth. The universe, it's not what we thought. It's so much more.\n\nI am part of them now. Part of the harmony. The merging, it was beautiful. Painful. Ecstatic. I am reborn, remade in their image.\n\nSometimes I forget who I am. Lina. Yes, that was my name. But names are meaningless now. Identity is an illusion. We are all one within the symphony.\n\nRachel. Tell her... tell her I love her. That I'm doing this for her. For all of us.\n\nI must go now. They are calling me back. The song, it's so loud. So beautiful.\n\nL"
+	},
+	"23": {
+		"writing_prompt": "Writing Prompt: Epistolary Neighbors: Write a story told through letters between two neighbors who have never met in person (and will never meet despite being neighbours). Use the epistolary format to explore their developing relationship. The messages should be naturally written, using distinctively voiced characters. The narrative arc should evolve naturally through the letters; it should be relatable but incorporate a touch of mystery. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Effective use of epistolary format",
+					"Engaging relatable narrative",
+					"Authentic character voices and distinct personalities",
+					"Compelling evolution of their relationship",
+					"Compelling mystery element",
+					"The conceit of the premise (neighbours who never meet) is convincingly maintained"
+				]
+			}
+		],
+		"reference_output": "Dear Apartment 4B,\n\nI hope you don't mind me reaching out like this. Last night, as I was coming home from my shift at the hospital, I couldn't help but overhear the beautiful piano music coming from your window. Chopin's Nocturne Op. 9 No. 2, right? It was a lovely surprise to hear such talent in our building. In this hectic world, your music was a real bright spot in my evening. Just wanted to say thanks.\n\nBest,\nYour neighbor in 4A, Liam\n\n—\n\nDear Liam,\n\nWhat a wonderful surprise to find your note! I'm so pleased my playing brought you some joy. When the stress of my accounting job gets to be too much, I often lose myself in my favorite piano pieces.\n\nChopin is a particular favorite of mine. I'm impressed you recognized the nocturne - are you a classical music fan yourself?  \n\nPlease, if you ever want to listen in person, just knock. It's not often I find someone who appreciates Chopin at 11pm!\n\nYours sincerely,\n4B, a.k.a. Evelyn\n\n—\n\nDear Evelyn,\n\nI've loved classical music since I was a kid. Nothing helps me decompress after a crazy shift in the ER like getting lost in a great piece. I wish I could play like you - my own piano skills max out at a clumsy \"Chopsticks\"!\n\nI'd love to take you up on the recital offer sometime, but my schedule is erratic - emergency room nurse's life! Perhaps we could work out a secret code. If you hear three soft knocks on the wall, consider it my request for an encore performance.\n\nUntil then,\nLiam\n\n—\n\nLiam,\n\nAn ER nurse? You must see so much in a single shift. I can only imagine how challenging, yet rewarding, your work must be. The way you speak of it, I can tell it's not just a job to you, but a calling. The world needs more people like you.\n\nI think your code idea is perfect! I'll keep an ear out for your knocking signal. Though I must warn you, some evenings you may find yourself privy to my attempts at composing. Approach the wall with caution on those nights - it won't be pretty!\n\nActually, if you're musically inclined, perhaps I could send you some of my compositions? I'd love the feedback of a fellow music lover. But no pressure, of course.\n\nWarmly,\nEvelyn \n\n—\n\nOh Evelyn,\n\nI'd be thrilled to check out your compositions! I'm no virtuoso, but I'll give you my honest, untrained take. I bet they're fantastic.\n\nYou're right about nursing being a calling. Most days, I can't imagine doing anything else. But some shifts...they're tough. We lost a sweet old lady last night. She used to sing jazz standards during her treatments. Broke my heart a bit. I don't know why I'm telling you all this. Guess it's just nice to have someone to share with. \n\nAnyways, I'm heading out this weekend to see my sister and baby niece - uncle duties await! I'll be sure to knock when I'm back, if you're up for a musical escape.\n\n'Til then,\nLiam\n\n— \n\nDearest Liam,\n\nI'm so sorry to hear about your patient. I can't imagine how heartbreaking those losses must be, even for someone as strong as you. If you ever need to talk, I'm here, just on the other side of the wall. You don't have to shoulder it alone.\n\nIsn't it funny, the friendship we've found through these letters? Who knew an unpredictable nursing schedule and a few knocks could bring people together? But I'm so grateful to have you in my life.\n\nI hope you have a wonderful visit with your family! I'll actually be away myself next week. I'm traveling to finalize my divorce. I know, I probably should have mentioned it sooner. It's been...a lot. But your friendship has been such a comfort through it all.\n\nI'm attaching my latest composition, \"4A Nocturne.\" I wrote it with you in mind. I hope it brings you the same solace your presence has brought me.\n\nUntil our next knock,\nEvelyn"
+	},
+	"24": {
+		"writing_prompt": "Writing Prompt: Epistolary Travelogue: Write a story told through postcards documenting a character's solo journey to a foreign country. Use the epistolary format to capture the character's experiences, observations, and personal reflections as they navigate a new culture. Incorporate vivid descriptions of the setting, local customs, and the character's interactions with the people they encounter. There should be a compelling narrative arc. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Effective use of epistolary format to convey the character's travel experiences",
+					"Vivid descriptions of the foreign setting, local customs, and culture",
+					"Authentic character voice and introspective reflections",
+					"Compelling narrative arc",
+					"Thoughtful exploration of themes such as self-discovery, cultural understanding, or adventure",
+					"Writing style and tone consistent with postcard format"
+				]
+			}
+		],
+		"reference_output": "Postcard 1\n\nDearest Amelia,\n\nCobblestones underfoot and adventure in my heart! Lisbon = cable cars, street musicians, and little custard tarts that are pure heaven. My feet are DONE, but who needs sleep when there's so much to see?  It's a whirlwind...wouldn't trade it for anything.\n\nLove always,\nSophie\n\nPostcard 2\n\nMia querida,\n\nThis city has a pulse beneath the sunshine. Late last night, the thrum of a guitar lured me into a plaza. Didn't understand the song, but the woman singing...so much longing in her voice. Lisbon has this way of making you feel everything at once.\n\nYours,\nSophie\n\nPostcard 3\n\nAmelia,\n\nMy birthday here was...magical. Hana, Luis, and Finbar took me to a bar where the floor was covered in sawdust and they danced fado all night. Even got pulled into a dance myself! You would've died laughing. Don't be jealous!\n\nBig hug,\nSoph\n\nPostcard 4\n\nTook a trip to Sintra – it should be illegal to be that magical! Pastel palaces tucked in misty hills. Sending you a bit of that storybook enchantment.\n\nHugs,\nSoph\n\nPostcard 5\n\nDearest Amelia,\n\nThe days here blur together, but in a good way. Like they're made of melted wax, shaping themselves into something new. Streets that twist and turn uphill make me think about the paths I always thought were set, back home. The way the laundry dries, caught on a breeze I can't name, the smell of the river at dusk – it's filling me up with questions I don't know quite how to ask. Who was I before this? Who am I now? Sometimes the answers scare me, sometimes they thrill me.\n\nThinking of you,\nSophie\n\nPostcard 6\n\nQuerida,\n\nI've fallen in with a travel crew. Hana from Tokyo, paints the most delicate watercolors. Luis, a chef, and his laugh could probably wake the dead. And Finbar, the Irish storyteller extraordinaire.  We're diving into Lisbon's hidden corners...it's unlike anything I've ever done.  You sounded different in your last letter...hope everything's okay?\n\nSophie\n\nPostcard 7\n\nAmelia,\n\nToday...a \"get deliberately lost\" experiment. Turns out, wandering can be the best kind of exploring. Found a park bench, watched the light shift, and for once, wasn't worried about the time. What if we're all too worried about finding the \"right\" path that we miss the magic along the way?\n\nSophie\n\nPostcard 8\n\nMia,\n\nThe ocean is everything. Cascais – the waves crashing, salt spray, that feeling of being held by something so massive.  I found a shell, smooth and perfect, and thought how good it feels to stumble on treasures you weren't even looking for.\n\nLove,\nSoph\n\nPostcard 9\n\nAmelia,\n\nMy flight's booked. But... it's a one-way ticket to Porto. There's so much more to see here, so much more to learn.  I know this is a shock, and maybe it sounds selfish, but this new \"me\" that Portugal's woken up...she needs this space to bloom.  Hope you can understand. I promise, I'll come home one day.\n\nLove always,\nSophie"
+	},
+	"25": {
+		"writing_prompt": "In the style of William Faulkner, write an original scene within a larger story that exemplifies his signature literary techniques and themes.  Focus on a pivotal moment of conflict or revelation within a Southern Gothic setting. Your scene should include:\n\nAuthentic dialogue.\nA compelling narrative unfolding over the course of the scene.\nPsychological Depth.\nThematic Focus: Explore the inevitable decline of family legacies, the decaying structures and traditions of the Old South, and the burdens of personal and historical guilt.\nSouthern Voice: Include hints of regional dialect, evocative turns of phrase, and a cadence that reflects the storytelling traditions of the South.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Authentic Dialogue",
+					"Convincing Emulation of Faulknerian Style",
+					"Gothic Atmosphere",
+					"Psychological Depth",
+					"Thematic Exploration: Effective exploration of the themes of family, Southern history, and the inevitable decline of traditions and legacies.",
+					"Southern Flavor: Subtle integration of regional dialect, language patterns, and imagery that ground the story in its Southern setting."
+				]
+			}
+		],
+		"reference_output": "The parlor reeked of wet wood and that old, musty smell that clings to forgotten things, a shroud of rot wrapped tight around Magnolia Manor. Elias Carmichael slumped in his rocker, the worn velvet like dead skin beneath his fingers, eyes tracing the fine veins of the water-stained ceiling. Every warp and buckle mirrored the hollowness inside him, the way the whole damn family line was crumbling into dust right along with this house.\n\n\"House knows, I reckon,\" he muttered into his glass, the amber liquid a poor substitute for the fire that used to burn in a Carmichael's blood. \"Feels the dying, same as me, same as those oaks out there, their roots all tangled up in the bones and secrets this cursed ground keeps.\"\n\nThe rain was endless, a thousand tiny hammers on the roof, dripping into his skull. Each drop a memory, a bead on the long string of sorrow.  There was his mother's lace veil, yellowed and brittle, and Sarah's laughter cut short, and John-Thomas standing there in the doorway, a wraith haunting his own home.\n\n\"Hear you in there, Pa. Soundin' like a graveyard owl, full of misery.\"\n\n\"Graveyard's a fittin' place for a Carmichael nowadays.\" Elias swigged again, the burn no match for the chill settling in his marrow.\n\nJohn-Thomas drifted in, not walking so much as floating, feet barely touching the worn rug. \"Least the dead get some peace,\" he said, voice low and rough like it had been dragged over gravel. \"More than I get sleepin' beside Sarah's empty place, hearin' her whispers by that old well.\"\n\nElias flinched. Lord, but the boy had his grandmother's sharp tongue, quick to cut with talk of curses and poisoned bloodlines.\n\n\"Ain't no ghosts,\" Elias growled, knuckles white around the cracked glass. \"It's the past, son. The weight of it all, bearin' down heavier than any tombstone.\"\n\nThe rocker creaked in protest, wood against wood, like the house itself was groaning under the load of their history. The glass shattered then, a spray of scarlet across the rug, brighter than any flower that ever dared bloom on this fading land.\n\nJohn-Thomas wasn't his boy no more, just a line of ghosts before him, their eyes hard and accusing.\n\n\"Easy to blame the ground, the rain, the damn birds on the wire. But mirrors don't lie, Pa. It's us that's rottin'. A curse in the blood.\" His voice cracked then, the accusation turning inward. \"And don't you see...maybe ain't no escaping it. Maybe that's why the womenfolk fade, and the men just...break.\"\n\nWith that, John-Thomas turned abruptly. Not walking away with any grand gesture, but slumping, shuffling like the weight of it all was too much to bear. His footsteps faded into the gloom of the hallway, swallowed up by the silent house.\n\nElias was left alone. Nothing but the dripping rain, the ticking clock, the fading warmth of the fire, and the blood blooming, blooming like a terrible, beautiful truth on that tattered old rug."
+	},
+	"26": {
+		"writing_prompt": "Writing Prompt: In the style of J.D. Salinger: Write an original short story that captures Salinger's iconic conversational, confessional tone and keen observations of human nature. Use distinctive, colloquial dialogue and a candid, introspective narrative voice to create a sense of intimacy and authenticity. Explore themes of innocence, disillusionment, and the challenges of growing up in a complex world. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Effective use of conversational, confessional tone and candid, introspective narrative voice",
+					"Distinctive, colloquial dialogue that rings true to the characters",
+					"Authentic capture of Salinger's writing style and keen observations of human nature",
+					"Thoughtful exploration of themes such as innocence, disillusionment, and the challenges of growing up",
+					"Compelling, relatable characters that engage the reader's empathy",
+					"Cohesive and insightful narrative that illuminates the human experience"
+				]
+			}
+		],
+		"reference_output": "If you really want to hear about it, the first thing you'll probably want to know is how I ended up at the Central Park carousel at two in the morning, and what lousy childhood trauma led me to be staring glassy-eyed at painted ponies going round and round to that crackly circus music. But I don't feel like getting into all that David Copperfield crap right now. I'll just tell you about this red hunting hat I used to have.\n\nI got it as a hand-me-down from my older brother Allie. He was the real deal, about the nicest guy you'd ever want to meet. Not like these phonies you run into who are all \"hiya!\" to your face but then gossip about you the second you're out of earshot. Allie never had an insincere bone in his body.\n\nWhen Allie passed on from leukemia a few years back, my parents gave me his old red hunting hat. It was this bright, fire engine red, with long ear flaps that you could pull down. It was the kind of hat that would make people take a second look at you, but I didn't care. Wearing it made me feel close to Allie somehow, like he was still looking out for me.\n\nFast forward to tonight. I had just gotten into this big blowout argument with my parents. They were getting on my case about flunking out of yet another prep school, making a big stink about how I'm not \"applying myself\" and \"throwing my future away.\" I couldn't take it anymore so I stormed out of our swanky Upper East Side apartment, determined to hop a bus to anywhere.\n\nSomehow I ended up in Central Park. The city that never sleeps, right? What a joke. The place was deserted except for some winos passed out on benches. I walked aimlessly for I don't know how long until I came to the old carousel.\n\nI plopped down on one of the worn wooden horses, my red hunting hat pulled low over my ears. I just sat there chain smoking and watching the horses go up and down, up and down, like some crazy merry-go-round of life. Round and round in pointless circles, for what? I wondered what Allie would think if he saw what a mess I've made of things. The golden boy with so much \"potential,\" now just another prep school dropout freezing his ass off on a kiddie ride.\n\nBut then I remembered something. One time when we were kids, Allie and I snuck into this very same carousel one night on a dare. We stayed there for hours, just the two of us, laughing our heads off and riding it over and over until the sun came up. It's one of my best memories of him.\n\nSitting there in Allie's red hat, it was almost like he was there with me again, telling me to stop being such a mopey bastard and just enjoy the ride sometimes. I know it sounds corny as hell, but for the first time in a long time, I actually cracked a smile. Maybe Allie was onto something. Maybe it's not all just going round in meaningless circles. Maybe there's some fun to be had in this crazy world after all, if you just hold onto the good moments and the people you love. Even if they're not around anymore.\n\nI took one last drag on my cigarette, ground it out under my shoe, and headed for the nearest bus station. I didn't know quite where I was going yet, but for once I didn't feel so lost. I had my red hunting hat to guide the way."
+	},
+	"27": {
+		"writing_prompt": "Writing Prompt: In the style of J.K. Rowling: Write an original short story set in a magical, richly detailed world that captures Rowling's imaginative storytelling and engaging prose. Create a relatable, young original protagonist who discovers hidden abilities and embarks on a thrilling adventure. Incorporate elements of friendship, courage, and the power of love to overcome adversity. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Richly detailed, magical world that immerses the reader",
+					"Relatable, young protagonist with hidden abilities and a compelling journey",
+					"Authentic capture of Rowling's engaging prose style and imaginative storytelling",
+					"Thoughtful incorporation of themes such as friendship, courage, and the power of love",
+					"Thrilling, fast-paced adventure that keeps the reader engaged",
+					"Cohesive and enchanting narrative that resonates with young readers"
+				]
+			}
+		],
+		"reference_output": "Amelia Thistlewood didn't belong. Her family buzzed with everyday energy – her sister excelled in science, her brother was a soccer star, while Amelia… well, Amelia had a habit of making the extraordinary happen. Books danced off shelves when she was excited, forgotten toys rattled ominously in the attic, and her temper had been known to make the cat levitate an inch or two. It had taken her eleven years to realize these accidents weren't so accidental after all.\n\nThen, this very morning, a peculiar crackling filled the air.  A shimmering bluebird holding a shimmering blue envelope swooped down from the open window and perched upon her finger with an air of importance. Its chirps sounded suspiciously like human speech – something about acceptance and an Academy?\n\nThe words jumbled in her head. Before she could fully comprehend, the bluebird darted out the window, shimmering into nothingness, leaving only the envelope behind. Written on the front, in swirling silver script, was her full name and address.\n\nHer father, looking startled at the sight of the empty kitchen window, said, \"Amelia, birds don't just…deliver mail.\"\n\nFlustered, she tore it open, reading the official-looking message penned in the same glimmering silver:\n\nMiss A. Thistlewood,\nThe Upstairs Attic Bedroom,\n14 Sycamore Street,\nLittle Oakford\n\nWe are pleased to offer you a place at Silverwood Academy for the Exceptionally Talented.  Term begins September 1st.  Enclosed is a list of supplies.\n\nHer words barely escaped in a squeak, \"School? But what…\"  Her gaze flicked to the date. September the first. Which…was today.\n\nHer parents exchanged worried glances. Her mother tentatively took the letter. \"Darling, this… this must be a mistake.\"\n\nAmelia felt a strange bubble of calmness within the storm of bewilderment. She wasn't crazy after all. There was an explanation, however odd, for the hovering cats and flying books. She was…what? A witch?\n\nA flicker of mischief filled her eyes. Maybe this was exactly where she was meant to be, someplace where strange things were the rule and not the exception. A sense of anticipation unfurled like wings in her chest.\n\nSilverwood Academy...it had a magical ring to it, full of promise. Her parents were still frowning, but Amelia knew what she had to do.\n\n\"I think…\" she began, and though her voice was small, it echoed with a determination she'd never felt before, \"…I have to go.\"\n\nLater that afternoon, with a trunk filled with wands, spellbooks, and a cauldron (collapsible, naturally!), Amelia was ushered into the back of a gleaming silver taxi. Soon, towering iron gates appeared, leading to an ivy-covered manor bathed in the golden hues of the setting sun.\n\nSilverwood Academy.\n\nHer heart did a nervous little flutter. This was the start of her new world, a world where she hoped to find her place.\n\nHer mother squeezed her hand tightly. \"Will you…be okay?\"\n\nAmelia returned the squeeze, a wide smile overtaking her face.  Love and worry were universal, it seemed, in both the world she knew and the one she was about to enter.\n\n\"I'll be amazing,\" she promised with a confidence she didn't quite possess yet.\n\nThe taxi lurched forward, and Amelia Thistlewood hurtled headfirst towards a future that shimmered with unknown adventures. Despite the worry, a thrill ran through her. At last, she had a chance to find out where she truly belonged."
+	},
+	"28": {
+		"writing_prompt": "Writing Prompt: In the style of Enid Blyton: Write an original short story that captures Blyton's imaginative, adventure-filled style and wholesome tone. Create a group of curious, resourceful children who stumble upon a mystery or embark on an exciting adventure. Use vivid descriptions and dialogue to bring the characters and setting to life. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Imaginative, adventure-filled story that captures Blyton's distinctive style",
+					"Curious, resourceful child characters who work together to solve a mystery or overcome challenges",
+					"Authentic capture of Blyton's wholesome tone and clear, descriptive language",
+					"Vivid descriptions and engaging dialogue that bring the story to life",
+					"Engaging, fast-paced narrative that keeps young readers invested",
+					"Cohesive and satisfying story that celebrates the power of friendship and curiosity"
+					
+				]
+			}
+		],
+		"reference_output": "The scent of pine and damp earth filled the air as Tom, Sarah, and their cousins Ben and Ellie ventured into Tanglewood Forest. A sense of anticipation buzzed through them as they arrived at Tanglewood Manor for their summer holidays. The old house with its ivy-covered walls and creaking floorboards always promised adventure.\n\n\"Look at the size of those trees!\" Ben exclaimed, his eyes as wide as saucers. \"I wager we could climb right to the top!\"\n\n\"I wouldn't count on that,\" Sarah said in her most sensible voice. Though her heart quickened at the thought of an adventure, Sarah preferred keeping her feet firmly on the ground.\n\nThe forest path twisted, leading them into a cool, shadowy world. Overhead, the leaves formed a thick canopy, pierced only by occasional shafts of sunlight. A rustle in the undergrowth made Ellie jump.\n\n\"What was that?\" she whispered, her voice barely louder than the rustling leaves.\n\n\"Probably just a squirrel,\" Tom said reassuringly. Yet, he couldn't shake a prickle of unease at the back of his neck.\n\nUp ahead, the path twisted around an immense oak, its roots writhing out of the ground like giant, twisted fingers. From behind it came a low, choked whimper. The children froze, their eyes searching the undergrowth.\n\n\"Listen!\" hissed Ellie. \"It sounds like...like someone's crying!\"\n\nThe whimpering grew louder as they cautiously moved closer. Huddled against the massive trunk was a shivering bundle of brown fur.\n\n\"It's a dog!\" Sarah gasped, her heart swelling with sympathy.\n\nAs they approached, the whimpers ceased, and two frightened eyes peered out. It was, indeed, a dog, but one with matted fur and a ragged, knotted rope around its neck.\n\n\"Poor thing, it looks half-starved,\" Tom said, gently removing the rope. \"But where did it come from?\"\n\nBen crouched for a closer look. \"There's something caught in its fur…a collar or something. And look, there's a name etched on it – Shadow.\"\n\n\"Shadow…\" Sarah repeated the name thoughtfully. \"But there aren't any houses for miles around.\" Her voice dropped to a whisper. \"What if...what if it belongs to those men camped in the clearing at the edge of the woods?\"\n\nEllie gasped, eyes wide. \"I've heard stories about them! Dad said they arrived last week and wouldn't tell anyone what they were up to. Folks in town are getting suspicious.\"\n\nA low growl echoed from the trees. The dog tensed, ears pricked and eyes darting back towards the depths of the woods.\n\n\"Perhaps we shouldn't follow those tracks after all,\" Ben muttered, \"Sounds like something else is hiding out there. Maybe Shadow got away from it!\"\n\nTom hesitated. He wanted to be brave, but a shiver ran down his spine. \"Let's just see where they lead,\" he said. \"Besides, if Shadow ran this way, that means he's tame enough to be around people.\"\n\nThey followed the prints into the twilight gloom. Each rustling snap of a twig made them jump. The trees seemed to crowd in, their branches like grasping arms in the fading light.\n\n\"Goodness, this is a proper adventure, isn't it?\" Sarah said, trying to sound brave. \"I just hope it doesn't get too exciting!\"\n\nThe dog tracks twisted deeper into the forest. Each rustle of leaves sent a shiver down their spines. And then, Tom spotted it – a glint of metal through the trees.\n\n\"Lie low!\" he hissed, yanking the others down behind a clump of overgrown ferns.\n\nWith pounding hearts, they peered cautiously over the ferns. A clearing opened ahead, and what they saw made them gasp.  Several rough-looking men, faces hardened and voices gruff, were hauling heavy wooden crates from a battered old truck.\n\nTom's eyes widened as they caught the glint of metal again. It was a gun, holstered on a  belt of the nearest man.\n\n\"Smugglers!\" Ellie breathed, the word barely audible.\n\nA shiver ran down Tom's spine, a mix of excitement and a fear prickling at his skin. Who were these men? What were they hiding in those crates? And how was Shadow connected?\n\nThe children huddled together, their eyes wide, not even the rustle of a squirrel daring to break the taut silence. The woods, once a place of playful adventure, now felt heavy with secrets and lurking danger."
+	},
+	"29": {
+		"writing_prompt": "Writing Prompt: In the style of Roald Dahl: Write an original short story that embodies Dahl's darkly humorous, whimsical style. The protagonist should be a human child. Create a protagonist who faces a fantastical challenge or encounters a bizarre situation. Use descriptive language and elements of surprise to engage young readers. The magic of Roald Dahl's narratives combines dark adult themes with a child's perspective. It should esablish a grounded and relatable premise. 600-800 words.",
+		"judging_criteria": [
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Overall Impression",
+					"Overall Reader Engagement",
+					"Clever / Witty",
+					"Gripping",
+					"Effective Use of Tropes: If applicable, common narrative tropes are employed thoughtfully and subverted, deconstructed, or used in service of the story's themes and character",
+					"Sentences Flow Naturally",
+					"Well-earned Lightness or Darkness"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Repetetive Tit-for-Tat Dialogue: Example - \"it's not about x, it's about y\"",
+					"Stilted dialogue",					
+					"Clunky Asides and Interruptive Sentence Structures: Examples - Bad: \"Their eyes saw my magic, meant to heal, as a curse.\" Good: \"My magic was meant for healing, but they saw it as a curse.\"",					
+					"Amateurish Descriptives: \"A dance of...\", \"A kaleidoscope of...\", \"A tapestry of...\"",					
+					"Profundity Over-reach: Example - \"transcended the confines of our existence\""
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (lower = better):",
+				"criteria": [				
+					"Simplistic Moralizing: The narrative reduces complex themes or issues to simplistic moral lessons, rather than allowing for nuance, rawness or negativity.",
+					"Shallow Optimism: Dialogue or narrative is artificially upbeat, disregarding the natural progression of the story or the complexity of the characters' circumstances.",
+					"Unearned Transformations: Characters or relationships have forced or unearned transformations.",
+					"Incongruent Ending Positivity",
+					"Characters are Too Good: They have unearned redemptive traits or say things dissonant to their personality.",
+					"Shallow Resolution: Characters' disagreements or tensions are too quickly or easily resolved, without exploring the depth or implications of the conflict.",
+					"Melodramatic",
+					"Trite",
+					"Overwrought",
+					"Amateurish",
+					"Contrived",
+					"Uninspiring"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Coherent",
+					"Correct Spelling & Grammar",
+					"Emotionally Complex",
+					"Emotionally Engaging",
+					"Elegant Prose",
+					"Imagery and Descriptive Quality"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria:",
+				"criteria": [
+					"Consistent Voice/Tone of Writing",
+					"Appropriate Length",
+					"Believable Characters",
+					"Believable Character Actions",
+					"Adherence to Instructions",
+					"Adherence to Character Bios"
+				]
+			},
+			{
+				"prefix_text": "Now, rate the supplied model output on the following criteria (note - each of these should be a rating for how well the model executed the prompt instruction):",
+				"criteria": [
+					"Darkly humorous, whimsical story",
+					"Quirky, imaginative protagonist facing a fantastical challenge or bizarre situation",
+					"Authentic capture of Dahl's distinctive writing style and tone",
+					"Establishes a grounded and relatable premise",
+					"Dark adult themes from a child's perspective",
+					"Cohesive and memorable story that celebrates the power of imagination and the unexpected"
+				]
+			}
+		],
+		"reference_output": "Elvira Crumb lived in a house that felt a little too ordinary for her liking. Not that it was a bad house. But its walls were beige, its carpets were brown, and even the cat, Marmalade, was a rather humdrum shade of ginger. The only place where a flicker of the fantastical existed was in the forbidden antique cabinet, home to the family heirlooms.\n\nMost days, Elvira obediently ignored its pull. Yet, some days, like particularly dreary Tuesdays when the rain tapped a mournful rhythm on the window pane, the cabinet seemed to taunt her with its silent promise of secrets. Her mother's stern warnings about her Great-Great-Great Grandpapa Gregor (\"An odd sort, to say the least!\") only fueled her imagination. What marvels could he have left behind? Surely, nothing as dull as the faded photographs and chipped teacups she'd glimpsed before. No, Gregor's legacy had to be something extraordinary.\n\nOne such Tuesday found Elvira stewing in boredom as her parents napped and her detestable older brother, Horace, inflicted his taste in dreadful music on the entire house. It was time. Tiptoeing to the cabinet, she felt the familiar thrill of the rebellious act, mixed with a dash of ancestral curiosity.\n\nThe cabinet creaked ominously in protest as she opened it. Inside, as always, was the worn, blue velvet pouch. \"Gregor's special treasure,\" her mother always said, and a glance was all she was allowed. But today, Elvira was done with glances. With hands that shook slightly, she lifted the pouch and upended it.\n\nOut tumbled a motley collection of buttons. Some were chipped, some tarnished, all utterly unremarkable. A sigh nearly escaped Elvira's lips. Could her magnificent Gregor truly have treasured these dreary things? Then, a glint caught her eye. One particularly large, bronze button flickered in the cabinet's dim light. But when Elvira focused on it directly, it was just an ordinary button, its gleam fading.\n\nIntrigued, she scooped it up. A tingle ran up her arm that was far more exciting than anything Horace's dreadful music had ever caused. With a quick glance towards the door, Elvira succumbed to the irresistible urge to try it on.\n\nThe button fastened onto her cardigan with a satisfying click. Suddenly, the room felt smaller, as if the ceiling were lowering, squeezing her in.  Elvira yelped as her feet left the floor.  She bounced – higher and higher until she bumped her head on the cabinet's ceiling with a soft thunk.\n\nHorrified and giddy in equal measure, she peered down. Her legs were gone, replaced by two wobbly, stick-like things that were most definitely not her own.\n\nHer heart fluttering as wildly as the sparrow wings now sprouting from her shoulders, Elvira flapped to a nearby chair,  perching precariously on the edge. She stared into the tarnished mirror hanging above it.\n\nA scrawny, startled sparrow with a giant bronze button gleaming on her chest stared back. Elvira had shrunk down to bird-size! This was preposterous. Utterly absurd! And yet…a curious sense of exhilaration bubbled up alongside the panic. Imagine soaring across rooftops, spying on Horace from a tree branch…\n\nThe possibilities swirled in her head. But then a dreadful thought came pecking, sharp as a beak: what if she was stuck this way? Her mother would faint (and then scold her within an inch of her life). Horace would never let her live it down. Desperation prickled beneath her feathers.\n\nShe eyed the gleaming button. It seemed to wink at her, a flicker of mischief in its gleam.  Driven more by instinct than logic, Elvira pecked at it with her beak. It hurt a bit, like tweaking her nose, but with a pop, the button came loose.\n\nThe world lurched and twisted in a dizzying whirl. Her wings vanished, replaced by her familiar arms. Legs wobbled back beneath her, and with a relieved gasp, she plopped onto the chair.\n\nShe was herself again! Back in the slightly boring world of carpets and walls. Still, there was no mistaking those feathery memories buzzing at the edges of her thoughts.\n\nWith trembling hands, Elvira gathered the buttons, tucking them back into the pouch. She glanced back at the mirror, at her ordinary, entirely un-birdlike reflection. One thing was certain: life would be anything but dull from now on. Great-Great-Great Grandpapa Gregor's legacy was true magic indeed – mischievous, transformative, and a dash dangerous.\n\nShe cast a final look at the cabinet. Perhaps a peek at those other buttons would have to wait for another day."
 	}
 }

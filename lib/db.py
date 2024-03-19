@@ -118,3 +118,49 @@ def save_creative_writing_result_to_db(results, score, last_error, run_index, be
 	except Exception as e:
 		print(e)
 		print('! Failed to save creative writing benchmark results to db.')
+
+
+def save_judgemark_result_to_db(results, score, last_error, run_index, bench_success):
+	global db
+
+	if not db:
+		return
+	
+	try:
+		meta = results['run_metadata']
+
+		raw_results = {}
+
+		for i in range(meta['total_iterations']):
+			iter_index = str(i+1)
+			if iter_index in results['iterations']:
+					raw_results[iter_index] = {
+						'test_model_response': results['iterations'][iter_index]['test_model_response'],
+						'judge_model_response': results['iterations'][iter_index]['judge_model_response'],
+						'individual_scores': results['iterations'][iter_index]['individual_scores']
+					}
+
+		to_save = {
+			'index_string': run_index,
+			'run_id': meta['run_id'],
+			'run_completed': int(time.time()),
+			'benchmark_success': bench_success,
+			'benchmark_type': 'judgemark',
+			'benchmark_score': score,
+			'model_path': meta['model_path'],
+			'lora_path': meta['lora_path'],
+			'bitsandbytes_quant': meta['bitsandbytes_quant'],
+			'total_iterations': meta['total_iterations'],
+			'inference_engine': meta['inference_engine'],
+			'ooba_params': meta['ooba_params'],
+			'include_patterns': meta['include_patterns'],
+			'exclude_patterns': meta['exclude_patterns'],
+			'errors': last_error,
+			'raw_results': raw_results
+		}
+
+		db.collection("creative_writing_benchmark_results").add(to_save)
+		print('Creative writing benchmark results saved to firebase db.')
+	except Exception as e:
+		print(e)
+		print('! Failed to save creative writing benchmark results to db.')

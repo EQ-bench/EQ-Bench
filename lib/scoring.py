@@ -230,16 +230,74 @@ def calculate_creative_writing_score(run_index, results, results_path):
 		for prompt_id, scores in results[run_index]['iterations'][run_iter]['individual_scores'].items():
 			scoresum = 0
 			neg_criteria = [
-					"melodramatic",
-					"unearned resolution",
-					"simplistic moralizing",
-					"forced optimism",				
-					"trite",
-					"overwrought",
-					"amateurish",
-					"contrived",
-					"uninspiring"
-				]
+				"melodramatic",
+				"shallow resolution",
+				"unearned resolution",  # old naming
+				"simplistic moralizing",
+				"shallow optimism",
+				"forced optimism", # old naming
+				"trite",
+				"overwrought",
+				"amateurish",
+				"contrived",
+				"uninspiring",
+				"characters are too good",
+				"incongruent ending positivity",
+				"unearned transformations",
+				"profundity over-reach",
+				"amateurish descriptives",
+				"clunky asides and interruptive sentence structures",
+				"stilted dialogue",
+				"repetitive tit-for-tat dialogue"
+			]
+			for criteria, score in scores.items():
+				if RELATIVE_SCORING:
+					#scoresum += (score + 100) / 13 # normalise score to 0-10
+					if criteria.lower().strip() in neg_criteria:
+						scoresum += ((-1*score)+10)/2
+					else:
+						scoresum += (score+10)/2
+				else:
+					if criteria.lower().strip() in neg_criteria:
+						scoresum += 10-score
+					else:
+						scoresum += score
+			creative_writing_score_tally += scoresum
+			n_scores += len(scores)	
+	
+	creative_writing_averaged_score = 10 * creative_writing_score_tally / n_scores
+	
+	return round(creative_writing_averaged_score, 2)
+
+
+def calculate_creative_writing_score_judgemark(run_index, model_name, results):
+	RELATIVE_SCORING = False
+	creative_writing_score_tally = 0
+	n_scores = 0
+	for run_iter in results[run_index]['iterations']:
+		for prompt_id, scores in results[run_index]['iterations'][run_iter]['judgemark_results'][model_name]['individual_scores'].items():
+			scoresum = 0
+			neg_criteria = [
+				"melodramatic",
+				"shallow resolution",
+				"unearned resolution",  # old naming
+				"simplistic moralizing",
+				"shallow optimism",
+				"forced optimism", # old naming
+				"trite",
+				"overwrought",
+				"amateurish",
+				"contrived",
+				"uninspiring",
+				"characters are too good",
+				"incongruent ending positivity",
+				"unearned transformations",
+				"profundity over-reach",
+				"amateurish descriptives",
+				"clunky asides and interruptive sentence structures",
+				"stilted dialogue",
+				"repetitive tit-for-tat dialogue"
+			]
 			for criteria, score in scores.items():
 				if RELATIVE_SCORING:
 					#scoresum += (score + 100) / 13 # normalise score to 0-10

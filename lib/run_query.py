@@ -108,6 +108,7 @@ def run_anthropic_query(prompt, history, completion_tokens, temp, model, api_key
 
 def run_mistral_query(prompt, history, completion_tokens, temp, model, api_key):
 	response = None
+	api_key = api_key
 	try:
 		url = 'https://api.mistral.ai/v1/chat/completions'
 		messages = history + [{"role": "user", "content": prompt}]
@@ -211,7 +212,7 @@ def run_openai_query(prompt, history, completion_tokens, temp, model, openai_cli
 			response = openai_client.chat.completions.create(
 					model=model,
 					temperature=temp,
-					max_tokens=1048,
+					max_tokens=completion_tokens,
 					messages=messages,
 			)
 			content = response.choices[0].message.content
