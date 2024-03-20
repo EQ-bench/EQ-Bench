@@ -48,7 +48,8 @@ Temperature is set at 0.7 for the test model inference, so output will vary betw
 
 [For more details, click here.](https://eqbench.com/about.html)
 
-### Version 2.2 Released
+<details>
+<summary>### Version 2.2 Released</summary>
 
 Changes:
 
@@ -60,7 +61,10 @@ Changes:
 
 Other news: EQ-Bench has been added to eleuther-eval-harness! Go [check it out](https://github.com/EleutherAI/lm-evaluation-harness).
 
-### Version 2.1 Released
+</details>
+
+<details>
+<summary>### Version 2.1 Released</summary>
 
 Changes:
 
@@ -80,6 +84,8 @@ German language support was kindly added by [CrispStrobe](https://github.com/Cri
 After collecting a lot of data from v2, it's clear that the revision component has a mostly negative effect. Only 8% of the time does it improve the score, and on average the revised score is 2.95% lower than the first pass score. Since we choose the highest of the first pass vs revised aggregate scores, the revision component is rarely affecting the overall score.
 
 Since revising requires significantly more inference, we opt to set it off by default. You can still enable it with the `-revise` argument. The upshot of disabling revision is that the benchmark is now much cheaper/faster to run, and the prompts are a little less complex. This change should have a negligible effect on scores.
+
+</details>
 
 </details>
 

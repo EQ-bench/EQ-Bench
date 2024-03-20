@@ -1,2 +1,4 @@
 *.pyc
 tmp
+benchmark_results.csv
+raw_results.json
