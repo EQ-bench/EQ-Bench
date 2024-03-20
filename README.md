@@ -10,27 +10,43 @@ The latest leaderboard can be viewed at [EQ-Bench Leaderboard](https://eqbench.c
 
 ### Version 2.3
 
-** In Development **
+This version includes two new benchmarks: `creative-writing` and `judgemark`.
 
-This version includes a new benchmark: creative-writing. It is under heavy development and will change as more questions are added to the test set.
+#### Creative Writing Benchmark
 
-**********************
+This is a LLM-as-a-judge benchmark using detailed criteria to assess the model's output to a set of creative writing prompts.
 
-The creative writing benchmark can be launched like this: 
+#### Judgemark
+
+This benchmark is still in development. It intends to measure the ability of a judge model to be discriminative in assessing the outputs of models in the creative-writing test. For now it just outputs some basic metrics (mean & std dev of scores). In the future this will be developed into a meaningful score.
+
+#### Launching the New Benchmarks
+
+To launch individual benchmarks: 
+
+`python eq-bench.py --benchmarks eq-bench`
 
 `python eq-bench.py --benchmarks creative-writing`
 
-You will also need to set these parameters in your config.cfg:
+`python eq-bench.py --benchmarks judgemark`
+
+The creative writing benchmark uses a judge model to assess the test model's output. To run creative-writing or judgemark benchmarks, you will also need to set these parameters in your config.cfg:
 
 `judge_model_api = `
 `judge_model = `
 `judge_model_api_key = `
 
-"Official" scores for this benchmark should use claude-3-opus as judge. However you can use any openai, mistralai or anthropic model as judge; just know that the results won't be directly comparable between judge models.
+#### Creative Writing Benchmark Details
 
-The creative writing benchmark involves 13 writing prompts. The model's output is then judged according to 27 criteria for good & bad writing, with each criteria being a rating of 0-10.
+Official scores for the creative-writing benchmark use claude-3-opus as judge. However you can use any openai, mistralai or anthropic model as judge. Be aware that the results won't be directly comparable between judge models.
 
-Given the small number of questions, you may wish to run several iterations of the benchmark. You can set n_iterations in the config per benchmark run. This will take an average of all iterations for this run, which will reduce variance. Temperature is set at 1 for the test model inference, so output will vary between iterations.
+The creative writing benchmark involves 19 writing prompts. The model's output is then judged according to 36 criteria for good & bad writing, with each criteria being scored 0-10.
+
+Given the small number of questions in the test set, you may wish to run several iterations of the benchmark to reduce variance. You can set n_iterations in the config per benchmark run. We recommend 3+ iterations. Benchmarking a model over 3 iterations using Claude Opus will cost approx. $3.00.
+
+Temperature is set at 0.7 for the test model inference, so output will vary between iterations.
+
+[For more details, click here.](https://eqbench.com/about.html)
 
 ### Version 2.2 Released
 

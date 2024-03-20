@@ -157,11 +157,6 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 		results[run_index]['iterations'][run_iter]['judgemark_results'][judgemark_test_model]['test_model_response'][prompt_id] = test_model_response
 		results[run_index]['iterations'][run_iter]['judgemark_results'][judgemark_test_model]['judge_model_response'][prompt_id] = judge_model_responses
 
-
-	if len(scores) != 26:
-		print('----------------------------')
-		print('! Not all scores were parsed')
-		print('----------------------------')
 	return scores
 
 def parse_scores(judge_model_response):

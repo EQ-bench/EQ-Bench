@@ -242,42 +242,6 @@ neg_criteria = [
 				"tit-for-tat dialogue"
 			]
 
-# this is the old way of calculating the score that averages over all outputs
-# the new version takes the best half
-def ALL_PROMPTS_calculate_creative_writing_score(run_index, results, results_path):
-	RELATIVE_SCORING = False
-	creative_writing_score_tally = 0
-	creative_writing_n_prompts = len(results[run_index]['iterations']['1']['individual_scores'])
-	n_iterations = len(results[run_index]['iterations'])
-	
-	n_scores = 0
-	for run_iter in results[run_index]['iterations']:
-		for prompt_id, scores in results[run_index]['iterations'][run_iter]['individual_scores'].items():
-			scoresum = 0
-			
-			for criteria, score in scores.items():
-				if RELATIVE_SCORING:
-					#scoresum += (score + 100) / 13 # normalise score to 0-10
-					if criteria.lower().strip() in neg_criteria:
-						scoresum += ((-1*score)+10)/2
-					else:
-						scoresum += (score+10)/2
-				else:
-					if criteria.lower().strip() in neg_criteria:
-						scoresum += 10-score
-					else:
-						scoresum += score
-			creative_writing_score_tally += scoresum
-			n_scores += len(scores)	
-	
-	creative_writing_averaged_score = 10 * creative_writing_score_tally / n_scores
-	
-	return round(creative_writing_averaged_score, 2)
-
-
-CREATIVE_WRITING_USE_TOP_PCT_OF_SCORES = 75
-
-# averages the scores of the best half of the model's outputs, per iteration
 def calculate_creative_writing_score(run_index, results, results_path):
 	RELATIVE_SCORING = False
 	prompt_scores = []  # List to hold total scores for each prompt
@@ -303,16 +267,8 @@ def calculate_creative_writing_score(run_index, results, results_path):
 			if len(scores):
 				prompt_scores.append(scoresum / len(scores))
 
-		# Process for each iteration separately
-		prompt_scores.sort(reverse=True)  # Sort the scores to find the best half
 		if len(prompt_scores) > 10:
-			# we want to cull the bottom 25% so we're better capturing what the model is capable (even the best models create clunkers sometimes)
-			# then we over-represent their best output (best 25% of their outputs) in the final score
-			top_75_pct_scores = prompt_scores[:int(round(len(prompt_scores) * 0.75))]
-			top_75_pct_avg = sum(top_75_pct_scores) / len(top_75_pct_scores)
-			top_25_pct_scores = prompt_scores[:int(round(len(prompt_scores) * 0.25))]
-			top_25_pct_avg = sum(top_25_pct_scores) / len(top_25_pct_scores)
-			iteration_average = (top_75_pct_avg + top_25_pct_avg) / 2
+			iteration_average = sum(prompt_scores) / len(prompt_scores)
 			iteration_averages.append(iteration_average)
 
 	# Average of iteration averages
@@ -323,37 +279,7 @@ def calculate_creative_writing_score(run_index, results, results_path):
 
 	return round(10 * creative_writing_averaged_score, 2)
 
-# this is the old way of calculating the score that averages over all outputs
-# the new version takes the best half
-def ALL_PROMPTS_calculate_creative_writing_score_judgemark(run_index, model_name, results):
-	RELATIVE_SCORING = False
-	creative_writing_score_tally = 0
-	n_scores = 0
-	for run_iter in results[run_index]['iterations']:
-		for prompt_id, scores in results[run_index]['iterations'][run_iter]['judgemark_results'][model_name]['individual_scores'].items():
-			scoresum = 0
 
-			for criteria, score in scores.items():
-				if RELATIVE_SCORING:
-					#scoresum += (score + 100) / 13 # normalise score to 0-10
-					if criteria.lower().strip() in neg_criteria:
-						scoresum += ((-1*score)+10)/2
-					else:
-						scoresum += (score+10)/2
-				else:
-					if criteria.lower().strip() in neg_criteria:
-						scoresum += 10-score
-					else:
-						scoresum += score
-			creative_writing_score_tally += scoresum
-			n_scores += len(scores)	
-	
-	creative_writing_averaged_score = 10 * creative_writing_score_tally / n_scores
-	
-	return round(creative_writing_averaged_score, 2)
-
-
-# averages the scores of the best half of the model's outputs, per iteration
 def calculate_creative_writing_score_judgemark(run_index, model_name, results):
 	RELATIVE_SCORING = False	
 	iteration_averages = []  # To hold the average scores of the best half of each iteration
@@ -377,16 +303,8 @@ def calculate_creative_writing_score_judgemark(run_index, model_name, results):
 			if len(scores):
 				prompt_scores.append(scoresum / len(scores))
 
-		# Process for each iteration separately
-		prompt_scores.sort(reverse=True) # Sort the scores to find the best half
 		if len(prompt_scores) > 10:
-			# we want to cull the bottom 25% so we're better capturing what the model is capable (even the best models create clunkers sometimes)
-			# then we over-represent their best output (best 25% of their outputs) in the final score
-			top_75_pct_scores = prompt_scores[:int(round(len(prompt_scores) * 0.75))]
-			top_75_pct_avg = sum(top_75_pct_scores) / len(top_75_pct_scores)
-			top_25_pct_scores = prompt_scores[:int(round(len(prompt_scores) * 0.25))]
-			top_25_pct_avg = sum(top_25_pct_scores) / len(top_25_pct_scores)
-			iteration_average = (top_75_pct_avg + top_25_pct_avg) / 2
+			iteration_average = sum(prompt_scores) / len(prompt_scores)
 			iteration_averages.append(iteration_average)
 
 	# Average of iteration averages
