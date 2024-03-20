@@ -6,6 +6,18 @@ import json
 import anthropic
 anthropic_client = None
 
+def run_chat_template_query(prompt, completion_tokens, model, tokenizer, temp):
+	chat = [
+    { "role": "user", "content": prompt },
+	]
+	prompt = tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
+	inputs = tokenizer.encode(prompt, add_special_tokens=True, return_tensors="pt")
+	outputs = model.generate(input_ids=inputs.to(model.device), max_new_tokens=completion_tokens)
+	output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+	# Trim off the prompt
+	trimmed_output = output[len(prompt):].strip()	
+	return trimmed_output
+
 def run_chat_query(prompt, completion_tokens, model, tokenizer, temp):
 	response, history = model.chat(tokenizer, prompt, history=None, max_new_tokens=completion_tokens, do_sample=True)
 	return response
@@ -33,7 +45,9 @@ def run_generate_query(prompt, completion_tokens, model, tokenizer, temp):
 # THEN specify your model & inferencing function here:
 OPENSOURCE_MODELS_INFERENCE_METHODS = {
 	'mistralai/Mistral-7B-Instruct-v0.1': run_generate_query,
-	'Qwen/Qwen-14B-Chat': run_chat_query
+	'Qwen/Qwen-14B-Chat': run_chat_query,
+	'google/gemma-7b-it': run_chat_template_query,
+	'google/gemma/2b-it': run_chat_template_query,
 }
 
 

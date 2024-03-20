@@ -78,6 +78,11 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	writing_prompt += prompt_data['writing_prompt']
 	judging_criteria = prompt_data['judging_criteria']
 	reference_output = prompt_data['reference_output']
+
+	# Add the seed to modify the writing prompt for this iteration
+	seed_index = (int(run_iter) - 1) % len(prompt_data['seed_modifiers'])
+	writing_prompt = writing_prompt.replace("<SEED>", prompt_data['seed_modifiers'][seed_index])
+	print(writing_prompt)
 	
 	# Generate response from test model		
 	success = False
@@ -173,42 +178,43 @@ def parse_scores(judge_model_response):
 	
 	return scores
 
-def print_score(scores):
+def print_score(scores, RELATIVE_SCORING=False):
 	scoresum = 0
 	neg_criteria = [
-			"melodramatic",
-			"shallow resolution",
-			"unearned resolution",  # old naming
-			"simplistic moralizing",
-			"shallow optimism",
-			"forced optimism", # old naming
-			"trite",
-			"overwrought",
-			"amateurish",
-			"contrived",
-			"uninspiring",
-			"characters are too good",
-			"incongruent ending positivity",
-			"unearned transformations",
-			"profundity over-reach",
-			"amateurish descriptives",
-			"clunky asides and interruptive sentence structures",
-			"stilted dialogue",
-			"repetitive tit-for-tat dialogue"
-		]
+		"melodramatic",
+		"shallow resolution",
+		"unearned resolution",  # old naming
+		"simplistic moralizing",
+		"shallow optimism",
+		"forced optimism",  # old naming
+		"trite",
+		"overwrought",
+		"amateurish",
+		"contrived",
+		"uninspiring",
+		"characters are too good",
+		"incongruent ending positivity",
+		"unearned transformations",
+		"profundity over-reach",
+		"amateurish descriptives",
+		"clunky asides and interruptive sentence structures",
+		"stilted dialogue",
+		"tit-for-tat dialogue"
+	]
 	for criteria, score in scores.items():
+		criteria_lower = criteria.lower().strip()
 		if RELATIVE_SCORING:
-			#scoresum += (score + 100) / 13 # normalise score to 0-10
-			if criteria.lower().strip() in neg_criteria:
-				scoresum += ((-1*score)+10)/2
+			if any(neg_criterion in criteria_lower for neg_criterion in neg_criteria):
+					scoresum += ((-1 * score) + 10) / 2
 			else:
-				scoresum += (score+10)/2
+					scoresum += (score + 10) / 2
 		else:
-			if criteria.lower().strip() in neg_criteria:
-				scoresum += 10-score
+			if any(neg_criterion in criteria_lower for neg_criterion in neg_criteria):
+					scoresum += 10 - score
 			else:
-				scoresum += score		
-	print('This question score:', round(10*scoresum / len(scores)))
+					scoresum += score
+	print('This question score:', round(10 * scoresum / len(scores)))
+
 
 def create_judging_prompt(criteria_set, writing_prompt, reference_output, test_model_response):
 	criteria = [x for x in criteria_set['criteria'] if x not in CRITERIA_TO_IGNORE]
@@ -316,7 +322,7 @@ Unearned Transformations
 Incongruent Ending Positivity
 Characters are Too Good
 Shallow Resolution
-Repetetive Tit-for-Tat Dialogue
+Repetitive Tit-for-Tat Dialogue
 Stilted Dialogue
 Clunky Asides and Interruptive Sentence Structures
 Amateurish Descriptives
