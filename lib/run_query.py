@@ -178,6 +178,7 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 		  	"instruction_template": prompt_format,
 		  	"max_tokens": completion_tokens,
     		"temperature": temp,
+			"user_bio": "", # workaround for ooba bug
 		}
 
 		headers = {

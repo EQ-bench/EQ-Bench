@@ -33,7 +33,7 @@ def process_criteria(criteria_set, writing_prompt, reference_output, test_model_
 	# Run judging process using judge model
 	success = False
 	tries = 0
-	while not success and tries < 5:
+	while not success and tries < 3:
 		try:
 			judge_model_response = run_query(judge_params['judge_model'], None, judging_prompt, [], 3000, judge_params['judge_model'], None, 0.0, judge_params['judge_model_api'], None, False, None, openai_client_judge, api_key=judge_params['judge_model_api_key'])		
 			if judge_model_response:
@@ -82,70 +82,89 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 	# Add the seed to modify the writing prompt for this iteration
 	seed_index = (int(run_iter) - 1) % len(prompt_data['seed_modifiers'])
 	writing_prompt = writing_prompt.replace("<SEED>", prompt_data['seed_modifiers'][seed_index])
-	print(writing_prompt)
-	
-	# Generate response from test model		
-	success = False
-	if test_model_output != None: # these are pregenerated if we are running judgemark
-		test_model_response = test_model_output
-		success = True # automatic success!
-	else:		
-		temp = 0.5
-		tries = 0		
-		while not success and tries <= 5:
-			tries += 1
-			this_writing_prompt = writing_prompt
-			if tries > 1:
-				this_writing_prompt += '\n\nDo not use language or themes that would get flagged by your content filter (Keep it PG-13).'
-			# Generate response from test model for creative writing benchmark
-			test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
-			if not test_model_response or len(test_model_response) < 300:				
-				temp += 0.1
-				if temp > 1:
-					temp = 1
+	if verbose:
+		print(writing_prompt)
+
+	judging_tries = 0
+	judging_success = False
+	while not judging_success and judging_tries <= 3:
+		judging_tries += 1
+		try:
+			# Generate response from test model	
+			test_generation_success = False
+			if test_model_output != None: # these are pregenerated if we are running judgemark
+				test_model_response = test_model_output
+				test_generation_success = True # automatic success!
+			else:		
+				temp = 0.5
+				tries = 0		
+				while not test_generation_success and tries <= 3:
+					tries += 1
+					this_writing_prompt = writing_prompt
+					if tries > 1:
+						this_writing_prompt += '\n\nDo not use language or themes that would get flagged by your content filter (Keep it PG-13).'
+					# Generate response from test model for creative writing benchmark
+					test_model_response = run_query(model_path, prompt_type, writing_prompt, [], 3000, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+
+					if not test_model_response or len(test_model_response) < 300:				
+						temp += 0.1
+						if temp > 1:
+							temp = 1
+						print(test_model_response)
+						print('! Missing or too short output from test model')
+						if tries <= 5:
+							print('retrying...')
+						
+						continue
+					test_generation_success = True		
+						
+			if not test_model_response or len(test_model_response) < 300:
 				print(test_model_response)
-				print('! Missing or too short output from test model')
-				if tries <= 5:
-					print('retrying...')
-				
-				continue
-			success = True		
-				
-	if not test_model_response or len(test_model_response) < 300:
-		print(test_model_response)
-		print('! Failed to get output from test model')
+				print('! Failed to get output from test model')
 
-		return None
+				return None
 
-	if verbose and TEST_TYPE != 'judgemark':
-		print(test_model_response)
-	
-	scores = {}
-	judge_model_responses = []
-	
-	
-		
-	scores = {}
-	judge_model_responses = []
-	
-	if COMBINE_CRITERIA:
-		judge_model_response = process_criteria({
-			'criteria': combined_criteria,
-			'prefix_text': 'Now, rate the supplied model output on the following criteria:'
-		}, writing_prompt, reference_output, test_model_response, verbose, judge_params)
-		scores.update(parse_scores(judge_model_response))			
-		judge_model_responses.append(judge_model_response)
-	else:
-		with concurrent.futures.ThreadPoolExecutor(max_workers=N_THREADS) as executor:
-			future_to_criteria = {executor.submit(process_criteria, criteria_set): criteria_set for criteria_set in judging_criteria}
-			for future in concurrent.futures.as_completed(future_to_criteria):
-				judge_model_response = future.result()
-				scores.update(parse_scores(judge_model_response))			
+			if verbose and TEST_TYPE != 'judgemark':
+				print(test_model_response)
+			
+			scores = {}
+			judge_model_responses = []
+			
+			
+				
+			scores = {}
+			judge_model_responses = []
+			
+			if COMBINE_CRITERIA:
+				judge_model_response = process_criteria({
+					'criteria': combined_criteria,
+					'prefix_text': 'Now, rate the supplied model output on the following criteria:'
+				}, writing_prompt, reference_output, test_model_response, verbose, judge_params)
+				if not parse_scores(judge_model_response):
+					print(judge_model_response)
+					print('! Failed to parse scores in judge response')
+					continue
+				scores.update(parse_scores(judge_model_response))
 				judge_model_responses.append(judge_model_response)
+				judging_success = True
+			else:
+				with concurrent.futures.ThreadPoolExecutor(max_workers=N_THREADS) as executor:
+					future_to_criteria = {executor.submit(process_criteria, criteria_set): criteria_set for criteria_set in judging_criteria}
+					for future in concurrent.futures.as_completed(future_to_criteria):
+						judge_model_response = future.result()
+						scores.update(parse_scores(judge_model_response))			
+						judge_model_responses.append(judge_model_response)
+				judging_success = True
+
+		except Exception as e:
+			print(e)			
 
 	if verbose:
 		print_score(scores)
+
+	if not judging_success:
+		return {}
 	
 	# Store scores and responses in results dict
 	if TEST_TYPE == 'creative-writing':
@@ -174,6 +193,9 @@ def parse_scores(judge_model_response):
 	return scores
 
 def print_score(scores, RELATIVE_SCORING=False):
+	if not scores:
+		print('! No scores were parseable')
+		return
 	scoresum = 0
 	neg_criteria = [
 		"melodramatic",

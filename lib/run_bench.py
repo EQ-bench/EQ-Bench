@@ -146,8 +146,8 @@ def load_model_and_launch_ooba(model_path, lora_path, quantization, inference_en
 													include_patterns=include_patterns, exclude_patterns=exclude_patterns, hf_access_token=hf_access_token)
 		ooba_started_ok = ooba_instance.start()
 		if not ooba_started_ok:
-					print('Ooba failed to launch.')
-					raise Exception("Ooba failed to launch.")
+			print('Ooba failed to launch.')
+			raise Exception("Ooba failed to launch.")
 	return model, tokenizer, ooba_instance
 
 def process_questions(benchmark_type, model, ooba_instance, inference_engine, results, model_path, prompt_type, tokenizer, launch_ooba, ooba_request_timeout, run_index, run_iter, verbose, n_attempts, openai_client, questions, eqbench_version, language, REVISE, judge_params, test_model_outputs, process_fn):
@@ -158,47 +158,47 @@ def process_questions(benchmark_type, model, ooba_instance, inference_engine, re
 			print('########################')
 			model_scores = []
 			if model_name not in results[run_index]['iterations'][run_iter]['judgemark_results']:
-					results[run_index]['iterations'][run_iter]['judgemark_results'][model_name] = {
-							'individual_scores': {},
-							'test_model_response': {},
-							'judge_model_response': {}
-					}							
+				results[run_index]['iterations'][run_iter]['judgemark_results'][model_name] = {
+						'individual_scores': {},
+						'test_model_response': {},
+						'judge_model_response': {}
+				}							
 			for prompt_id, test_model_response in model_outputs.items():									
-						if int(prompt_id) in PROMPTS_TO_IGNORE:
-							continue
-						if verbose and prompt_id in results[run_index]['iterations'][run_iter]['judgemark_results'][model_name]['individual_scores']:
-							print('Prompt',prompt_id, 'already completed')
-							continue
-						prompt_data = questions[prompt_id]
-						scores = process_fn(prompt_id, prompt_data, None, None, None, None, results, run_index,
-														run_iter, verbose, 0, inference_engine, ooba_instance,
-														launch_ooba, ooba_request_timeout, openai_client, judge_params,
-														test_model_response, model_name)
-						model_scores.append(scores)
-						with open(RAW_RESULTS_PATH, 'w') as f:
-							json.dump(results, f)
+				if int(prompt_id) in PROMPTS_TO_IGNORE:
+					continue
+				if verbose and prompt_id in results[run_index]['iterations'][run_iter]['judgemark_results'][model_name]['individual_scores']:
+					print('Prompt',prompt_id, 'already completed')
+					continue
+				prompt_data = questions[prompt_id]
+				scores = process_fn(prompt_id, prompt_data, None, None, None, None, results, run_index,
+												run_iter, verbose, 0, inference_engine, ooba_instance,
+												launch_ooba, ooba_request_timeout, openai_client, judge_params,
+												test_model_response, model_name)
+				model_scores.append(scores)
+				with open(RAW_RESULTS_PATH, 'w') as f:
+					json.dump(results, f)
 
 	else:
 		for question_id, q in tqdm(questions.items()):
 			if int(question_id) in PROMPTS_TO_IGNORE:
-						continue
+				continue
 			if question_id in results[run_index]['iterations'][run_iter]['individual_scores']:
-						if verbose:
-							print(f"Question {question_id} already complete")
+				if verbose:
+					print(f"Question {question_id} already complete")
 			else:
-						if benchmark_type == 'eq-bench':
-							process_fn(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose,
-													n_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version,
-													language, REVISE)
-						elif benchmark_type == 'creative-writing':
-							scores = process_fn(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index,
-																	run_iter, verbose, n_attempts, inference_engine, ooba_instance, launch_ooba,
-																	ooba_request_timeout, openai_client, judge_params)
-							if scores:
-									if verbose:
-											print(scores)
-									with open(RAW_RESULTS_PATH, 'w') as f:
-											json.dump(results, f)
+				if benchmark_type == 'eq-bench':
+					process_fn(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose,
+									n_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version,
+									language, REVISE)
+				elif benchmark_type == 'creative-writing':
+					scores = process_fn(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index,
+													run_iter, verbose, n_attempts, inference_engine, ooba_instance, launch_ooba,
+													ooba_request_timeout, openai_client, judge_params)
+					if scores:
+						if verbose:
+							print(scores)
+						with open(RAW_RESULTS_PATH, 'w') as f:
+							json.dump(results, f)
 
 
 def compute_judgemark_results(results, run_index, test_model_outputs, verbose):
