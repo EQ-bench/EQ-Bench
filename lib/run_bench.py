@@ -17,7 +17,6 @@ import numpy as np
 # Constants
 RAW_RESULTS_PATH = './raw_results.json'
 BENCH_RESULTS_PATH = './benchmark_results.csv'
-PROMPTS_TO_IGNORE = [11,12,13,14,15] + [3, 4, 16, 17, 18]
 
 
 def setup_benchmark(benchmark_type, run_id, model_path, lora_path, prompt_type, quantization, inference_engine, ooba_params, include_patterns, exclude_patterns, language, judge_params, questions_fn):
@@ -164,8 +163,6 @@ def process_questions(benchmark_type, model, ooba_instance, inference_engine, re
 						'judge_model_response': {}
 				}							
 			for prompt_id, test_model_response in model_outputs.items():									
-				if int(prompt_id) in PROMPTS_TO_IGNORE:
-					continue
 				if verbose and prompt_id in results[run_index]['iterations'][run_iter]['judgemark_results'][model_name]['individual_scores']:
 					print('Prompt',prompt_id, 'already completed')
 					continue
@@ -179,9 +176,7 @@ def process_questions(benchmark_type, model, ooba_instance, inference_engine, re
 					json.dump(results, f)
 
 	else:
-		for question_id, q in tqdm(questions.items()):
-			if int(question_id) in PROMPTS_TO_IGNORE:
-				continue
+		for question_id, q in tqdm(questions.items()):			
 			if question_id in results[run_index]['iterations'][run_iter]['individual_scores']:
 				if verbose:
 					print(f"Question {question_id} already complete")
@@ -312,7 +307,7 @@ def save_and_upload_results(run_id, formatted_datetime, bench_success, prompt_ty
 		if google_spreadsheet_url and os.path.exists('./google_creds.json'):
 			upload_results_google_sheets(google_spreadsheet_url, this_result)
 
-	save_result_to_db_fn(results[run_index], this_score, last_error if benchmark_type != 'eq-bench' else parseable, run_index, bench_success)
+	save_result_to_db_fn(results[run_index], this_score, parseable if benchmark_type == 'eq-bench' else 'N/A', last_error, run_index, bench_success)
 
 
 def cleanup(model, tokenizer, inference_engine, launch_ooba, ooba_instance, delete_model_files, model_path, include_patterns, exclude_patterns, models_to_delete, models_remaining, verbose):

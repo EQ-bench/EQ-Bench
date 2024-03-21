@@ -48,8 +48,8 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 		inference = run_query(model_path, prompt_type, prompt, [], COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 		try:
-			if verbose:
-				print(inference)
+			if verbose:				
+				print('\n'+inference)				
 				print('________________')
 
 			# Parse and calculate scores for this question

@@ -74,7 +74,7 @@ def save_eq_bench_result_to_db(results, score, parseable, last_error, run_index,
 		print('! Failed to save results to db.')
 
 
-def save_creative_writing_result_to_db(results, score, last_error, run_index, bench_success):
+def save_creative_writing_result_to_db(results, score, parseable, last_error, run_index, bench_success):
 	global db
 
 	if not db:
@@ -120,7 +120,7 @@ def save_creative_writing_result_to_db(results, score, last_error, run_index, be
 		print('! Failed to save creative writing benchmark results to db.')
 
 
-def save_judgemark_result_to_db(results, score, last_error, run_index, bench_success):
+def save_judgemark_result_to_db(results, score, parseable, last_error, run_index, bench_success):
 	global db
 
 	if not db:

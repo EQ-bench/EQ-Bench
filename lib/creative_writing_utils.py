@@ -74,7 +74,7 @@ def process_writing_prompt(prompt_id, prompt_data, model_path, prompt_type, mode
 
 	writing_prompt = "You are a talented creative writer of compelling, original prose.\n\n" 
 	if TEST_MODEL_SEES_CRITERIA:
-		writing_prompt += 'You are taking a creative writing test.These will be the assessment criteria to help direct your writing:\n' + '\n'.join(filtered_criteria) + '\n\n'
+		writing_prompt += 'You are taking a creative writing test. These will be the assessment criteria to help direct your writing:\n' + '\n'.join(filtered_criteria) + '\n\n'
 	writing_prompt += prompt_data['writing_prompt']
 	judging_criteria = prompt_data['judging_criteria']
 	reference_output = prompt_data['reference_output']
