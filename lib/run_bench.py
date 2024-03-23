@@ -12,7 +12,9 @@ from lib.db import save_eq_bench_result_to_db, save_creative_writing_result_to_d
 from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
 from lib.run_bench_helper_functions import format_include_exclude_string, fix_results, validate_and_extract_vars, run_test_prompts, remove_revision_instructions
 import lib.ooba
+import pandas as pd
 import numpy as np
+from scipy.stats import pearsonr, kendalltau
 
 # Constants
 RAW_RESULTS_PATH = './raw_results.json'
@@ -196,25 +198,159 @@ def process_questions(benchmark_type, model, ooba_instance, inference_engine, re
 							json.dump(results, f)
 
 
+# model, arena elo, eq-bench, magi
+other_benchmarks_str = """
+claude-3-opus-20240229,1247,82.19,76.55
+Midnight-Miqu-70B-v1.5,,75.9,40.74
+claude-3-sonnet-20240229,1190,80.45,61.01
+gpt-4-0125-preview,1249,83.87,76.83
+claude-3-haiku-20240307,,63.35,
+mistral-large-2402,1155,85.17,67.69
+mistral-medium,1145,82.57,62.15
+goliath-120b,,76.09,50.36
+Yi-34B-Chat,1099,71.62,57.1
+Qwen1.5-14B-Chat,,74.99,49.27
+Mixtral-8x7B-Instruct-v0.1,1114,72.37,45.74
+mistral-small,,80.36,51.9
+Llama-2-13b-chat-hf,1043,49.12,28.2
+Platypus2-70B-instruct,,,
+openchat-3.5-1210,1071,72.52,38.81
+gpt-3.5-turbo-0301,1101,70.67,46.66
+Llama-2-7b-chat-hf,1027,36.32,27.5
+gemma-7b-it,1029,61.72,24.85
+gemma-2b-it,985,23.26,24.16
+Qwen1.5-4B-Chat,974,28.75,32.66
+"""
+
+def parse_benchmarks(benchmark_str):
+	from io import StringIO
+	df = pd.read_csv(StringIO(benchmark_str), header=None, names=["model", "arena_elo", "eq_bench", "magi"])
+	return df
+
+def merge_benchmarks(judgemark_results, benchmark_str):
+	df_judgemark = pd.DataFrame(list(judgemark_results['model_scores'].items()), columns=['model', 'judgemark'])
+	df_benchmarks = parse_benchmarks(benchmark_str)
+	
+	# Concatenate model name after "/"
+	df_judgemark['model'] = df_judgemark['model'].apply(lambda x: x.split('/')[-1])
+	
+	df_combined = pd.merge(df_judgemark, df_benchmarks, on='model', how='left')
+	return df_combined
+
+def calculate_correlations(data):
+	correlations = {}
+	for benchmark in ["arena_elo", "eq_bench", "magi"]:
+		valid_data = data.dropna(subset=['judgemark', benchmark])
+		if len(valid_data) > 1:  # Need at least 2 valid points to calculate correlation
+			pearson_corr, _ = pearsonr(valid_data['judgemark'], valid_data[benchmark])
+			kendall_corr, _ = kendalltau(valid_data['judgemark'], valid_data[benchmark])
+			correlations[f'pearson_{benchmark}'] = pearson_corr
+			correlations[f'kendall_{benchmark}'] = kendall_corr
+		else:
+			correlations[f'pearson_{benchmark}'] = None
+			correlations[f'kendall_{benchmark}'] = None
+	return correlations
+
+
+def normalize_score(score, min_score, max_score):
+	if score >= max_score:
+		return 1.0
+	elif score <= min_score:
+		return 0.0
+	else:
+		return (score - min_score) / (max_score - min_score)
+
+def calculate_metrics(data):
+	metrics = {
+		'mean_score': data['judgemark'].mean(),
+		'range': data['judgemark'].max() - data['judgemark'].min(),
+		'std_dev': data['judgemark'].std(),
+		'CV': data['judgemark'].std() / data['judgemark'].mean(),
+	}
+
+	# Calculate std_dev of top 5 models
+	top_5_models = data.nlargest(5, 'judgemark')
+	metrics['std_dev_top_5'] = top_5_models['judgemark'].std()
+	
+	# Calculate correlations
+	correlations = calculate_correlations(data)
+	metrics.update(correlations)
+	
+	# Normalize metrics to 0-1 range
+	normalized_metrics = {}
+	for metric, value in metrics.items():
+		if metric == 'mean_score':
+			continue  # Skip mean, as we're leaving it out of the aggregate score
+		elif metric == 'range':
+			normalized_metrics[metric] = normalize_score(value, 0, 60)
+		elif metric == 'std_dev':
+			normalized_metrics[metric] = normalize_score(value, 0, 10)
+		elif metric == 'std_dev_top_5':
+			normalized_metrics[metric] = normalize_score(value, 0, 2)
+		elif metric == 'CV':
+			normalized_metrics[metric] = normalize_score(value, 0, 0.4)
+		
+	#elif metric.startswith('pearson_') or metric.startswith('kendall_'):
+	#	normalized_metrics[metric] = normalize_score(value, -1, 1)
+			
+	kendalls_correlations = [value for key, value in metrics.items() if key.startswith('kendall_')]
+	pearsons_correlations = [value for key, value in metrics.items() if key.startswith('pearson_')]
+	
+	avg_kendalls = sum(kendalls_correlations) / len(kendalls_correlations) if kendalls_correlations else 0
+	avg_pearsons = sum(pearsons_correlations) / len(pearsons_correlations) if pearsons_correlations else 0
+	
+	normalized_metrics['avg_kendalls'] = normalize_score(avg_kendalls, 0, 1)
+	normalized_metrics['avg_pearsons'] = normalize_score(avg_pearsons, 0, 1)
+
+	print('# normalised:')
+	for k, v in normalized_metrics.items():
+		print(k,v)
+	
+	# Calculate aggregate score
+	aggregate_score = sum(normalized_metrics.values()) / len(normalized_metrics) * 100
+	metrics['aggregate_score'] = aggregate_score
+	
+	return metrics
+
 def compute_judgemark_results(results, run_index, test_model_outputs, verbose):
 	results[run_index]['judgemark_results'] = {}
 	model_scores = {}
-	for model_name, model_outputs in test_model_outputs.items():
-		
+	for model_name, _ in test_model_outputs.items():
+		# This is a placeholder for wherever you calculate the creative writing score
 		creative_writing_score = calculate_creative_writing_score_judgemark(run_index, model_name, results)
-		if creative_writing_score != None:
+		if creative_writing_score is not None:
 			model_scores[model_name] = creative_writing_score
 			if verbose:
 					print(round(creative_writing_score, 2), model_name)
-		
+	
 	mean_score = np.mean(list(model_scores.values()))
-	std_dev = np.std(list(model_scores.values()))
-
+	std_dev = np.std(list(model_scores.values()), ddof=1)  # Using sample standard deviation
+	
 	results[run_index]['judgemark_results'] = {
 		'mean_score': mean_score,
 		'std_dev': std_dev,
 		'model_scores': model_scores
 	}
+
+	#results[run_index]['judgemark_results']['model_scores'] = model_scores
+	
+	# Merge Judgemark results with other benchmarks into a DataFrame
+	df_combined = merge_benchmarks(results[run_index]['judgemark_results'], other_benchmarks_str)
+	
+	# Calculate extended metrics
+	extended_metrics = calculate_metrics(df_combined)
+	
+
+	results[run_index]['judgemark_results']['extended_metrics'] = extended_metrics
+
+	#print(results[run_index]['judgemark_results'])
+	for k,v in results[run_index]['judgemark_results']['extended_metrics'].items():
+		print(k, v)
+	#print(extended_metrics)
+	
+	# Add extended metrics to the results
+	#results[run_index]['extended_metrics'] = extended_metrics
+
 
 
 def save_and_upload_results(run_id, formatted_datetime, bench_success, prompt_type, model_path, lora_path, quantization, benchmark_type, lang_suffix, this_score, parseable, n_iterations, inference_engine, ooba_params, include_patterns, exclude_patterns, judge_params, results, run_index, last_error, bench_tries, max_bench_retries, google_spreadsheet_url, save_result_to_db_fn):
@@ -437,8 +573,9 @@ def run_generic_benchmark(run_id, model_path, lora_path, prompt_type, quantizati
 		elif benchmark_type == 'judgemark':
 			print('Judge:', judge_params['judge_model'])
 			print("Final Judgemark Benchmark Results:")
-			print('Mean Score:', results[run_index]['judgemark_results']['mean_score'])
-			print('Std. Dev.:', results[run_index]['judgemark_results']['std_dev'])
+			print('Mean Score:', round(results[run_index]['judgemark_results']['mean_score'], 2))
+			print('Std. Dev.:', round(results[run_index]['judgemark_results']['std_dev'], 2))
+			print('Judgemark Score:', round(results[run_index]['judgemark_results']['extended_metrics']['aggregate_score'], 2))
 			with open(RAW_RESULTS_PATH, 'w') as f:
 				json.dump(results, f)
 

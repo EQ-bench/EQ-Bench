@@ -11,7 +11,10 @@ import platform
 from lib.download import download_model
 
 class Ooba:
-	def __init__(self, script_path, model_path, cache_dir=None, verbose=False, trust_remote_code=False, ooba_args_global="", ooba_args="", fast_download=False, include_patterns=None, exclude_patterns=None, hf_access_token=None, load_model=True):
+	def __init__(self, script_path, model_path, cache_dir=None, verbose=False, trust_remote_code=False, \
+				ooba_args_global="", ooba_args="", fast_download=False, include_patterns=None, \
+				exclude_patterns=None, hf_access_token=None, load_model=True, automate_prompts=False, \
+				gpu_choice="A", cuda_choice="N"):
 		self.script_path = script_path
 		if script_path.endswith('sh'):
 			self.script_command = 'bash'
@@ -31,6 +34,9 @@ class Ooba:
 		self.exclude_patterns = exclude_patterns
 		self.hf_access_token = hf_access_token
 		self.load_model = load_model
+		self.automate_prompts = automate_prompts
+		self.gpu_choice = gpu_choice
+		self.cuda_choice = cuda_choice
 
 		self.process = None
 		self.url_found_event = threading.Event()
@@ -139,6 +145,8 @@ class Ooba:
 		error_pathnotfound_pattern = re.compile(r"The path to the model does not exist\. Exiting\.")
 		shutdown_pattern = re.compile(r"Shutting down Text generation web UI gracefully\.")
 		exception_pattern = re.compile(r"Traceback \(most recent call last\)")
+		gpu_prompt_pattern = re.compile(r"N\) None \(I want to run models in CPU mode\)")
+		cuda_prompt_pattern = re.compile(r"If unsure, say \"N\".")
 
 		while True:
 			#line = ''
@@ -177,6 +185,16 @@ class Ooba:
 				print("Shutdown signal detected.")
 				self.shutdown_message_shown.set()
 				break
+
+			if self.automate_prompts:
+				if gpu_prompt_pattern.search(line):
+						self.process.stdin.write(self.gpu_choice + "\n")
+						self.process.stdin.flush()
+						continue
+				elif cuda_prompt_pattern.search(line):
+						self.process.stdin.write(self.cuda_choice + "\n")
+						self.process.stdin.flush()
+						continue
 
 	def wait_for_url_or_process_end(self):
 		while not self.url_found_event.is_set() and not self.process_end_event.is_set():

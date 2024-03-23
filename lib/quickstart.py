@@ -23,7 +23,7 @@ if not os.path.exists(os.path.expanduser('~/text-generation-webui')):
 # Step 2: Monitor start_linux.sh output
 print("Running start_linux.sh...")
 #run_script_and_monitor_output("./start_linux.sh", "Starting Text generation web UI", cwd=os.path.expanduser("~/text-generation-webui"))
-ooba_instance = lib.ooba.Ooba(os.path.expanduser("~/text-generation-webui") + '/start_linux.sh', None, None, True, load_model=False)
+ooba_instance = lib.ooba.Ooba(os.path.expanduser("~/text-generation-webui") + '/start_linux.sh', None, None, True, load_model=False, automate_prompts=True)
 ooba_started_ok = ooba_instance.start()
 if not ooba_started_ok:
 	print('Ooba failed to launch.')
