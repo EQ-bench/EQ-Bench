@@ -41,6 +41,7 @@ run_command("chmod +x install_reqs.sh", cwd=os.path.abspath("./"))
 run_command("./install_reqs.sh", cwd=os.path.abspath("./"))
 
 # Step 4: Continue with remaining commands
-if ooba_started_ok:
-	print("Running eq-bench.py")
-	run_command("python eq-bench.py -v -f", cwd=os.path.abspath("./"))
+
+#if ooba_started_ok:
+#	print("Running eq-bench.py")
+#	run_command("python eq-bench.py -v -f", cwd=os.path.abspath("./"))
