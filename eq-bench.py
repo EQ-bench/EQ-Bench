@@ -177,6 +177,8 @@ def main():
 			raise Exception('Invalid ooba_request_timeout value in config.cfg')
 		ooba_request_timeout = int(ooba_request_timeout)
 
+	# llama
+	llama_server_path = config['Llama config'].get('server_path', '')
 
 	# Run benchmarks based on the config
 	n_benchmarks = 0
@@ -188,7 +190,7 @@ def main():
 	models_remaining = []
 	
 	for run_id, prompt_type, model_path, lora_path, quantization, n_iterations, \
-	inference_engine, ooba_params, include_patterns, exclude_patterns in parsed_batch:
+	inference_engine, server_params, include_patterns, exclude_patterns in parsed_batch:
 		if model_path and not os.path.exists(model_path):
 			# We only want to delete model files if they won't be used in a later benchmark.
 			# We also need to make sure we clear out the model dir if we are benchmarking the same model
@@ -199,7 +201,7 @@ def main():
 			models_remaining.append(this_model_key)
 
 	for run_id, prompt_type, model_path, lora_path, quantization, n_iterations, \
-		inference_engine, ooba_params, include_patterns, exclude_patterns in parsed_batch:
+		inference_engine, server_params, include_patterns, exclude_patterns in parsed_batch:
 		# Call the run_benchmark function
 		print('--------------')
 		print('Running benchmark', n_benchmarks + 1, 'of', len(parsed_batch))
@@ -211,6 +213,9 @@ def main():
 		print('--------------')
 		ooba_instance = None
 
+
+		print(f'{inference_engine=}')
+
 		try:
 			run_benchmark(run_id, model_path, lora_path, prompt_type, quantization, 
 								n_iterations, resume=resume, delete_cache=args.d, 
@@ -220,7 +225,8 @@ def main():
 								inference_engine=inference_engine, ooba_instance=ooba_instance, 
 								launch_ooba = launch_ooba, cache_dir=cache_dir,
 								models_to_delete=models_to_delete, models_remaining=models_remaining,
-								ooba_launch_script=ooba_launch_script, ooba_params=ooba_params,
+								ooba_launch_script=ooba_launch_script, server_params=server_params,
+								llama_server_path=llama_server_path,
 								include_patterns=include_patterns, exclude_patterns=exclude_patterns,
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,

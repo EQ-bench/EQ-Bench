@@ -1,0 +1,31 @@
+[INST] Your task is to predict the likely emotional responses of a character in this dialogue:
+
+Robert: Claudia, you've always been the idealist. But let's be practical for once, shall we?
+Claudia: Practicality, according to you, means bulldozing everything in sight.
+Robert: It's called progress, Claudia. It's how the world works.
+Claudia: Not my world, Robert.
+Robert: Your world? You mean this...this sanctuary of yours?
+Claudia: It's more than a sanctuary. It's a testament to our parents' love for nature.
+[End dialogue]
+
+At the end of this dialogue, Robert would feel...
+Remorseful
+Indifferent
+Affectionate
+Annoyed
+
+Give each of these possible emotions a score from 0-10 for the relative intensity that they are likely to be feeling each.
+
+You must output in the following format, including headings (of course, you should give your own scores), with no additional commentary:
+
+Remorseful: <score>
+Indifferent: <score>
+Affectionate: <score>
+Annoyed: <score>
+
+
+[End of answer]
+
+Remember: zero is a valid score, meaning they are likely not feeling that emotion. You must score at least one emotion > 0.
+
+Your answer: [/INST]

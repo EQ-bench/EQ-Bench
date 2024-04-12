@@ -39,6 +39,18 @@ def run_llamacpp_query(prompt, prompt_format, completion_tokens, temp):
 	# Generate the prompt from the template
 	formatted_prompt = generate_prompt_from_template(prompt, prompt_format)		
 
+	with open('llama.cpp.formatted_prompt.log', 'a') as f:
+		f.write(formatted_prompt)
+
+	with open('llama.cpp.original_prompt.log', 'a') as f:
+		f.write(prompt)
+
+	with open('llama.cpp.stripped_prompt.log', 'a') as f:
+		p = prompt.strip()
+		formatted_p = generate_prompt_from_template(p, prompt_format)
+		f.write(formatted_p)
+
+	quit()
 	# Endpoint URL for the llama.cpp server, default is localhost and port 8080
 	url = "http://localhost:8080/completion"
 	
@@ -70,6 +82,12 @@ def run_llamacpp_query(prompt, prompt_format, completion_tokens, temp):
 
 
 def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba_instance, launch_ooba, ooba_request_timeout):
+
+	print('here!')
+	with open('ooba.log', 'a') as f:
+		f.write(prompt)
+
+
 	if launch_ooba and (not ooba_instance or not ooba_instance.url):
 		raise Exception("Error: Ooba api not initialised")
 	if launch_ooba:
@@ -113,6 +131,9 @@ def run_ooba_query(prompt, history, prompt_format, completion_tokens, temp, ooba
 	except Exception as e:
 		print("Request failed.")
 		print(e)
+
+
+	quit()
 	return None
 
 
@@ -204,6 +225,9 @@ def generate_prompt_from_template(prompt, prompt_type):
 	return formatted_prompt.replace("<|user-message|>", prompt)
 
 def run_query(model_path, prompt_format, prompt, history, completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client):
+	with open('base_prompt2.log', 'a') as f:
+		f.write(prompt)
+
 	if inference_engine == 'llama.cpp':
 		return run_llamacpp_query(prompt, prompt_format, completion_tokens, temp)
 	elif inference_engine == 'openai':

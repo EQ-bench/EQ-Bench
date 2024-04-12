@@ -11,6 +11,7 @@ from lib.run_query import run_query
 from lib.util import upload_results_google_sheets, delete_symlinks_and_dir
 from lib.run_bench_helper_functions import format_include_exclude_string, fix_results, validate_and_extract_vars, run_test_prompts, remove_revision_instructions
 import lib.ooba
+import lib.llama
 
 # Constants
 COMPLETION_TOKENS = 60
@@ -24,7 +25,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
                   inference_engine='transformers', ooba_instance=None,
 						launch_ooba=True, cache_dir=None,
 						models_to_delete={}, models_remaining=[],
-						ooba_launch_script='', ooba_params='',
+						ooba_launch_script='', server_params='',
+						llama_server_path='',
 						include_patterns=[], exclude_patterns=[],
 						ooba_params_global='', fast_download=False,
 						hf_access_token=None, ooba_request_timeout=300,
@@ -71,7 +73,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 		COMPLETION_TOKENS = 60
 
 	# This string is used to index this benchmark run's in the raw results dict.
-	run_index = str(run_id)+'--'+eqbench_version+'--'+language+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization) + '--' + inference_engine+'--'+ooba_params+'--'+format_include_exclude_string(include_patterns, exclude_patterns)
+	run_index = str(run_id)+'--'+eqbench_version+'--'+language+'--'+str(model_path)+'--'+str(lora_path)+'--'+str(prompt_type)+'--'+str(quantization) + '--' + inference_engine+'--'+server_params+'--'+format_include_exclude_string(include_patterns, exclude_patterns)
 	
 	# Initialise results dict
 	if run_index not in results:
@@ -87,7 +89,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 			"bitsandbytes_quant": quantization,
 			"total_iterations": n_iterations,
 			"inference_engine": inference_engine,
-			"ooba_params": ooba_params,
+			"ooba_params": server_params,
 			"include_patterns": include_patterns,
 			"exclude_patterns": exclude_patterns
 		}
@@ -131,13 +133,17 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				if inference_engine == 'ooba' and launch_ooba and len(results[run_index]['iterations'][run_iter]['individual_scores']) < len(questions):						
 					print('Launching oobabooga...')
 					ooba_instance = lib.ooba.Ooba(ooba_launch_script, model_path, cache_dir, verbose, trust_remote_code=trust_remote_code, 
-													ooba_args_global=ooba_params_global, ooba_args=ooba_params, fast_download=fast_download, 
+													ooba_args_global=ooba_params_global, server_params=server_params, fast_download=fast_download, 
 													include_patterns=include_patterns, exclude_patterns=exclude_patterns, hf_access_token=hf_access_token)
 					ooba_started_ok = ooba_instance.start()
 					if not ooba_started_ok:
 						print('Ooba failed to launch.')
 						raise Exception("Ooba failed to launch.")
-					
+
+				if inference_engine == 'llama.cpp':
+					llama_instance = lib.llama.LlamaServer(llama_server_path)
+					llama_instance.start(model_path, server_params)
+
 				if model or ooba_instance:
 					# This is an undocumented feature. It will run a series of test prompts for
 					# each model and log the output.
@@ -160,6 +166,8 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 							n_question_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version,
 							language, REVISE)
 					
+				if inference_engine == 'llama.cpp':
+					llama_instance.stop()
 
 				bench_success = True
 			except Exception as e:
@@ -223,7 +231,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				parseable,
 				n_iterations,
 				inference_engine,
-				ooba_params,
+				server_params,
 				format_include_exclude_string(include_patterns, exclude_patterns),
 				''
 			]
@@ -251,7 +259,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 				'FAILED',
 				n_iterations,
 				inference_engine,
-				ooba_params,
+				server_params,
 				format_include_exclude_string(include_patterns, exclude_patterns),
 				last_error
 			]
