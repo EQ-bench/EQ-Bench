@@ -2,8 +2,15 @@ import re
 import math
 from lib.util import safe_dump
 
+def remove_think_blocks(text):
+    """Remove all content between <think> and </think> tags."""
+    return re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
+
 # Parse the emotion intensity ratings from the raw inference text
 def parse_answers(text, REVISE):
+	# First remove any think blocks
+	text = remove_think_blocks(text)
+	
 	first_pass_answers = {}
 	revised_answers = {}
 
@@ -30,7 +37,8 @@ def parse_answers(text, REVISE):
 
 # we parse answers in German language ("de")
 def parse_answers_de(text, REVISE):
-	#print("Using german parsing.")
+	# First remove any think blocks
+	text = remove_think_blocks(text)
 	first_pass_answers = {}
 	revised_answers = {}
 

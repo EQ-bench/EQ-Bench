@@ -9,7 +9,7 @@ RAW_RESULTS_PATH = './raw_results.json'
 def process_question(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, 
 							run_iter, verbose, n_question_attempts, inference_engine, ooba_instance, 
 							launch_ooba, ooba_request_timeout, openai_client, eqbench_version, language,
-							REVISE):
+							REVISE, completion_tokens):
 	"""
 	Process a single question and update the results.
 	:param question_id: ID of the question.
@@ -24,6 +24,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	:param verbose: Verbose output flag.
 	:param n_question_attempts: Number of attempts per question.
  	:param language: language of the test questions ("en" default, "de" also supported)
+	:param completion_tokens: Maximum number of tokens for model output.
 	:return: Updated results.
 	"""
 
@@ -34,16 +35,9 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	else:
 		ref_fullscale = None
 
-	COMPLETION_TOKENS = 60
-	if REVISE:
-		COMPLETION_TOKENS = 600
-
 	if eqbench_version == 'v2' and not REVISE:
 		prompt = remove_revision_instructions(prompt, language)
 		
-	
-
-
 	tries = 0
 	success = False
 	temp = 0.01 # Low temp is important for consistency of results
@@ -52,7 +46,7 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 	prev_result_inference = None
 	prev_result_parsed_answers = None
 	while tries < n_question_attempts and not success:
-		inference = run_query(model_path, prompt_type, prompt, [], COMPLETION_TOKENS, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
+		inference = run_query(model_path, prompt_type, prompt, [], completion_tokens, model, tokenizer, temp, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client)
 
 		try:
 			if verbose:				

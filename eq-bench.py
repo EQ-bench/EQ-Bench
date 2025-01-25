@@ -66,6 +66,9 @@ def main():
 							help="Set the language of the question dataset. Currently supported: en, de")
 	parser.add_argument('-r', type=int, default=5,
 							help="Set the number of retries to attempt if a benchmark run fails. Default 5.")
+	parser.add_argument('--longoutput', action='store_true',
+                    		help="Remove token limit restrictions on outputs to handle very long responses.")
+
 	args = parser.parse_args()
 	resume = not args.w
 
@@ -110,6 +113,11 @@ def main():
 		base_filename, extension = questions_fn.rsplit('.', 1)
 		# Appending language denotifier
 		questions_fn = f"{base_filename}_{language}.{extension}"
+	
+	if args.longoutput:
+		COMPLETION_TOKENS = 4096  # Allow for very long outputs
+	else:
+		COMPLETION_TOKENS = 600 if REVISE else 60
 
 	# Creative writing Judge params
 	judge_params = {
@@ -242,7 +250,7 @@ def main():
 								ooba_params_global=ooba_params_global, fast_download=args.f,
 								hf_access_token=hf_access_token, ooba_request_timeout=ooba_request_timeout,
 								questions_fn=questions_fn, openai_client=openai_client, language=language,
-								REVISE=REVISE, benchmark_types=args.benchmarks, judge_params = judge_params)
+								REVISE=REVISE, benchmark_types=args.benchmarks, judge_params = judge_params, completion_tokens=COMPLETION_TOKENS)
 		except KeyboardInterrupt:
 			if ooba_instance:
 				ooba_instance.stop()

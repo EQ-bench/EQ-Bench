@@ -153,7 +153,7 @@ def load_model_and_launch_ooba(model_path, lora_path, quantization, inference_en
 			raise Exception("Ooba failed to launch.")
 	return model, tokenizer, ooba_instance
 
-def process_questions(benchmark_type, model, ooba_instance, inference_engine, results, model_path, prompt_type, tokenizer, launch_ooba, ooba_request_timeout, run_index, run_iter, verbose, n_attempts, openai_client, questions, eqbench_version, language, REVISE, judge_params, test_model_outputs, process_fn):
+def process_questions(benchmark_type, model, ooba_instance, inference_engine, results, model_path, prompt_type, tokenizer, launch_ooba, ooba_request_timeout, run_index, run_iter, verbose, n_attempts, openai_client, questions, eqbench_version, language, REVISE, judge_params, test_model_outputs, process_fn, completion_tokens):
 	if benchmark_type == 'judgemark':
 		for model_name, model_outputs in test_model_outputs.items():
 			print('########################')
@@ -174,7 +174,7 @@ def process_questions(benchmark_type, model, ooba_instance, inference_engine, re
 				scores = process_fn(prompt_id, prompt_data, None, None, None, None, results, run_index,
 												run_iter, verbose, 0, inference_engine, ooba_instance,
 												launch_ooba, ooba_request_timeout, openai_client, judge_params,
-												test_model_response, model_name)
+												test_model_response, model_name, completion_tokens)
 				model_scores.append(scores)
 				safe_dump(results, RAW_RESULTS_PATH)
 
@@ -187,11 +187,11 @@ def process_questions(benchmark_type, model, ooba_instance, inference_engine, re
 				if benchmark_type == 'eq-bench':
 					process_fn(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index, run_iter, verbose,
 									n_attempts, inference_engine, ooba_instance, launch_ooba, ooba_request_timeout, openai_client, eqbench_version,
-									language, REVISE)
+									language, REVISE, completion_tokens)
 				elif benchmark_type == 'creative-writing':
 					scores = process_fn(question_id, q, model_path, prompt_type, model, tokenizer, results, run_index,
 													run_iter, verbose, n_attempts, inference_engine, ooba_instance, launch_ooba,
-													ooba_request_timeout, openai_client, judge_params)
+													ooba_request_timeout, openai_client, judge_params, completion_tokens)
 					if scores:
 						if verbose:
 							print(scores)
@@ -330,9 +330,13 @@ def run_generic_benchmark(run_id, model_path, lora_path, prompt_type, quantizati
 										ooba_params_global, fast_download,
 										hf_access_token, ooba_request_timeout,
 										questions_fn=None, openai_client=None, language='en',
-										REVISE=False, benchmark_type='eq-bench', judge_params={}):
+										REVISE=False, benchmark_type='eq-bench', judge_params={}, completion_tokens=None):
 
 	questions, process_fn, scoring_fn, save_result_to_db_fn, run_index, eqbench_version, test_model_outputs = setup_benchmark(benchmark_type, run_id, model_path, lora_path, prompt_type, quantization, inference_engine, ooba_params, include_patterns, exclude_patterns, language, judge_params, questions_fn)
+
+	if completion_tokens is None:
+		if benchmark_type == 'eq-bench':
+			completion_tokens = 600 if (REVISE or eqbench_version == 'v1') else 60
 
 	results = initialize_results(run_index, benchmark_type, resume, n_iterations, run_id, model_path, lora_path, prompt_type, quantization, inference_engine, ooba_params, include_patterns, exclude_patterns, judge_params, language, eqbench_version)
 
@@ -364,7 +368,7 @@ def run_generic_benchmark(run_id, model_path, lora_path, prompt_type, quantizati
 													run_index, run_iter,
 													verbose)
 
-				process_questions(benchmark_type, model, ooba_instance, inference_engine, results, model_path, prompt_type, tokenizer, launch_ooba, ooba_request_timeout, run_index, run_iter, verbose, n_attempts, openai_client, questions, eqbench_version, language, REVISE, judge_params, test_model_outputs, process_fn)
+				process_questions(benchmark_type, model, ooba_instance, inference_engine, results, model_path, prompt_type, tokenizer, launch_ooba, ooba_request_timeout, run_index, run_iter, verbose, n_attempts, openai_client, questions, eqbench_version, language, REVISE, judge_params, test_model_outputs, process_fn, completion_tokens)
 									
 				if benchmark_type == 'judgemark':
 					compute_judgemark_results(results, run_index, test_model_outputs, verbose)
@@ -460,7 +464,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 					ooba_params_global='', fast_download=False,
 					hf_access_token=None, ooba_request_timeout=300,
 					questions_fn=None, openai_client=None, language='en',
-					REVISE=False, benchmark_types=[], judge_params={}):
+					REVISE=False, benchmark_types=[], judge_params={}, completion_tokens=None):
 
 	for benchmark_type in benchmark_types:
 		if benchmark_type == 'eq-bench':
@@ -476,7 +480,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 											ooba_params_global, fast_download,
 											hf_access_token, ooba_request_timeout,
 											questions_fn, openai_client, language,
-											REVISE, benchmark_type)
+											REVISE, benchmark_type, completion_tokens=completion_tokens)
 
 		elif benchmark_type == 'creative-writing':
 			run_generic_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
@@ -491,7 +495,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 											ooba_params_global, fast_download,
 											hf_access_token, ooba_request_timeout,
 											openai_client=openai_client, judge_params=judge_params,
-											benchmark_type=benchmark_type)
+											benchmark_type=benchmark_type, completion_tokens=completion_tokens)
 
 		elif benchmark_type == 'judgemark':
 			run_generic_benchmark(run_id, None, None, None, None,
@@ -506,7 +510,7 @@ def run_benchmark(run_id, model_path, lora_path, prompt_type, quantization,
 											ooba_params_global, fast_download,
 											hf_access_token, ooba_request_timeout,
 											openai_client=openai_client, judge_params=judge_params,
-											benchmark_type=benchmark_type)
+											benchmark_type=benchmark_type, completion_tokens=completion_tokens)
 			
 
 
