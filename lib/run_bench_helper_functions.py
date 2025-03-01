@@ -142,5 +142,10 @@ def remove_revision_instructions(prompt, language):
 		prompt = prompt[:start_index] + replacement_string + prompt[end_index:]
 		prompt = prompt.replace('Erste Bewertung:\n', '')
 		prompt = prompt[:prompt.find('Kritik: <Ihre Kritik hier>')] + '\n' + prompt[prompt.find('[Ende der Antwort]'):]
-		prompt += '\nIhre Antwort:\n'	
+		prompt += '\nIhre Antwort:\n'
+	elif language == 'pl':
+		prompt = prompt.replace(' Następnie skrytykuj swoją odpowiedź, przemyśl ją krok po kroku. Wprowadź zmiany i na koniec podaj ostateczne oceny.', '')
+		prompt = prompt.replace('Pierwsze oceny:\n', '')
+		prompt = prompt[:prompt.find('Weryfikacja: <twoja opinia tutaj>')] + '\n' + prompt[prompt.find('[Koniec odpowiedzi]'):]
+		prompt += '\nTwoja odpowiedź:\n'
 	return prompt

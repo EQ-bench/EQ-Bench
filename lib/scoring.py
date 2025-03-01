@@ -39,7 +39,7 @@ def parse_answers_de(text, REVISE):
 
 	first_pass_heading_pattern = r'(Erste.*?):\s*(.*?)(?=Überarbeitete|$)'
 	revised_heading_pattern = r'(Überarbeitete.*?):\s*(.*)'
-	
+
 	if REVISE:
 		first_pass_match = re.search(first_pass_heading_pattern, text, re.IGNORECASE | re.DOTALL)
 		if first_pass_match:
@@ -55,6 +55,34 @@ def parse_answers_de(text, REVISE):
 	else:
 		pairs = re.findall(r'([a-zA-ZäöüßÄÖÜ\s]+):\s*\**(\d+(?:,\d+)?)\**', text)
 		first_pass_answers = {label.strip(): score.replace('*', '') for label, score in pairs}
+		revised_answers = {}
+
+	return first_pass_answers, revised_answers
+
+
+# we parse answers in Polish language ("pl")
+def parse_answers_pl(text, REVISE):
+	first_pass_answers = {}
+	revised_answers = {}
+
+	# Strip out markdown
+	text = text.replace('*', '').replace('#', '')
+
+	parsing_regexp = re.compile(r'([\w ]+): *<?(\d+)>?')
+	# Extracting first pass answers
+	if REVISE:
+		first_pass_match = re.search(r'Pierwsze oceny:(.*?)Zmienione oceny:', text, re.DOTALL)
+		if first_pass_match:
+			first_pass_text = first_pass_match.group(1)
+			first_pass_answers = dict(parsing_regexp.findall(first_pass_text))
+
+		# Extracting revised answers
+		revised_match = re.search(r'Zmienione oceny:(.*?)$', text, re.DOTALL)
+		if revised_match:
+			revised_text = revised_match.group(1)
+			revised_answers = dict(parsing_regexp.findall(revised_text))
+	else:
+		first_pass_answers = dict(parsing_regexp.findall(text))
 		revised_answers = {}
 
 	return first_pass_answers, revised_answers
@@ -161,7 +189,7 @@ def calculate_eq_bench_score(run_index, results, results_path, fullscale=False):
 	n_iterations = results[run_index]['run_metadata']['total_iterations']
 	n_iterations_tallied = 0
 
-	for run_iter in results[run_index]['iterations']:		
+	for run_iter in results[run_index]['iterations']:
 		if n_iterations_tallied >= n_iterations:
 			break
 		score_sum_first_pass = 0
@@ -225,9 +253,9 @@ def calculate_eq_bench_score(run_index, results, results_path, fullscale=False):
 		averaged_score = round(averaged_score, 2)	
 	else:
 		averaged_score = round(averaged_score, 2)
-	
+
 	safe_dump(results, results_path, max_retries=3)
-	
+
 
 	return (averaged_score, round(parseable_tally / n_iterations, 2))
 

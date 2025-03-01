@@ -1,5 +1,5 @@
 import json
-from lib.scoring import calculate_score, calculate_score_fullscale, parse_answers, parse_answers_de
+from lib.scoring import calculate_score, calculate_score_fullscale, parse_answers, parse_answers_de, parse_answers_pl
 from lib.run_bench_helper_functions import remove_revision_instructions
 from lib.run_query import run_query
 from lib.util import safe_dump
@@ -63,6 +63,8 @@ def process_question(question_id, q, model_path, prompt_type, model, tokenizer, 
 
 			if language == "de":
 				first_pass_answers, revised_answers = parse_answers_de(inference, REVISE)
+			elif language == "pl":
+				first_pass_answers, revised_answers = parse_answers_pl(inference, REVISE)
 			else:
 				first_pass_answers, revised_answers = parse_answers(inference, REVISE)
 				
